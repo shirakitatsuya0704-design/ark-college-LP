@@ -85,6 +85,7 @@
         }
         .btn-primary:hover {
             transform: translateY(-2px);
+            background: linear-gradient(135deg, #E5C868 0%, #D4AF37 100%);
             box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
         }
         .btn-secondary {
@@ -120,44 +121,143 @@
         .note-link:hover { color: var(--gold); border-color: var(--gold); }
         .note-icon { margin-right: 0.5rem; width: 20px; }
 
-        /* --- 1. FV (Hero) --- */
-        .hero {
-            padding-top: 100px;
-            padding-bottom: 80px;
-            background-color: #050b14;
-            background-image: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
-            color: var(--white);
-            text-align: center;
-        }
-        .hero-main {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-        .hero-sub {
-            font-size: 1.2rem;
-            color: var(--gold);
-            font-weight: 700;
-            margin-bottom: 2rem;
-            letter-spacing: 0.1em;
-        }
-        .badges {
+        /* --- New Impact Hero Section --- */
+        .hero-impact {
+            min-height: 100vh;
+            position: relative;
             display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 3rem;
+            overflow: hidden;
+            padding-top: 80px; /* Nav Height */
+            /* 高級感のあるダークネイビー背景 */
+            background-color: #050b14;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 25%),
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
         }
-        .badge {
-            background: rgba(255, 255, 255, 0.1);
+
+        .impact-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr; /* 左:メッセージ 右:数字 */
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 左側：メッセージエリア */
+        .impact-copy {
+            text-align: left;
+        }
+
+        .limit-tag-box {
+            display: inline-block;
             border: 1px solid var(--gold);
+            color: var(--gold);
             padding: 0.5rem 1.5rem;
             font-size: 0.9rem;
-            color: var(--white);
+            letter-spacing: 0.2em;
+            margin-bottom: 2rem;
+            background: rgba(10, 22, 40, 0.8);
             backdrop-filter: blur(5px);
         }
-        .badge strong { color: var(--gold); font-size: 1.2em; margin-right: 0.3em; }
+
+        .impact-headline {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.3;
+            color: var(--white);
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        /* 黄金の文字演出 */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .impact-sub {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            border-left: 3px solid var(--gold);
+            padding-left: 1.5rem;
+        }
+
+        /* 右側：数字（実績）エリア */
+        .impact-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .stat-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 4px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+        .stat-row:hover {
+            transform: translateX(-10px);
+            border-color: var(--gold);
+        }
+
+        .stat-label-box {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .stat-icon {
+            font-size: 2rem;
+            color: var(--gold);
+            opacity: 0.8;
+        }
+        .stat-label {
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+        }
+        .stat-desc {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: 0.2rem;
+        }
+
+        .stat-huge {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -0.05em;
+            background: linear-gradient(to bottom, #FCF6BA, #BF953F, #B38728, #FBF5B7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+        }
 
         /* --- Ticker (Visual Proof) --- */
         .ticker-wrapper {
@@ -166,6 +266,8 @@
             border-bottom: 1px solid var(--gold);
             overflow: hidden;
             padding: 1rem 0;
+            position: relative;
+            z-index: 5;
         }
         .ticker-track {
             display: flex;
@@ -418,7 +520,16 @@
         @media (max-width: 768px) {
             .pc-br { display: none; }
             .sp-br { display: block; }
-            .hero-main { font-size: 2rem; }
+            
+            /* Impact Hero Mobile */
+            .hero-impact { padding-top: 60px; min-height: auto; }
+            .impact-container { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem; }
+            .impact-headline { font-size: 2.5rem; }
+            .impact-sub { font-size: 1rem; margin-bottom: 2rem; }
+            
+            .stat-huge { font-size: 3.5rem; }
+            .stat-row { padding: 1.5rem; }
+            
             .comparison-table { display: block; overflow-x: auto; white-space: nowrap; }
             .profile-box { flex-direction: column; text-align: center; align-items: center; }
             .form-container { padding: 0; }
@@ -433,28 +544,60 @@
 </head>
 <body>
 
-    <header class="hero" id="top">
-        <div class="container">
-            <p class="hero-sub">実績不足を<span class="text-gold">戦略</span>で覆す。<br>総合型選抜専門・完全オンライン指導</p>
-            <h1 class="hero-main">
-                総合型合格率86.7%の<br class="sp-br">プロが指導。<br>
-                <span class="text-gold">48時間以内添削保証。</span>
-            </h1>
-            
-            <div class="badges">
-                <div class="badge">第一志望合格率 <strong>86.7%</strong></div>
-                <div class="badge">進学先確保率 <strong>100%</strong></div>
-                <div class="badge">合格大学30校以上</div>
+    <section class="hero-impact" id="top">
+        <div class="impact-container">
+            <div class="impact-copy">
+                <div class="limit-tag-box">1学年6名限定</div>
+                
+                <h1 class="impact-headline">
+                    総合型選抜を、<br>
+                    <span class="text-gold-gradient">戦略</span>で突破する。
+                </h1>
+                
+                <p class="impact-sub">
+                    <span class="text-gold-gradient">添削・チャット相談無制限。</span><br>
+                    <span class="text-gold-gradient">48時間以内添削保証。</span><br>
+                    実績不足を「戦略」で覆し、<br class="sp-br">第一志望合格率80%超を叩き出す<br class="pc-br">
+                    プロフェッショナル・ファームです。
+                </p>
+
+                <div>
+                    <a href="#contact" class="btn btn-primary">
+                        無料受験戦略コンサルティングに申し込む
+                        <span class="btn-micro">（残席わずか）</span>
+                    </a>
+                </div>
             </div>
 
-            <div style="text-align: center;">
-                <a href="#contact" class="btn btn-primary">
-                    無料受験戦略コンサルティングに申し込む
-                    <span class="btn-micro">（残席わずか）</span>
-                </a>
+            <div class="impact-stats">
+                <div class="stat-row">
+                    <div class="stat-label-box">
+                        <span class="stat-icon">📄</span>
+                        <div>
+                            <div class="stat-label">第一志望<br>一次通過率</div>
+                            <div class="stat-desc">書類選考</div>
+                        </div>
+                    </div>
+                    <div class="stat-huge">
+                        <span class="count-up" data-target="92.3">0</span><span style="font-size: 0.5em;">%</span>
+                    </div>
+                </div>
+
+                <div class="stat-row">
+                    <div class="stat-label-box">
+                        <span class="stat-icon">🎓</span>
+                        <div>
+                            <div class="stat-label">第一志望<br>最終合格率</div>
+                            <div class="stat-desc">難関大実績</div>
+                        </div>
+                    </div>
+                    <div class="stat-huge">
+                        <span class="count-up" data-target="86.7">0</span><span style="font-size: 0.5em;">%</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </header>
+    </section>
 
     <div class="ticker-wrapper">
         <div class="ticker-track">
@@ -788,6 +931,51 @@
     </footer>
 
     <script>
+        // Count Up Animation
+        document.addEventListener("DOMContentLoaded", () => {
+            const counters = document.querySelectorAll('.count-up');
+            const speed = 2000; 
+
+            const animateCounters = () => {
+                counters.forEach(counter => {
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText;
+                        
+                        const isFloat = target % 1 !== 0;
+                        const increment = target / (speed / 16);
+
+                        if (count < target) {
+                            if(isFloat) {
+                                counter.innerText = (count + increment).toFixed(1);
+                            } else {
+                                counter.innerText = Math.ceil(count + increment);
+                            }
+                            setTimeout(updateCount, 16);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                });
+            };
+
+            const observerOptions = { threshold: 0.5 };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        observer.disconnect();
+                    }
+                });
+            }, observerOptions);
+
+            const target = document.querySelector('.hero-impact');
+            if (target) {
+                observer.observe(target);
+            }
+        });
+
         // FAQ Accordion
         document.querySelectorAll('.faq-q').forEach(q => {
             q.addEventListener('click', () => {
