@@ -130,7 +130,6 @@
             justify-content: center;
             overflow: hidden;
             padding-top: 80px; /* Nav Height */
-            /* 高級感のあるダークネイビー背景 */
             background-color: #050b14;
             background-image: 
                 radial-gradient(circle at 15% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 25%),
@@ -146,17 +145,14 @@
             margin: 0 auto;
             padding: 0 2rem;
             display: grid;
-            grid-template-columns: 1.2fr 1fr; /* 左:メッセージ 右:数字 */
+            grid-template-columns: 1.2fr 1fr;
             gap: 4rem;
             align-items: center;
             position: relative;
             z-index: 2;
         }
 
-        /* 左側：メッセージエリア */
-        .impact-copy {
-            text-align: left;
-        }
+        .impact-copy { text-align: left; }
 
         .limit-tag-box {
             display: inline-block;
@@ -180,7 +176,6 @@
             letter-spacing: -0.02em;
         }
 
-        /* 黄金の文字演出 */
         .text-gold-gradient {
             background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
             -webkit-background-clip: text;
@@ -199,7 +194,6 @@
             padding-left: 1.5rem;
         }
 
-        /* 右側：数字（実績）エリア */
         .impact-stats {
             display: flex;
             flex-direction: column;
@@ -259,7 +253,7 @@
             filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
         }
 
-        /* --- Ticker (Visual Proof) --- */
+        /* --- Ticker --- */
         .ticker-wrapper {
             background: var(--navy);
             border-top: 1px solid rgba(255,255,255,0.1);
@@ -283,8 +277,7 @@
         }
         @keyframes tickerScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- 2. Problem --- */
-        .problem { background: var(--off-white); }
+        /* --- Problem --- */
         .checklist-box {
             background: var(--white);
             padding: 3rem;
@@ -314,8 +307,7 @@
             font-size: 1.2rem;
         }
 
-        /* --- 3. Comparison (Table) --- */
-        .comparison { background: var(--white); }
+        /* --- Comparison --- */
         .comparison-table {
             width: 100%;
             border-collapse: collapse;
@@ -334,7 +326,6 @@
             font-size: 1.1rem;
             width: 25%;
         }
-        /* Ark Column */
         .comparison-table th.ark-col, .comparison-table td.ark-col {
             background: #FFFCF2;
             border-left: 2px solid var(--gold);
@@ -361,32 +352,59 @@
         }
         .comparison-table tr:last-child td.ark-col { border-bottom: 2px solid var(--gold); }
 
-        /* --- 4. Value --- */
+        /* --- Value --- */
         .value { background: var(--off-white); }
         .value-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
             margin-top: 3rem;
         }
         .value-card {
             background: var(--white);
-            padding: 2.5rem;
+            padding: 2rem;
             border-top: 3px solid var(--gold);
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
         }
+        .value-card:hover { transform: translateY(-5px); }
         .value-num {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--gold);
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             line-height: 1;
+            opacity: 0.5;
         }
-        .value-title { font-size: 1.3rem; margin-bottom: 1rem; color: var(--navy); }
+        .value-title { font-size: 1.1rem; margin-bottom: 1rem; color: var(--navy); font-weight: 700; height: 3em; display: flex; align-items: center; }
+        .value-desc { font-size: 0.9rem; color: var(--gray); line-height: 1.6; }
 
-        /* --- 5. Proof (Results) --- */
-        .proof { background: var(--navy); color: var(--white); text-align: center; }
-        .proof h2 { color: var(--white); }
+        /* --- Proof --- */
+        .proof { 
+            background-color: var(--navy); 
+            color: var(--white); 
+            text-align: center;
+            background-image: linear-gradient(rgba(10, 22, 40, 0.95), rgba(10, 22, 40, 0.95)), url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMjEyLCAxNzUsIDU1LCAwLjEpIi8+PC9zdmc+');
+            position: relative;
+            overflow: hidden;
+        }
+        .proof::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        .proof::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        .proof h2 { 
+            color: var(--white); 
+            font-size: 2.5rem;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
         .result-highlight {
             font-size: 2rem;
             font-weight: 700;
@@ -396,19 +414,29 @@
             margin: 2rem 0;
             line-height: 1.4;
         }
-        .univ-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
+        .univ-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            max-width: 900px;
+            margin: 3rem auto 0;
+        }
+        .univ-item {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 1rem;
             font-family: 'Noto Serif JP', serif;
-            font-size: 1.2rem;
-            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
+            color: var(--white);
+            transition: all 0.3s;
+        }
+        .univ-item:hover {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.1);
+            transform: scale(1.05);
         }
 
-        /* --- 6. Authority --- */
-        .authority { background: var(--white); }
+        /* --- Authority --- */
         .profile-box {
             display: flex;
             align-items: flex-start;
@@ -427,9 +455,7 @@
         .profile-content h3 { font-size: 1.8rem; margin-bottom: 0.5rem; }
         .profile-role { color: var(--gold); font-weight: 700; margin-bottom: 1.5rem; font-size: 0.9rem; letter-spacing: 0.1em; }
 
-        /* --- 7. Offer --- */
-        .offer { background: var(--off-white); }
-        /* キャンペーン・保証ボックスのグリッドレイアウト */
+        /* --- Offer --- */
         .campaign-grid {
             margin-top: 3rem;
             display: grid;
@@ -437,8 +463,7 @@
             gap: 2rem;
         }
 
-        /* --- 8. FAQ --- */
-        .faq { background: var(--white); }
+        /* --- FAQ --- */
         .faq-item { border-bottom: 1px solid var(--gray-light); }
         .faq-q {
             padding: 1.5rem;
@@ -462,7 +487,7 @@
             font-size: 0.95rem;
         }
 
-        /* --- 9. Closing & Form --- */
+        /* --- Closing & Form --- */
         .closing {
             background: linear-gradient(135deg, var(--navy) 0%, #050b14 100%);
             color: var(--white);
@@ -488,10 +513,9 @@
             margin: 0 0.5rem;
         }
         
-        /* Form Embed Container */
         .form-container {
             background: var(--white);
-            padding: 1rem;
+            padding: 2rem;
             max-width: 640px;
             margin: 0 auto;
             border-radius: 8px;
@@ -499,8 +523,32 @@
         }
         iframe {
             width: 100%;
-            /* heightはインラインで指定 */
             border: none;
+        }
+
+        /* Formspree Form Styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+            box-sizing: border-box; /* paddingを含めた幅計算 */
+        }
+        .form-textarea {
+            height: 150px;
+            resize: vertical;
         }
 
         /* Sticky CTA */
@@ -515,14 +563,14 @@
             transition: transform 0.3s;
         }
         .sticky-cta.visible { transform: translateY(0); }
-        /* --- Media / Note Section --- */
+
+        /* Media Section */
         .media-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
-
         .media-card {
             background: var(--white);
             border: 1px solid var(--gray-light);
@@ -531,105 +579,38 @@
             text-decoration: none;
             color: var(--navy);
             transition: all 0.4s ease;
-            height: 100%; /* 高さを揃える */
+            height: 100%;
             overflow: hidden;
         }
-
         .media-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(10, 22, 40, 0.1);
             border-color: var(--gold);
         }
+        .media-thumb { width: 100%; height: 200px; overflow: hidden; position: relative; }
+        .media-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .media-card:hover .media-thumb img { transform: scale(1.1); }
+        .media-body { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
+        .media-date { font-size: 0.8rem; color: #B8941F; margin-bottom: 0.5rem; font-family: 'Playfair Display', serif; }
+        .media-title { font-size: 1.2rem; font-weight: 700; line-height: 1.5; margin-bottom: 1rem; }
+        .read-more { margin-top: auto; font-size: 0.85rem; font-weight: 700; color: var(--gold); }
 
-        .media-thumb {
-            width: 100%;
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .media-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .media-card:hover .media-thumb img {
-            transform: scale(1.1);
-        }
-
-        .media-body {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .media-date {
-            font-size: 0.8rem;
-            color: var(--gold-dark);
-            margin-bottom: 0.5rem;
-            font-family: 'Playfair Display', serif;
-            letter-spacing: 0.05em;
-        }
-
-        .media-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            line-height: 1.5;
-            margin-bottom: 1rem;
-            /* 2行で省略する設定 */
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .media-excerpt {
-            font-size: 0.9rem;
-            color: var(--gray);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            /* 3行で省略 */
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .read-more {
-            margin-top: auto; /* 下部に固定 */
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--gold);
-            letter-spacing: 0.1em;
-            display: inline-flex;
-            align-items: center;
-        }
         /* Responsive */
         @media (max-width: 768px) {
             .pc-br { display: none; }
             .sp-br { display: block; }
-            
-            /* Impact Hero Mobile */
             .hero-impact { padding-top: 60px; min-height: auto; }
             .impact-container { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem; }
             .impact-headline { font-size: 2.5rem; }
             .impact-sub { font-size: 1rem; margin-bottom: 2rem; }
-            
             .stat-huge { font-size: 3.5rem; }
             .stat-row { padding: 1.5rem; }
-            
             .comparison-table { display: block; overflow-x: auto; white-space: nowrap; }
+            .value-grid { grid-template-columns: 1fr; }
+            .univ-grid { grid-template-columns: 1fr 1fr; }
             .profile-box { flex-direction: column; text-align: center; align-items: center; }
-            .form-container { padding: 0; }
-            
-            /* キャンペーン・保証ボックスを縦並びに */
-            .campaign-grid {
-                grid-template-columns: 1fr; 
-                gap: 1.5rem;
-            }
+            .campaign-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .form-container { padding: 1.5rem; }
         }
     </style>
 </head>
@@ -639,18 +620,15 @@
         <div class="impact-container">
             <div class="impact-copy">
                 <div class="limit-tag-box">1学年6名限定</div>
-                
                 <h1 class="impact-headline">
                     総合型選抜を、<br>
                     <span class="text-gold-gradient">戦略</span>で突破する。
                 </h1>
-                
                 <p class="impact-sub">
                     <span class="text-gold-gradient">添削・チャット相談無制限。</span><br>
                     <span class="text-gold-gradient">48時間以内添削保証・完全オンライン。</span><br>
                     実績不足を「戦略」で覆し、<br class="sp-br"><span class="text-gold-gradient">第一志望合格率は86.7%</span><br class="pc-br">
                 </p>
-
                 <div>
                     <a href="#contact" class="btn btn-primary">
                         無料受験戦略コンサルティングに申し込む
@@ -658,7 +636,6 @@
                     </a>
                 </div>
             </div>
-
             <div class="impact-stats">
                 <div class="stat-row">
                     <div class="stat-label-box">
@@ -672,7 +649,6 @@
                         <span class="count-up" data-target="92.3">0</span><span style="font-size: 0.5em;">%</span>
                     </div>
                 </div>
-
                 <div class="stat-row">
                     <div class="stat-label-box">
                         <span class="stat-icon">🎓</span>
@@ -701,7 +677,6 @@
             <h2 class="text-center" style="margin-bottom: 3rem; color: var(--navy);">
                 難しい総合型選抜の対策。<br>不安を抱えていませんか？
             </h2>
-            
             <div class="checklist-box">
                 <div class="check-item">
                     <span class="check-mark">✕</span>
@@ -716,7 +691,6 @@
                     <p>大手塾の「大学生バイト講師」の指導に頼っている</p>
                 </div>
             </div>
-
             <div class="problem-solution">
                 <p>アークカレッジなら、<br>これら全ての不安を解消し、<br>あなたのポテンシャルを<span class="text-gold" style="border-bottom: 2px solid var(--gold);">合格に繋げます。</span></p>
             </div>
@@ -726,7 +700,6 @@
     <section class="section comparison">
         <div class="container">
             <h2 class="text-center" style="margin-bottom: 1rem;">なぜアークカレッジは<br>選ばれるのか？</h2>
-            
             <table class="comparison-table">
                 <thead>
                     <tr>
@@ -779,19 +752,24 @@
             <div class="value-grid">
                 <div class="value-card">
                     <div class="value-num">01</div>
-                    <h3 class="value-title">圧倒的な戦略立案</h3>
-                    <p>「実績がない」は言い訳になりません。あなたの原体験を掘り下げ、大学が欲しがる「唯一無二のストーリー」へと昇華させます。</p>
-                    <a href="https://note.com/ark_college/n/nd4965fbe8d90" target="_blank" class="note-link"><span class="note-icon">📄</span>カリキュラム詳細をnoteで読む</a>
+                    <h3 class="value-title">戦略と<br>スケジュール立案</h3>
+                    <p class="value-desc">あなたの現状から合格までの最短ルートを描きます。いつ、何をすべきか明確なロードマップを提示し、迷いをゼロにします。</p>
+                    <a href="https://note.com/ark_college/n/nd4965fbe8d90" target="_blank" class="note-link"><span class="note-icon">📄</span>詳細をnoteで読む</a>
                 </div>
                 <div class="value-card">
                     <div class="value-num">02</div>
-                    <h3 class="value-title">完全オンライン・深夜対応</h3>
-                    <p>場所を選ばず、最高品質の指導を。Slackでの相談は無制限。悩みが出たその瞬間に解決できるから、思考が止まりません。</p>
+                    <h3 class="value-title">完全オンライン<br>深夜対応</h3>
+                    <p class="value-desc">場所を選ばず、最高品質の指導を。Slackで疑問が出たその瞬間に相談可能。深夜でも思考を止めさせません。</p>
                 </div>
                 <div class="value-card">
                     <div class="value-num">03</div>
-                    <h3 class="value-title">社会で通用する「知性」</h3>
-                    <p>単なる合格テクニックではなく、大学入学後、そして就職後も武器になる「論理的思考力」「自己管理能力」を養います。</p>
+                    <h3 class="value-title">添削無制限<br>48時間以内返信</h3>
+                    <p class="value-desc">「提出して1週間待ち」はあり得ません。即座にフィードバックを返し、圧倒的な回数の推敲で書類の質を高めます。</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-num">04</div>
+                    <h3 class="value-title">社会で通用する<br>「知性」の獲得</h3>
+                    <p class="value-desc">単なる合格テクニックではなく、大学入学後、そしてビジネスの場でも武器になる「論理的思考力」を養います。</p>
                 </div>
             </div>
         </div>
@@ -799,19 +777,23 @@
 
     <section class="section proof">
         <div class="container">
+            <div style="display:inline-block; border-bottom: 2px solid var(--gold); padding-bottom: 10px; margin-bottom: 20px;">
+                <span style="font-size: 1rem; letter-spacing: 0.2em; color: var(--gold);">RESULTS</span>
+            </div>
             <h2>難関大への圧倒的な合格実績</h2>
-            <p>一般入試では手の届かない難関校を、<br>戦略で突破しています。</p>
+            <p>偏差値や実績に関わらず、<br>「戦略」で逆転合格を実現しています。</p>
             
-            <div class="univ-list">
-                <span>慶應義塾大学 法学部</span> /
-                <span>慶應義塾大学 SFC</span> /
-                <span>早稲田大学</span> /
-                <span>上智大学</span> /
-                <span>国際基督教大学(ICU)</span> /
-                <span>横浜国立大学</span> /
-                <span>一橋大学</span> /
-                <span>立教大学</span> /
-                <span>同志社大学</span> ...他多数
+            <div class="univ-grid">
+                <div class="univ-item">慶應義塾大学 法学部</div>
+                <div class="univ-item">早稲田大学</div>
+                <div class="univ-item">上智大学</div>
+                <div class="univ-item">国際基督教大学 (ICU)</div>
+                <div class="univ-item">青山学院大学</div>
+                <div class="univ-item">立教大学</div>
+                <div class="univ-item">立命館大学</div>
+                <div class="univ-item">横浜国立大学</div>
+                <div class="univ-item">一橋大学</div>
+                <div class="univ-item">同志社大学</div>
             </div>
         </div>
     </section>
@@ -819,7 +801,6 @@
     <section class="section authority">
         <div class="container">
             <h2 class="text-center" style="margin-bottom: 3rem;">講師紹介</h2>
-            
             <div class="profile-box">
                 <img src="president.webp" alt="Noah M." class="profile-img">
                 <div class="profile-content">
@@ -829,8 +810,6 @@
                     <p>慶應義塾大学法学部FIT入試A・B両方式で現役ダブル合格した経験をもとに、総合型選抜の指導分野に参画。大手総合型選抜塾「洋々」では4年間にわたりメンター講師として在籍し、多数の難関大学合格者を輩出。また、新規総合型選抜塾の立ち上げにおいては事業責任者を務め、指導ノウハウの体系化と組織運営を統括した。</p>
                     <p>さらに、大手外資系企業でマーケターとして勤務。市場分析、戦略立案、高い論理的思考力を実務を通じて培う。</p>
                     <p>合格実績と実務経験に基づき、受験生に対して「合格」と「社会で通用する能力」を両立させる最高水準の総合型選抜指導を提供する。</p>
-                    <p>これまでに31大学・50名以上の生徒を担当し、合格実績は国公立から早慶上智ICU、関関同立など多岐にわたる。</p>
-                    
                     <a href="https://note.com/ark_college/n/ne06612120422" target="_blank" class="note-link"><span class="note-icon">🎤</span>代表インタビューを読む(note)</a>
                 </div>
             </div>
@@ -844,16 +823,16 @@
             <div class="text-center" style="margin-bottom: 3rem; background: #FFFCF2; padding: 1.5rem; border: 1px solid var(--gold); border-radius: 4px; display: inline-block; width: 100%;">
                 <p style="color: var(--navy); font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem;">
                     <i class="fa-solid fa-check-circle" style="color: var(--gold);"></i> 
-                    表示価格以外の追加コストは<br>一切かかりません
+                    表示価格以外の追加コストは一切かかりません
                 </p>
                 <p style="font-size: 0.9rem; color: var(--gray);">
-                    教材費・管理費・夏期講習費などの名目での<br>後出し請求はございませんので、<br>安心してご検討ください。
+                    教材費・管理費・夏期講習費などの名目での後出し請求はございませんので、安心してご検討ください。
                 </p>
             </div>
             
             <div class="plan-section" style="margin-bottom: 4rem;">
                 <div class="plan-header" style="background: var(--navy); color: var(--white); padding: 1rem; border-radius: 4px 4px 0 0; display: flex; justify-content: space-between; align-items: center;">
-                    <span style="font-weight: 700;">【高1〜高2生】<br>早期エリート育成コース</span>
+                    <span style="font-weight: 700;">【高1〜高2生】早期エリート育成コース</span>
                     <span style="background: var(--gold); color: var(--navy); font-size: 0.8rem; padding: 0.2rem 0.8rem; border-radius: 2px; font-weight: 700;">月額制</span>
                 </div>
                 <div class="plan-body" style="background: var(--white); border: 1px solid var(--gray-light); border-top: none; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
@@ -873,8 +852,8 @@
                     </div>
                     <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px dashed var(--gray-light); font-size: 0.9rem;">
                         <span style="font-weight: 700; color: var(--navy);">オプション（セッション追加）:</span><br>
-                        <span style="margin-left: 1rem;">+2回 ¥44,000</span> <br>
-                        <span style="margin-left: 0.5rem;">+4回 ¥66,000</span> <br>
+                        <span style="margin-left: 1rem;">+2回 ¥44,000</span> / 
+                        <span style="margin-left: 0.5rem;">+4回 ¥66,000</span> / 
                         <span style="margin-left: 0.5rem;">+8回 ¥110,000</span>
                     </div>
                 </div>
@@ -882,7 +861,7 @@
 
             <div class="plan-section">
                 <div class="plan-header" style="background: var(--gold); color: var(--navy); padding: 1rem; border-radius: 4px 4px 0 0; display: flex; justify-content: space-between; align-items: center;">
-                    <span style="font-weight: 700;">【高3生】<br>合格完遂コース</span>
+                    <span style="font-weight: 700;">【高3生】合格完遂コース</span>
                     <span style="background: var(--navy); color: var(--white); font-size: 0.8rem; padding: 0.2rem 0.8rem; border-radius: 2px; font-weight: 700;">パッケージ制</span>
                 </div>
                 
@@ -916,6 +895,12 @@
                                 <td>全50回</td>
                             </tr>
                             <tr>
+                                <td style="font-weight: 700; background: var(--off-white); color: var(--gray);">1ヶ月あたり<br>(目安)</td>
+                                <td style="font-size: 1rem; color: var(--gray);">約8.5万円</td>
+                                <td class="ark-col" style="font-size: 1.1rem; color: var(--navy);">約11万円</td>
+                                <td style="font-size: 1rem; color: var(--white); background: var(--navy);">約13.4万円</td>
+                            </tr>
+                            <tr>
                                 <td style="font-weight: 700; background: var(--off-white);">一括料金(税込)</td>
                                 <td style="font-size: 1.2rem; font-weight: 700;">¥770,000</td>
                                 <td class="ark-col" style="font-size: 1.5rem; color: var(--navy);">¥990,000</td>
@@ -926,12 +911,12 @@
                 </div>
                 
                 <div style="background: var(--white); padding: 1.5rem; border: 1px solid var(--gray-light); border-top: none;">
-                    <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">※対象期間：高3年4月〜12月（途中入塾の場合も総量は変わらないため価格は据え置きとなります）</p>
+                    <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">※対象期間：高3年4月〜12月（9ヶ月間）。途中入塾の場合も総量は変わらないため価格は据え置きとなります。</p>
                     <p style="font-size: 0.9rem;">※パッケージ料金には初期導入費用（22〜33万円）が含まれます。</p>
                     <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed var(--gray-light); font-size: 0.9rem;">
-                        <span style="font-weight: 700; color: var(--navy);">オプション（対策校追加）:</span><br>
-                        <span style="margin-left: 1rem;">+1校 ¥220,000</span> <br>
-                        <span style="margin-left: 0.5rem;">+2校 ¥330,000</span><br>
+                        <span style="font-weight: 700; color: var(--navy);">オプション（対策校追加）:</span>
+                        <span style="margin-left: 1rem;">+1校 ¥220,000</span> / 
+                        <span style="margin-left: 0.5rem;">+2校 ¥330,000</span>
                     </div>
                 </div>
             </div>
@@ -945,7 +930,6 @@
                         <span style="color: var(--gold); font-size: 1.4rem;">全額免除</span>
                     </div>
                 </div>
-                
                 <div style="background: var(--off-white); padding: 2rem; border: 1px solid var(--gray-light); border-radius: 4px;">
                     <h3 style="font-size: 1.1rem; margin-bottom: 1rem; font-weight: 700; color: var(--navy);">安心の返金規定</h3>
                     <ul style="font-size: 0.9rem; padding-left: 1.2rem; line-height: 1.8;">
@@ -954,14 +938,12 @@
                     </ul>
                 </div>
             </div>
-
         </div>
     </section>
 
     <section class="section faq">
         <div class="container">
             <h2 class="text-center" style="margin-bottom: 3rem;">よくある質問</h2>
-            
             <div class="faq-item">
                 <div class="faq-q">実績が何もないのですが...</div>
                 <div class="faq-a">大丈夫です。9割の生徒がゼロからストーリーを作っています。あなたの日常や原体験から「大学に刺さる」要素を一緒に発掘します。</div>
@@ -977,43 +959,49 @@
         </div>
     </section>
 
+    <section class="section" style="background: var(--off-white);" id="material">
+        <div class="container">
+            <h2 class="text-center" style="margin-bottom: 2rem; color: var(--navy); font-size: 2rem;">資料請求はこちら</h2>
+            <p class="text-center" style="margin-bottom: 2rem;">カリキュラム詳細や合格実績をまとめた資料をお送りします。<br>入塾を検討中の方は、まずはお気軽に資料をご請求ください。</p>
+            <div class="form-container">
+                <form action="https://formspree.io/f/mdakbvre" method="POST">
+                    <div class="form-group">
+                        <label class="form-label">メールアドレス</label>
+                        <input type="email" name="email" class="form-input" required placeholder="example@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">メッセージ・ご質問 (任意)</label>
+                        <textarea name="message" class="form-textarea" placeholder="ご質問があればご記入ください"></textarea>
+                    </div>
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn btn-primary" style="width: 100%; border: none; cursor: pointer;">送信する</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <section class="section closing" id="contact">
         <div class="container">
             <h2 class="closing-title">残席わずか。</h2>
-            
             <div class="urgency-box">
                 <p>品質保持のため、<br>1学年6名しかお引き受けできません。</p>
                 <p>まずは「無料コンサルティング」で、<br>あなたの可能性を診断させてください。<br>無理な勧誘は一切いたしません。</p>
             </div>
-
             <div class="form-container">
                 <h3 class="text-center" style="color: var(--navy); margin-bottom: 1.5rem;">無料コンサルティング申込</h3>
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdBPL8S5T_rDn8q3fZBnMabomcKYN3bwJzAA52_jm4TKASt2g/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdBPL8S5T_rDn8q3fZBnMabomcKYN3bwJzAA52_jm4TKASt2g/viewform?embedded=true" width="100%" height="1757" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
             </div>
         </div>
     </section>
 
-    <section class="section" style="background: var(--off-white); padding-top: 0;" id="material">
-        <div class="container">
-            <h2 class="text-center" style="margin-bottom: 2rem; color: var(--navy); font-size: 2rem;">資料請求はこちら</h2>
-            <p class="text-center" style="margin-bottom: 2rem;">カリキュラム詳細や合格実績を<br>まとめた資料をお送りします。<br>入塾を検討中の方は、<br>まずはお気軽に資料をご請求ください。</p>
-            
-            <div class="form-container">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfRBqeSRkMIi8F0iumdfMIN2JnJFakJbPt6RvHWOEyfnAiggA/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
-            </div>
-        </div>
-    </section>
     <section class="media" id="media" style="background: var(--off-white);">
         <div class="container">
-            <div class="section-header animate-on-scroll">
-                <div class="section-tag">MEDIA & COLUMN</div>
+            <div class="section-header animate-on-scroll" style="text-align: center; margin-bottom: 3rem;">
+                <div class="section-tag" style="color: var(--gold); font-size: 0.9rem; letter-spacing: 0.15em; font-weight: 600; margin-bottom: 1rem;">MEDIA & COLUMN</div>
                 <h2 class="section-title">公式note</h2>
-                <p class="section-description">
-                    総合型選抜の対策ノウハウや、<br class="sp-br">
-                    合格のための思考法を発信しています。
-                </p>
+                <p class="section-description">総合型選抜の対策ノウハウや、<br class="sp-br">合格のための思考法を発信しています。</p>
             </div>
-
             <div class="media-grid">
                 <a href="https://note.com/ark_college/n/nd4965fbe8d90" target="_blank" rel="noopener" class="media-card animate-on-scroll">
                     <div class="media-thumb">
@@ -1025,7 +1013,6 @@
                         <span class="read-more">READ MORE &rarr;</span>
                     </div>
                 </a>
-
                 <a href="https://note.com/ark_college/n/ne06612120422" target="_blank" rel="noopener" class="media-card animate-on-scroll">
                     <div class="media-thumb">
                         <img src="https://assets.st-note.com/production/uploads/images/241574570/rectangle_large_type_2_10979ebe4c0cccd82c72b709391c7051.png?width=1280" alt="記事サムネイル" loading="lazy">
@@ -1036,7 +1023,6 @@
                         <span class="read-more">READ MORE &rarr;</span>
                     </div>
                 </a>
-
                 <a href="https://note.com/ark_college/n/na24bccb96069" target="_blank" rel="noopener" class="media-card animate-on-scroll">
                     <div class="media-thumb">
                         <img src="https://assets.st-note.com/production/uploads/images/241577088/rectangle_large_type_2_bc4cebc82d50c1e68bb56465e303b567.png?width=1280" alt="記事サムネイル" loading="lazy">
@@ -1048,31 +1034,12 @@
                     </div>
                 </a>
             </div>
-
             <div style="text-align: center; margin-top: 3rem;">
-                <a href="https://note.com/ark_college" target="_blank" rel="noopener" class="btn btn-secondary" style="color: var(--navy); border-color: var(--navy);">
-                    note一覧を見る
-                </a>
+                <a href="https://note.com/ark_college" target="_blank" rel="noopener" class="btn btn-secondary" style="color: var(--navy); border-color: var(--navy);">note一覧を見る</a>
             </div>
         </div>
     </section>
-    <footer>
-        <div class="container">
-            <div style="margin-bottom: 2rem; font-size: 0.9rem; line-height: 2;">
-                <p style="font-weight: 700; color: var(--white); font-size: 1.1rem; margin-bottom: 0.5rem;">運営会社情報</p>
-                <p>Ark Growth Partners（アーク・グロース・パートナーズ）</p>
-                <p><a href="https://www.ark-growth-partners.com/" target="_blank" rel="noopener" style="color: var(--gold); text-decoration: underline;">運営会社サイトはこちら</a></p>
-            </div>
-    
-            <hr style="border: none; border-top: 1px solid rgba(255,255,255,0.1); margin-bottom: 2rem;">
-    
-            <p style="margin: 0;">
-                &copy; 2025 Ark Growth Parnters. All rights reserved. 
-                <span class="pc-br"> | </span><br class="sp-br">
-                <a href="https://ark-growth-partners.vercel.app/" target="_blank" rel="noopener">会社概要</a>
-            </p>
-        </div>
-    </footer>
+
     <div class="sticky-cta">
         <div style="display: flex; gap: 10px; justify-content: center; max-width: 600px; margin: 0 auto;">
             <a href="#material" class="btn btn-secondary" style="flex: 1; padding: 0.8rem; font-size: 0.9rem; min-width: auto; background: var(--white); display: flex; align-items: center; justify-content: center;">
@@ -1085,8 +1052,19 @@
     </div>
 
     <footer style="background: var(--navy); padding: 2rem 0; text-align: center; color: rgba(255,255,255,0.6); font-size: 0.8rem; margin-bottom: 60px;">
-        <p>&copy; 2026 Ark College. All Rights Reserved.</p>
-        <p>運営：Ark Growth Partners</p>
+        <div class="container">
+            <div style="margin-bottom: 2rem; font-size: 0.9rem; line-height: 2;">
+                <p style="font-weight: 700; color: var(--white); font-size: 1.1rem; margin-bottom: 0.5rem;">運営会社情報</p>
+                <p>Ark Growth Partners（アーク・グロース・パートナーズ）</p>
+                <p><a href="https://www.ark-growth-partners.com/" target="_blank" rel="noopener" style="color: var(--gold); text-decoration: underline;">運営会社サイトはこちら</a></p>
+            </div>
+            <hr style="border: none; border-top: 1px solid rgba(255,255,255,0.1); margin-bottom: 2rem;">
+            <p style="margin: 0;">
+                &copy; 2025 Ark Growth Parnters. All rights reserved. 
+                <span class="pc-br"> | </span><br class="sp-br">
+                <a href="https://ark-growth-partners.vercel.app/" target="_blank" rel="noopener">会社概要</a>
+            </p>
+        </div>
     </footer>
 
     <script>
