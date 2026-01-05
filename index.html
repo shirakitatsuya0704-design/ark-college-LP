@@ -87,6 +87,17 @@
             transform: translateY(-2px);
             box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
         }
+        .btn-secondary {
+            background: transparent;
+            color: var(--navy);
+            border: 2px solid var(--navy);
+            width: auto;
+            min-width: 300px;
+        }
+        .btn-secondary:hover {
+            background: var(--navy);
+            color: var(--white);
+        }
         .btn-micro {
             display: block;
             font-size: 0.8rem;
@@ -316,39 +327,12 @@
 
         /* --- 7. Offer --- */
         .offer { background: var(--off-white); }
-        .plan-grid {
+        /* キャンペーン・保証ボックスのグリッドレイアウト */
+        .campaign-grid {
+            margin-top: 3rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
-            margin-top: 3rem;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .plan-card {
-            background: var(--white);
-            padding: 2.5rem;
-            text-align: center;
-            border: 1px solid var(--gray-light);
-            border-top: 4px solid var(--navy);
-        }
-        .plan-card.highlight { border-top: 4px solid var(--gold); position: relative; }
-        .plan-card.highlight::after {
-            content: 'RECOMMENDED';
-            position: absolute;
-            top: -30px; left: 50%; transform: translateX(-50%);
-            background: var(--gold); color: var(--navy);
-            padding: 0.3rem 1rem; font-size: 0.8rem; font-weight: 700;
-        }
-        .plan-title { font-size: 1.4rem; margin-bottom: 1rem; }
-        .guarantee-box {
-            margin-top: 3rem;
-            padding: 1.5rem;
-            background: #fff;
-            border: 1px solid var(--gold);
-            text-align: center;
-            font-weight: 700;
-            color: var(--navy);
         }
 
         /* --- 8. FAQ --- */
@@ -409,10 +393,11 @@
             max-width: 640px;
             margin: 0 auto;
             border-radius: 8px;
+            margin-bottom: 3rem;
         }
         iframe {
             width: 100%;
-            height: 800px; /* Adjust based on form length */
+            /* heightはインラインで指定 */
             border: none;
         }
 
@@ -436,8 +421,13 @@
             .hero-main { font-size: 2rem; }
             .comparison-table { display: block; overflow-x: auto; white-space: nowrap; }
             .profile-box { flex-direction: column; text-align: center; align-items: center; }
-            .plan-grid { grid-template-columns: 1fr; }
             .form-container { padding: 0; }
+            
+            /* キャンペーン・保証ボックスを縦並びに */
+            .campaign-grid {
+                grid-template-columns: 1fr; 
+                gap: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -602,15 +592,11 @@
                 <div class="profile-content">
                     <h3>Noah M.</h3>
                     <p class="profile-role">Ark College 代表講師</p>
-                    <p>慶應義塾大学法学部法律学科卒。
-
-慶應義塾大学法学部FIT入試A・B両方式で現役ダブル合格した経験をもとに、総合型選抜の指導分野に参画。大手総合型選抜塾「洋々」では4年間にわたりメンター講師として在籍し、多数の難関大学合格者を輩出。また、新規総合型選抜塾の立ち上げにおいては事業責任者を務め、指導ノウハウの体系化と組織運営を統括した。
-
-さらに、大手外資系企業でマーケターとして勤務。市場分析、戦略立案、高い論理的思考力を実務を通じて培う。
-
-合格実績と実務経験に基づき、受験生に対して「合格」と「社会で通用する能力」を両立させる最高水準の総合型選抜指導を提供する。
-
-これまでに31大学・50名以上の生徒を担当し、合格実績は国公立から早慶上智ICU、関関同立など多岐にわたる。</p>
+                    <p>慶應義塾大学法学部法律学科卒。</p>
+                    <p>慶應義塾大学法学部FIT入試A・B両方式で現役ダブル合格した経験をもとに、総合型選抜の指導分野に参画。大手総合型選抜塾「洋々」では4年間にわたりメンター講師として在籍し、多数の難関大学合格者を輩出。また、新規総合型選抜塾の立ち上げにおいては事業責任者を務め、指導ノウハウの体系化と組織運営を統括した。</p>
+                    <p>さらに、大手外資系企業でマーケターとして勤務。市場分析、戦略立案、高い論理的思考力を実務を通じて培う。</p>
+                    <p>合格実績と実務経験に基づき、受験生に対して「合格」と「社会で通用する能力」を両立させる最高水準の総合型選抜指導を提供する。</p>
+                    <p>これまでに31大学・50名以上の生徒を担当し、合格実績は国公立から早慶上智ICU、関関同立など多岐にわたる。</p>
                     
                     <a href="https://note.com/ark_college/n/ne06612120422" target="_blank" class="note-link"><span class="note-icon">🎤</span>代表インタビューを読む(note)</a>
                 </div>
@@ -620,7 +606,17 @@
 
     <section class="section offer" id="pricing">
         <div class="container">
-            <h2 class="text-center" style="margin-bottom: 3rem;">コース・料金体系</h2>
+            <h2 class="text-center" style="margin-bottom: 1rem;">コース・料金体系</h2>
+            
+            <div class="text-center" style="margin-bottom: 3rem; background: #FFFCF2; padding: 1.5rem; border: 1px solid var(--gold); border-radius: 4px; display: inline-block; width: 100%;">
+                <p style="color: var(--navy); font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--gold);"></i> 
+                    表示価格以外の追加コストは一切かかりません
+                </p>
+                <p style="font-size: 0.9rem; color: var(--gray);">
+                    教材費・管理費・夏期講習費などの名目での後出し請求はございませんので、安心してご検討ください。
+                </p>
+            </div>
             
             <div class="plan-section" style="margin-bottom: 4rem;">
                 <div class="plan-header" style="background: var(--navy); color: var(--white); padding: 1rem; border-radius: 4px 4px 0 0; display: flex; justify-content: space-between; align-items: center;">
@@ -692,12 +688,6 @@
                                 <td class="ark-col" style="font-size: 1.5rem; color: var(--navy);">¥990,000</td>
                                 <td style="font-size: 1.2rem; font-weight: 700;">¥1,210,000</td>
                             </tr>
-                            <tr>
-                                <td style="font-weight: 700; background: var(--off-white);">1ヶ月あたり料金</td>
-                                <td style="font-size: 1.2rem; font-weight: 700;">約8.5万円</td>
-                                <td class="ark-col" style="font-size: 1.5rem; color: var(--navy);">約9.8万円</td>
-                                <td style="font-size: 1.2rem; font-weight: 700;">約13.4万円0</td>
-                            </tr>                            
                         </tbody>
                     </table>
                 </div>
@@ -713,7 +703,7 @@
                 </div>
             </div>
 
-            <div style="margin-top: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <div class="campaign-grid">
                 <div style="background: var(--navy); color: var(--white); padding: 2rem; border-radius: 4px; text-align: center;">
                     <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--gold);">入塾金キャンペーン</h3>
                     <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">通常入塾金：¥55,000(税込)</p>
@@ -764,18 +754,35 @@
             </div>
 
             <div class="form-container">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfD_example_form_id/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+                <h3 class="text-center" style="color: var(--navy); margin-bottom: 1.5rem;">無料コンサルティング申込</h3>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdBPL8S5T_rDn8q3fZBnMabomcKYN3bwJzAA52_jm4TKASt2g/viewform?embedded=true" width="100%" height="1757" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--off-white); padding-top: 0;" id="material">
+        <div class="container">
+            <h2 class="text-center" style="margin-bottom: 2rem; color: var(--navy); font-size: 2rem;">資料請求はこちら</h2>
+            <p class="text-center" style="margin-bottom: 2rem;">カリキュラム詳細や合格実績をまとめた資料をお送りします。<br>入塾を検討中の方は、まずはお気軽に資料をご請求ください。</p>
+            
+            <div class="form-container">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfRBqeSRkMIi8F0iumdfMIN2JnJFakJbPt6RvHWOEyfnAiggA/viewform?embedded=true" width="100%" height="1009" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
             </div>
         </div>
     </section>
 
     <div class="sticky-cta">
-        <a href="#contact" class="btn btn-primary" style="max-width: 400px; padding: 1rem;">
-            [残り2名] 無料コンサルティングに申し込む
-        </a>
+        <div style="display: flex; gap: 10px; justify-content: center; max-width: 600px; margin: 0 auto;">
+            <a href="#material" class="btn btn-secondary" style="flex: 1; padding: 0.8rem; font-size: 0.9rem; min-width: auto; background: var(--white);">
+                資料請求
+            </a>
+            <a href="#contact" class="btn btn-primary" style="flex: 1; padding: 0.8rem; font-size: 0.9rem;">
+                [残2名] 無料コンサル
+            </a>
+        </div>
     </div>
 
-    <footer style="background: var(--navy); padding: 2rem 0; text-align: center; color: rgba(255,255,255,0.6); font-size: 0.8rem;">
+    <footer style="background: var(--navy); padding: 2rem 0; text-align: center; color: rgba(255,255,255,0.6); font-size: 0.8rem; margin-bottom: 60px;">
         <p>&copy; 2026 Ark College. All Rights Reserved.</p>
         <p>運営：Ark Growth Partners</p>
     </footer>
@@ -796,8 +803,8 @@
             const formSection = document.querySelector('#contact');
             const formPosition = formSection.offsetTop;
             
-            // FVを超えたら表示、フォームまで来たら非表示
-            if (window.scrollY > 600 && window.scrollY < formPosition - 500) {
+            // FVを超えたら表示
+            if (window.scrollY > 600) {
                 cta.classList.add('visible');
             } else {
                 cta.classList.remove('visible');
