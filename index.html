@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-T45G5L3K');</script>
-    <!-- End Google Tag Manager -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JW11SJHE3R"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -46,6 +44,7 @@
             line-height: 1.8;
             background: var(--white);
             overflow-x: hidden;
+            padding-bottom: 80px; /* フッターの分だけ余白を確保 */
         }
 
         /* Typography */
@@ -610,18 +609,85 @@
             border: none;
         }
 
-        /* Sticky CTA */
+        /* --- Sticky CTA Updated for LINE & Consult --- */
         .sticky-cta {
-            position: fixed; bottom: 0; left: 0; right: 0;
-            background: rgba(10,22,40,0.95);
-            padding: 1rem;
-            text-align: center;
+            position: fixed; 
+            bottom: 0; 
+            left: 0; 
+            right: 0;
+            background: rgba(10,22,40,0.98);
+            padding: 12px 1rem;
             z-index: 999;
             border-top: 2px solid var(--gold);
             transform: translateY(100%);
             transition: transform 0.3s;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
         }
         .sticky-cta.visible { transform: translateY(0); }
+
+        .cta-inner {
+            display: flex; 
+            gap: 12px; 
+            justify-content: center; 
+            max-width: 600px; 
+            margin: 0 auto;
+        }
+
+        /* Common Button Style in Sticky Footer */
+        .sticky-cta .btn {
+            flex: 1;
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            min-height: 54px;
+            width: 100%;
+        }
+        .sticky-cta .btn:hover { opacity: 0.9; transform: none; }
+
+        /* LINE Button Style */
+        .btn-line {
+            background: #06C755; /* LINE Green */
+            color: #FFFFFF;
+            border: none;
+            box-shadow: 0 4px 10px rgba(6, 199, 85, 0.2);
+        }
+
+        /* Consult Button Style */
+        .btn-cta-consult {
+            background: linear-gradient(135deg, var(--gold) 0%, #B8941F 100%);
+            color: var(--navy);
+            border: none;
+        }
+
+        /* Text & Icon Layout */
+        .btn-icon {
+            font-size: 1.6rem;
+            margin-right: 0.8rem;
+            line-height: 1;
+        }
+        .btn-text-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.2;
+            text-align: left;
+        }
+        .btn-sub {
+            font-size: 0.65rem;
+            opacity: 0.9;
+            font-weight: normal;
+            display: block;
+        }
+        .btn-main {
+            font-size: 0.9rem;
+            font-weight: 700;
+            display: block;
+            white-space: nowrap;
+        }
 
         /* Media Section */
         .media-grid {
@@ -670,14 +736,19 @@
             .profile-box { flex-direction: column; text-align: center; align-items: center; }
             .campaign-grid { grid-template-columns: 1fr; gap: 1.5rem; }
             .material-form-box, .form-container { padding: 1.5rem; }
+            
+            /* Sticky CTA SP Adjustments */
+            .cta-inner { gap: 8px; }
+            .sticky-cta { padding: 10px; padding-bottom: max(10px, env(safe-area-inset-bottom)); }
+            .btn-icon { font-size: 1.4rem; margin-right: 0.4rem; }
+            .btn-main { font-size: 0.8rem; }
+            .btn-sub { font-size: 0.55rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T45G5L3K"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
     <header style="position: absolute; top: 0; left: 0; width: 100%; padding: 1.5rem; z-index: 100; display: flex; align-items: center;">
         <a href="https://www.ark-college.com/" target="_blank" rel="noopener" style="display: block; transition: opacity 0.3s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
             <img src="logo.webp" alt="Ark College 公式HP" style="height: 40px; width: auto; display: block;">
@@ -1143,12 +1214,21 @@
     </section>
 
     <div class="sticky-cta">
-        <div style="display: flex; gap: 10px; justify-content: center; max-width: 600px; margin: 0 auto;">
-            <a href="#materials" class="btn btn-secondary" style="flex: 1; padding: 0.8rem; font-size: 0.9rem; min-width: auto; background: var(--white); display: flex; align-items: center; justify-content: center;">
-                資料請求
+        <div class="cta-inner">
+            <a href="https://lin.ee/Uq7uW97" target="_blank" class="btn btn-line">
+                <span class="btn-icon">💬</span>
+                <div class="btn-text-group">
+                    <span class="btn-sub">まずは気軽に</span>
+                    <span class="btn-main">LINEで資料請求</span>
+                </div>
             </a>
-            <a href="#contact" class="btn btn-primary" style="flex: 1; padding: 0.8rem; font-size: 0.9rem; display: flex; align-items: center; justify-content: center;">
-                無料コンサル
+            
+            <a href="#contact" class="btn btn-primary btn-cta-consult">
+                <span class="btn-icon">📅</span>
+                <div class="btn-text-group">
+                    <span class="btn-sub">残り枠わずか</span>
+                    <span class="btn-main">無料コンサル申込</span>
+                </div>
             </a>
         </div>
     </div>
@@ -1228,7 +1308,6 @@
         window.addEventListener('scroll', () => {
             const cta = document.querySelector('.sticky-cta');
             const formSection = document.querySelector('#contact');
-            const formPosition = formSection.offsetTop;
             
             // FVを超えたら表示
             if (window.scrollY > 600) {
