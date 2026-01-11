@@ -1102,9 +1102,7 @@
             <h2 class="text-center" style="margin-bottom: 2rem; color: var(--navy); font-size: 2rem;">資料請求はこちら</h2>
             <p class="text-center" style="margin-bottom: 2rem;">カリキュラム詳細や合格実績をまとめた資料をお送りします。<br>入塾を検討中の方は、まずはお気軽に資料をご請求ください。</p>
             <div class="material-form-box">
-                <form action="https://formspree.io/f/mdakbvre" method="POST">
-                    
-                    <input type="hidden" name="_next" value="https://drive.google.com/file/d/1v9lobmMoCuZLNc2Yx5V449OrCa3_iS8d/view">
+                <form id="materialForm" action="https://formspree.io/f/mdakbvre" method="POST">
                     
                     <div class="form-group">
                         <label class="form-label" for="name">
@@ -1143,7 +1141,7 @@
                     </div>
 
                     <div class="form-submit-wrapper">
-                        <button type="submit" class="form-submit-btn">
+                        <button type="submit" class="form-submit-btn" id="submitButton">
                             資料を請求する
                         </button>
                     </div>
@@ -1151,11 +1149,48 @@
                 </form>
             </div>
             <p style="font-size: 0.95rem; color: var(--gray); line-height: 1.7; text-align: center;">
-                ※資料請求後、2営業日以内にメールにてお送りいたします。<br>
-                ※送信完了後、自動的に完了画面へ切り替わります。
+                ※送信ボタンを押すと、自動的に資料（PDF）が開きます。
             </p>
         </div>
     </section>
+
+    <script>
+        document.getElementById('materialForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Formspreeの標準画面への移動をキャンセル
+            
+            var form = this;
+            var button = document.getElementById('submitButton');
+            
+            // ボタンを連打できないように無効化し、テキストを変更
+            button.disabled = true;
+            button.innerText = '送信中...';
+
+            var data = new FormData(form);
+
+            fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    // 送信成功時：Googleドライブへ強制リダイレクト
+                    window.location.href = "https://drive.google.com/file/d/1v9lobmMoCuZLNc2Yx5V449OrCa3_iS8d/view";
+                } else {
+                    // エラー時
+                    alert('送信に失敗しました。時間をおいて再度お試しください。');
+                    button.disabled = false;
+                    button.innerText = '資料を請求する';
+                }
+            }).catch(error => {
+                // ネットワークエラー時
+                alert('送信エラーが発生しました。ネットワーク状況をご確認ください。');
+                button.disabled = false;
+                button.innerText = '資料を請求する';
+            });
+        });
+    </script>
 
     <section class="section closing" id="contact">
         <div class="container">
