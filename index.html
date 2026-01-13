@@ -45,7 +45,7 @@
             line-height: 1.8;
             background: var(--white);
             overflow-x: hidden;
-            padding-bottom: 80px; /* フッターの分だけ余白を確保 */
+            padding-bottom: 80px;
         }
 
         /* Typography */
@@ -95,6 +95,14 @@
             background: linear-gradient(135deg, #E5C868 0%, #D4AF37 100%);
             box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
         }
+        
+        /* FV Button Adjustment */
+        .hero-btn {
+            padding: 1rem 2rem !important; /* Reduced padding */
+            font-size: 1rem !important;
+            max-width: 400px !important;
+        }
+
         .btn-secondary {
             background: transparent;
             color: var(--navy);
@@ -110,7 +118,7 @@
             display: block;
             font-size: 0.8rem;
             font-weight: normal;
-            margin-top: 0.5rem;
+            margin-top: 0.3rem;
             opacity: 0.9;
         }
 
@@ -128,7 +136,7 @@
         .note-link:hover { color: var(--gold); border-color: var(--gold); }
         .note-icon { margin-right: 0.5rem; width: 20px; }
 
-        /* --- New Impact Hero Section --- */
+        /* --- Hero Section --- */
         .hero-impact {
             min-height: 100vh;
             position: relative;
@@ -136,7 +144,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            padding-top: 80px; /* Nav Height */
+            padding-top: 80px;
             background-color: #050b14;
             background-image: 
                 radial-gradient(circle at 15% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 25%),
@@ -147,12 +155,12 @@
         }
 
         .impact-container {
-            max-width: 1200px;
+            max-width: 1100px;
             width: 100%;
             margin: 0 auto;
             padding: 0 2rem;
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
+            grid-template-columns: 1.1fr 0.9fr;
             gap: 4rem;
             align-items: center;
             position: relative;
@@ -175,7 +183,7 @@
 
         .impact-headline {
             font-family: 'Noto Serif JP', serif;
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             font-weight: 900;
             line-height: 1.3;
             color: var(--white);
@@ -192,73 +200,50 @@
             display: inline-block;
         }
 
-        .impact-sub {
-            font-size: 1.1rem;
-            color: rgba(255,255,255,0.8);
-            line-height: 1.8;
-            margin-bottom: 3rem;
-            border-left: 3px solid var(--gold);
-            padding-left: 1.5rem;
-        }
-
-        .impact-stats {
+        /* Hero Features List (Replaced Stats) */
+        .hero-features {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
-            position: relative;
+            gap: 1.5rem;
         }
-
-        .stat-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 4px;
+        .hero-feature-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
             backdrop-filter: blur(10px);
+            border-left: 4px solid var(--gold);
+            color: var(--white);
             transition: transform 0.3s ease;
         }
-        .stat-row:hover {
-            transform: translateX(-10px);
-            border-color: var(--gold);
+        .hero-feature-item:hover {
+            transform: translateX(-5px);
+            background: rgba(255, 255, 255, 0.08);
         }
-
-        .stat-label-box {
+        .feature-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            color: var(--gold-light);
             display: flex;
             align-items: center;
-            gap: 1rem;
         }
-        .stat-icon {
-            font-size: 2rem;
-            color: var(--gold);
-            opacity: 0.8;
+        .feature-title i { margin-right: 10px; }
+        .feature-desc {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: rgba(255,255,255,0.9);
         }
-        .stat-label {
-            color: var(--white);
-            font-size: 1rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-        }
-        .stat-desc {
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.5);
-            margin-top: 0.2rem;
-        }
-
-        .stat-huge {
+        .pass-rate-highlight {
             font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
+            font-size: 2.5rem;
             font-weight: 700;
+            color: var(--white);
             line-height: 1;
-            letter-spacing: -0.05em;
-            background: linear-gradient(to bottom, #FCF6BA, #BF953F, #B38728, #FBF5B7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            color: transparent;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+            margin-top: 0.5rem;
+            display: block;
         }
+        .pass-rate-label { font-size: 0.9rem; color: rgba(255,255,255,0.7); font-family: 'Noto Sans JP', sans-serif; font-weight: normal; margin-left: 10px; vertical-align: middle;}
 
         /* --- Ticker --- */
         .ticker-wrapper {
@@ -314,12 +299,45 @@
             font-size: 1.2rem;
         }
 
-        /* --- Comparison --- */
+        /* --- Comparison (Scroll Fix) --- */
+        .comparison-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .comparison-scroll {
+            overflow-x: auto;
+            padding-bottom: 1rem;
+            -webkit-overflow-scrolling: touch;
+        }
+        /* Scroll Hint Overlay */
+        .scroll-hint-overlay {
+            display: none; /* Desktop hidden */
+            position: absolute;
+            top: 0; right: 0; bottom: 1rem;
+            width: 50px;
+            background: linear-gradient(to right, transparent, rgba(0,0,0,0.05));
+            pointer-events: none;
+            justify-content: center;
+            align-items: center;
+        }
+        .scroll-hint-text {
+            display: none;
+            text-align: right;
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+        .scroll-hint-text i { margin-right: 5px; animation: slideRight 1.5s infinite; }
+        
+        @keyframes slideRight { 0% { transform: translateX(0); opacity: 1; } 100% { transform: translateX(5px); opacity: 0; } }
+
         .comparison-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 3rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-top: 1rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            min-width: 700px; /* Ensure scroll on mobile */
         }
         .comparison-table th, .comparison-table td {
             padding: 1.5rem 1rem;
@@ -386,7 +404,7 @@
         .value-title { font-size: 1.1rem; margin-bottom: 1rem; color: var(--navy); font-weight: 700; height: 3em; display: flex; align-items: center; }
         .value-desc { font-size: 0.9rem; color: var(--gray); line-height: 1.6; }
 
-        /* --- New: Session Flow (LPO Add) --- */
+        /* Session Flow */
         .session-flow-container {
             margin-top: 5rem;
             background: var(--white);
@@ -474,31 +492,18 @@
             position: relative;
             overflow: hidden;
         }
-        .proof::before {
+        .proof::before, .proof::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; height: 1px;
+            left: 0; right: 0; height: 1px;
             background: linear-gradient(90deg, transparent, var(--gold), transparent);
         }
-        .proof::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0; right: 0; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-        }
+        .proof::before { top: 0; }
+        .proof::after { bottom: 0; }
         .proof h2 { 
             color: var(--white); 
             font-size: 2.5rem;
             text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-        }
-        .result-highlight {
-            font-size: 2rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--gold) 0%, #fff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin: 2rem 0;
-            line-height: 1.4;
         }
         .univ-grid {
             display: grid;
@@ -522,7 +527,7 @@
             transform: scale(1.05);
         }
 
-        /* --- Authority --- */
+        /* --- Authority (Width Fix) --- */
         .profile-box {
             display: flex;
             align-items: flex-start;
@@ -530,6 +535,8 @@
             background: var(--off-white);
             padding: 3rem;
             border: 1px solid var(--gray-light);
+            /* Ensure layout doesn't cramp text */
+            flex-wrap: nowrap;
         }
         .profile-img {
             width: 250px;
@@ -538,10 +545,11 @@
             flex-shrink: 0;
             border: 4px solid var(--gold);
         }
+        /* Allow profile content to take more width */
+        .profile-content { flex: 1; min-width: 0; }
         .profile-content h3 { font-size: 1.8rem; margin-bottom: 0.5rem; }
         .profile-role { color: var(--gold); font-weight: 700; margin-bottom: 1.5rem; font-size: 0.9rem; letter-spacing: 0.1em; }
 
-        /* New: Instructor Message Box (LPO Add) */
         .instructor-message {
             background-color: #fff;
             border: 1px solid var(--gold);
@@ -553,8 +561,7 @@
         .instructor-message::before {
             content: 'Message';
             position: absolute;
-            top: -12px;
-            left: 20px;
+            top: -12px; left: 20px;
             background: var(--gold);
             color: var(--navy);
             font-size: 0.8rem;
@@ -568,7 +575,6 @@
             line-height: 1.8;
             margin-bottom: 0.5rem;
         }
-        .instructor-message p:last-child { margin-bottom: 0; }
         
         /* --- Offer --- */
         .campaign-grid {
@@ -577,8 +583,6 @@
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
         }
-        
-        /* New: Warning Text (LPO Add) */
         .warning-box {
             background: #fff0f0;
             border: 2px solid var(--alert-red);
@@ -649,16 +653,6 @@
             margin-bottom: 3rem;
             font-size: 1.2rem;
         }
-        .remaining {
-            display: inline-block;
-            background: var(--alert-red);
-            padding: 0.2rem 1rem;
-            border-radius: 4px;
-            font-weight: 700;
-            margin: 0 0.5rem;
-        }
-        
-        /* Form Container Styles */
         .material-form-box, .form-container {
             background: var(--white);
             padding: 2rem;
@@ -670,29 +664,9 @@
             border-radius: 8px;
             text-align: left;
         }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-        }
-
-        .label-required {
-            background: var(--gold);
-            color: var(--navy);
-            font-size: 0.7rem;
-            padding: 2px 6px;
-            border-radius: 2px;
-            margin-left: 8px;
-            vertical-align: middle;
-        }
-
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label { display: block; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; font-size: 0.95rem; }
+        .label-required { background: var(--gold); color: var(--navy); font-size: 0.7rem; padding: 2px 6px; border-radius: 2px; margin-left: 8px; vertical-align: middle; }
         .form-input, .form-select, .form-textarea {
             width: 100%;
             padding: 0.8rem;
@@ -704,24 +678,14 @@
             box-sizing: border-box;
             transition: border-color 0.3s ease;
         }
-
         .form-input:focus, .form-select:focus, .form-textarea:focus {
             outline: none;
             border-color: var(--gold);
             background: var(--white);
             box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
         }
-
-        .form-textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .form-submit-wrapper {
-            text-align: center;
-            margin-top: 2rem;
-        }
-
+        .form-textarea { resize: vertical; min-height: 120px; }
+        .form-submit-wrapper { text-align: center; margin-top: 2rem; }
         .form-submit-btn {
             width: 100%;
             max-width: 300px;
@@ -736,24 +700,16 @@
             box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
             border-radius: 4px;
         }
-
         .form-submit-btn:hover {
             background: var(--gold-light);
             transform: translateY(-3px);
             box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
         }
-        
-        iframe {
-            width: 100%;
-            border: none;
-        }
+        iframe { width: 100%; border: none; }
 
-        /* --- Sticky CTA Updated for LINE & Consult --- */
+        /* --- Sticky CTA --- */
         .sticky-cta {
-            position: fixed; 
-            bottom: 0; 
-            left: 0; 
-            right: 0;
+            position: fixed; bottom: 0; left: 0; right: 0;
             background: rgba(10,22,40,0.98);
             padding: 12px 1rem;
             z-index: 999;
@@ -763,94 +719,20 @@
             box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
         }
         .sticky-cta.visible { transform: translateY(0); }
-
-        .cta-inner {
-            display: flex; 
-            gap: 12px; 
-            justify-content: center; 
-            max-width: 600px; 
-            margin: 0 auto;
-        }
-
-        /* Common Button Style in Sticky Footer */
-        .sticky-cta .btn {
-            flex: 1;
-            padding: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: opacity 0.3s;
-            min-height: 54px;
-            width: 100%;
-        }
+        .cta-inner { display: flex; gap: 12px; justify-content: center; max-width: 600px; margin: 0 auto; }
+        .sticky-cta .btn { flex: 1; padding: 0.5rem; display: flex; align-items: center; justify-content: center; border-radius: 8px; text-decoration: none; transition: opacity 0.3s; min-height: 54px; width: 100%; }
         .sticky-cta .btn:hover { opacity: 0.9; transform: none; }
+        .btn-line { background: #06C755; color: #FFFFFF; border: none; box-shadow: 0 4px 10px rgba(6, 199, 85, 0.2); }
+        .btn-cta-consult { background: linear-gradient(135deg, var(--gold) 0%, #B8941F 100%); color: var(--navy); border: none; }
+        .btn-icon { font-size: 1.6rem; margin-right: 0.8rem; line-height: 1; }
+        .btn-text-group { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2; text-align: left; }
+        .btn-sub { font-size: 0.65rem; opacity: 0.9; font-weight: normal; display: block; }
+        .btn-main { font-size: 0.9rem; font-weight: 700; display: block; white-space: nowrap; }
 
-        /* LINE Button Style */
-        .btn-line {
-            background: #06C755; /* LINE Green */
-            color: #FFFFFF;
-            border: none;
-            box-shadow: 0 4px 10px rgba(6, 199, 85, 0.2);
-        }
-
-        /* Consult Button Style */
-        .btn-cta-consult {
-            background: linear-gradient(135deg, var(--gold) 0%, #B8941F 100%);
-            color: var(--navy);
-            border: none;
-        }
-
-        /* Text & Icon Layout */
-        .btn-icon {
-            font-size: 1.6rem;
-            margin-right: 0.8rem;
-            line-height: 1;
-        }
-        .btn-text-group {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            line-height: 1.2;
-            text-align: left;
-        }
-        .btn-sub {
-            font-size: 0.65rem;
-            opacity: 0.9;
-            font-weight: normal;
-            display: block;
-        }
-        .btn-main {
-            font-size: 0.9rem;
-            font-weight: 700;
-            display: block;
-            white-space: nowrap;
-        }
-
-        /* Media Section */
-        .media-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        .media-card {
-            background: var(--white);
-            border: 1px solid var(--gray-light);
-            display: flex;
-            flex-direction: column;
-            text-decoration: none;
-            color: var(--navy);
-            transition: all 0.4s ease;
-            height: 100%;
-            overflow: hidden;
-        }
-        .media-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(10, 22, 40, 0.1);
-            border-color: var(--gold);
-        }
+        /* Media */
+        .media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .media-card { background: var(--white); border: 1px solid var(--gray-light); display: flex; flex-direction: column; text-decoration: none; color: var(--navy); transition: all 0.4s ease; height: 100%; overflow: hidden; }
+        .media-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(10, 22, 40, 0.1); border-color: var(--gold); }
         .media-thumb { width: 100%; height: 200px; overflow: hidden; position: relative; }
         .media-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
         .media-card:hover .media-thumb img { transform: scale(1.1); }
@@ -865,25 +747,29 @@
             .sp-br { display: block; }
             .hero-impact { padding-top: 60px; min-height: auto; }
             .impact-container { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem; }
-            .impact-headline { font-size: 2.5rem; }
-            .impact-sub { font-size: 1rem; margin-bottom: 2rem; }
-            .stat-huge { font-size: 3.5rem; }
-            .stat-row { padding: 1.5rem; }
+            .impact-headline { font-size: 2.2rem; margin-bottom: 1rem; }
+            .impact-sub { font-size: 0.9rem; margin-bottom: 2rem; }
+            
+            /* Profile Width Fix SP */
+            .profile-box { flex-direction: column; text-align: center; align-items: center; padding: 2rem 1.5rem; }
+            .profile-content { width: 100%; }
+
+            /* Table Scroll Hint */
+            .scroll-hint-overlay { display: flex; }
+            .scroll-hint-text { display: block; }
+
             .comparison-table { display: block; overflow-x: auto; white-space: nowrap; }
             .value-grid { grid-template-columns: 1fr; }
             .univ-grid { grid-template-columns: 1fr 1fr; }
-            .profile-box { flex-direction: column; text-align: center; align-items: center; }
             .campaign-grid { grid-template-columns: 1fr; gap: 1.5rem; }
             .material-form-box, .form-container { padding: 1.5rem; }
             
-            /* Sticky CTA SP Adjustments */
             .cta-inner { gap: 8px; }
             .sticky-cta { padding: 10px; padding-bottom: max(10px, env(safe-area-inset-bottom)); }
             .btn-icon { font-size: 1.4rem; margin-right: 0.4rem; }
             .btn-main { font-size: 0.8rem; }
             .btn-sub { font-size: 0.55rem; }
 
-            /* Session Flow SP Adjustments */
             .flow-steps { flex-direction: column; }
             .flow-arrow { transform: rotate(90deg); justify-content: center; margin: 0.5rem 0; font-size: 1.2rem; }
             .flow-step { padding: 1.2rem; }
@@ -906,41 +792,29 @@
                     総合型選抜を、<br>
                     <span class="text-gold-gradient">戦略</span>で突破する。
                 </h1>
-                <p class="impact-sub">
-                    <span class="text-gold-gradient">添削・チャット相談無制限。</span><br>
-                    <span class="text-gold-gradient">48時間以内添削保証・完全オンライン。</span><br>
-                    実績不足を「戦略」で覆し、<br class="sp-br"><span class="text-gold-gradient">第一志望合格率は86.7%</span><br class="pc-br">
-                </p>
+                
                 <div>
-                    <a href="#contact" class="btn btn-primary">
-                        無料受験戦略<br>コンサルティングに申し込む
+                    <a href="#contact" class="btn btn-primary hero-btn">
+                        無料受験戦略コンサルに申し込む
                         <span class="btn-micro">（残席わずか）</span>
                     </a>
                 </div>
             </div>
-            <div class="impact-stats">
-                <div class="stat-row">
-                    <div class="stat-label-box">
-                        <span class="stat-icon">📄</span>
-                        <div>
-                            <div class="stat-label">第一志望<br>一次通過率</div>
-                            <div class="stat-desc">書類選考</div>
-                        </div>
-                    </div>
-                    <div class="stat-huge">
-                        <span class="count-up" data-target="92.3">0</span><span style="font-size: 0.5em;">%</span>
-                    </div>
+
+            <div class="hero-features">
+                <div class="hero-feature-item">
+                    <div class="feature-title"><i class="fa-solid fa-check-circle"></i> 添削・チャット相談無制限</div>
+                    <div class="feature-desc">提出して1週間待ちはあり得ません。<br>何度でも即座にフィードバックします。</div>
                 </div>
-                <div class="stat-row">
-                    <div class="stat-label-box">
-                        <span class="stat-icon">🎓</span>
-                        <div>
-                            <div class="stat-label">第一志望<br>最終合格率</div>
-                            <div class="stat-desc">難関大実績</div>
-                        </div>
-                    </div>
-                    <div class="stat-huge">
-                        <span class="count-up" data-target="86.7">0</span><span style="font-size: 0.5em;">%</span>
+                <div class="hero-feature-item">
+                    <div class="feature-title"><i class="fa-solid fa-clock"></i> 48時間以内返信保証</div>
+                    <div class="feature-desc">完全オンラインで深夜も対応。<br>思考を止めず、高速でPDCAを回します。</div>
+                </div>
+                <div class="hero-feature-item">
+                    <div class="feature-title"><i class="fa-solid fa-chess-knight"></i> 実績不足を「戦略」で覆す</div>
+                    <div class="feature-desc">
+                        輝かしい経歴は不要です。<br>
+                        第一志望合格率 <span class="pass-rate-highlight">86.7<span style="font-size: 0.5em;">%</span></span>
                     </div>
                 </div>
             </div>
@@ -982,48 +856,58 @@
     <section class="section comparison">
         <div class="container">
             <h2 class="text-center" style="margin-bottom: 1rem;">なぜアークカレッジは<br>選ばれるのか？</h2>
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>項目</th>
-                        <th class="ark-col">Ark College</th>
-                        <th>一般的な大手総合型塾</th>
-                        <th>学校の進路指導</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>指導者</td>
-                        <td class="ark-col">代表プロ講師が直接担当<br><span style="font-size:0.8rem; font-weight:normal;">(外資マーケター出身)</span></td>
-                        <td>大学生アルバイト講師</td>
-                        <td>一般的な教員<br><span style="font-size:0.8rem;">(専門知識なし)</span></td>
-                    </tr>
-                    <tr>
-                        <td>戦略性</td>
-                        <td class="ark-col">合格からの逆算思考<br><span style="font-size:0.8rem; font-weight:normal;">大学ごとの精密なマッチング</span></td>
-                        <td>テンプレート的な指導</td>
-                        <td>一般論・精神論</td>
-                    </tr>
-                    <tr>
-                        <td>対応人数</td>
-                        <td class="ark-col">1学年6名限定<br><span style="font-size:0.8rem; font-weight:normal;">(完全審査制)</span></td>
-                        <td>数十名〜数百名<br><span style="font-size:0.8rem;">(大量生産型)</span></td>
-                        <td>1クラス40名</td>
-                    </tr>
-                    <tr>
-                        <td>添削・相談</td>
-                        <td class="ark-col">無制限・48時間以内返信</td>
-                        <td>回数制限あり・返信遅い</td>
-                        <td>放課後のみ</td>
-                    </tr>
-                    <tr>
-                        <td>実績</td>
-                        <td class="ark-col">第一志望合格 86.7%</td>
-                        <td>合格率非公開が多い</td>
-                        <td>-</td>
-                    </tr>
-                </tbody>
-            </table>
+            
+            <div class="scroll-hint-text" style="text-align: right; font-size: 0.8rem; color: var(--gray); margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-arrow-right"></i> 横にスクロールできます
+            </div>
+
+            <div class="comparison-wrapper">
+                <div class="comparison-scroll">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>項目</th>
+                                <th class="ark-col">Ark College</th>
+                                <th>一般的な大手総合型塾</th>
+                                <th>学校の進路指導</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>指導者</td>
+                                <td class="ark-col">代表プロ講師が直接担当<br><span style="font-size:0.8rem; font-weight:normal;">(外資マーケター出身)</span></td>
+                                <td>大学生アルバイト講師</td>
+                                <td>一般的な教員<br><span style="font-size:0.8rem;">(専門知識なし)</span></td>
+                            </tr>
+                            <tr>
+                                <td>戦略性</td>
+                                <td class="ark-col">合格からの逆算思考<br><span style="font-size:0.8rem; font-weight:normal;">大学ごとの精密なマッチング</span></td>
+                                <td>テンプレート的な指導</td>
+                                <td>一般論・精神論</td>
+                            </tr>
+                            <tr>
+                                <td>対応人数</td>
+                                <td class="ark-col">1学年6名限定<br><span style="font-size:0.8rem; font-weight:normal;">(完全審査制)</span></td>
+                                <td>数十名〜数百名<br><span style="font-size:0.8rem;">(大量生産型)</span></td>
+                                <td>1クラス40名</td>
+                            </tr>
+                            <tr>
+                                <td>添削・相談</td>
+                                <td class="ark-col">無制限・48時間以内返信</td>
+                                <td>回数制限あり・返信遅い</td>
+                                <td>放課後のみ</td>
+                            </tr>
+                            <tr>
+                                <td>実績</td>
+                                <td class="ark-col">第一志望合格 86.7%</td>
+                                <td>合格率非公開が多い</td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="scroll-hint-overlay"></div>
+            </div>
         </div>
     </section>
 
@@ -1078,7 +962,8 @@
                 </div>
                 <div class="flow-note">【安心の証】 セッションの内容は全てログ（記録）に残し、保護者様も透明性を持ってご確認いただけます。</div>
             </div>
-            </div>
+            
+        </div>
     </section>
 
     <section class="section proof"> 
@@ -1179,45 +1064,33 @@
                 </div>
                 
                 <div class="pricing-table-wrapper" style="overflow-x: auto;">
-                    <table class="comparison-table" style="margin-top: 0; box-shadow: none; border: 1px solid var(--gray-light);">
+                    <table class="comparison-table" style="margin-top: 0; box-shadow: none; border: 1px solid var(--gray-light); min-width: auto;">
                         <thead>
                             <tr>
-                                <th style="background: var(--off-white); color: var(--navy); width: 20%;">プラン名</th>
-                                <th style="background: var(--white); color: var(--navy);">単願完遂コース</th>
+                                <th style="background: var(--off-white); color: var(--navy); width: 35%;">プラン名</th>
                                 <th class="ark-col" style="border-top: none;">難関大コース<br><span style="font-size: 0.8rem; font-weight: normal; background: var(--navy); color: var(--gold); padding: 2px 8px; border-radius: 10px;">RECOMMENDED</span></th>
-                                <th style="background: var(--navy); color: var(--white);">最難関大コース</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td style="font-weight: 700; background: var(--off-white);">志望校ライン</td>
-                                <td>GMARCH<br>関関同立 等</td>
-                                <td class="ark-col">国公立、早慶上智<br>ICU 等</td>
-                                <td>医学部、旧帝大<br>慶應FIT 等</td>
+                                <td class="ark-col">国公立、早慶上智、ICU 等</td>
                             </tr>
                             <tr>
                                 <td style="font-weight: 700; background: var(--off-white);">対策校数</td>
-                                <td>1校（1学部）</td>
                                 <td class="ark-col">3校（3学部）</td>
-                                <td>5校（5学部）</td>
                             </tr>
                             <tr>
                                 <td style="font-weight: 700; background: var(--off-white);">セッション数</td>
-                                <td>全30回</td>
                                 <td class="ark-col">全40回</td>
-                                <td>全50回</td>
                             </tr>
                             <tr>
-                                <td style="font-weight: 700; background: var(--off-white); color: var(--gray);">1ヶ月あたり<br>(目安)</td>
-                                <td style="font-size: 1rem; color: var(--gray);">約8.5万円</td>
+                                <td style="font-weight: 700; background: var(--off-white); color: var(--gray);">1ヶ月あたり(目安)</td>
                                 <td class="ark-col" style="font-size: 1.1rem; color: var(--navy);">約11万円</td>
-                                <td style="font-size: 1rem; color: var(--white); background: var(--navy);">約13.4万円</td>
                             </tr>
                             <tr>
                                 <td style="font-weight: 700; background: var(--off-white);">一括料金(税込)</td>
-                                <td style="font-size: 1.2rem; font-weight: 700;">¥770,000</td>
                                 <td class="ark-col" style="font-size: 1.5rem; color: var(--navy);">¥990,000</td>
-                                <td style="font-size: 1.2rem; font-weight: 700;">¥1,210,000</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1502,51 +1375,6 @@
     </footer>
 
     <script>
-        // Count Up Animation
-        document.addEventListener("DOMContentLoaded", () => {
-            const counters = document.querySelectorAll('.count-up');
-            const speed = 2000; 
-
-            const animateCounters = () => {
-                counters.forEach(counter => {
-                    const updateCount = () => {
-                        const target = +counter.getAttribute('data-target');
-                        const count = +counter.innerText;
-                        
-                        const isFloat = target % 1 !== 0;
-                        const increment = target / (speed / 16);
-
-                        if (count < target) {
-                            if(isFloat) {
-                                counter.innerText = (count + increment).toFixed(1);
-                            } else {
-                                counter.innerText = Math.ceil(count + increment);
-                            }
-                            setTimeout(updateCount, 16);
-                        } else {
-                            counter.innerText = target;
-                        }
-                    };
-                    updateCount();
-                });
-            };
-
-            const observerOptions = { threshold: 0.5 };
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounters();
-                        observer.disconnect();
-                    }
-                });
-            }, observerOptions);
-
-            const target = document.querySelector('.hero-impact');
-            if (target) {
-                observer.observe(target);
-            }
-        });
-
         // FAQ Accordion
         document.querySelectorAll('.faq-q').forEach(q => {
             q.addEventListener('click', () => {
