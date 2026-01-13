@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17830636955"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
+     
       gtag('config', 'AW-17830636955');
     </script>
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -20,11 +19,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ark College | 総合型選抜専門の完全オンライン塾 - 難関大合格率86.7%</title>
     <meta name="description" content="実績・実力不足を「戦略」で覆す。合格率86.7%のプロフェッショナル指導。1学年6名限定、48時間以内添削保証の総合型選抜専門塾。">
-    
+     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:wght@400;600;700;900&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     
     <style>
         :root {
             --navy: #0A1628;
@@ -386,6 +386,85 @@
         .value-title { font-size: 1.1rem; margin-bottom: 1rem; color: var(--navy); font-weight: 700; height: 3em; display: flex; align-items: center; }
         .value-desc { font-size: 0.9rem; color: var(--gray); line-height: 1.6; }
 
+        /* --- New: Session Flow (LPO Add) --- */
+        .session-flow-container {
+            margin-top: 5rem;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            border-top: 4px solid var(--navy);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .flow-header {
+            text-align: center;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 2.5rem;
+            font-size: 1.2rem;
+            font-family: 'Noto Serif JP', serif;
+        }
+        .flow-steps {
+            display: flex;
+            gap: 1.5rem;
+            align-items: stretch;
+            position: relative;
+        }
+        .flow-step {
+            flex: 1;
+            background: var(--off-white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            position: relative;
+            border: 1px solid var(--gray-light);
+            transition: transform 0.3s;
+        }
+        .flow-step:hover {
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+        .flow-time {
+            display: inline-block;
+            background: var(--navy);
+            color: var(--gold);
+            font-size: 0.8rem;
+            padding: 3px 10px;
+            border-radius: 4px;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+        .flow-step-title {
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            font-size: 1.05rem;
+            color: var(--navy);
+            border-bottom: 2px solid var(--gold-light);
+            display: inline-block;
+            padding-bottom: 2px;
+        }
+        .flow-step-desc {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.7;
+            text-align: left;
+        }
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+        .flow-note {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--gray);
+            background: #fffcf2;
+            padding: 0.8rem;
+            border-radius: 4px;
+        }
+
         /* --- Proof --- */
         .proof { 
             background-color: var(--navy); 
@@ -462,12 +541,71 @@
         .profile-content h3 { font-size: 1.8rem; margin-bottom: 0.5rem; }
         .profile-role { color: var(--gold); font-weight: 700; margin-bottom: 1.5rem; font-size: 0.9rem; letter-spacing: 0.1em; }
 
+        /* New: Instructor Message Box (LPO Add) */
+        .instructor-message {
+            background-color: #fff;
+            border: 1px solid var(--gold);
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border-radius: 4px;
+            position: relative;
+        }
+        .instructor-message::before {
+            content: 'Message';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 0.8rem;
+            padding: 2px 10px;
+            font-weight: bold;
+            border-radius: 2px;
+        }
+        .instructor-message p {
+            font-size: 0.95rem;
+            color: var(--navy);
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+        }
+        .instructor-message p:last-child { margin-bottom: 0; }
+        
         /* --- Offer --- */
         .campaign-grid {
             margin-top: 3rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
+        }
+        
+        /* New: Warning Text (LPO Add) */
+        .warning-box {
+            background: #fff0f0;
+            border: 2px solid var(--alert-red);
+            padding: 1rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+            text-align: left;
+        }
+        .warning-title {
+            color: var(--alert-red);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        .warning-title::before {
+            content: '!';
+            display: inline-block;
+            width: 20px; height: 20px;
+            background: var(--alert-red);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 0.8rem;
+            margin-right: 8px;
         }
 
         /* --- FAQ --- */
@@ -744,6 +882,11 @@
             .btn-icon { font-size: 1.4rem; margin-right: 0.4rem; }
             .btn-main { font-size: 0.8rem; }
             .btn-sub { font-size: 0.55rem; }
+
+            /* Session Flow SP Adjustments */
+            .flow-steps { flex-direction: column; }
+            .flow-arrow { transform: rotate(90deg); justify-content: center; margin: 0.5rem 0; font-size: 1.2rem; }
+            .flow-step { padding: 1.2rem; }
         }
     </style>
 </head>
@@ -911,10 +1054,34 @@
                     <p class="value-desc">単なる合格テクニックではなく、大学入学後、そしてビジネスの場でも武器になる「論理的思考力」を養います。</p>
                 </div>
             </div>
-        </div>
+
+            <div class="session-flow-container">
+                <h3 class="flow-header">Q. 週1回50分で、何をするのですか？<br><span style="font-size: 1rem; font-weight: normal; margin-top: 0.5rem; display: block;">A. 『思考』を『成果物』に変える濃密な50分です。</span></h3>
+                <div class="flow-steps">
+                    <div class="flow-step">
+                        <div class="flow-time">0-10分</div>
+                        <div class="flow-step-title">進捗管理</div>
+                        <p class="flow-step-desc">1週間の学習状況を確認し、サボりや遅れを防ぎます。</p>
+                    </div>
+                    <div class="flow-arrow"><i class="fa-solid fa-angle-right"></i></div>
+                    <div class="flow-step">
+                        <div class="flow-time">10-40分</div>
+                        <div class="flow-step-title">壁打ち・深化</div>
+                        <p class="flow-step-desc">「なぜそう考えたの？」「具体的には？」と講師が問いかけ続けることで、一人では辿り着けない深さまで思考を掘り下げます。この対話自体が、面接対策になります。</p>
+                    </div>
+                    <div class="flow-arrow"><i class="fa-solid fa-angle-right"></i></div>
+                    <div class="flow-step">
+                        <div class="flow-time">40-50分</div>
+                        <div class="flow-step-title">戦略立案</div>
+                        <p class="flow-step-desc">「来週までにこの本を読んで、ここを書いてくる」という具体的なTo Doを決定します。</p>
+                    </div>
+                </div>
+                <div class="flow-note">【安心の証】 セッションの内容は全てログ（記録）に残し、保護者様も透明性を持ってご確認いただけます。</div>
+            </div>
+            </div>
     </section>
 
-    <section class="section proof">
+    <section class="section proof"> 
         <div class="container">
             <div style="display:inline-block; border-bottom: 2px solid var(--gold); padding-bottom: 10px; margin-bottom: 20px;">
                 <span style="font-size: 1rem; letter-spacing: 0.2em; color: var(--gold);">RESULTS</span>
@@ -939,7 +1106,7 @@
 
     <section class="section authority">
         <div class="container">
-            <h2 class="text-center" style="margin-bottom: 3rem;">講師紹介</h2>
+            <h2 class="text-center" style="margin-bottom: 3rem;">受験生の『個性』を、合格する『強み』へ。<br class="sp-br">私が最後まで伴走します。</h2>
             <div class="profile-box">
                 <img src="president.webp" alt="Noah M." class="profile-img">
                 <div class="profile-content">
@@ -949,6 +1116,13 @@
                     <p>慶應義塾大学法学部FIT入試A・B両方式で現役ダブル合格した経験をもとに、総合型選抜の指導分野に参画。大手総合型選抜塾「洋々」では4年間にわたりメンター講師として在籍し、多数の難関大学合格者を輩出。また、新規総合型選抜塾の立ち上げにおいては事業責任者を務め、指導ノウハウの体系化と組織運営を統括した。</p>
                     <p>さらに、大手外資系企業でマーケターとして勤務。市場分析、戦略立案、高い論理的思考力を実務を通じて培う。</p>
                     <p>合格実績と実務経験に基づき、受験生に対して「合格」と「社会で通用する能力」を両立させる最高水準の総合型選抜指導を提供する。</p>
+                    
+                    <div class="instructor-message">
+                        <p>「実績がないから」と諦めないでください。</p>
+                        <p>保護者様からよく「うちの子は特別な賞もリーダー経験もなくて...」とご相談をいただきます。ですが、ご安心ください。総合型選抜で問われるのは、派手な実績ではなく「その子だけの視点」と「論理的な思考力」です。</p>
+                        <p>私は「外資系マーケター」という経歴を持っていますが、指導において大切にしているのは<strong>「生徒の想いを否定しないこと」</strong>です。生徒一人ひとりの雑談のような会話から原石を見つけ出し、大学教授が納得するレベルの志望理由書へと磨き上げる。それが私の役割です。時には厳しく戦略を練ることもありますが、それは合格への責任感ゆえです。どうぞ、私にお子様の可能性を預けてみてください。</p>
+                    </div>
+
                     <a href="https://note.com/ark_college/n/ne06612120422" target="_blank" class="note-link"><span class="note-icon">🎤</span>代表インタビューを読む(note)</a>
                 </div>
             </div>
@@ -1060,6 +1234,45 @@
                 </div>
             </div>
 
+            <div class="warning-box">
+                <div class="warning-title">【重要】「後出し請求」は一切ありません。</div>
+                <p style="font-size: 0.95rem; line-height: 1.6;">
+                    多くの予備校では、入塾後に「夏期講習費（約20万）」「合宿費（約10万）」「直前対策講座（約20万）」などが追加で発生し、最終的な総額が150万円を超えるケースが少なくありません。<br>
+                    アークカレッジは、提示している「月謝」または「パッケージ料金」が全てです。高額な季節講習や、謎の教材費を追加請求することは絶対にございません。「総額」で比較していただければ、大手塾よりも適正かつ明朗な価格であることをお約束します。
+                </p>
+            </div>
+
+            <div style="background: #fff; border: 2px solid var(--navy); border-radius: 8px; padding: 2rem; margin-top: 2rem;">
+                <h3 class="text-center" style="font-size: 1.5rem; margin-bottom: 2rem; color: var(--navy);"><span style="background: linear-gradient(transparent 70%, var(--gold-light) 70%);">「総額」で比べると、実は割安です。</span></h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-end; justify-content: center;">
+                    <div style="flex: 1; min-width: 280px; max-width: 400px; background: var(--off-white); padding: 1.5rem; border-radius: 8px; position: relative;">
+                        <div style="text-align: center; font-weight: 700; margin-bottom: 1rem; color: var(--gray);">一般的な総合型選抜塾<br><span style="font-size: 0.8rem; font-weight: normal;">(高3 4月〜12月入試までの例)</span></div>
+                        <div style="border-left: 4px solid var(--gray); padding-left: 1rem; margin-bottom: 1rem;">
+                            <div style="margin-bottom: 0.5rem; display: flex; justify-content: space-between;"><span>入塾金・諸経費</span><span style="font-weight: 700;">約10万円</span></div>
+                            <div style="margin-bottom: 0.5rem; display: flex; justify-content: space-between;"><span>月謝(9ヶ月)</span><span style="font-weight: 700;">約45万円</span></div>
+                            <div style="margin-bottom: 0.5rem; display: flex; justify-content: space-between; color: var(--alert-red);"><span>夏期講習費</span><span style="font-weight: 700;">約20万円</span></div>
+                            <div style="margin-bottom: 0.5rem; display: flex; justify-content: space-between; color: var(--alert-red);"><span>直前対策講座</span><span style="font-weight: 700;">約20万円</span></div>
+                        </div>
+                        <div style="border-top: 2px solid var(--gray); padding-top: 1rem; text-align: right;">
+                            <span style="font-size: 0.9rem;">予想支払総額</span><br><span style="font-size: 1.8rem; font-weight: 700; color: var(--gray);">約110万円〜</span>
+                        </div>
+                        <div style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--gray); color: #fff; font-size: 0.7rem; padding: 2px 8px; border-radius: 4px;">積み上げ式</div>
+                    </div>
+                    <div style="font-weight: 900; color: var(--gold); font-size: 1.5rem; padding: 0 1rem;">VS</div>
+                    <div style="flex: 1; min-width: 280px; max-width: 400px; background: #FFFCF2; border: 2px solid var(--gold); padding: 1.5rem; border-radius: 8px; position: relative; box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);">
+                        <div style="text-align: center; font-weight: 700; margin-bottom: 1rem; color: var(--navy);">Ark College<br><span style="font-size: 0.8rem; font-weight: normal;">(難関大コースの場合)</span></div>
+                        <div style="border-left: 4px solid var(--gold); padding-left: 1rem; margin-bottom: 1rem;">
+                            <div style="margin-bottom: 0.5rem; display: flex; justify-content: space-between;"><span>パッケージ料金</span><span style="font-weight: 700;">99万円</span></div>
+                            <div style="margin-bottom: 0.5rem; display: flex; justify-content: space-between; color: var(--gold);"><span>追加講習費・教材費</span><span style="font-weight: 700;">0円</span></div>
+                        </div>
+                        <div style="border-top: 2px solid var(--gold); padding-top: 1rem; text-align: right;">
+                            <span style="font-size: 0.9rem; color: var(--navy);">確定支払総額</span><br><span style="font-size: 2rem; font-weight: 700; color: var(--navy);">99万円</span><br><span style="font-size: 0.8rem; color: var(--alert-red); font-weight: 700;">これ以上の追加請求なし</span>
+                        </div>
+                        <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--navy); font-weight: 700; font-size: 0.8rem; padding: 4px 12px; border-radius: 4px; border: 1px solid var(--navy);">定額・完結型</div>
+                    </div>
+                </div>
+            </div>
+
             <div class="campaign-grid">
                 <div style="background: var(--navy); color: var(--white); padding: 2rem; border-radius: 4px; text-align: center;">
                     <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--gold);">入塾金キャンペーン</h3>
@@ -1104,7 +1317,7 @@
             <p class="text-center" style="margin-bottom: 2rem;">カリキュラム詳細や合格実績をまとめた資料をお送りします。<br>入塾を検討中の方は、まずはお気軽に資料をご請求ください。</p>
             <div class="material-form-box">
                 <form id="materialForm" action="https://formspree.io/f/mdakbvre" method="POST">
-                    
+                     
                     <div class="form-group">
                         <label class="form-label" for="name">
                             お名前 <span class="label-required">必須</span>
@@ -1158,10 +1371,10 @@
     <script>
         document.getElementById('materialForm').addEventListener('submit', function(e) {
             e.preventDefault(); // Formspreeの標準画面への移動をキャンセル
-            
+             
             var form = this;
             var button = document.getElementById('submitButton');
-            
+             
             // ボタンを連打できないように無効化し、テキストを変更
             button.disabled = true;
             button.innerText = '送信中...';
@@ -1261,7 +1474,7 @@
                     <span class="btn-main">LINEで資料請求</span>
                 </div>
             </a>
-            
+             
             <a href="#contact" class="btn btn-primary btn-cta-consult">
                 <span class="btn-icon">📅</span>
                 <div class="btn-text-group">
