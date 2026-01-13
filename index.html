@@ -96,9 +96,8 @@
             box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
         }
         
-        /* FV Button Adjustment */
         .hero-btn {
-            padding: 1rem 2rem !important; /* Reduced padding */
+            padding: 1rem 2rem !important;
             font-size: 1rem !important;
             max-width: 400px !important;
         }
@@ -200,7 +199,7 @@
             display: inline-block;
         }
 
-        /* Hero Features List (Replaced Stats) */
+        /* Hero Features List */
         .hero-features {
             display: flex;
             flex-direction: column;
@@ -234,16 +233,19 @@
             line-height: 1.5;
             color: rgba(255,255,255,0.9);
         }
+        /* Highlight Number Style (Gold Gradient) */
         .pass-rate-highlight {
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--white);
+            font-weight: 900;
             line-height: 1;
             margin-top: 0.5rem;
             display: block;
+            background: linear-gradient(135deg, #FFD700 0%, #FDB931 50%, #FFD700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
         }
-        .pass-rate-label { font-size: 0.9rem; color: rgba(255,255,255,0.7); font-family: 'Noto Sans JP', sans-serif; font-weight: normal; margin-left: 10px; vertical-align: middle;}
 
         /* --- Ticker --- */
         .ticker-wrapper {
@@ -312,7 +314,7 @@
         }
         /* Scroll Hint Overlay */
         .scroll-hint-overlay {
-            display: none; /* Desktop hidden */
+            display: none; 
             position: absolute;
             top: 0; right: 0; bottom: 1rem;
             width: 50px;
@@ -377,6 +379,16 @@
         }
         .comparison-table tr:last-child td.ark-col { border-bottom: 2px solid var(--gold); }
 
+        /* High 3 Table Mobile Fix */
+        .table-fit-mobile {
+            min-width: 100% !important;
+            table-layout: fixed;
+        }
+        .table-fit-mobile th, .table-fit-mobile td {
+            white-space: normal;
+            word-wrap: break-word;
+        }
+
         /* --- Value --- */
         .value { background: var(--off-white); }
         .value-grid {
@@ -403,85 +415,6 @@
         }
         .value-title { font-size: 1.1rem; margin-bottom: 1rem; color: var(--navy); font-weight: 700; height: 3em; display: flex; align-items: center; }
         .value-desc { font-size: 0.9rem; color: var(--gray); line-height: 1.6; }
-
-        /* Session Flow */
-        .session-flow-container {
-            margin-top: 5rem;
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 8px;
-            border-top: 4px solid var(--navy);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-        .flow-header {
-            text-align: center;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 2.5rem;
-            font-size: 1.2rem;
-            font-family: 'Noto Serif JP', serif;
-        }
-        .flow-steps {
-            display: flex;
-            gap: 1.5rem;
-            align-items: stretch;
-            position: relative;
-        }
-        .flow-step {
-            flex: 1;
-            background: var(--off-white);
-            padding: 1.5rem;
-            border-radius: 8px;
-            position: relative;
-            border: 1px solid var(--gray-light);
-            transition: transform 0.3s;
-        }
-        .flow-step:hover {
-            border-color: var(--gold);
-            transform: translateY(-3px);
-        }
-        .flow-time {
-            display: inline-block;
-            background: var(--navy);
-            color: var(--gold);
-            font-size: 0.8rem;
-            padding: 3px 10px;
-            border-radius: 4px;
-            margin-bottom: 0.8rem;
-            font-weight: 700;
-            font-family: 'Playfair Display', serif;
-        }
-        .flow-step-title {
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-            font-size: 1.05rem;
-            color: var(--navy);
-            border-bottom: 2px solid var(--gold-light);
-            display: inline-block;
-            padding-bottom: 2px;
-        }
-        .flow-step-desc {
-            font-size: 0.9rem;
-            color: var(--gray);
-            line-height: 1.7;
-            text-align: left;
-        }
-        .flow-arrow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gold);
-            font-size: 1.5rem;
-        }
-        .flow-note {
-            margin-top: 1.5rem;
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--gray);
-            background: #fffcf2;
-            padding: 0.8rem;
-            border-radius: 4px;
-        }
 
         /* --- Proof --- */
         .proof { 
@@ -527,7 +460,7 @@
             transform: scale(1.05);
         }
 
-        /* --- Authority (Width Fix) --- */
+        /* --- Authority --- */
         .profile-box {
             display: flex;
             align-items: flex-start;
@@ -535,7 +468,6 @@
             background: var(--off-white);
             padding: 3rem;
             border: 1px solid var(--gray-light);
-            /* Ensure layout doesn't cramp text */
             flex-wrap: nowrap;
         }
         .profile-img {
@@ -545,7 +477,6 @@
             flex-shrink: 0;
             border: 4px solid var(--gold);
         }
-        /* Allow profile content to take more width */
         .profile-content { flex: 1; min-width: 0; }
         .profile-content h3 { font-size: 1.8rem; margin-bottom: 0.5rem; }
         .profile-role { color: var(--gold); font-weight: 700; margin-bottom: 1.5rem; font-size: 0.9rem; letter-spacing: 0.1em; }
@@ -769,10 +700,6 @@
             .btn-icon { font-size: 1.4rem; margin-right: 0.4rem; }
             .btn-main { font-size: 0.8rem; }
             .btn-sub { font-size: 0.55rem; }
-
-            .flow-steps { flex-direction: column; }
-            .flow-arrow { transform: rotate(90deg); justify-content: center; margin: 0.5rem 0; font-size: 1.2rem; }
-            .flow-step { padding: 1.2rem; }
         }
     </style>
 </head>
@@ -938,32 +865,7 @@
                     <p class="value-desc">単なる合格テクニックではなく、大学入学後、そしてビジネスの場でも武器になる「論理的思考力」を養います。</p>
                 </div>
             </div>
-
-            <div class="session-flow-container">
-                <h3 class="flow-header">Q. 週1回50分で、何をするのですか？<br><span style="font-size: 1rem; font-weight: normal; margin-top: 0.5rem; display: block;">A. 『思考』を『成果物』に変える濃密な50分です。</span></h3>
-                <div class="flow-steps">
-                    <div class="flow-step">
-                        <div class="flow-time">0-10分</div>
-                        <div class="flow-step-title">進捗管理</div>
-                        <p class="flow-step-desc">1週間の学習状況を確認し、サボりや遅れを防ぎます。</p>
-                    </div>
-                    <div class="flow-arrow"><i class="fa-solid fa-angle-right"></i></div>
-                    <div class="flow-step">
-                        <div class="flow-time">10-40分</div>
-                        <div class="flow-step-title">壁打ち・深化</div>
-                        <p class="flow-step-desc">「なぜそう考えたの？」「具体的には？」と講師が問いかけ続けることで、一人では辿り着けない深さまで思考を掘り下げます。この対話自体が、面接対策になります。</p>
-                    </div>
-                    <div class="flow-arrow"><i class="fa-solid fa-angle-right"></i></div>
-                    <div class="flow-step">
-                        <div class="flow-time">40-50分</div>
-                        <div class="flow-step-title">戦略立案</div>
-                        <p class="flow-step-desc">「来週までにこの本を読んで、ここを書いてくる」という具体的なTo Doを決定します。</p>
-                    </div>
-                </div>
-                <div class="flow-note">【安心の証】 セッションの内容は全てログ（記録）に残し、保護者様も透明性を持ってご確認いただけます。</div>
             </div>
-            
-        </div>
     </section>
 
     <section class="section proof"> 
@@ -1059,12 +961,12 @@
 
             <div class="plan-section">
                 <div class="plan-header" style="background: var(--gold); color: var(--navy); padding: 1rem; border-radius: 4px 4px 0 0; display: flex; justify-content: space-between; align-items: center;">
-                    <span style="font-weight: 700;">【高3生】合格完遂コース</span>
+                    <span style="font-weight: 700;">【高3生】難関大コース</span>
                     <span style="background: var(--navy); color: var(--white); font-size: 0.8rem; padding: 0.2rem 0.8rem; border-radius: 2px; font-weight: 700;">パッケージ制</span>
                 </div>
                 
                 <div class="pricing-table-wrapper" style="overflow-x: auto;">
-                    <table class="comparison-table" style="margin-top: 0; box-shadow: none; border: 1px solid var(--gray-light); min-width: auto;">
+                    <table class="comparison-table table-fit-mobile" style="margin-top: 0; box-shadow: none; border: 1px solid var(--gray-light); min-width: auto;">
                         <thead>
                             <tr>
                                 <th style="background: var(--off-white); color: var(--navy); width: 35%;">プラン名</th>
@@ -1072,10 +974,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td style="font-weight: 700; background: var(--off-white);">志望校ライン</td>
-                                <td class="ark-col">国公立、早慶上智、ICU 等</td>
-                            </tr>
                             <tr>
                                 <td style="font-weight: 700; background: var(--off-white);">対策校数</td>
                                 <td class="ark-col">3校（3学部）</td>
@@ -1122,12 +1020,12 @@
                         <div style="text-align: center; font-weight: 700; margin-bottom: 1rem; color: var(--gray);">一般的な総合型選抜塾<br><span style="font-size: 0.8rem; font-weight: normal;">(高3 4月〜12月入試までの例)</span></div>
                         <div style="border-left: 4px solid var(--gray); padding-left: 1rem; margin-bottom: 1rem;">
                             <div style="margin-bottom: 0.5rem; display: flex; justify-content: space-between;"><span>入塾金・諸経費</span><span style="font-weight: 700;">約10万円</span></div>
-                            <div style="margin-bottom: 0.5rem; display: flex; justify-content: space-between;"><span>月謝(9ヶ月)</span><span style="font-weight: 700;">約45万円</span></div>
+                            <div style="margin-bottom: 0.5rem; display: flex; justify-content: space-between;"><span>月謝(9ヶ月)</span><span style="font-weight: 700;">約54万円</span></div>
                             <div style="margin-bottom: 0.5rem; display: flex; justify-content: space-between; color: var(--alert-red);"><span>夏期講習費</span><span style="font-weight: 700;">約20万円</span></div>
                             <div style="margin-bottom: 0.5rem; display: flex; justify-content: space-between; color: var(--alert-red);"><span>直前対策講座</span><span style="font-weight: 700;">約20万円</span></div>
                         </div>
                         <div style="border-top: 2px solid var(--gray); padding-top: 1rem; text-align: right;">
-                            <span style="font-size: 0.9rem;">予想支払総額</span><br><span style="font-size: 1.8rem; font-weight: 700; color: var(--gray);">約110万円〜</span>
+                            <span style="font-size: 0.9rem;">予想支払総額</span><br><span style="font-size: 1.8rem; font-weight: 700; color: var(--gray);">約115万円〜</span>
                         </div>
                         <div style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--gray); color: #fff; font-size: 0.7rem; padding: 2px 8px; border-radius: 4px;">積み上げ式</div>
                     </div>
