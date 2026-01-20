@@ -168,6 +168,20 @@
         .note-link:hover { color: var(--gold); border-color: var(--gold); }
         .note-icon { margin-right: 0.5rem; width: 20px; }
 
+        /* --- Header & Header CTA --- */
+        .site-header {
+            position: absolute; top: 0; left: 0; width: 100%; padding: 1.5rem; z-index: 100;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .header-line-btn {
+            background: #06C755; color: white; padding: 0.6rem 1.2rem;
+            border-radius: 30px; text-decoration: none; font-weight: 700;
+            font-size: 0.9rem; box-shadow: 0 4px 10px rgba(6, 199, 85, 0.3);
+            transition: opacity 0.3s;
+            display: flex; align-items: center; gap: 5px;
+        }
+        .header-line-btn:hover { opacity: 0.9; }
+
         /* --- Hero Section --- */
         .hero-impact {
             min-height: 100vh;
@@ -744,6 +758,10 @@
             .impact-headline { font-size: 2.2rem; margin-bottom: 1rem; }
             .impact-sub { font-size: 0.9rem; margin-bottom: 2rem; }
             
+            /* Header */
+            .site-header { padding: 1rem; }
+            .header-line-btn { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
+
             /* Profile Width Fix SP */
             .profile-box { flex-direction: column; text-align: center; align-items: center; padding: 2rem 1.5rem; }
             .profile-content { width: 100%; }
@@ -769,11 +787,16 @@
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T45G5L3K"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <header style="position: absolute; top: 0; left: 0; width: 100%; padding: 1.5rem; z-index: 100; display: flex; align-items: center;">
+    
+    <header class="site-header">
         <a href="https://www.ark-college.com/" target="_blank" rel="noopener" style="display: block; transition: opacity 0.3s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
             <img src="logo.webp" alt="Ark College 公式HP" style="height: 40px; width: auto; display: block;">
         </a>
+        <a href="https://lin.ee/Uq7uW97" target="_blank" class="header-line-btn">
+            <i class="fa-brands fa-line" style="font-size: 1.2rem;"></i> <span>資料請求</span>
+        </a>
     </header>
+
     <section class="hero-impact" id="top">
         <div class="impact-container">
             <div class="impact-copy">
@@ -805,12 +828,14 @@
             <div class="hero-actions">
                 <a href="#contact" class="btn btn-primary hero-btn">
                     無料受験戦略コンサルに申し込む
+                    <span class="btn-micro">（残席わずか）</span>
                 </a>
 
                 <a href="https://lin.ee/Uq7uW97" target="_blank" class="btn btn-line-hero hero-btn">
                     <i class="fa-brands fa-line" style="margin-right: 0.8rem; font-size: 1.3rem;"></i>
                     <div>
-                        LINEで資料請求
+                        資料請求・限定ノウハウ受取
+                        <span class="btn-micro" style="margin-top:0;">(LINE友だち追加)</span>
                     </div>
                 </a>
             </div>
@@ -845,6 +870,11 @@
             </div>
             <div class="problem-solution">
                 <p>アークカレッジなら、<br>これら全ての不安を解消し、<br>あなたのポテンシャルを<span class="text-gold" style="border-bottom: 2px solid var(--gold);">合格に繋げます。</span></p>
+            </div>
+            <div style="text-align: center; margin-top: 2.5rem;">
+                <a href="https://lin.ee/Uq7uW97" target="_blank" class="btn btn-line" style="padding: 0.8rem 2rem; font-size: 1rem; box-shadow: 0 5px 15px rgba(6, 199, 85, 0.2);">
+                    <i class="fa-brands fa-line" style="margin-right: 8px;"></i> その不安、LINEで解決のヒントを得ませんか？
+                </a>
             </div>
         </div>
     </section>
@@ -956,6 +986,13 @@
                 <div class="univ-item">横浜国立大学</div>
                 <div class="univ-item">一橋大学</div>
                 <div class="univ-item">同志社大学</div>
+            </div>
+
+            <div style="margin-top: 3rem; background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2);">
+                <p style="font-weight: 700; margin-bottom: 1rem; font-size: 1.1rem; color: #fff;">なぜ、実績ゼロから難関大に受かるのか？<br>合格者の「戦略」をLINEで公開中</p>
+                <a href="https://lin.ee/Uq7uW97" target="_blank" class="btn btn-line" style="background: #06C755; color: #fff; border: none; box-shadow: 0 5px 15px rgba(0,0,0,0.3); font-size: 1rem; padding: 0.8rem 2rem;">
+                    <i class="fa-brands fa-line" style="margin-right: 8px;"></i> 合格者の書類作成のポイントを見る
+                </a>
             </div>
         </div>
     </section>
