@@ -693,6 +693,36 @@
         .btn-sub { font-size: 0.65rem; opacity: 0.9; font-weight: normal; display: block; }
         .btn-main { font-size: 0.9rem; font-weight: 700; display: block; white-space: nowrap; }
 
+        /* --- FV CTA Area --- */
+        .hero-actions {
+            grid-column: 1 / -1; /* PCで全幅表示 */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* 中央揃え */
+            gap: 1.2rem;
+            margin-top: 3rem;
+            width: 100%;
+        }
+        .btn-line-hero {
+            background: #06C755;
+            color: #FFFFFF;
+            box-shadow: 0 10px 20px rgba(6, 199, 85, 0.2);
+            border: none;
+        }
+        .btn-line-hero:hover {
+            background: #05b34c;
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(6, 199, 85, 0.3);
+        }
+        /* コンサルボタンと幅・形状を揃える */
+        .hero-actions .btn {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         /* Media */
         .media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
         .media-card { background: var(--white); border: 1px solid var(--gray-light); display: flex; flex-direction: column; text-decoration: none; color: var(--navy); transition: all 0.4s ease; height: 100%; overflow: hidden; }
@@ -752,13 +782,6 @@
                     総合型選抜を、<br>
                     <span class="text-gold-gradient">戦略</span>で突破する。
                 </h1>
-                
-                <div>
-                    <a href="#contact" class="btn btn-primary hero-btn">
-                        無料受験戦略コンサルに申し込む
-                        <span class="btn-micro">（残席わずか）</span>
-                    </a>
-                </div>
             </div>
 
             <div class="hero-features">
@@ -777,6 +800,21 @@
                         第一志望合格率 <span class="pass-rate-highlight">86.7<span style="font-size: 0.5em;">%</span></span>
                     </div>
                 </div>
+            </div>
+
+            <div class="hero-actions">
+                <a href="#contact" class="btn btn-primary hero-btn">
+                    無料受験戦略コンサルに申し込む
+                    <span class="btn-micro">（残席わずか）</span>
+                </a>
+
+                <a href="https://lin.ee/Uq7uW97" target="_blank" class="btn btn-line-hero hero-btn">
+                    <i class="fa-brands fa-line" style="margin-right: 0.8rem; font-size: 1.3rem;"></i>
+                    <div>
+                        資料請求・限定ノウハウ受取
+                        <span class="btn-micro" style="margin-top:0;">(LINE友だち追加)</span>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
