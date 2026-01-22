@@ -50,8 +50,8 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ark College | 総合型選抜専門の完全オンライン塾 - 難関大合格率86.7%</title>
-    <meta name="description" content="実績・実力不足を「戦略」で覆す。合格率86.7%のプロフェッショナル指導。1学年6名限定、48時間以内添削保証の総合型選抜専門塾。">
+    <title>Ark College | 総合型選抜(AO入試)専門の完全オンライン塾</title>
+    <meta name="description" content="添削無制限×完全マンツーマン指導。合格率86.7%の実績を持つプロフェッショナル指導。今だけ入会金無料キャンペーン実施中。">
       
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -153,18 +153,19 @@
 
         /* --- Header --- */
         .site-header {
-            position: absolute; top: 0; left: 0; width: 100%; padding: 1.5rem; z-index: 100;
+            position: absolute; top: 0; left: 0; width: 100%; padding: 1rem 1.5rem; z-index: 100;
             display: flex; align-items: center; justify-content: space-between;
         }
         .header-line-btn {
-            background: var(--line-green); color: white; padding: 0.6rem 1.2rem;
+            background: var(--line-green); color: white; padding: 0.5rem 1rem;
             border-radius: 30px; text-decoration: none; font-weight: 700;
-            font-size: 0.9rem; box-shadow: 0 4px 10px rgba(6, 199, 85, 0.3);
-            transition: opacity 0.3s; display: flex; align-items: center; gap: 5px;
+            font-size: 0.85rem; box-shadow: 0 4px 10px rgba(6, 199, 85, 0.3);
+            display: flex; align-items: center; gap: 5px;
         }
 
-        /* --- Hero Section (Improved Visual) --- */
+        /* --- Hero Section (Optimized for One-Screen Mobile) --- */
         .hero-impact {
+            /* PC: Full Height */
             min-height: 100vh;
             position: relative;
             display: flex;
@@ -172,10 +173,9 @@
             justify-content: center;
             padding-top: 80px;
             background-color: #050b14;
-            /* 背景画像のオーバーレイ調整 */
             background-image: 
-                linear-gradient(rgba(5, 11, 20, 0.8), rgba(5, 11, 20, 0.9)),
-                url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop'); /* ダミー画像: 学習イメージ */
+                linear-gradient(rgba(5, 11, 20, 0.85), rgba(5, 11, 20, 0.95)),
+                url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             color: white;
@@ -185,94 +185,110 @@
             max-width: 1100px;
             width: 100%;
             margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 1fr; /* 1カラムで中央寄せに変更 */
-            gap: 3rem;
+            padding: 0 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
             position: relative;
             z-index: 2;
         }
 
-        .limit-tag-box {
-            display: inline-block;
-            border: 1px solid var(--gold);
+        /* Hero: Top Label */
+        .hero-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
             color: var(--gold);
-            padding: 0.5rem 1.5rem;
-            font-size: 0.9rem;
-            letter-spacing: 0.2em;
-            margin-bottom: 2rem;
-            background: rgba(10, 22, 40, 0.6);
-            backdrop-filter: blur(5px);
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            display: inline-block;
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 5px;
         }
 
-        .impact-headline {
+        /* Hero: Main Headline (Modified for Mobile fit) */
+        .hero-headline {
             font-family: 'Noto Serif JP', serif;
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             font-weight: 900;
-            line-height: 1.3;
+            line-height: 1.2;
             color: var(--white);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             letter-spacing: -0.02em;
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
+        .hero-headline span.x-mark {
+            color: var(--gold);
+            font-size: 0.8em;
+            vertical-align: middle;
+            margin: 0 0.2rem;
+        }
 
-        .text-gold-gradient {
-            background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #AA771C 100%);
+        /* Hero: Campaign Ribbon */
+        .campaign-ribbon {
+            background: linear-gradient(90deg, #c0392b 0%, #e74c3c 50%, #c0392b 100%);
+            color: white;
+            padding: 0.6rem 2rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+            animation: pulse-red 2s infinite;
+            white-space: nowrap;
+        }
+        @keyframes pulse-red {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        /* Hero: Proof (Big Number) */
+        .proof-display {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            line-height: 1;
+        }
+        .proof-label { font-size: 1rem; font-weight: 700; margin-bottom: 5px; opacity: 0.9; }
+        .proof-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--gold);
+            font-weight: 900;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            background: -webkit-linear-gradient(#fff, #D4AF37);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
+        .proof-sub { font-size: 0.9rem; opacity: 0.8; margin-top: 5px; }
 
-        .hero-features {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-        .hero-feature-item {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 1rem 1.5rem;
-            border-radius: 4px;
-            backdrop-filter: blur(5px);
-            color: var(--white);
-            text-align: left;
-            max-width: 320px;
-        }
-        .feature-title {
-            color: var(--gold);
-            font-weight: 700;
-            margin-bottom: 0.2rem;
-        }
-        .feature-desc {
-            font-size: 0.85rem;
-            opacity: 0.9;
-        }
-
+        /* Hero: CTA */
         .hero-actions {
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 1rem;
-            width: 100%;
         }
         .btn-line-hero {
             background: #06C755;
             color: #FFFFFF;
             width: 100%;
-            max-width: 450px;
-            padding: 1.2rem;
+            max-width: 400px;
+            padding: 1rem;
             border-radius: 50px;
             font-size: 1.1rem;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0 0 20px rgba(6, 199, 85, 0.4);
-            animation: pulse 2s infinite;
+            animation: pulse-green 2s infinite;
+            text-decoration: none;
         }
-        @keyframes pulse {
+        @keyframes pulse-green {
             0% { box-shadow: 0 0 0 0 rgba(6, 199, 85, 0.7); }
             70% { box-shadow: 0 0 0 15px rgba(6, 199, 85, 0); }
             100% { box-shadow: 0 0 0 0 rgba(6, 199, 85, 0); }
@@ -281,37 +297,12 @@
         .sub-cta-link {
             color: rgba(255,255,255,0.7);
             text-decoration: underline;
-            font-size: 0.9rem;
-            margin-top: 10px;
+            font-size: 0.85rem;
             cursor: pointer;
         }
-        .sub-cta-link:hover { color: white; }
 
-
-        /* --- Problem --- */
-        .checklist-box {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            max-width: 800px;
-            margin: 0 auto;
-            border-top: 4px solid var(--navy);
-        }
-        .check-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-        .check-mark {
-            color: var(--alert-red);
-            font-weight: 900;
-            margin-right: 1rem;
-            font-size: 1.2rem;
-        }
-
-        /* --- Comparison Table --- */
+        /* --- Comparison Section (Responsive) --- */
+        /* PC: Table */
         .comparison-wrapper { overflow-x: auto; margin-top: 2rem; }
         .comparison-table {
             width: 100%;
@@ -335,6 +326,34 @@
         }
         .comparison-table th.ark-col { background: var(--gold); color: var(--navy); font-size: 1.2rem; }
 
+        /* SP: List/Cards (Hidden on PC) */
+        .comparison-mobile-list { display: none; }
+
+
+        /* --- Problem --- */
+        .checklist-box {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            max-width: 800px;
+            margin: 0 auto;
+            border-top: 4px solid var(--navy);
+        }
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        .check-mark {
+            color: var(--alert-red);
+            font-weight: 900;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
         /* --- Pricing (Simplified) --- */
         .pricing-simple-box {
             background: var(--white);
@@ -346,7 +365,6 @@
             margin: 0 auto;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
-        .price-label { font-size: 1.1rem; color: var(--navy); margin-bottom: 0.5rem; font-weight: 700; }
         .price-main { 
             font-family: 'Playfair Display', serif; 
             font-size: 3.5rem; 
@@ -355,7 +373,6 @@
             line-height: 1;
             margin-bottom: 0.5rem;
         }
-        .price-sub { font-size: 1rem; color: var(--gray); margin-bottom: 2rem; }
         .price-note { 
             background: var(--off-white); 
             padding: 1rem; 
@@ -366,7 +383,7 @@
             border-left: 4px solid var(--navy);
         }
 
-        /* --- Native Form Styles (New) --- */
+        /* --- Native Form Styles --- */
         .native-form-container {
             background: var(--white);
             padding: 2.5rem;
@@ -377,69 +394,10 @@
             border-top: 5px solid var(--gold);
         }
         .form-group { margin-bottom: 1.5rem; text-align: left; }
-        .form-label {
-            display: block;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-        }
-        .label-required {
-            background: var(--alert-red);
-            color: white;
-            font-size: 0.7rem;
-            padding: 2px 6px;
-            border-radius: 2px;
-            margin-left: 8px;
-            vertical-align: middle;
-        }
-        .form-control {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid var(--gray-light);
-            border-radius: 4px;
-            font-size: 1rem;
-            font-family: inherit;
-            background: #fdfdfd;
-            transition: all 0.3s;
-        }
-        .form-control:focus {
-            border-color: var(--gold);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
-            background: #fff;
-        }
-        textarea.form-control { resize: vertical; min-height: 120px; }
-        
-        .radio-group { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem; }
-        .radio-label {
-            display: flex; align-items: center; cursor: pointer;
-            background: var(--off-white); padding: 0.5rem 1rem;
-            border-radius: 30px; border: 1px solid var(--gray-light);
-            transition: all 0.2s;
-        }
-        .radio-label:hover { border-color: var(--gold); }
-        .radio-input { margin-right: 8px; accent-color: var(--gold); }
-        .radio-input:checked + span { font-weight: 700; color: var(--navy); }
-
-        .form-submit-btn {
-            width: 100%;
-            padding: 1.2rem;
-            background: var(--navy);
-            color: var(--white);
-            font-size: 1.1rem;
-            font-weight: 700;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 10px 20px rgba(10, 22, 40, 0.2);
-        }
-        .form-submit-btn:hover {
-            background: var(--navy-light);
-            transform: translateY(-2px);
-            box-shadow: 0 15px 30px rgba(10, 22, 40, 0.3);
-        }
+        .form-label { display: block; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; font-size: 0.95rem; }
+        .label-required { background: --alert-red; color: white; font-size: 0.7rem; padding: 2px 6px; border-radius: 2px; margin-left: 8px; vertical-align: middle; background-color: #c0392b; }
+        .form-control { width: 100%; padding: 1rem; border: 1px solid var(--gray-light); border-radius: 4px; font-size: 1rem; font-family: inherit; background: #fdfdfd; }
+        .form-submit-btn { width: 100%; padding: 1.2rem; background: var(--navy); color: var(--white); font-size: 1.1rem; font-weight: 700; border: none; border-radius: 4px; cursor: pointer; }
 
         /* --- Sticky CTA --- */
         .sticky-cta {
@@ -458,7 +416,6 @@
             border-radius: 8px; text-decoration: none; transition: opacity 0.3s; min-height: 54px; width: 100%;
             background: #06C755; color: #fff; box-shadow: 0 4px 10px rgba(6,199,85,0.2);
         }
-        .sticky-btn:hover { opacity: 0.9; }
         .btn-text-group { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2; text-align: left; }
         .sticky-sub { font-size: 0.65rem; opacity: 0.9; }
         .sticky-main { font-size: 0.9rem; font-weight: 700; }
@@ -466,48 +423,16 @@
         /* Media */
         .media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
         .media-card { background: var(--white); border: 1px solid var(--gray-light); display: flex; flex-direction: column; text-decoration: none; color: var(--navy); transition: all 0.4s ease; height: 100%; overflow: hidden; }
-        .media-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(10, 22, 40, 0.1); border-color: var(--gold); }
         .media-thumb { width: 100%; height: 200px; overflow: hidden; position: relative; }
-        .media-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-        .media-card:hover .media-thumb img { transform: scale(1.1); }
+        .media-thumb img { width: 100%; height: 100%; object-fit: cover; }
         .media-body { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
-        .media-date { font-size: 0.8rem; color: #B8941F; margin-bottom: 0.5rem; font-family: 'Playfair Display', serif; }
+        .media-date { font-size: 0.8rem; color: #B8941F; margin-bottom: 0.5rem; }
         .media-title { font-size: 1.2rem; font-weight: 700; line-height: 1.5; margin-bottom: 1rem; }
-        .read-more { margin-top: auto; font-size: 0.85rem; font-weight: 700; color: var(--gold); }
 
-        /* --- Footer --- */
+        /* Footer */
         footer { background: var(--navy); padding: 3rem 0; text-align: center; color: rgba(255,255,255,0.6); font-size: 0.85rem; padding-bottom: 90px; }
         footer a { color: var(--gold); text-decoration: none; }
 
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .pc-br { display: none; }
-            .sp-br { display: block; }
-            .section { padding: 4rem 0; }
-            
-            /* Hero SP */
-            .hero-impact { padding-top: 60px; min-height: auto; align-items: flex-start; padding-bottom: 4rem; }
-            .impact-container { gap: 2rem; padding: 3rem 1.5rem; }
-            .impact-headline { font-size: 2.4rem; margin-bottom: 1.5rem; }
-            
-            /* Profile */
-            .profile-box { flex-direction: column; text-align: center; align-items: center; padding: 2rem 1.5rem; }
-            .profile-content { width: 100%; }
-
-            /* Pricing */
-            .pricing-simple-box { padding: 2rem 1.5rem; }
-            .price-main { font-size: 2.8rem; }
-
-            /* Form */
-            .native-form-container { padding: 1.5rem; }
-            .radio-group { flex-direction: column; gap: 0.5rem; }
-            .radio-label { width: 100%; }
-
-            /* Sticky */
-            .sticky-cta { padding: 10px; padding-bottom: max(10px, env(safe-area-inset-bottom)); }
-        }
-        
         /* Value Cards */
         .value-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
         .value-card { background: var(--white); padding: 2rem; border-top: 3px solid var(--gold); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
@@ -522,6 +447,93 @@
         /* Profile */
         .profile-box { display: flex; align-items: flex-start; gap: 3rem; background: var(--off-white); padding: 3rem; border: 1px solid var(--gray-light); }
         .profile-img { width: 250px; height: 250px; object-fit: cover; border: 4px solid var(--gold); }
+        .profile-content { width: 100%; }
+
+
+        /* --- RESPONSIVE OPTIMIZATION (Mobile First Logic) --- */
+        @media (max-width: 768px) {
+            .pc-br { display: none; }
+            .sp-br { display: block; }
+            .section { padding: 4rem 0; }
+            
+            /* Hero SP: One Screen Fit (approx 6.1 inch screen) */
+            .hero-impact { 
+                padding-top: 70px; /* Header height */
+                min-height: auto; 
+                height: auto;
+                align-items: center; 
+                padding-bottom: 2rem;
+            }
+            .impact-container { 
+                gap: 1rem; 
+                padding: 1.5rem 1rem; 
+                justify-content: center;
+            }
+            
+            .hero-label {
+                font-size: 0.8rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .hero-headline { 
+                font-size: 2.2rem; /* Reduced to fit one line per phrase */
+                margin-bottom: 0.8rem;
+                line-height: 1.2;
+            }
+            .hero-headline br {
+                display: block;
+            }
+            
+            .campaign-ribbon {
+                font-size: 0.9rem;
+                padding: 0.5rem 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .proof-display {
+                margin-bottom: 1rem;
+            }
+            .proof-label { font-size: 0.9rem; }
+            .proof-number { font-size: 2.8rem; }
+            
+            .btn-line-hero {
+                padding: 0.8rem;
+                max-width: 100%;
+            }
+
+            /* Comparison: Mobile View (Cards) */
+            .comparison-wrapper { display: none; } /* Hide Table */
+            .comparison-mobile-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+            .comp-card {
+                background: #fff; border: 1px solid #eee; border-radius: 8px; overflow: hidden;
+            }
+            .comp-header {
+                background: var(--navy); color: white; padding: 0.8rem; font-weight: 700; text-align: center;
+            }
+            .comp-body {
+                display: flex; padding: 1rem; align-items: center;
+            }
+            .comp-col { flex: 1; text-align: center; padding: 0.5rem; }
+            .comp-vs { width: 30px; text-align: center; color: var(--gray); font-size: 0.8rem; font-style: italic; }
+            .comp-ark { color: var(--navy); font-weight: 700; border: 2px solid var(--gold); border-radius: 4px; background: #FFFCF2; padding: 0.5rem; }
+            .comp-other { color: var(--gray); font-size: 0.9rem; }
+            
+            /* Profile */
+            .profile-box { flex-direction: column; text-align: center; align-items: center; padding: 2rem 1.5rem; }
+            .profile-content { width: 100%; }
+
+            /* Pricing */
+            .pricing-simple-box { padding: 2rem 1.5rem; }
+            .price-main { font-size: 2.4rem; }
+
+            /* Form */
+            .native-form-container { padding: 1.5rem; }
+            .radio-group { flex-direction: column; gap: 0.5rem; }
+            .radio-label { width: 100%; }
+
+            /* Sticky */
+            .sticky-cta { padding: 10px; padding-bottom: max(10px, env(safe-area-inset-bottom)); }
+        }
     </style>
 </head>
 <body>
@@ -539,34 +551,32 @@
 
     <section class="hero-impact" id="top">
         <div class="impact-container">
-            <div class="impact-content">
-                <div class="limit-tag-box">1学年6名限定</div>
-                <h1 class="impact-headline">
-                    総合型選抜を、<br>
-                    <span class="text-gold-gradient">戦略</span>で突破する。
-                </h1>
-                
-                <div class="hero-features">
-                    <div class="hero-feature-item">
-                        <div class="feature-title"><i class="fa-solid fa-check-circle"></i> 添削・相談無制限</div>
-                        <div class="feature-desc">提出して1週間待ちはあり得ません。即座にフィードバックします。</div>
-                    </div>
-                    <div class="hero-feature-item">
-                        <div class="feature-title"><i class="fa-solid fa-trophy"></i> 合格率 86.7%</div>
-                        <div class="feature-desc">輝かしい実績は不要。「戦略」で逆転合格へ導きます。</div>
-                    </div>
-                </div>
+            <div class="hero-label">総合型選抜(AO入試)専門オンライン塾<br>Ark College</div>
+            
+            <h1 class="hero-headline">
+                添削無制限<span class="x-mark">×</span><br>
+                完全マンツーマン
+            </h1>
+            
+            <div class="campaign-ribbon">
+                <i class="fa-solid fa-gift"></i> 今だけ入会金無料キャンペーン実施中
+            </div>
 
-                <div class="hero-actions">
-                    <a href="https://lin.ee/Uq7uW97" target="_blank" class="btn btn-line-hero">
-                        <i class="fa-brands fa-line" style="margin-right: 0.8rem; font-size: 1.6rem;"></i>
-                        <div style="text-align: left; line-height: 1.2;">
-                            <span style="font-size: 0.8rem; display: block; opacity: 0.9;">合格戦略・料金表を受け取る</span>
-                            <span style="font-weight: 700;">LINE公式アカウントに登録</span>
-                        </div>
-                    </a>
-                    <a href="#contact" class="sub-cta-link">無料個別コンサルティングはこちら</a>
-                </div>
+            <div class="proof-display">
+                <div class="proof-label">合格実績(2025年度)</div>
+                <div class="proof-number">合格率 86.7%</div>
+                <div class="proof-sub">※実績ゼロ・偏差値38からの逆転合格多数</div>
+            </div>
+
+            <div class="hero-actions">
+                <a href="https://lin.ee/Uq7uW97" target="_blank" class="btn btn-line-hero">
+                    <i class="fa-brands fa-line" style="margin-right: 0.8rem; font-size: 1.6rem;"></i>
+                    <div style="text-align: left; line-height: 1.2;">
+                        <span style="font-size: 0.8rem; display: block; opacity: 0.9;">合格実績・料金表を受け取る</span>
+                        <span style="font-weight: 700;">LINEで資料請求する</span>
+                    </div>
+                </a>
+                <a href="#contact" class="sub-cta-link">無料個別コンサルティングはこちら</a>
             </div>
         </div>
     </section>
@@ -586,15 +596,15 @@
             <div class="checklist-box">
                 <div class="check-item">
                     <span class="check-mark">✕</span>
-                    <p>特別な受賞歴やリーダー経験がないと合格できない</p>
+                    <p>特別な受賞歴やリーダー経験がないと<br class="sp-br">合格できない</p>
                 </div>
                 <div class="check-item">
                     <span class="check-mark">✕</span>
-                    <p>大手塾の大学生バイト講師の指導に不安がある</p>
+                    <p>大手塾の大学生バイト講師の<br class="sp-br">指導に不安がある</p>
                 </div>
                 <div class="check-item">
                     <span class="check-mark">✕</span>
-                    <p>地方在住で、質の高い指導が受けられない</p>
+                    <p>地方在住で、質の高い指導が<br class="sp-br">受けられない</p>
                 </div>
             </div>
             <div class="text-center" style="margin-top: 3rem; font-weight: 700; font-size: 1.2rem;">
@@ -607,13 +617,14 @@
     <section class="section comparison" style="background: var(--off-white);">
         <div class="container">
             <h2 class="text-center" style="margin-bottom: 2rem;">なぜアークカレッジが選ばれるのか</h2>
+            
             <div class="comparison-wrapper">
                 <table class="comparison-table">
                     <thead>
                         <tr>
                             <th>項目</th>
                             <th class="ark-col">Ark College</th>
-                            <th>一般的な大手総合型塾</th>
+                            <th>一般的な大手総合型選抜(AO)塾</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -640,6 +651,43 @@
                     </tbody>
                 </table>
             </div>
+
+            <div class="comparison-mobile-list">
+                <div class="comp-card">
+                    <div class="comp-header">指導者の質</div>
+                    <div class="comp-body">
+                        <div class="comp-col comp-ark">
+                            <i class="fa-solid fa-crown" style="color:var(--gold);"></i><br>
+                            プロ講師が直接担当
+                        </div>
+                        <div class="comp-vs">vs</div>
+                        <div class="comp-col comp-other">大学生バイト</div>
+                    </div>
+                </div>
+                <div class="comp-card">
+                    <div class="comp-header">添削スピード</div>
+                    <div class="comp-body">
+                        <div class="comp-col comp-ark">
+                            <i class="fa-solid fa-bolt" style="color:var(--gold);"></i><br>
+                            無制限・48h以内
+                        </div>
+                        <div class="comp-vs">vs</div>
+                        <div class="comp-col comp-other">回数制限あり</div>
+                    </div>
+                </div>
+                <div class="comp-card">
+                    <div class="comp-header">指導人数</div>
+                    <div class="comp-body">
+                        <div class="comp-col comp-ark">
+                            <i class="fa-solid fa-user-check" style="color:var(--gold);"></i><br>
+                            1学年6名限定
+                        </div>
+                        <div class="comp-vs">vs</div>
+                        <div class="comp-col comp-other">大量受け入れ</div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -701,7 +749,7 @@
                     <h3>Noah M.</h3>
                     <p style="color: var(--gold); font-weight: 700; margin-bottom: 1.5rem; letter-spacing: 0.1em;">Ark College 代表講師</p>
                     <p>慶應義塾大学法学部法律学科卒。</p>
-                    <p>慶應義塾大学法学部FIT入試A・B両方式で現役ダブル合格した経験をもとに、総合型選抜の指導分野に参画。大手総合型選抜塾「洋々」では4年間にわたりメンター講師として在籍。</p>
+                    <p>慶應義塾大学法学部FIT入試A・B両方式で現役ダブル合格した経験をもとに、総合型選抜(AO入試)の指導分野に参画。大手塾「洋々」では4年間にわたりメンター講師として在籍。</p>
                     <p>さらに、大手外資系企業でマーケターとして勤務。市場分析、戦略立案、高い論理的思考力を実務を通じて培う。</p>
                     <div style="margin-top: 1.5rem;">
                         <a href="https://note.com/ark_college/n/ne06612120422" target="_blank" style="color: var(--navy); text-decoration: underline; font-weight: 700;">
@@ -771,9 +819,9 @@
         <div class="container">
             <h2 class="text-center" style="color: var(--white); margin-bottom: 1rem;">無料個別コンサルティング予約</h2>
             <p class="text-center" style="color: rgba(255,255,255,0.8); margin-bottom: 3rem;">
-                限られた45分という時間で最適な戦略を提示するために、<br>
+                限られた45分という時間で最適な戦略を提示するために、<br class="sp-br">
                 まずはあなたの現状を教えてください。<br>
-                内容を確認し、24時間以内に日程調整のご連絡をさせていただきます。
+                内容を確認し、24時間以内に<br class="sp-br">日程調整のご連絡をさせていただきます。
             </p>
 
             <div class="native-form-container">
@@ -843,7 +891,7 @@
                     </div>
                     <div class="media-body">
                         <div class="media-date">2026.01.05</div>
-                        <h3 class="media-title">総合型選抜を「戦略」で突破することにこだわり抜いたカリキュラム</h3>
+                        <h3 class="media-title">総合型選抜(AO入試)を「戦略」で突破することにこだわり抜いたカリキュラム</h3>
                         <span class="read-more">READ MORE &rarr;</span>
                     </div>
                 </a>
