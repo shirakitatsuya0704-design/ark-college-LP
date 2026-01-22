@@ -118,19 +118,6 @@
             cursor: pointer;
             border: none;
         }
-        .btn-primary {
-            background: linear-gradient(135deg, var(--gold) 0%, #B8941F 100%);
-            color: var(--navy);
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
-            width: 100%;
-            max-width: 600px;
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            background: linear-gradient(135deg, #E5C868 0%, #D4AF37 100%);
-            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
-        }
-        
         .btn-line {
             background: var(--line-green);
             color: #FFFFFF;
@@ -139,16 +126,6 @@
         .btn-line:hover {
             opacity: 0.9;
             transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--navy);
-            border: 2px solid var(--navy);
-        }
-        .btn-secondary:hover {
-            background: var(--navy);
-            color: var(--white);
         }
 
         /* --- Header --- */
@@ -165,7 +142,6 @@
 
         /* --- Hero Section (Optimized for One-Screen Mobile) --- */
         .hero-impact {
-            /* PC: Full Height */
             min-height: 100vh;
             position: relative;
             display: flex;
@@ -207,14 +183,14 @@
             padding-bottom: 5px;
         }
 
-        /* Hero: Main Headline (Modified for Mobile fit) */
+        /* Hero: Main Headline */
         .hero-headline {
             font-family: 'Noto Serif JP', serif;
             font-size: 3.8rem;
             font-weight: 900;
             line-height: 1.2;
             color: var(--white);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             letter-spacing: -0.02em;
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
@@ -225,31 +201,12 @@
             margin: 0 0.2rem;
         }
 
-        /* Hero: Campaign Ribbon */
-        .campaign-ribbon {
-            background: linear-gradient(90deg, #c0392b 0%, #e74c3c 50%, #c0392b 100%);
-            color: white;
-            padding: 0.6rem 2rem;
-            font-weight: 700;
-            font-size: 1.2rem;
-            border-radius: 50px;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
-            animation: pulse-red 2s infinite;
-            white-space: nowrap;
-        }
-        @keyframes pulse-red {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-            100% { transform: scale(1); }
-        }
-
         /* Hero: Proof (Big Number) */
         .proof-display {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             line-height: 1;
         }
         .proof-label { font-size: 1rem; font-weight: 700; margin-bottom: 5px; opacity: 0.9; }
@@ -301,8 +258,20 @@
             cursor: pointer;
         }
 
+        /* Hero: Campaign Text (Fixed) */
+        .campaign-text-box {
+            font-size: 0.85rem;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            margin-top: 1.5rem;
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.1);
+            letter-spacing: 0.05em;
+        }
+
         /* --- Comparison Section (Responsive) --- */
-        /* PC: Table */
         .comparison-wrapper { overflow-x: auto; margin-top: 2rem; }
         .comparison-table {
             width: 100%;
@@ -326,8 +295,27 @@
         }
         .comparison-table th.ark-col { background: var(--gold); color: var(--navy); font-size: 1.2rem; }
 
-        /* SP: List/Cards (Hidden on PC) */
+        /* SP: List/Cards (Updated for clarity) */
         .comparison-mobile-list { display: none; }
+        .comp-card {
+            background: #fff; border: 1px solid #eee; border-radius: 8px; overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+        }
+        .comp-header {
+            background: var(--navy); color: white; padding: 0.8rem; font-weight: 700; text-align: center;
+            font-family: 'Noto Serif JP', serif;
+        }
+        .comp-body {
+            display: flex; padding: 1rem; align-items: center; justify-content: space-between;
+        }
+        .comp-col { flex: 1; text-align: center; padding: 0.5rem 0.2rem; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; }
+        .comp-col-label { font-size: 0.7rem; color: #999; margin-bottom: 0.5rem; display: block; border-bottom: 1px solid #eee; width: 100%; padding-bottom: 4px;}
+        .comp-col-label.ark { color: var(--gold); font-weight: 700; border-bottom: 1px solid var(--gold); }
+        
+        .comp-vs { width: 30px; text-align: center; color: var(--gray); font-size: 0.8rem; font-style: italic; align-self: center; margin-top: 1rem; }
+        
+        .comp-ark-content { color: var(--navy); font-weight: 700; font-size: 0.95rem; }
+        .comp-other-content { color: var(--gray); font-size: 0.85rem; }
 
 
         /* --- Problem --- */
@@ -395,7 +383,7 @@
         }
         .form-group { margin-bottom: 1.5rem; text-align: left; }
         .form-label { display: block; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; font-size: 0.95rem; }
-        .label-required { background: --alert-red; color: white; font-size: 0.7rem; padding: 2px 6px; border-radius: 2px; margin-left: 8px; vertical-align: middle; background-color: #c0392b; }
+        .label-required { background: #c0392b; color: white; font-size: 0.7rem; padding: 2px 6px; border-radius: 2px; margin-left: 8px; vertical-align: middle; }
         .form-control { width: 100%; padding: 1rem; border: 1px solid var(--gray-light); border-radius: 4px; font-size: 1rem; font-family: inherit; background: #fdfdfd; }
         .form-submit-btn { width: 100%; padding: 1.2rem; background: var(--navy); color: var(--white); font-size: 1.1rem; font-weight: 700; border: none; border-radius: 4px; cursor: pointer; }
 
@@ -458,11 +446,11 @@
             
             /* Hero SP: One Screen Fit (approx 6.1 inch screen) */
             .hero-impact { 
-                padding-top: 70px; /* Header height */
+                padding-top: 70px;
                 min-height: auto; 
                 height: auto;
                 align-items: center; 
-                padding-bottom: 2rem;
+                padding-bottom: 3rem; /* slightly increased for spacing */
             }
             .impact-container { 
                 gap: 1rem; 
@@ -476,19 +464,12 @@
             }
 
             .hero-headline { 
-                font-size: 2.2rem; /* Reduced to fit one line per phrase */
+                font-size: 2.2rem;
                 margin-bottom: 0.8rem;
                 line-height: 1.2;
             }
-            .hero-headline br {
-                display: block;
-            }
             
-            .campaign-ribbon {
-                font-size: 0.9rem;
-                padding: 0.5rem 1rem;
-                margin-bottom: 1rem;
-            }
+            /* Moved Campaign Text - Styling is handled in main CSS block, position is key here */
 
             .proof-display {
                 margin-bottom: 1rem;
@@ -504,19 +485,6 @@
             /* Comparison: Mobile View (Cards) */
             .comparison-wrapper { display: none; } /* Hide Table */
             .comparison-mobile-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
-            .comp-card {
-                background: #fff; border: 1px solid #eee; border-radius: 8px; overflow: hidden;
-            }
-            .comp-header {
-                background: var(--navy); color: white; padding: 0.8rem; font-weight: 700; text-align: center;
-            }
-            .comp-body {
-                display: flex; padding: 1rem; align-items: center;
-            }
-            .comp-col { flex: 1; text-align: center; padding: 0.5rem; }
-            .comp-vs { width: 30px; text-align: center; color: var(--gray); font-size: 0.8rem; font-style: italic; }
-            .comp-ark { color: var(--navy); font-weight: 700; border: 2px solid var(--gold); border-radius: 4px; background: #FFFCF2; padding: 0.5rem; }
-            .comp-other { color: var(--gray); font-size: 0.9rem; }
             
             /* Profile */
             .profile-box { flex-direction: column; text-align: center; align-items: center; padding: 2rem 1.5rem; }
@@ -557,15 +525,11 @@
                 添削無制限<span class="x-mark">×</span><br>
                 完全マンツーマン
             </h1>
-            
-            <div class="campaign-ribbon">
-                <i class="fa-solid fa-gift"></i> 今だけ入会金無料キャンペーン実施中
-            </div>
 
             <div class="proof-display">
                 <div class="proof-label">合格実績(2025年度)</div>
                 <div class="proof-number">合格率 86.7%</div>
-                <div class="proof-sub">※実績ゼロからの逆転合格多数</div>
+                <div class="proof-sub">※実績ゼロ・偏差値38からの逆転合格多数</div>
             </div>
 
             <div class="hero-actions">
@@ -577,6 +541,10 @@
                     </div>
                 </a>
                 <a href="#contact" class="sub-cta-link">無料個別コンサルティングはこちら</a>
+                
+                <div class="campaign-text-box">
+                    <i class="fa-solid fa-gift"></i> 今だけ入会金無料キャンペーン実施中
+                </div>
             </div>
         </div>
     </section>
@@ -656,34 +624,54 @@
                 <div class="comp-card">
                     <div class="comp-header">指導者の質</div>
                     <div class="comp-body">
-                        <div class="comp-col comp-ark">
-                            <i class="fa-solid fa-crown" style="color:var(--gold);"></i><br>
-                            プロ講師が直接担当
+                        <div class="comp-col">
+                            <span class="comp-col-label ark">Ark College</span>
+                            <div class="comp-ark-content">
+                                <i class="fa-solid fa-crown" style="color:var(--gold);"></i><br>
+                                プロ講師が直接担当
+                            </div>
                         </div>
                         <div class="comp-vs">vs</div>
-                        <div class="comp-col comp-other">大学生バイト</div>
+                        <div class="comp-col">
+                            <span class="comp-col-label">一般的な大手塾</span>
+                            <div class="comp-other-content">大学生バイト</div>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="comp-card">
                     <div class="comp-header">添削スピード</div>
                     <div class="comp-body">
-                        <div class="comp-col comp-ark">
-                            <i class="fa-solid fa-bolt" style="color:var(--gold);"></i><br>
-                            無制限・48h以内
+                        <div class="comp-col">
+                            <span class="comp-col-label ark">Ark College</span>
+                            <div class="comp-ark-content">
+                                <i class="fa-solid fa-bolt" style="color:var(--gold);"></i><br>
+                                無制限・48h以内
+                            </div>
                         </div>
                         <div class="comp-vs">vs</div>
-                        <div class="comp-col comp-other">回数制限あり</div>
+                        <div class="comp-col">
+                            <span class="comp-col-label">一般的な大手塾</span>
+                            <div class="comp-other-content">回数制限あり</div>
+                        </div>
                     </div>
                 </div>
+
                 <div class="comp-card">
                     <div class="comp-header">指導人数</div>
                     <div class="comp-body">
-                        <div class="comp-col comp-ark">
-                            <i class="fa-solid fa-user-check" style="color:var(--gold);"></i><br>
-                            1学年6名限定
+                        <div class="comp-col">
+                            <span class="comp-col-label ark">Ark College</span>
+                            <div class="comp-ark-content">
+                                <i class="fa-solid fa-user-check" style="color:var(--gold);"></i><br>
+                                1学年6名限定
+                            </div>
                         </div>
                         <div class="comp-vs">vs</div>
-                        <div class="comp-col comp-other">大量受け入れ</div>
+                        <div class="comp-col">
+                            <span class="comp-col-label">一般的な大手塾</span>
+                            <div class="comp-other-content">大量受け入れ</div>
+                        </div>
                     </div>
                 </div>
             </div>
