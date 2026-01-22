@@ -140,7 +140,7 @@
             display: flex; align-items: center; gap: 5px;
         }
 
-        /* --- Hero Section (Optimized for One-Screen Mobile) --- */
+        /* --- Hero Section (Strategy A: Cause & Effect) --- */
         .hero-impact {
             min-height: 100vh;
             position: relative;
@@ -150,7 +150,7 @@
             padding-top: 80px;
             background-color: #050b14;
             background-image: 
-                linear-gradient(rgba(5, 11, 20, 0.85), rgba(5, 11, 20, 0.95)),
+                linear-gradient(rgba(5, 11, 20, 0.88), rgba(5, 11, 20, 0.96)),
                 url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
@@ -172,55 +172,79 @@
 
         /* Hero: Top Label */
         .hero-label {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.05em;
             color: var(--gold);
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 1.5rem;
             display: inline-block;
             border-bottom: 1px solid var(--gold);
-            padding-bottom: 5px;
+            padding-bottom: 4px;
         }
 
-        /* Hero: Main Headline */
+        /* Hero: Main Headline (Cause) */
         .hero-headline {
             font-family: 'Noto Serif JP', serif;
-            font-size: 3.8rem;
+            font-size: 4rem;
             font-weight: 900;
-            line-height: 1.2;
+            line-height: 1.15;
             color: var(--white);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem; /* Gap between Method and Proof */
             letter-spacing: -0.02em;
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
         .hero-headline span.x-mark {
             color: var(--gold);
-            font-size: 0.8em;
+            font-size: 0.7em;
             vertical-align: middle;
-            margin: 0 0.2rem;
+            margin: 0 0.1rem;
         }
 
-        /* Hero: Proof (Big Number) */
-        .proof-display {
+        /* Hero: Proof Badge (Effect) */
+        /* Design Strategy: Look like a "Seal of Approval" connected to the headline */
+        .proof-badge {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 2rem;
-            line-height: 1;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            margin-bottom: 2.5rem;
+            backdrop-filter: blur(5px);
+            position: relative;
         }
-        .proof-label { font-size: 1rem; font-weight: 700; margin-bottom: 5px; opacity: 0.9; }
+        /* Top small label */
+        .proof-badge::before {
+            content: "その結果、難関大入試で";
+            display: block;
+            font-size: 0.8rem;
+            color: #ddd;
+            margin-bottom: 0.2rem;
+        }
+        
         .proof-number {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: 3rem;
+            line-height: 1;
             color: var(--gold);
             font-weight: 900;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
             background: -webkit-linear-gradient(#fff, #D4AF37);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .proof-sub { font-size: 0.9rem; opacity: 0.8; margin-top: 5px; }
+        .proof-number span { font-size: 1.2rem; font-weight: 700; -webkit-text-fill-color: var(--gold); }
+        
+        .proof-sub { 
+            font-size: 0.8rem; 
+            color: #ccc; 
+            margin-top: 5px; 
+            border-top: 1px solid rgba(255,255,255,0.2); 
+            padding-top: 5px; 
+            width: 100%;
+        }
 
         /* Hero: CTA */
         .hero-actions {
@@ -258,7 +282,7 @@
             cursor: pointer;
         }
 
-        /* Hero: Campaign Text (Fixed) */
+        /* Hero: Campaign Text */
         .campaign-text-box {
             font-size: 0.85rem;
             color: var(--gold);
@@ -295,7 +319,7 @@
         }
         .comparison-table th.ark-col { background: var(--gold); color: var(--navy); font-size: 1.2rem; }
 
-        /* SP: List/Cards (Updated for clarity) */
+        /* SP: List/Cards */
         .comparison-mobile-list { display: none; }
         .comp-card {
             background: #fff; border: 1px solid #eee; border-radius: 8px; overflow: hidden;
@@ -342,14 +366,14 @@
             flex-shrink: 0;
         }
 
-        /* --- Pricing (Simplified) --- */
+        /* --- Pricing & Cost Comparison (New) --- */
         .pricing-simple-box {
             background: var(--white);
             border: 2px solid var(--gold);
             border-radius: 8px;
             padding: 3rem 2rem;
             text-align: center;
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
@@ -370,6 +394,26 @@
             margin-bottom: 2rem;
             border-left: 4px solid var(--navy);
         }
+
+        /* Cost Comparison Table */
+        .cost-comparison-box {
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+        .cost-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+        .cost-table th { background: var(--gray-light); padding: 0.8rem; text-align: center; font-weight: 700; color: var(--navy); }
+        .cost-table td { border-bottom: 1px solid #eee; padding: 1rem 0.5rem; text-align: center; vertical-align: middle; }
+        .cost-table .c-item { text-align: left; font-weight: 700; background: #fff; }
+        .cost-table .c-ark { background: #FFFCF2; border-left: 2px solid var(--gold); border-right: 2px solid var(--gold); font-weight: 700; color: var(--navy); }
+        .cost-table .c-other { color: var(--gray); }
+        
+        .cost-total-row td { border-top: 2px solid var(--navy); font-weight: 700; padding: 1.2rem 0.5rem; }
+        .cost-total-row .c-ark { color: var(--alert-red); font-size: 1.1rem; }
+
 
         /* --- Native Form Styles --- */
         .native-form-container {
@@ -446,36 +490,37 @@
             
             /* Hero SP: One Screen Fit (approx 6.1 inch screen) */
             .hero-impact { 
-                padding-top: 70px;
+                padding-top: 60px;
                 min-height: auto; 
-                height: auto;
+                height: 100vh; /* Force full viewport height */
+                min-height: 600px; /* Safe minimum */
                 align-items: center; 
-                padding-bottom: 3rem; /* slightly increased for spacing */
+                padding-bottom: 4rem;
             }
             .impact-container { 
-                gap: 1rem; 
-                padding: 1.5rem 1rem; 
+                gap: 0.5rem; 
+                padding: 1rem; 
                 justify-content: center;
+                height: 100%;
             }
             
             .hero-label {
                 font-size: 0.8rem;
-                margin-bottom: 0.5rem;
+                margin-bottom: 1rem;
             }
 
             .hero-headline { 
-                font-size: 2.2rem;
-                margin-bottom: 0.8rem;
-                line-height: 1.2;
+                font-size: 2.3rem; /* Maximize within screen */
+                margin-bottom: 1rem;
+                line-height: 1.1;
             }
             
-            /* Moved Campaign Text - Styling is handled in main CSS block, position is key here */
-
-            .proof-display {
-                margin-bottom: 1rem;
+            .proof-badge {
+                padding: 0.5rem 1rem;
+                margin-bottom: 1.5rem;
             }
-            .proof-label { font-size: 0.9rem; }
-            .proof-number { font-size: 2.8rem; }
+            .proof-badge::before { font-size: 0.7rem; }
+            .proof-number { font-size: 2.4rem; }
             
             .btn-line-hero {
                 padding: 0.8rem;
@@ -493,6 +538,10 @@
             /* Pricing */
             .pricing-simple-box { padding: 2rem 1.5rem; }
             .price-main { font-size: 2.4rem; }
+            
+            /* Cost Table SP */
+            .cost-table th, .cost-table td { font-size: 0.8rem; padding: 0.6rem 0.2rem; }
+            .cost-table th { white-space: nowrap; }
 
             /* Form */
             .native-form-container { padding: 1.5rem; }
@@ -519,17 +568,16 @@
 
     <section class="hero-impact" id="top">
         <div class="impact-container">
-            <div class="hero-label">総合型選抜(AO入試)専門オンライン塾<br>Ark College</div>
+            <div class="hero-label">総合型選抜(AO入試)専門オンライン塾 Ark College</div>
             
             <h1 class="hero-headline">
                 添削無制限<span class="x-mark">×</span><br>
                 完全マンツーマン
             </h1>
 
-            <div class="proof-display">
-                <div class="proof-label">合格実績(2025年度)</div>
-                <div class="proof-number">合格率 86.7%</div>
-                <div class="proof-sub">※実績ゼロ・偏差値38からの逆転合格多数</div>
+            <div class="proof-badge">
+                <div class="proof-number">合格率 86.7<span>%</span></div>
+                <div class="proof-sub">※2025年度/実績ゼロからの逆転合格多数</div>
             </div>
 
             <div class="hero-actions">
@@ -751,8 +799,44 @@
 
     <section class="section offer" id="pricing" style="background: var(--off-white);">
         <div class="container">
-            <h2 class="text-center" style="margin-bottom: 1rem;">コース・料金について</h2>
+            <h2 class="text-center" style="margin-bottom: 3rem;">コース・料金について</h2>
             
+            <div class="cost-comparison-box">
+                <h3 style="text-align:center; font-size:1.1rem; margin-bottom:1rem;">「月額」ではなく「総額」でご判断ください</h3>
+                <table class="cost-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 30%;">項目</th>
+                            <th style="width: 35%;" class="c-ark">Ark College</th>
+                            <th style="width: 35%;">一般的な大手塾</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="c-item">基本月額</td>
+                            <td class="c-ark">¥88,000</td>
+                            <td class="c-other">¥50,000〜</td>
+                        </tr>
+                        <tr>
+                            <td class="c-item">添削指導</td>
+                            <td class="c-ark">月額に含む<br><span style="font-size:0.75rem; font-weight:normal;">(無制限)</span></td>
+                            <td class="c-other">有料チケット制<br><span style="font-size:0.75rem;">(1回 ¥5,000〜)</span></td>
+                        </tr>
+                        <tr>
+                            <td class="c-item">夏期・冬期講習</td>
+                            <td class="c-ark">¥0<br><span style="font-size:0.75rem; font-weight:normal;">(追加費用なし)</span></td>
+                            <td class="c-other">別途高額請求<br><span style="font-size:0.75rem;">(¥200,000〜)</span></td>
+                        </tr>
+                        <tr class="cost-total-row">
+                            <td class="c-item">年間総額<br><span style="font-size:0.7rem; font-weight:normal;">(目安)</span></td>
+                            <td class="c-ark">安くなる傾向</td>
+                            <td class="c-other">結果的に高額</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="font-size: 0.8rem; text-align: right; color: var(--gray); margin-top: 5px;">※他社金額は一般的な目安です</p>
+            </div>
+
             <div class="pricing-simple-box">
                 <div class="price-label">シンプルで明朗な料金体系</div>
                 <div class="price-main">
@@ -763,7 +847,7 @@
 
                 <div class="price-note">
                     <strong><i class="fa-solid fa-check" style="color: var(--gold);"></i> 後出し請求は一切ありません</strong><br>
-                    夏期講習費や合宿費など、入塾後に高額な追加費用が発生することはございません。総額で比較すれば、大手塾よりも適正な価格設定です。
+                    夏期講習費や合宿費など、入塾後に高額な追加費用が発生することはございません。
                 </div>
 
                 <div style="text-align: center;">
