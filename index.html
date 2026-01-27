@@ -38,9 +38,6 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=4038359666299666&ev=PageView&noscript=1"
     /></noscript>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=2056799455140381&ev=PageView&noscript=1"
-    /></noscript>
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -70,6 +67,7 @@
             --gray: #6B7280;
             --alert-red: #c0392b;
             --line-green: #06C755;
+            --accent-orange: #e67e22; /* CTA Accent */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -127,27 +125,38 @@
             opacity: 0.9;
             transform: translateY(-2px);
         }
+        .btn-reserve {
+            background: var(--accent-orange);
+            color: #FFFFFF;
+            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
+            border-radius: 50px;
+        }
+        .btn-reserve:hover {
+            background: #d35400;
+            transform: translateY(-2px);
+        }
 
         /* --- Header --- */
         .site-header {
             position: absolute; top: 0; left: 0; width: 100%; padding: 1rem 1.5rem; z-index: 100;
             display: flex; align-items: center; justify-content: space-between;
         }
-        .header-line-btn {
-            background: var(--line-green); color: white; padding: 0.5rem 1rem;
+        .header-cta-btn {
+            background: var(--accent-orange); color: white; padding: 0.6rem 1.2rem;
             border-radius: 30px; text-decoration: none; font-weight: 700;
-            font-size: 0.85rem; box-shadow: 0 4px 10px rgba(6, 199, 85, 0.3);
+            font-size: 0.85rem; box-shadow: 0 4px 10px rgba(230, 126, 34, 0.3);
             display: flex; align-items: center; gap: 5px;
+            transition: all 0.3s;
         }
+        .header-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(230, 126, 34, 0.4); }
 
-        /* --- Hero Section (Strategy A: Cause & Effect) --- */
+        /* --- Hero Section --- */
         .hero-impact {
             min-height: 100vh;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            /* Header overlap fix: Increased from 80px to 120px */
             padding-top: 120px;
             background-color: #050b14;
             background-image: 
@@ -171,7 +180,6 @@
             z-index: 2;
         }
 
-        /* Hero: Top Label */
         .hero-label {
             font-size: 1rem;
             font-weight: 600;
@@ -183,14 +191,13 @@
             padding-bottom: 4px;
         }
 
-        /* Hero: Main Headline (Cause) */
         .hero-headline {
             font-family: 'Noto Serif JP', serif;
             font-size: 4rem;
             font-weight: 900;
             line-height: 1.15;
             color: var(--white);
-            margin-bottom: 1.5rem; /* Gap between Method and Proof */
+            margin-bottom: 1.5rem;
             letter-spacing: -0.02em;
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
@@ -200,51 +207,31 @@
             vertical-align: middle;
             margin: 0 0.1rem;
         }
-
-        /* Hero: Proof Badge (Effect) */
-        /* Design Strategy: Look like a "Seal of Approval" connected to the headline */
-        .proof-badge {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 0.8rem 2rem;
-            border-radius: 8px;
-            margin-bottom: 2.5rem;
-            backdrop-filter: blur(5px);
-            position: relative;
-        }
-        /* Top small label */
-        .proof-badge::before {
-            content: "その結果、難関大入試で";
-            display: block;
-            font-size: 0.8rem;
+        
+        .hero-sub {
+            font-size: 1.1rem;
             color: #ddd;
-            margin-bottom: 0.2rem;
+            margin-bottom: 2rem;
+            font-weight: 500;
         }
-        
-        .proof-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            line-height: 1;
+
+        /* Hero: Badges */
+        .badge-container {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .hero-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
             color: var(--gold);
-            font-weight: 900;
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
-            background: -webkit-linear-gradient(#fff, #D4AF37);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .proof-number span { font-size: 1.2rem; font-weight: 700; -webkit-text-fill-color: var(--gold); }
-        
-        .proof-sub { 
-            font-size: 0.8rem; 
-            color: #ccc; 
-            margin-top: 5px; 
-            border-top: 1px solid rgba(255,255,255,0.2); 
-            padding-top: 5px; 
-            width: 100%;
+            font-weight: 700;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
         }
 
         /* Hero: CTA */
@@ -255,93 +242,70 @@
             align-items: center;
             gap: 1rem;
         }
-        .btn-line-hero {
-            background: #06C755;
+        .btn-hero-cta {
+            background: var(--accent-orange);
             color: #FFFFFF;
             width: 100%;
-            max-width: 400px;
-            padding: 1rem;
+            max-width: 450px;
+            padding: 1.2rem;
             border-radius: 50px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 20px rgba(6, 199, 85, 0.4);
-            animation: pulse-green 2s infinite;
+            box-shadow: 0 0 20px rgba(230, 126, 34, 0.4);
+            animation: pulse-orange 2s infinite;
             text-decoration: none;
+            line-height: 1.3;
         }
-        @keyframes pulse-green {
-            0% { box-shadow: 0 0 0 0 rgba(6, 199, 85, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(6, 199, 85, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(6, 199, 85, 0); }
+        @keyframes pulse-orange {
+            0% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(230, 126, 34, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0); }
         }
+        .btn-main-text { font-weight: 900; font-size: 1.3rem; }
+        .btn-sub-text { font-size: 0.85rem; opacity: 0.9; font-weight: normal; }
 
-        .sub-cta-link {
-            color: rgba(255,255,255,0.7);
-            text-decoration: underline;
-            font-size: 0.85rem;
-            cursor: pointer;
-        }
-
-        /* Hero: Campaign Text */
         .campaign-text-box {
-            font-size: 0.85rem;
-            color: var(--gold);
-            border: 1px solid var(--gold);
+            font-size: 0.9rem;
+            color: #fff;
+            background: var(--alert-red);
             padding: 0.5rem 1.2rem;
             border-radius: 4px;
-            margin-top: 1.5rem;
+            margin-top: 1rem;
             display: inline-block;
-            background: rgba(212, 175, 55, 0.1);
-            letter-spacing: 0.05em;
-        }
-
-        /* --- Comparison Section (Responsive) --- */
-        .comparison-wrapper { overflow-x: auto; margin-top: 2rem; }
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            min-width: 600px;
-        }
-        .comparison-table th, .comparison-table td {
-            padding: 1.5rem 1rem;
-            text-align: center;
-            border-bottom: 1px solid var(--gray-light);
-            vertical-align: middle;
-        }
-        .comparison-table th { background: var(--navy); color: var(--white); }
-        .comparison-table th.ark-col, .comparison-table td.ark-col {
-            background: #FFFCF2;
-            border-left: 2px solid var(--gold);
-            border-right: 2px solid var(--gold);
-            color: var(--navy);
             font-weight: 700;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
-        .comparison-table th.ark-col { background: var(--gold); color: var(--navy); font-size: 1.2rem; }
 
-        /* SP: List/Cards */
-        .comparison-mobile-list { display: none; }
-        .comp-card {
-            background: #fff; border: 1px solid #eee; border-radius: 8px; overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+        /* --- Difference Section --- */
+        .diff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
-        .comp-header {
-            background: var(--navy); color: white; padding: 0.8rem; font-weight: 700; text-align: center;
-            font-family: 'Noto Serif JP', serif;
+        .diff-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
-        .comp-body {
-            display: flex; padding: 1rem; align-items: center; justify-content: space-between;
+        .diff-header {
+            background: var(--navy);
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.1rem;
         }
-        .comp-col { flex: 1; text-align: center; padding: 0.5rem 0.2rem; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; }
-        .comp-col-label { font-size: 0.7rem; color: #999; margin-bottom: 0.5rem; display: block; border-bottom: 1px solid #eee; width: 100%; padding-bottom: 4px;}
-        .comp-col-label.ark { color: var(--gold); font-weight: 700; border-bottom: 1px solid var(--gold); }
-        
-        .comp-vs { width: 30px; text-align: center; color: var(--gray); font-size: 0.8rem; font-style: italic; align-self: center; margin-top: 1rem; }
-        
-        .comp-ark-content { color: var(--navy); font-weight: 700; font-size: 0.95rem; }
-        .comp-other-content { color: var(--gray); font-size: 0.85rem; }
-
+        .diff-body { padding: 1.5rem; }
+        .diff-item { margin-bottom: 1.5rem; }
+        .diff-label { font-size: 0.8rem; color: #999; display: block; margin-bottom: 0.3rem; }
+        .diff-ark { color: var(--navy); font-weight: 700; font-size: 1.1rem; border-left: 3px solid var(--gold); padding-left: 10px; margin-bottom: 0.5rem; }
+        .diff-other { color: var(--gray); font-size: 0.9rem; text-decoration: line-through; padding-left: 13px; }
 
         /* --- Problem --- */
         .checklist-box {
@@ -360,63 +324,72 @@
             font-size: 1.1rem;
         }
         .check-mark {
-            color: var(--alert-red);
+            color: var(--gray);
             font-weight: 900;
             margin-right: 1rem;
             font-size: 1.2rem;
             flex-shrink: 0;
         }
 
-        /* --- Pricing & Cost Comparison (New) --- */
-        .pricing-simple-box {
-            background: var(--white);
-            border: 2px solid var(--gold);
+        /* --- Solution (3 Pillars) --- */
+        .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .pillar-card {
+            background: #FFFCF2;
+            padding: 2.5rem 2rem;
             border-radius: 8px;
-            padding: 3rem 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+        .pillar-num {
+            position: absolute; top: -15px; left: 20px;
+            background: var(--navy); color: var(--gold);
+            width: 40px; height: 40px;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.2rem;
+        }
+        .pillar-title { font-size: 1.3rem; margin-bottom: 1rem; color: var(--navy); margin-top: 10px; }
+        .pillar-desc { font-size: 0.95rem; color: var(--navy-light); }
+
+
+        /* --- Offer (Diagnosis) --- */
+        .offer-box {
+            background: linear-gradient(135deg, #0A1628 0%, #1a2942 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 12px;
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border: 1px solid var(--gold);
         }
-        .price-main { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 3.5rem; 
-            color: var(--navy); 
-            font-weight: 900; 
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-        .price-note { 
-            background: var(--off-white); 
-            padding: 1rem; 
-            border-radius: 4px; 
-            font-size: 0.9rem; 
-            text-align: left; 
-            margin-bottom: 2rem;
-            border-left: 4px solid var(--navy);
-        }
+        .offer-title { font-size: 1.8rem; margin-bottom: 2rem; color: var(--gold); }
+        .offer-list { text-align: left; max-width: 600px; margin: 0 auto 2rem; list-style: none; }
+        .offer-list li { margin-bottom: 1rem; font-size: 1.1rem; display: flex; align-items: flex-start; }
+        .offer-list i { color: var(--gold); margin-right: 10px; margin-top: 6px; }
 
-        /* Cost Comparison Table */
+        /* --- Pricing & Cost Comparison --- */
         .cost-comparison-box {
             margin-bottom: 3rem;
             text-align: left;
+            overflow-x: auto;
         }
         .cost-table {
             width: 100%;
             border-collapse: collapse;
             font-size: 0.95rem;
+            min-width: 600px;
         }
-        .cost-table th { background: var(--gray-light); padding: 0.8rem; text-align: center; font-weight: 700; color: var(--navy); }
-        .cost-table td { border-bottom: 1px solid #eee; padding: 1rem 0.5rem; text-align: center; vertical-align: middle; }
-        .cost-table .c-item { text-align: left; font-weight: 700; background: #fff; }
-        .cost-table .c-ark { background: #FFFCF2; border-left: 2px solid var(--gold); border-right: 2px solid var(--gold); font-weight: 700; color: var(--navy); }
-        .cost-table .c-other { color: var(--gray); }
+        .cost-table th { background: var(--gray-light); padding: 1rem; text-align: center; font-weight: 700; color: var(--navy); }
+        .cost-table td { border-bottom: 1px solid #eee; padding: 1.2rem 1rem; text-align: center; vertical-align: middle; }
+        .cost-table .c-item { text-align: left; font-weight: 700; background: #fff; width: 30%; }
+        .cost-table .c-ark { background: #FFFCF2; border-left: 3px solid var(--gold); border-right: 3px solid var(--gold); font-weight: 700; color: var(--navy); font-size: 1.1rem; width: 35%; }
+        .cost-table .c-other { color: var(--gray); width: 35%; }
         
-        .cost-total-row td { border-top: 2px solid var(--navy); font-weight: 700; padding: 1.2rem 0.5rem; }
-        .cost-total-row .c-ark { color: var(--alert-red); font-size: 1.1rem; }
+        .cost-total-row td { border-top: 3px solid var(--navy); font-weight: 700; padding: 1.5rem 1rem; background: #fff; }
+        .cost-total-row .c-ark { color: var(--alert-red); font-size: 1.4rem; background: #FFFCF2; }
 
-
-        /* --- Native Form Styles --- */
+        /* --- Native Form Styles (Materials) --- */
         .native-form-container {
             background: var(--white);
             padding: 2.5rem;
@@ -446,12 +419,12 @@
         .cta-inner { display: flex; gap: 12px; justify-content: center; max-width: 600px; margin: 0 auto; }
         .sticky-btn { 
             flex: 1; padding: 0.5rem; display: flex; align-items: center; justify-content: center; 
-            border-radius: 8px; text-decoration: none; transition: opacity 0.3s; min-height: 54px; width: 100%;
-            background: #06C755; color: #fff; box-shadow: 0 4px 10px rgba(6,199,85,0.2);
+            border-radius: 8px; text-decoration: none; transition: opacity 0.3s; min-height: 60px; width: 100%;
+            background: var(--accent-orange); color: #fff; box-shadow: 0 4px 10px rgba(230, 126, 34, 0.2);
         }
         .btn-text-group { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2; text-align: left; }
         .sticky-sub { font-size: 0.65rem; opacity: 0.9; }
-        .sticky-main { font-size: 0.9rem; font-weight: 700; }
+        .sticky-main { font-size: 1rem; font-weight: 700; }
 
         /* Media */
         .media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
@@ -463,17 +436,10 @@
         .media-title { font-size: 1.2rem; font-weight: 700; line-height: 1.5; margin-bottom: 1rem; }
 
         /* Footer */
-        footer { background: var(--navy); padding: 3rem 0; text-align: center; color: rgba(255,255,255,0.6); font-size: 0.85rem; padding-bottom: 90px; }
+        footer { background: var(--navy); padding: 3rem 0; text-align: center; color: rgba(255,255,255,0.6); font-size: 0.85rem; padding-bottom: 100px; }
         footer a { color: var(--gold); text-decoration: none; }
 
-        /* Value Cards */
-        .value-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
-        .value-card { background: var(--white); padding: 2rem; border-top: 3px solid var(--gold); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .value-num { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); margin-bottom: 0.5rem; opacity: 0.5; }
-        .value-title { font-size: 1.1rem; margin-bottom: 1rem; color: var(--navy); font-weight: 700; }
-        
         /* Proof */
-        .proof { background: var(--navy); color: var(--white); text-align: center; }
         .univ-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; max-width: 900px; margin: 3rem auto 0; }
         .univ-item { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 1rem; color: var(--white); font-family: 'Noto Serif JP', serif; }
         
@@ -489,13 +455,12 @@
             .sp-br { display: block; }
             .section { padding: 4rem 0; }
             
-            /* Hero SP: One Screen Fit (approx 6.1 inch screen) */
+            /* Hero SP */
             .hero-impact { 
-                /* Header overlap fix: Increased from 60px to 110px */
                 padding-top: 110px;
                 min-height: auto; 
-                height: 100vh; /* Force full viewport height */
-                min-height: 600px; /* Safe minimum */
+                height: 100vh;
+                min-height: 650px;
                 align-items: center; 
                 padding-bottom: 4rem;
             }
@@ -506,44 +471,32 @@
                 height: 100%;
             }
             
-            .hero-label {
-                font-size: 0.8rem;
-                margin-bottom: 1rem;
-            }
+            .hero-label { font-size: 0.8rem; margin-bottom: 1rem; }
+            .hero-headline { font-size: 2.3rem; margin-bottom: 1rem; line-height: 1.1; }
+            .hero-sub { font-size: 0.9rem; margin-bottom: 1.5rem; }
+            
+            .badge-container { gap: 0.5rem; margin-bottom: 1.5rem; }
+            .hero-badge { font-size: 0.75rem; padding: 0.4rem 0.8rem; }
+            
+            .btn-hero-cta { padding: 1rem; max-width: 100%; }
+            .btn-main-text { font-size: 1.1rem; }
+            .campaign-text-box { font-size: 0.8rem; }
 
-            .hero-headline { 
-                font-size: 2.3rem; /* Maximize within screen */
-                margin-bottom: 1rem;
-                line-height: 1.1;
-            }
-            
-            .proof-badge {
-                padding: 0.5rem 1rem;
-                margin-bottom: 1.5rem;
-            }
-            .proof-badge::before { font-size: 0.7rem; }
-            .proof-number { font-size: 2.4rem; }
-            
-            .btn-line-hero {
-                padding: 0.8rem;
-                max-width: 100%;
-            }
+            /* Difference */
+            .diff-grid { gap: 1.5rem; }
 
-            /* Comparison: Mobile View (Cards) */
-            .comparison-wrapper { display: none; } /* Hide Table */
-            .comparison-mobile-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
-            
+            /* Offer */
+            .offer-box { padding: 2rem 1.5rem; }
+            .offer-title { font-size: 1.4rem; }
+            .offer-list li { font-size: 1rem; }
+
+            /* Cost Table SP */
+            .cost-table th, .cost-table td { font-size: 0.8rem; padding: 0.8rem 0.4rem; }
+            .cost-total-row .c-ark { font-size: 1.1rem; }
+
             /* Profile */
             .profile-box { flex-direction: column; text-align: center; align-items: center; padding: 2rem 1.5rem; }
             .profile-content { width: 100%; }
-
-            /* Pricing */
-            .pricing-simple-box { padding: 2rem 1.5rem; }
-            .price-main { font-size: 2.4rem; }
-            
-            /* Cost Table SP */
-            .cost-table th, .cost-table td { font-size: 0.8rem; padding: 0.6rem 0.2rem; }
-            .cost-table th { white-space: nowrap; }
 
             /* Form */
             .native-form-container { padding: 1.5rem; }
@@ -560,40 +513,42 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
     <header class="site-header">
-        <a href="https://www.ark-college.com/" target="_blank" rel="noopener" style="transition: opacity 0.3s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+        <a href="https://www.ark-college.com/" target="_blank" rel="noopener">
             <img src="logo.webp" alt="Ark College" style="height: 40px; width: auto; display: block;">
         </a>
-        <a href="https://lin.ee/Uq7uW97" target="_blank" class="header-line-btn">
-            <i class="fa-brands fa-line" style="font-size: 1.2rem;"></i> <span>資料請求</span>
+        <a href="#contact" class="header-cta-btn">
+            <i class="fa-regular fa-calendar-check"></i> <span>無料コンサル予約</span>
         </a>
     </header>
 
     <section class="hero-impact" id="top">
         <div class="impact-container">
-            <div class="hero-label">総合型選抜(AO入試)専門オンライン塾 Ark College</div>
+            <div class="hero-label">総合型選抜(AO入試)専門・完全オンライン私塾</div>
             
             <h1 class="hero-headline">
                 添削無制限<br><span class="x-mark">×</span><br>
                 完全マンツーマン
             </h1>
 
-            <div class="proof-badge">
-                <div class="proof-number">合格率 86.7<span>%</span></div>
-                <div class="proof-sub">※2025年度/実績ゼロからの逆転合格多数</div>
+            <p class="hero-sub">
+                「今の実績で、どこに受かる？」<br>
+                慶應FIT合格のプロが、<br class="sp-br">あなたの合格可能性を30分で診断します。
+            </p>
+
+            <div class="badge-container">
+                <div class="hero-badge"><i class="fa-solid fa-trophy"></i> 合格率 86.7%</div>
+                <div class="hero-badge"><i class="fa-solid fa-graduation-cap"></i> 合格大学 30校以上</div>
+                <div class="hero-badge"><i class="fa-solid fa-user-group"></i> 1学年「6名」限定</div>
             </div>
 
             <div class="hero-actions">
-                <a href="https://lin.ee/Uq7uW97" target="_blank" class="btn btn-line-hero">
-                    <i class="fa-brands fa-line" style="margin-right: 0.8rem; font-size: 1.6rem;"></i>
-                    <div style="text-align: left; line-height: 1.2;">
-                        <span style="font-size: 0.8rem; display: block; opacity: 0.9;">合格実績・料金表を受け取る</span>
-                        <span style="font-weight: 700;">LINEで資料請求する</span>
-                    </div>
+                <a href="#contact" class="btn-hero-cta">
+                    <span class="btn-sub-text">まずは30分、現状をお聞かせください</span>
+                    <span class="btn-main-text">無料の「合格可能性診断」を予約する</span>
                 </a>
-                <a href="#contact" class="sub-cta-link">無料個別コンサルティングはこちら</a>
                 
                 <div class="campaign-text-box">
-                    <i class="fa-solid fa-gift"></i> 今だけ入会金無料キャンペーン実施中
+                    <i class="fa-solid fa-gift"></i> 【今だけ】当日入会で入会金 55,000円 → 0円
                 </div>
             </div>
         </div>
@@ -606,226 +561,176 @@
     </div>
     <style>@keyframes ticker { 100% { transform: translateX(-100%); } }</style>
 
+    <section class="section difference" style="background: var(--off-white);">
+        <div class="container">
+            <h2 class="text-center" style="margin-bottom: 2rem;">
+                なぜ、アークカレッジは<br>「合格率86.7%」を出せるのか？
+            </h2>
+            <p class="text-center" style="margin-bottom: 3rem; color: var(--navy);">一般的な大手塾との「決定的な3つの違い」</p>
+
+            <div class="diff-grid">
+                <div class="diff-card">
+                    <div class="diff-header">01. 指導者の「質」</div>
+                    <div class="diff-body">
+                        <div class="diff-item">
+                            <span class="diff-label">Ark College</span>
+                            <div class="diff-ark">プロ講師が直接担当</div>
+                            <p style="font-size:0.9rem;">外資マーケター出身のプロがあなたの思考の癖まで把握し、戦略を一貫させます。</p>
+                        </div>
+                        <div class="diff-item">
+                            <span class="diff-label">一般的な大手塾</span>
+                            <div class="diff-other">大学生アルバイト講師</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="diff-card">
+                    <div class="diff-header">02. 添削の「量と速度」</div>
+                    <div class="diff-body">
+                        <div class="diff-item">
+                            <span class="diff-label">Ark College</span>
+                            <div class="diff-ark">無制限・48h以内返信</div>
+                            <p style="font-size:0.9rem;">思考が熱いうちに即フィードバック。納得いくまで何度でも書き直し可能。</p>
+                        </div>
+                        <div class="diff-item">
+                            <span class="diff-label">一般的な大手塾</span>
+                            <div class="diff-other">週1回 / チケット制</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="diff-card">
+                    <div class="diff-header">03. サポートの「距離」</div>
+                    <div class="diff-body">
+                        <div class="diff-item">
+                            <span class="diff-label">Ark College</span>
+                            <div class="diff-ark">24h 365日チャット対応</div>
+                            <p style="font-size:0.9rem;">完全オンラインだからこそ、対面以上に密なコミュニケーションを実現。</p>
+                        </div>
+                        <div class="diff-item">
+                            <span class="diff-label">一般的な大手塾</span>
+                            <div class="diff-other">教室に行かないと質問不可</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 3rem;">
+                <a href="#contact" class="btn btn-reserve">
+                    この環境で合格を目指す（無料診断予約）
+                </a>
+            </div>
+        </div>
+    </section>
+
     <section class="section problem">
         <div class="container">
             <h2 class="text-center" style="margin-bottom: 3rem; color: var(--navy);">
-                AO入試は「実績」がないと<br class="sp-br">受からない？
+                それでも、「自分には実績がない」と<br class="sp-br">諦めていませんか？
             </h2>
             <div class="checklist-box">
                 <div class="check-item">
-                    <span class="check-mark">✕</span>
-                    <p>特別な受賞歴や<br class="sp-br">リーダー経験がないと<br class="sp-br">合格できない</p>
+                    <span class="check-mark"><i class="fa-regular fa-square-check"></i></span>
+                    <p>志望校に対して、今の自分のレベルが足りているか分からない</p>
                 </div>
                 <div class="check-item">
-                    <span class="check-mark">✕</span>
-                    <p>大学生バイト講師の<br class="sp-br">指導に不安がある</p>
+                    <span class="check-mark"><i class="fa-regular fa-square-check"></i></span>
+                    <p>特別な受賞歴やリーダー経験がなく、アピール材料がない</p>
                 </div>
                 <div class="check-item">
-                    <span class="check-mark">✕</span>
-                    <p>地方在住で質の高い指導が<br class="sp-br">受けられない</p>
+                    <span class="check-mark"><i class="fa-regular fa-square-check"></i></span>
+                    <p>大手塾に通っているが、テンプレート指導で個性が消えている気がする</p>
                 </div>
             </div>
             <div class="text-center" style="margin-top: 3rem; font-weight: 700; font-size: 1.2rem;">
-                アークカレッジなら、<br>
-                その不安は<span class="text-gold" style="border-bottom: 2px solid var(--gold);">ありません</span>。
+                その不安、正しい「戦略」さえあれば、<br>
+                すべて<span class="text-gold" style="border-bottom: 2px solid var(--gold);">合格への武器</span>に変わります。
             </div>
         </div>
     </section>
 
-    <section class="section comparison" style="background: var(--off-white);">
+    <section class="section solution" style="background: var(--off-white);">
         <div class="container">
-            <h2 class="text-center" style="margin-bottom: 2rem;">なぜアークカレッジが<br class="sp-br">選ばれるのか</h2>
-            
-            <div class="comparison-wrapper">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>項目</th>
-                            <th class="ark-col">Ark College</th>
-                            <th>一般的な大手総合型選抜(AO)塾</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>指導者</td>
-                            <td class="ark-col">プロ講師が直接担当<br><span style="font-size:0.8rem; font-weight:normal;">(外資マーケター出身)</span></td>
-                            <td>大学生バイト講師</td>
-                        </tr>
-                        <tr>
-                            <td>戦略性</td>
-                            <td class="ark-col">合格からの逆算思考</td>
-                            <td>テンプレート指導</td>
-                        </tr>
-                        <tr>
-                            <td>人数</td>
-                            <td class="ark-col">1学年6名限定</td>
-                            <td>数十名〜数百名</td>
-                        </tr>
-                        <tr>
-                            <td>添削</td>
-                            <td class="ark-col">無制限・48h以内返信</td>
-                            <td>回数制限あり</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="section-header text-center" style="margin-bottom: 3rem;">
+                <span style="color:var(--gold); font-weight:700;">STRATEGY</span>
+                <h2 style="margin-top:0.5rem;">アークカレッジだけの<br>「合格戦略」3つの柱</h2>
+                <p>実績ゼロ・偏差値50台からの逆転合格を実現するメソッド</p>
             </div>
 
-            <div class="comparison-mobile-list">
-                <div class="comp-card">
-                    <div class="comp-header">指導者の質</div>
-                    <div class="comp-body">
-                        <div class="comp-col">
-                            <span class="comp-col-label ark">Ark College</span>
-                            <div class="comp-ark-content">
-                                <i class="fa-solid fa-crown" style="color:var(--gold);"></i><br>
-                                プロ講師が直接担当
-                            </div>
-                        </div>
-                        <div class="comp-vs">vs</div>
-                        <div class="comp-col">
-                            <span class="comp-col-label">一般的な大手塾</span>
-                            <div class="comp-other-content">大学生バイト</div>
-                        </div>
-                    </div>
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-num">01</div>
+                    <h3 class="pillar-title">1学年6名限定の<br>「超・密着指導」</h3>
+                    <p class="pillar-desc">
+                        大手塾の「その他大勢」ではなく、一人の人間として深く理解します。あなたの原体験や日常を、大学教授に刺さる言葉へ変換する<strong>「翻訳」</strong>作業を、プロがマンツーマンで行います。
+                    </p>
                 </div>
+                <div class="pillar-card">
+                    <div class="pillar-num">02</div>
+                    <h3 class="pillar-title">一生ものの<br>「思考力」の習得</h3>
+                    <p class="pillar-desc">
+                        合格はゴールではなく通過点です。テンプレートに当てはめるだけの指導はしません。外資系企業でも通用する「論理的思考力」を鍛え上げ、面接や小論文で圧倒的な差をつけます。
+                    </p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-num">03</div>
+                    <h3 class="pillar-title">合格から逆算した<br>「ロードマップ」</h3>
+                    <p class="pillar-desc">
+                        「いつ・何をすべきか」を可視化し、迷走する時間をゼロにします。志望校の出願日から逆算し、高2の今やるべきタスクを明確化。入試当日まで伴走し続けます。
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 3rem;">
+                <a href="#contact" class="btn btn-reserve">
+                    この戦略で合格を目指す（無料診断予約）
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section offer-detail" id="reservation">
+        <div class="container">
+            <div class="offer-box">
+                <h2 class="offer-title">30分で、あなたの<br>「合格ロードマップ」を作成します</h2>
+                <p style="margin-bottom: 2rem;">「総合型選抜・合格可能性診断」で得られる3つのメリット</p>
                 
-                <div class="comp-card">
-                    <div class="comp-header">添削スピード</div>
-                    <div class="comp-body">
-                        <div class="comp-col">
-                            <span class="comp-col-label ark">Ark College</span>
-                            <div class="comp-ark-content">
-                                <i class="fa-solid fa-bolt" style="color:var(--gold);"></i><br>
-                                無制限・48h以内
-                            </div>
-                        </div>
-                        <div class="comp-vs">vs</div>
-                        <div class="comp-col">
-                            <span class="comp-col-label">一般的な大手塾</span>
-                            <div class="comp-other-content">回数制限あり</div>
-                        </div>
-                    </div>
-                </div>
+                <ul class="offer-list">
+                    <li><i class="fa-solid fa-check"></i> <strong>合格レベル判定：</strong> 現状の評定・経験から、リアルに狙える大学を提示。</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>強みの発掘：</strong> 無意識の経験を「実績」に変える切り口をアドバイス。</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>逆算ロードマップ：</strong> 合格までに必要なタスクをその場で整理。</li>
+                </ul>
 
-                <div class="comp-card">
-                    <div class="comp-header">指導人数</div>
-                    <div class="comp-body">
-                        <div class="comp-col">
-                            <span class="comp-col-label ark">Ark College</span>
-                            <div class="comp-ark-content">
-                                <i class="fa-solid fa-user-check" style="color:var(--gold);"></i><br>
-                                1学年6名限定
-                            </div>
-                        </div>
-                        <div class="comp-vs">vs</div>
-                        <div class="comp-col">
-                            <span class="comp-col-label">一般的な大手塾</span>
-                            <div class="comp-other-content">大量受け入れ</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <p style="font-size: 0.9rem; margin-bottom: 2rem; color: #ddd;">場所：Zoomオンライン（全国対応）</p>
 
-        </div>
-    </section>
-
-    <section class="section value">
-        <div class="container">
-            <h2 class="text-center">アークカレッジの提供価値</h2>
-            <div class="value-grid">
-                <div class="value-card">
-                    <div class="value-num">01</div>
-                    <h3 class="value-title">戦略とスケジュール立案</h3>
-                    <p style="font-size: 0.9rem; color: var(--gray);">合格までの最短ルートを描きます。いつ、何をすべきか明確なロードマップを提示し、迷いをゼロにします。</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-num">02</div>
-                    <h3 class="value-title">完全オンライン・深夜対応</h3>
-                    <p style="font-size: 0.9rem; color: var(--gray);">場所を選ばず、最高品質の指導を。Slackで疑問が出たその瞬間に相談可能。思考を止めさせません。</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-num">03</div>
-                    <h3 class="value-title">添削無制限・即レス</h3>
-                    <p style="font-size: 0.9rem; color: var(--gray);">「提出して1週間待ち」はあり得ません。即座にフィードバックを返し、圧倒的な回数の推敲を行います。</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-num">04</div>
-                    <h3 class="value-title">社会で通用する「知性」</h3>
-                    <p style="font-size: 0.9rem; color: var(--gray);">単なる合格テクニックではなく、大学入学後、そしてビジネスの場でも武器になる「論理的思考力」を養います。</p>
-                </div>
+                <a href="#contact" class="btn-hero-cta" style="margin: 0 auto;">
+                    <span class="btn-main-text">無料の「合格可能性診断」を予約する</span>
+                    <span class="btn-sub-text">※まずは日程調整のご連絡を差し上げます</span>
+                </a>
+                
+                <p style="margin-top: 1rem; font-size: 0.8rem; color: #aaa;">※1学年6名限定のため、定員に達し次第終了します</p>
             </div>
         </div>
     </section>
 
-    <section class="section proof"> 
+    <section class="section pricing">
         <div class="container">
-            <div style="display:inline-block; border-bottom: 2px solid var(--gold); padding-bottom: 10px; margin-bottom: 20px;">
-                <span style="font-size: 1rem; letter-spacing: 0.2em; color: var(--gold);">RESULTS</span>
-            </div>
-            <h2>難関大への圧倒的な合格実績</h2>
-            <p>偏差値や実績に関わらず、<br>「戦略」で逆転合格を実現しています。</p>
-            
-            <div class="univ-grid">
-                <div class="univ-item">慶應義塾大学</div>
-                <div class="univ-item">早稲田大学</div>
-                <div class="univ-item">上智大学</div>
-                <div class="univ-item">国際基督教大学 (ICU)</div>
-                <div class="univ-item">青山学院大学</div>
-                <div class="univ-item">立教大学</div>
-                <div class="univ-item">一橋大学</div>
-                <div class="univ-item">同志社大学</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section authority">
-        <div class="container">
-            <h2 class="text-center" style="margin-bottom: 3rem;">受験生の『個性』を、<br>合格する『強み』へ。</h2>
-            <div class="profile-box">
-                <img src="president.webp" alt="Noah M." class="profile-img">
-                <div class="profile-content">
-                    <h3>Noah M.</h3>
-                    <p style="color: var(--gold); font-weight: 700; margin-bottom: 1.5rem; letter-spacing: 0.1em;">Ark College 代表講師</p>
-                    <p>慶應義塾大学法学部法律学科卒。</p>
-                    <p>慶應義塾大学法学部FIT入試A・B両方式で現役ダブル合格した経験をもとに、総合型選抜(AO入試)の指導分野に参画。大手塾「洋々」では4年間にわたりメンター講師として在籍。</p>
-                    <p>さらに、大手外資系企業でマーケターとして勤務。市場分析、戦略立案、高い論理的思考力を実務を通じて培う。</p>
-                    <div style="margin-top: 1.5rem;">
-                        <a href="https://note.com/ark_college/n/ne06612120422" target="_blank" style="color: var(--navy); text-decoration: underline; font-weight: 700;">
-                            <i class="fa-solid fa-pen"></i> 代表インタビュー(note)を読む
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section offer" id="pricing" style="background: var(--off-white);">
-        <div class="container">
-            <h2 class="text-center" style="margin-bottom: 3rem;">コース・料金について</h2>
+            <h2 class="text-center" style="margin-bottom: 3rem;">「月額」ではなく「総額」で<br class="sp-br">ご判断ください</h2>
             
             <div class="pricing-simple-box">
                 <div class="price-label">シンプルで明朗な料金体系</div>
                 <div class="price-main">
                     <span style="font-size: 1.5rem; vertical-align: middle;">月額</span>
-                    80,000<span style="font-size: 1.5rem; font-family: 'Noto Sans JP', sans-serif; font-weight: 700;">円<br>(税込)程度〜</span>
+                    85,000<span style="font-size: 1.5rem; font-family: 'Noto Sans JP', sans-serif; font-weight: 700;">円<br>(税込)程度〜</span>
                 </div>
                 <div class="price-sub">※入塾金、オプション等は別途</div>
 
                 <div class="price-note">
-                    <strong><i class="fa-solid fa-check" style="color: var(--gold);"></i> 後出し請求は一切ありません</strong><br>
-                    夏期講習費や合宿費など、入塾後に高額な追加費用が発生することはございません。
-                </div>
-
-                <div style="text-align: center;">
-                    <p style="margin-bottom: 1rem; font-weight: 700; color: var(--navy);">学年ごとのプラン詳細は<br>LINEで配布しています。</p>
-                    <a href="https://lin.ee/Uq7uW97" target="_blank" class="btn btn-line" style="width: 100%;">
-                        <i class="fa-brands fa-line" style="margin-right: 0.8rem; font-size: 1.4rem;"></i>
-                        料金資料を受け取る
-                    </a>
+                    <strong><i class="fa-solid fa-check" style="color: var(--gold);"></i> 夏期講習費などの後出し請求は一切ありません</strong><br>
+                    「添削無制限」が月額に含まれているため、追加チケットの購入も不要です。
                 </div>
             </div>
+
             <div class="cost-comparison-box">
-                <h3 style="text-align:center; font-size:1.1rem; margin-bottom:1rem;">「月額」ではなく「総額」でご判断ください</h3>
+                <h3 style="text-align:center; font-size:1.1rem; margin: 2rem 0 1rem;">大手塾は「オプション」で総額が膨らみます</h3>
                 <table class="cost-table">
                     <thead>
                         <tr>
@@ -837,55 +742,60 @@
                     <tbody>
                         <tr>
                             <td class="c-item">基本月額</td>
-                            <td class="c-ark">¥80,000〜</td>
-                            <td class="c-other">¥60,000〜</td>
+                            <td class="c-ark">¥80,000〜<br><span style="font-size:0.7rem;">(添削無制限込)</span></td>
+                            <td class="c-other">¥40,000〜<br><span style="font-size:0.7rem;">(授業料のみ)</span></td>
                         </tr>
                         <tr>
-                            <td class="c-item">添削指導</td>
-                            <td class="c-ark">月額に含む<br><span style="font-size:0.75rem; font-weight:normal;">(無制限)</span></td>
-                            <td class="c-other">有料チケット制<br><span style="font-size:0.75rem;">(1回 ¥5,000〜)</span></td>
+                            <td class="c-item">追加添削</td>
+                            <td class="c-ark">¥0<br><span style="font-size:0.75rem; font-weight:normal;">(無制限)</span></td>
+                            <td class="c-other">有料チケット<br><span style="font-size:0.75rem;">(1回 ¥5,000〜)</span></td>
                         </tr>
                         <tr>
-                            <td class="c-item">夏期・冬期講習</td>
-                            <td class="c-ark">¥0<br><span style="font-size:0.75rem; font-weight:normal;">(追加費用なし)</span></td>
-                            <td class="c-other">別途高額請求<br><span style="font-size:0.75rem;">(¥200,000〜)</span></td>
+                            <td class="c-item">夏期講習・合宿</td>
+                            <td class="c-ark">¥0<br><span style="font-size:0.75rem; font-weight:normal;">(不要)</span></td>
+                            <td class="c-other">別途高額請求<br><span style="font-size:0.75rem;">(¥300,000〜)</span></td>
                         </tr>
                         <tr class="cost-total-row">
                             <td class="c-item">年間総額<br><span style="font-size:0.7rem; font-weight:normal;">(目安)</span></td>
-                            <td class="c-ark">77万円〜</td>
-                            <td class="c-other">90万円〜</td>
+                            <td class="c-ark">安心の定額</td>
+                            <td class="c-other">結果的に高額</td>
                         </tr>
                     </tbody>
                 </table>
-                <p style="font-size: 0.8rem; text-align: right; color: var(--gray); margin-top: 5px;">※他社金額は一般的な目安です</p>
+            </div>
+
+            <div class="campaign-box text-center" style="background: #fff0f0; border: 2px solid var(--alert-red); padding: 2rem; border-radius: 8px; margin-top: 3rem;">
+                <h3 style="color: var(--alert-red); margin-bottom: 1rem;"><i class="fa-solid fa-fire"></i> 当日入会キャンペーン</h3>
+                <p style="font-weight: 700; margin-bottom: 1.5rem;">
+                    無料コンサルティング参加後、その場でご入会いただいた方限定<br>
+                    <span style="font-size: 1.5rem; background: yellow;">入会金 55,000円 → 全額無料</span>
+                </p>
+                <p style="font-size: 0.9rem; margin-bottom: 2rem;">まずは30分お話しして、相性を確かめてください。<br>「この指導なら受かる」と確信できた場合のみ、ご入会いただければ結構です。</p>
+                <a href="#contact" class="btn btn-reserve">
+                    入会金無料キャンペーンで予約する
+                </a>
             </div>
         </div>
     </section>
 
-    <section class="section faq">
+    <section class="section authority">
         <div class="container">
-            <h2 class="text-center" style="margin-bottom: 3rem;">よくある質問</h2>
-            <div class="faq-item" style="border-bottom: 1px solid #ddd;">
-                <div class="faq-q" style="padding: 1.5rem; cursor: pointer; font-weight: 700;">実績が何もないのですが... <span style="float: right; color: var(--gold);">+</span></div>
-                <div class="faq-a" style="padding: 0 1.5rem 1.5rem; display: none; color: var(--gray);">大丈夫です。9割の生徒がゼロからストーリーを作っています。あなたの日常や原体験から「大学に刺さる」要素を一緒に発掘します。</div>
-            </div>
-            <div class="faq-item" style="border-bottom: 1px solid #ddd;">
-                <div class="faq-q" style="padding: 1.5rem; cursor: pointer; font-weight: 700;">オンラインだけで対策できますか？ <span style="float: right; color: var(--gold);">+</span></div>
-                <div class="faq-a" style="padding: 0 1.5rem 1.5rem; display: none; color: var(--gray);">可能です。むしろ画面共有等で対面より効率的に指導できます。地方や海外在住の合格者も多数輩出しています。</div>
-            </div>
-            <div class="faq-item" style="border-bottom: 1px solid #ddd;">
-                <div class="faq-q" style="padding: 1.5rem; cursor: pointer; font-weight: 700;">まずは話を聞くだけでもいいですか？ <span style="float: right; color: var(--gold);">+</span></div>
-                <div class="faq-a" style="padding: 0 1.5rem 1.5rem; display: none; color: var(--gray);">もちろんです。無料コンサルティングでは、無理な勧誘は一切せず、現状の分析と戦略の提案のみを行います。</div>
+            <h2 class="text-center" style="margin-bottom: 3rem;">合格の先を見据えた指導</h2>
+            <div class="profile-box">
+                <img src="president.webp" alt="Noah M." class="profile-img">
+                <div class="profile-content">
+                    <h3>Noah M.</h3>
+                    <p style="color: var(--gold); font-weight: 700; margin-bottom: 1.5rem; letter-spacing: 0.1em;">Ark College 代表講師</p>
+                    <p>慶應義塾大学法学部法律学科卒。</p>
+                    <p>慶應義塾大学法学部FIT入試A・B両方式で現役ダブル合格した経験をもとに、総合型選抜(AO入試)の指導分野に参画。大手塾「洋々」では4年間にわたりメンター講師として在籍。</p>
+                    <p>さらに、大手外資系企業でマーケターとして勤務。市場分析、戦略立案、高い論理的思考力を実務を通じて培う。</p>
+                    <div style="margin-top: 1.5rem;">
+                        <strong>合格実績：</strong><br>
+                        慶應義塾大学 / 早稲田大学 / 上智大学 / 国際基督教大学(ICU) / 青山学院大学 / 立教大学 / 一橋大学 / 同志社大学 等
+                    </div>
+                </div>
             </div>
         </div>
-        <script>
-            document.querySelectorAll('.faq-q').forEach(q => {
-                q.addEventListener('click', () => {
-                    const a = q.nextElementSibling;
-                    a.style.display = a.style.display === 'block' ? 'none' : 'block';
-                });
-            });
-        </script>
     </section>
 
     <section class="section closing" id="contact" style="background: var(--navy-light);">
@@ -950,46 +860,14 @@
             </div>
         </div>
     </section>
-    
-    <section class="media" id="media" style="background: var(--off-white);">
-        <div class="container">
-            <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
-                <div style="color: var(--gold); font-size: 0.9rem; letter-spacing: 0.15em; font-weight: 600; margin-bottom: 1rem;">MEDIA & COLUMN</div>
-                <h2 class="section-title">公式note</h2>
-                <p>合格のための思考法を発信しています。</p>
-            </div>
-            <div class="media-grid">
-                <a href="https://note.com/ark_college/n/nd4965fbe8d90" target="_blank" rel="noopener" class="media-card">
-                    <div class="media-thumb">
-                        <img src="https://assets.st-note.com/production/uploads/images/241577733/rectangle_large_type_2_28f9f2d7db28c78aec5f91f0d531a746.png?width=1280" alt="記事サムネイル" loading="lazy">
-                    </div>
-                    <div class="media-body">
-                        <div class="media-date">2026.01.05</div>
-                        <h3 class="media-title">総合型選抜(AO入試)を「戦略」で突破することにこだわり抜いたカリキュラム</h3>
-                        <span class="read-more">READ MORE &rarr;</span>
-                    </div>
-                </a>
-                <a href="https://note.com/ark_college/n/ne06612120422" target="_blank" rel="noopener" class="media-card">
-                    <div class="media-thumb">
-                        <img src="https://assets.st-note.com/production/uploads/images/241574570/rectangle_large_type_2_10979ebe4c0cccd82c72b709391c7051.png?width=1280" alt="記事サムネイル" loading="lazy">
-                    </div>
-                    <div class="media-body">
-                        <div class="media-date">2026.01.05</div>
-                        <h3 class="media-title">【代表インタビュー】大学合格は「ゴール」ではなく「通過点」。</h3>
-                        <span class="read-more">READ MORE &rarr;</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
 
     <div class="sticky-cta">
         <div class="cta-inner">
-            <a href="https://lin.ee/Uq7uW97" target="_blank" class="sticky-btn">
-                <i class="fa-brands fa-line" style="font-size: 1.6rem; margin-right: 0.8rem;"></i>
+            <a href="#contact" class="sticky-btn">
+                <i class="fa-regular fa-calendar-check" style="font-size: 1.6rem; margin-right: 0.8rem;"></i>
                 <div class="btn-text-group">
-                    <span class="sticky-sub">合格実績・料金表を受け取る</span>
-                    <span class="sticky-main">LINEで資料請求</span>
+                    <span class="sticky-sub">30分で合格可能性を診断</span>
+                    <span class="sticky-main">無料コンサルを予約する</span>
                 </div>
             </a>
         </div>
