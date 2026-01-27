@@ -215,7 +215,7 @@
             font-weight: 500;
         }
 
-        /* Hero: Badges (Horizontal Layout Fix) */
+        /* Hero: Badges */
         .badge-container {
             display: flex;
             justify-content: center;
@@ -285,7 +285,7 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
-        /* --- Difference Section (Prominent) --- */
+        /* --- Difference Section --- */
         .diff-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -294,7 +294,7 @@
         }
         .diff-card {
             background: #fff;
-            border: 2px solid #eee; /* Thicker border */
+            border: 2px solid #eee;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
@@ -390,10 +390,22 @@
         }
         .offer-title { font-size: 1.8rem; margin-bottom: 2rem; color: var(--gold); line-height: 1.4; }
         .offer-list { text-align: left; max-width: 600px; margin: 0 auto 2rem; list-style: none; }
-        .offer-list li { margin-bottom: 1rem; font-size: 1.1rem; display: flex; align-items: flex-start; }
-        .offer-list i { color: var(--gold); margin-right: 10px; margin-top: 6px; }
+        .offer-list li { 
+            margin-bottom: 1.2rem; 
+            font-size: 1.1rem; 
+            display: flex; 
+            align-items: flex-start; 
+        }
+        .offer-list i { 
+            color: var(--gold); 
+            margin-right: 12px; 
+            margin-top: 6px; 
+            flex-shrink: 0; /* Prevent icon shrinking */
+        }
+        .offer-list strong { display: block; margin-bottom: 0.2rem; color: var(--white); }
+        .offer-list span { display: block; font-size: 0.95rem; color: #ddd; }
 
-        /* --- Pricing Section (Refined Layout) --- */
+        /* --- Pricing Section --- */
         .pricing-simple-box {
             background: var(--white);
             border: 2px solid var(--gold);
@@ -437,7 +449,7 @@
             border-left: 4px solid var(--navy);
         }
 
-        /* --- Cost Comparison (Mobile Optimized) --- */
+        /* --- Cost Comparison --- */
         .cost-comparison-box {
             margin-bottom: 3rem;
             text-align: left;
@@ -446,7 +458,7 @@
             width: 100%;
             border-collapse: collapse;
             font-size: 0.95rem;
-            table-layout: fixed; /* Ensures no scroll on mobile */
+            table-layout: fixed;
         }
         .cost-table th { background: var(--gray-light); padding: 1rem 0.5rem; text-align: center; font-weight: 700; color: var(--navy); }
         .cost-table td { border-bottom: 1px solid #eee; padding: 1.2rem 0.5rem; text-align: center; vertical-align: middle; word-wrap: break-word;}
@@ -474,7 +486,7 @@
         .form-control { width: 100%; padding: 1rem; border: 1px solid var(--gray-light); border-radius: 4px; font-size: 1rem; font-family: inherit; background: #fdfdfd; }
         .form-submit-btn { width: 100%; padding: 1.2rem; background: var(--navy); color: var(--white); font-size: 1.1rem; font-weight: 700; border: none; border-radius: 4px; cursor: pointer; }
 
-        /* --- Achievement Badges (New) --- */
+        /* --- Achievement Badges --- */
         .achieve-grid {
             display: flex;
             flex-wrap: wrap;
@@ -572,10 +584,11 @@
             /* Difference */
             .diff-grid { gap: 1.5rem; }
 
-            /* Offer */
-            .offer-box { padding: 2rem 1.5rem; }
-            .offer-title { font-size: 1.4rem; }
-            .offer-list li { font-size: 1rem; }
+            /* Offer: Layout Fix for Mobile Text Wrapping */
+            .offer-box { padding: 2rem 1rem; }
+            .offer-title { font-size: 1.4rem; margin-bottom: 1.5rem; }
+            .offer-list li { font-size: 0.95rem; }
+            .offer-list strong { font-size: 1rem; }
 
             /* Pricing Box Mobile */
             .price-amount { font-size: 3rem; }
@@ -785,9 +798,27 @@
                 <p style="margin-bottom: 2rem;">「総合型選抜・合格可能性診断」で得られる3つのメリット</p>
                 
                 <ul class="offer-list">
-                    <li><i class="fa-solid fa-check"></i> <strong>合格レベル判定：</strong> 現状の評定・経験から、リアルに狙える大学を提示。</li>
-                    <li><i class="fa-solid fa-check"></i> <strong>強みの発掘：</strong> 無意識の経験を「実績」に変える切り口をアドバイス。</li>
-                    <li><i class="fa-solid fa-check"></i> <strong>逆算ロードマップ：</strong> 合格までに必要なタスクをその場で整理。</li>
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        <div>
+                            <strong>合格レベル判定：</strong>
+                            <span>現状の評定・経験から、リアルに狙える大学を提示。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        <div>
+                            <strong>強みの発掘：</strong>
+                            <span>無意識の経験を「実績」に変える切り口をアドバイス。</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        <div>
+                            <strong>逆算ロードマップ：</strong>
+                            <span>合格までに必要なタスクをその場で整理。</span>
+                        </div>
+                    </li>
                 </ul>
 
                 <p style="font-size: 0.9rem; margin-bottom: 2rem; color: #ddd;">場所：Zoomオンライン（全国対応）</p>
@@ -962,4 +993,46 @@
 
                 <div style="margin-top: 2rem; text-align: center;">
                     <p style="font-size: 0.9rem; margin-bottom: 1rem; font-weight: 700; color: var(--navy);">＼ まずは資料だけ見たい方はこちら ／</p>
-                    <a href="https://lin.ee/Uq7uW97" target
+                    <a href="https://lin.ee/Uq7uW97" target="_blank" class="btn btn-line" style="display: flex; align-items: center; justify-content: center; gap: 10px; max-width: 400px; margin: 0 auto;">
+                        <i class="fa-brands fa-line" style="font-size: 1.5rem;"></i>
+                        <span>LINEで資料請求する</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="sticky-cta">
+        <div class="cta-inner">
+            <a href="#contact" class="sticky-btn">
+                <i class="fa-regular fa-calendar-check" style="font-size: 1.6rem; margin-right: 0.8rem;"></i>
+                <div class="btn-text-group">
+                    <span class="sticky-sub">30分で合格可能性を診断</span>
+                    <span class="sticky-main">無料コンサルを予約する</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>
+                &copy; 2025 Ark Growth Parnters. All rights reserved.<br>
+                <a href="https://www.ark-growth-partners.com/" target="_blank">運営会社情報</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky CTA Visibility
+        window.addEventListener('scroll', () => {
+            const cta = document.querySelector('.sticky-cta');
+            if (window.scrollY > 600) {
+                cta.classList.add('visible');
+            } else {
+                cta.classList.remove('visible');
+            }
+        });
+    </script>
+</body>
+</html>
