@@ -67,7 +67,7 @@
             --gray: #6B7280;
             --alert-red: #c0392b;
             --line-green: #06C755;
-            --accent-orange: #e67e22; /* CTA Accent */
+            --accent-orange: #e67e22;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -88,7 +88,6 @@
         }
         .text-gold { color: var(--gold); }
         .text-navy { color: var(--navy); }
-        .font-serif { font-family: 'Noto Serif JP', serif; }
         .text-center { text-align: center; }
         .pc-br { display: inline; }
         .sp-br { display: none; }
@@ -99,7 +98,7 @@
             margin: 0 auto;
             padding: 0 1.5rem;
         }
-        .section { padding: 6rem 0; }
+        .section { padding: 5rem 0; }
         
         /* Buttons */
         .btn {
@@ -120,6 +119,8 @@
             background: var(--line-green);
             color: #FFFFFF;
             box-shadow: 0 4px 10px rgba(6, 199, 85, 0.3);
+            border-radius: 50px;
+            width: 100%;
         }
         .btn-line:hover {
             opacity: 0.9;
@@ -148,7 +149,6 @@
             display: flex; align-items: center; gap: 5px;
             transition: all 0.3s;
         }
-        .header-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(230, 126, 34, 0.4); }
 
         /* --- Hero Section --- */
         .hero-impact {
@@ -215,24 +215,30 @@
             font-weight: 500;
         }
 
-        /* Hero: Badges */
+        /* Hero: Badges (Horizontal Layout Fix) */
         .badge-container {
             display: flex;
+            justify-content: center;
             gap: 1rem;
             margin-bottom: 2.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
+            width: 100%;
         }
         .hero-badge {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(212, 175, 55, 0.4);
-            padding: 0.5rem 1rem;
+            padding: 0.8rem 1.2rem;
             border-radius: 4px;
             color: var(--gold);
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             backdrop-filter: blur(5px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.3;
         }
+        .hero-badge i { font-size: 1.2rem; margin-bottom: 5px; color: #fff; }
 
         /* Hero: CTA */
         .hero-actions {
@@ -279,7 +285,7 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
-        /* --- Difference Section --- */
+        /* --- Difference Section (Prominent) --- */
         .diff-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -288,24 +294,44 @@
         }
         .diff-card {
             background: #fff;
-            border: 1px solid #eee;
-            border-radius: 8px;
+            border: 2px solid #eee; /* Thicker border */
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
         }
+        .diff-card:hover { transform: translateY(-5px); }
         .diff-header {
             background: var(--navy);
             color: #fff;
-            padding: 1rem;
+            padding: 1.2rem;
             text-align: center;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            letter-spacing: 0.05em;
         }
         .diff-body { padding: 1.5rem; }
-        .diff-item { margin-bottom: 1.5rem; }
-        .diff-label { font-size: 0.8rem; color: #999; display: block; margin-bottom: 0.3rem; }
-        .diff-ark { color: var(--navy); font-weight: 700; font-size: 1.1rem; border-left: 3px solid var(--gold); padding-left: 10px; margin-bottom: 0.5rem; }
-        .diff-other { color: var(--gray); font-size: 0.9rem; text-decoration: line-through; padding-left: 13px; }
+        .diff-item { margin-bottom: 2rem; }
+        .diff-item:last-child { margin-bottom: 0; }
+        .diff-label { font-size: 0.85rem; color: #888; display: block; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        
+        .diff-ark { 
+            color: var(--navy); 
+            font-weight: 700; 
+            font-size: 1.25rem; 
+            background: #FFFCF2;
+            border-left: 5px solid var(--gold); 
+            padding: 10px 15px; 
+            margin-bottom: 0.5rem; 
+            border-radius: 0 4px 4px 0;
+        }
+        .diff-other { 
+            color: var(--gray); 
+            font-size: 0.95rem; 
+            padding-left: 15px; 
+            position: relative;
+        }
+        .diff-other::before { content: "▲"; color: #ccc; font-size: 0.8rem; margin-right: 5px; }
 
         /* --- Problem --- */
         .checklist-box {
@@ -331,7 +357,7 @@
             flex-shrink: 0;
         }
 
-        /* --- Solution (3 Pillars) --- */
+        /* --- Solution --- */
         .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
         .pillar-card {
             background: #FFFCF2;
@@ -350,8 +376,7 @@
         .pillar-title { font-size: 1.3rem; margin-bottom: 1rem; color: var(--navy); margin-top: 10px; }
         .pillar-desc { font-size: 0.95rem; color: var(--navy-light); }
 
-
-        /* --- Offer (Diagnosis) --- */
+        /* --- Offer (Diagnosis) - Layout Fix --- */
         .offer-box {
             background: linear-gradient(135deg, #0A1628 0%, #1a2942 100%);
             color: white;
@@ -363,33 +388,77 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             border: 1px solid var(--gold);
         }
-        .offer-title { font-size: 1.8rem; margin-bottom: 2rem; color: var(--gold); }
+        .offer-title { font-size: 1.8rem; margin-bottom: 2rem; color: var(--gold); line-height: 1.4; }
         .offer-list { text-align: left; max-width: 600px; margin: 0 auto 2rem; list-style: none; }
         .offer-list li { margin-bottom: 1rem; font-size: 1.1rem; display: flex; align-items: flex-start; }
         .offer-list i { color: var(--gold); margin-right: 10px; margin-top: 6px; }
 
-        /* --- Pricing & Cost Comparison --- */
+        /* --- Pricing Section (Refined Layout) --- */
+        .pricing-simple-box {
+            background: var(--white);
+            border: 2px solid var(--gold);
+            border-radius: 8px;
+            padding: 3rem 2rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .price-label {
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: #eee;
+            padding: 0.2rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        .price-flex {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .price-prefix { font-size: 1.2rem; font-weight: 700; color: var(--navy); }
+        .price-amount { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 900; color: var(--navy); line-height: 1; }
+        .price-suffix { font-size: 1.2rem; font-weight: 700; color: var(--navy); }
+        
+        .price-sub { font-size: 0.9rem; color: #888; margin-bottom: 2rem; }
+
+        .price-note {
+            background: var(--off-white);
+            padding: 1.5rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            text-align: left;
+            border-left: 4px solid var(--navy);
+        }
+
+        /* --- Cost Comparison (Mobile Optimized) --- */
         .cost-comparison-box {
             margin-bottom: 3rem;
             text-align: left;
-            overflow-x: auto;
         }
         .cost-table {
             width: 100%;
             border-collapse: collapse;
             font-size: 0.95rem;
-            min-width: 600px;
+            table-layout: fixed; /* Ensures no scroll on mobile */
         }
-        .cost-table th { background: var(--gray-light); padding: 1rem; text-align: center; font-weight: 700; color: var(--navy); }
-        .cost-table td { border-bottom: 1px solid #eee; padding: 1.2rem 1rem; text-align: center; vertical-align: middle; }
-        .cost-table .c-item { text-align: left; font-weight: 700; background: #fff; width: 30%; }
-        .cost-table .c-ark { background: #FFFCF2; border-left: 3px solid var(--gold); border-right: 3px solid var(--gold); font-weight: 700; color: var(--navy); font-size: 1.1rem; width: 35%; }
-        .cost-table .c-other { color: var(--gray); width: 35%; }
+        .cost-table th { background: var(--gray-light); padding: 1rem 0.5rem; text-align: center; font-weight: 700; color: var(--navy); }
+        .cost-table td { border-bottom: 1px solid #eee; padding: 1.2rem 0.5rem; text-align: center; vertical-align: middle; word-wrap: break-word;}
         
-        .cost-total-row td { border-top: 3px solid var(--navy); font-weight: 700; padding: 1.5rem 1rem; background: #fff; }
-        .cost-total-row .c-ark { color: var(--alert-red); font-size: 1.4rem; background: #FFFCF2; }
+        .cost-table .c-item { text-align: left; font-weight: 700; background: #fff; width: 25%; font-size: 0.9rem; }
+        .cost-table .c-ark { background: #FFFCF2; border-left: 2px solid var(--gold); border-right: 2px solid var(--gold); font-weight: 700; color: var(--navy); width: 37.5%; }
+        .cost-table .c-other { color: var(--gray); width: 37.5%; }
+        
+        .cost-total-row td { border-top: 3px solid var(--navy); font-weight: 700; padding: 1.5rem 0.5rem; background: #fff; }
+        .cost-total-row .c-ark { color: var(--alert-red); font-size: 1.2rem; background: #FFFCF2; }
 
-        /* --- Native Form Styles (Materials) --- */
+        /* --- Native Form Styles --- */
         .native-form-container {
             background: var(--white);
             padding: 2.5rem;
@@ -404,6 +473,26 @@
         .label-required { background: #c0392b; color: white; font-size: 0.7rem; padding: 2px 6px; border-radius: 2px; margin-left: 8px; vertical-align: middle; }
         .form-control { width: 100%; padding: 1rem; border: 1px solid var(--gray-light); border-radius: 4px; font-size: 1rem; font-family: inherit; background: #fdfdfd; }
         .form-submit-btn { width: 100%; padding: 1.2rem; background: var(--navy); color: var(--white); font-size: 1.1rem; font-weight: 700; border: none; border-radius: 4px; cursor: pointer; }
+
+        /* --- Achievement Badges (New) --- */
+        .achieve-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+        .achieve-tag {
+            background: white;
+            border: 1px solid var(--gold);
+            color: var(--navy);
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+        }
+        .achieve-tag i { color: var(--gold); margin-right: 6px; }
 
         /* --- Sticky CTA --- */
         .sticky-cta {
@@ -426,27 +515,14 @@
         .sticky-sub { font-size: 0.65rem; opacity: 0.9; }
         .sticky-main { font-size: 1rem; font-weight: 700; }
 
-        /* Media */
-        .media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
-        .media-card { background: var(--white); border: 1px solid var(--gray-light); display: flex; flex-direction: column; text-decoration: none; color: var(--navy); transition: all 0.4s ease; height: 100%; overflow: hidden; }
-        .media-thumb { width: 100%; height: 200px; overflow: hidden; position: relative; }
-        .media-thumb img { width: 100%; height: 100%; object-fit: cover; }
-        .media-body { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
-        .media-date { font-size: 0.8rem; color: #B8941F; margin-bottom: 0.5rem; }
-        .media-title { font-size: 1.2rem; font-weight: 700; line-height: 1.5; margin-bottom: 1rem; }
-
-        /* Footer */
-        footer { background: var(--navy); padding: 3rem 0; text-align: center; color: rgba(255,255,255,0.6); font-size: 0.85rem; padding-bottom: 100px; }
-        footer a { color: var(--gold); text-decoration: none; }
-
-        /* Proof */
-        .univ-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; max-width: 900px; margin: 3rem auto 0; }
-        .univ-item { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 1rem; color: var(--white); font-family: 'Noto Serif JP', serif; }
-        
-        /* Profile */
+        /* --- Profile Box --- */
         .profile-box { display: flex; align-items: flex-start; gap: 3rem; background: var(--off-white); padding: 3rem; border: 1px solid var(--gray-light); }
         .profile-img { width: 250px; height: 250px; object-fit: cover; border: 4px solid var(--gold); }
         .profile-content { width: 100%; }
+
+        /* --- Footer --- */
+        footer { background: var(--navy); padding: 3rem 0; text-align: center; color: rgba(255,255,255,0.6); font-size: 0.85rem; padding-bottom: 100px; }
+        footer a { color: var(--gold); text-decoration: none; }
 
 
         /* --- RESPONSIVE OPTIMIZATION (Mobile First Logic) --- */
@@ -475,8 +551,19 @@
             .hero-headline { font-size: 2.3rem; margin-bottom: 1rem; line-height: 1.1; }
             .hero-sub { font-size: 0.9rem; margin-bottom: 1.5rem; }
             
-            .badge-container { gap: 0.5rem; margin-bottom: 1.5rem; }
-            .hero-badge { font-size: 0.75rem; padding: 0.4rem 0.8rem; }
+            /* Badges Mobile Fix: Horizontal & Readable */
+            .badge-container { 
+                gap: 5px; 
+                margin-bottom: 1.5rem; 
+                flex-wrap: nowrap; /* Force single row */
+            }
+            .hero-badge { 
+                font-size: 0.65rem; /* Smaller font */
+                padding: 0.5rem 0.2rem; 
+                flex: 1; /* Equal width */
+                min-height: 50px;
+            }
+            .hero-badge i { font-size: 0.9rem; margin-bottom: 3px; }
             
             .btn-hero-cta { padding: 1rem; max-width: 100%; }
             .btn-main-text { font-size: 1.1rem; }
@@ -490,9 +577,13 @@
             .offer-title { font-size: 1.4rem; }
             .offer-list li { font-size: 1rem; }
 
-            /* Cost Table SP */
-            .cost-table th, .cost-table td { font-size: 0.8rem; padding: 0.8rem 0.4rem; }
-            .cost-total-row .c-ark { font-size: 1.1rem; }
+            /* Pricing Box Mobile */
+            .price-amount { font-size: 3rem; }
+            .price-prefix, .price-suffix { font-size: 1rem; }
+
+            /* Cost Table SP: Layout Fix */
+            .cost-table th, .cost-table td { font-size: 0.75rem; padding: 0.8rem 0.2rem; }
+            .cost-total-row .c-ark { font-size: 1rem; }
 
             /* Profile */
             .profile-box { flex-direction: column; text-align: center; align-items: center; padding: 2rem 1.5rem; }
@@ -536,9 +627,9 @@
             </p>
 
             <div class="badge-container">
-                <div class="hero-badge"><i class="fa-solid fa-trophy"></i> 合格率 86.7%</div>
-                <div class="hero-badge"><i class="fa-solid fa-graduation-cap"></i> 合格大学 30校以上</div>
-                <div class="hero-badge"><i class="fa-solid fa-user-group"></i> 1学年「6名」限定</div>
+                <div class="hero-badge"><i class="fa-solid fa-trophy"></i> 第一志望<br>合格率86.7%</div>
+                <div class="hero-badge"><i class="fa-solid fa-graduation-cap"></i> 合格大学<br>30校以上</div>
+                <div class="hero-badge"><i class="fa-solid fa-user-group"></i> 合格者数<br>50名以上</div>
             </div>
 
             <div class="hero-actions">
@@ -717,9 +808,10 @@
             
             <div class="pricing-simple-box">
                 <div class="price-label">シンプルで明朗な料金体系</div>
-                <div class="price-main">
-                    <span style="font-size: 1.5rem; vertical-align: middle;">月額</span>
-                    85,000<span style="font-size: 1.5rem; font-family: 'Noto Sans JP', sans-serif; font-weight: 700;">円<br>(税込)程度〜</span>
+                <div class="price-flex">
+                    <span class="price-prefix">月額</span>
+                    <span class="price-amount">85,000</span>
+                    <span class="price-suffix">円(税込)程度〜</span>
                 </div>
                 <div class="price-sub">※入塾金、オプション等は別途</div>
 
@@ -789,9 +881,19 @@
                     <p>慶應義塾大学法学部法律学科卒。</p>
                     <p>慶應義塾大学法学部FIT入試A・B両方式で現役ダブル合格した経験をもとに、総合型選抜(AO入試)の指導分野に参画。大手塾「洋々」では4年間にわたりメンター講師として在籍。</p>
                     <p>さらに、大手外資系企業でマーケターとして勤務。市場分析、戦略立案、高い論理的思考力を実務を通じて培う。</p>
-                    <div style="margin-top: 1.5rem;">
-                        <strong>合格実績：</strong><br>
-                        慶應義塾大学 / 早稲田大学 / 上智大学 / 国際基督教大学(ICU) / 青山学院大学 / 立教大学 / 一橋大学 / 同志社大学 等
+                    
+                    <div style="margin-top: 2rem;">
+                        <strong style="display:block; margin-bottom:10px;">合格実績（一部抜粋）：</strong>
+                        <div class="achieve-grid">
+                            <span class="achieve-tag"><i class="fa-solid fa-school"></i> 慶應義塾大学</span>
+                            <span class="achieve-tag"><i class="fa-solid fa-school"></i> 早稲田大学</span>
+                            <span class="achieve-tag"><i class="fa-solid fa-school"></i> 上智大学</span>
+                            <span class="achieve-tag"><i class="fa-solid fa-school"></i> 国際基督教大学(ICU)</span>
+                            <span class="achieve-tag"><i class="fa-solid fa-school"></i> 青山学院大学</span>
+                            <span class="achieve-tag"><i class="fa-solid fa-school"></i> 立教大学</span>
+                            <span class="achieve-tag"><i class="fa-solid fa-school"></i> 一橋大学</span>
+                            <span class="achieve-tag"><i class="fa-solid fa-school"></i> 同志社大学</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -857,41 +959,7 @@
                         <button type="submit" class="form-submit-btn">この内容で送信する</button>
                     </div>
                 </form>
-            </div>
-        </div>
-    </section>
 
-    <div class="sticky-cta">
-        <div class="cta-inner">
-            <a href="#contact" class="sticky-btn">
-                <i class="fa-regular fa-calendar-check" style="font-size: 1.6rem; margin-right: 0.8rem;"></i>
-                <div class="btn-text-group">
-                    <span class="sticky-sub">30分で合格可能性を診断</span>
-                    <span class="sticky-main">無料コンサルを予約する</span>
-                </div>
-            </a>
-        </div>
-    </div>
-
-    <footer>
-        <div class="container">
-            <p>
-                &copy; 2025 Ark Growth Parnters. All rights reserved.<br>
-                <a href="https://www.ark-growth-partners.com/" target="_blank">運営会社情報</a>
-            </p>
-        </div>
-    </footer>
-
-    <script>
-        // Sticky CTA Visibility
-        window.addEventListener('scroll', () => {
-            const cta = document.querySelector('.sticky-cta');
-            if (window.scrollY > 600) {
-                cta.classList.add('visible');
-            } else {
-                cta.classList.remove('visible');
-            }
-        });
-    </script>
-</body>
-</html>
+                <div style="margin-top: 2rem; text-align: center;">
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem; font-weight: 700; color: var(--navy);">＼ まずは資料だけ見たい方はこちら ／</p>
+                    <a href="https://lin.ee/Uq7uW97" target
