@@ -49,7 +49,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ark College | 総合型選抜(AO入試)専門の完全オンライン塾</title>
     <meta name="description" content="添削無制限×完全マンツーマン指導。合格率86.7%の実績を持つプロフェッショナル指導。今だけ入会金無料キャンペーン実施中。">
-       
+        
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -150,7 +150,7 @@
             transition: all 0.3s;
         }
 
-        /* --- Hero Section --- */
+        /* --- Hero Section (MODIFIED) --- */
         .hero-impact {
             min-height: 100vh;
             position: relative;
@@ -159,9 +159,13 @@
             justify-content: center;
             padding-top: 120px;
             background-color: #050b14;
+            /* === 変更点: ここで背景画像とオーバーレイを設定しています === */
             background-image: 
-                linear-gradient(rgba(5, 11, 20, 0.88), rgba(5, 11, 20, 0.96)),
-                url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop');
+                /* 文字を見やすくするための暗いフィルター（暖かみを残すため不透明度を調整） */
+                linear-gradient(rgba(10, 22, 40, 0.6), rgba(10, 22, 40, 0.85)),
+                /* Midjourneyプロンプトのイメージに近いUnsplash画像（手元・ノート・光・コーヒー） */
+                url('https://images.unsplash.com/photo-1499750310159-5254f4127278?q=80&w=2070&auto=format&fit=crop');
+                /* ※ 生成した画像を使う場合は、上のURLを 'images/your-image.jpg' 等に変更してください */
             background-size: cover;
             background-position: center;
             color: white;
@@ -199,7 +203,8 @@
             color: var(--white);
             margin-bottom: 1.5rem;
             letter-spacing: -0.02em;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            /* 背景が明るくなった場合に備え、テキストシャドウを強化 */
+            text-shadow: 0 2px 15px rgba(0,0,0,0.7);
         }
         .hero-headline span.x-mark {
             color: var(--gold);
@@ -210,9 +215,10 @@
         
         .hero-sub {
             font-size: 1.1rem;
-            color: #ddd;
+            color: #f0f0f0; /* 少し明るく調整 */
             margin-bottom: 2rem;
             font-weight: 500;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
         }
 
         /* Hero: Badges */
@@ -224,7 +230,7 @@
             width: 100%;
         }
         .hero-badge {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(10, 22, 40, 0.7); /* 背景色を少し濃くして可読性確保 */
             border: 1px solid rgba(212, 175, 55, 0.4);
             padding: 0.8rem 1.2rem;
             border-radius: 4px;
