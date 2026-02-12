@@ -1,1165 +1,691 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17830636955"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'AW-17830636955');
-    </script>
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "vayiskp7vl");
-    </script>    
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '2056799455140381');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=2056799455140381&ev=PageView&noscript=1"
-    /></noscript>
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '4038359666299666');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=4038359666299666&ev=PageView&noscript=1"
-    /></noscript>
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-T45G5L3K');</script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JW11SJHE3R"></script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ark College | 総合型選抜(AO入試)専門の完全オンライン塾</title>
-    <meta name="description" content="総合型選抜(AO入試)対策ならArk College。完全オンライン塾だから全国どこからでも受講可能。添削無制限×マンツーマン指導で難関大合格率86.7%。無料診断実施中。">
-        
+    <title>Ark College | 総合型選抜の最強のパートナー</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/webp" href="logo.webp">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#1e344a',
+                        cta: '#B45309', 
+                        'cta-light': '#D97706',
+                        'cta-glow': 'rgba(180, 83, 9, 0.3)', // 発光を抑えめに
+                        'navy-glow': 'rgba(30, 52, 74, 0.2)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans JP', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glass': '0 4px 30px rgba(0, 0, 0, 0.05)',
+                        // リッチな階層構造を持つ影（AIっぽさを消す鍵）
+                        'rich': '0 10px 30px -5px rgba(30, 52, 74, 0.08), 0 4px 12px -2px rgba(30, 52, 74, 0.04)',
+                        'rich-hover': '0 20px 40px -5px rgba(30, 52, 74, 0.12), 0 8px 16px -4px rgba(30, 52, 74, 0.06)',
+                        'glow-cta': '0 10px 30px -5px rgba(180, 83, 9, 0.25)', // 控えめで上品な発光
+                    },
+                    animation: {
+                        'float': 'float 8s ease-in-out infinite', // 動きをゆっくりにして高級感を出す
+                        'shine': 'shine 6s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-6px)' }, // 移動量を減らして上品に
+                        },
+                        shine: {
+                            '0%': { transform: 'translateX(-100%) skewX(-15deg)' },
+                            '20%, 100%': { transform: 'translateX(200%) skewX(-15deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        :root {
-            --navy: #0A1628;
-            --navy-light: #1a2942;
-            --gold: #D4AF37;
-            --gold-light: #E5C868;
-            --white: #FFFFFF;
-            --off-white: #F8F9FA;
-            --gray-light: #E8EBF0;
-            --gray: #6B7280;
-            --alert-red: #c0392b;
-            --line-green: #06C755;
-            --accent-orange: #e67e22;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Noto Sans JP', sans-serif;
-            color: var(--navy);
-            line-height: 1.8;
-            background: var(--white);
-            overflow-x: hidden;
-            padding-bottom: 80px;
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            letter-spacing: 0.04em; /* 字間を広げて余裕を持たせる */
+            color: #1e344a;
+            background-color: #F8FAFC;
+            font-feature-settings: "palt"; /* 日本語の自動文字詰め */
         }
 
-        /* Typography */
-        h1, h2, h3, h4 {
-            font-family: 'Noto Serif JP', serif;
-            font-weight: 700;
-            line-height: 1.4;
-        }
-        .text-gold { color: var(--gold); }
-        .text-navy { color: var(--navy); }
-        .text-center { text-align: center; }
-        .pc-br { display: inline; }
-        .sp-br { display: none; }
-
-        /* Utility */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        .section { padding: 5rem 0; }
-        
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            text-align: center;
-            cursor: pointer;
-            border: none;
-        }
-        .btn-line {
-            background: var(--line-green);
-            color: #FFFFFF;
-            box-shadow: 0 4px 10px rgba(6, 199, 85, 0.3);
-            border-radius: 50px;
-            width: 100%;
-        }
-        .btn-line:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
-        }
-        .btn-reserve {
-            background: var(--accent-orange);
-            color: #FFFFFF;
-            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
-            border-radius: 50px;
-        }
-        .btn-reserve:hover {
-            background: #d35400;
-            transform: translateY(-2px);
-        }
-
-        /* --- Header --- */
-        .site-header {
-            position: absolute; top: 0; left: 0; width: 100%; padding: 1rem 1.5rem; z-index: 100;
-            display: flex; align-items: center; justify-content: space-between;
-        }
-        .header-cta-btn {
-            background: var(--accent-orange); color: white; padding: 0.6rem 1.2rem;
-            border-radius: 30px; text-decoration: none; font-weight: 700;
-            font-size: 0.85rem; box-shadow: 0 4px 10px rgba(230, 126, 34, 0.3);
-            display: flex; align-items: center; gap: 5px;
-            transition: all 0.3s;
-        }
-
-        /* --- Hero Section --- */
-        .hero-impact {
-            min-height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding-top: 120px;
-            background-color: #050b14;
+        /* ノイズテクスチャを加えた背景（デジタル感を消す） */
+        .bg-gradient-mesh {
+            background-color: #F8FAFC;
             background-image: 
-                linear-gradient(rgba(10, 22, 40, 0.5), rgba(10, 22, 40, 0.85)),
-                url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            color: white;
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E"),
+                radial-gradient(at 0% 0%, rgba(180, 83, 9, 0.03) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(30, 52, 74, 0.03) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(180, 83, 9, 0.03) 0px, transparent 50%);
+            background-attachment: fixed;
         }
 
-        .impact-container {
-            max-width: 1100px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-label {
-            font-size: 1rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-            display: inline-block;
-            border-bottom: 1px solid var(--gold);
-            padding-bottom: 4px;
-        }
-
-        .hero-headline {
-            font-family: 'Noto Serif JP', serif;
-            font-size: 4rem;
-            font-weight: 900;
-            line-height: 1.15;
-            color: var(--white);
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-            text-shadow: 0 2px 15px rgba(0,0,0,0.7);
-        }
-        .hero-headline span.x-mark {
-            color: var(--gold);
-            font-size: 0.7em;
-            vertical-align: middle;
-            margin: 0 0.1rem;
+        /* ガラスパネルを「曇りガラス」から「上質なアクリル」風に */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px); /* ぼかしを少し弱めてシャープに */
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
         }
         
-        .hero-sub {
-            font-size: 1.1rem;
-            color: #f0f0f0;
-            margin-bottom: 2rem;
-            font-weight: 500;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+        /* エッジライト効果 */
+        .glass-panel::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+            opacity: 0.6;
+            pointer-events: none;
         }
 
-        /* Hero: Badges */
-        .badge-container {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2.5rem;
-            width: 100%;
-        }
-        .hero-badge {
-            background: rgba(10, 22, 40, 0.75);
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            padding: 0.8rem 1.2rem;
-            border-radius: 4px;
-            color: var(--gold);
-            font-weight: 700;
-            font-size: 0.95rem;
-            backdrop-filter: blur(5px);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            line-height: 1.3;
-        }
-        .hero-badge i { font-size: 1.2rem; margin-bottom: 5px; color: #fff; }
-
-        /* Hero: CTA */
-        .hero-actions {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-        .btn-hero-cta {
-            background: var(--accent-orange);
-            color: #FFFFFF;
-            width: 100%;
-            max-width: 450px;
-            padding: 1.2rem;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 20px rgba(230, 126, 34, 0.4);
-            animation: pulse-orange 2s infinite;
-            text-decoration: none;
-            line-height: 1.3;
-        }
-        @keyframes pulse-orange {
-            0% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(230, 126, 34, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0); }
-        }
-        .btn-main-text { font-weight: 900; font-size: 1.3rem; }
-        .btn-sub-text { font-size: 0.85rem; opacity: 0.9; font-weight: normal; }
-
-        .campaign-text-box {
-            font-size: 0.9rem;
-            color: #fff;
-            background: var(--alert-red);
-            padding: 0.5rem 1.2rem;
-            border-radius: 4px;
-            margin-top: 1rem;
-            display: inline-block;
-            font-weight: 700;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        .glass-panel-dark {
+            background: rgba(30, 52, 74, 0.9); /* 透明度を下げて重厚感を出す */
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
 
-        /* --- Difference Section --- */
-        .diff-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        .diff-card {
-            background: #fff;
-            border: 2px solid #eee;
-            border-radius: 12px;
+        .btn-shine {
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
         }
-        .diff-card:hover { transform: translateY(-5px); }
-        .diff-header {
-            background: var(--navy);
-            color: #fff;
-            padding: 1.2rem;
-            text-align: center;
-            font-weight: 700;
-            font-size: 1.2rem;
-            letter-spacing: 0.05em;
-        }
-        .diff-body { padding: 1.5rem; }
-        .diff-item { margin-bottom: 2rem; }
-        .diff-item:last-child { margin-bottom: 0; }
-        .diff-label { font-size: 0.85rem; color: #888; display: block; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
-        
-        .diff-ark { 
-            color: var(--navy); 
-            font-weight: 700; 
-            font-size: 1.25rem; 
-            background: #FFFCF2;
-            border-left: 5px solid var(--gold); 
-            padding: 10px 15px; 
-            margin-bottom: 0.5rem; 
-            border-radius: 0 4px 4px 0;
-        }
-        .diff-other { 
-            color: var(--gray); 
-            font-size: 0.95rem; 
-            padding-left: 15px; 
-            position: relative;
-        }
-        .diff-other::before { content: "▲"; color: #ccc; font-size: 0.8rem; margin-right: 5px; }
-
-        /* --- Problem --- */
-        .checklist-box {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            max-width: 800px;
-            margin: 0 auto;
-            border-top: 4px solid var(--navy);
-        }
-        .check-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-        .check-mark {
-            color: var(--gray);
-            font-weight: 900;
-            margin-right: 1rem;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-
-        /* --- Solution --- */
-        .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
-        .pillar-card {
-            background: #FFFCF2;
-            padding: 2.5rem 2rem;
-            border-radius: 8px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            position: relative;
-        }
-        .pillar-num {
-            position: absolute; top: -15px; left: 20px;
-            background: var(--navy); color: var(--gold);
-            width: 40px; height: 40px;
-            display: flex; align-items: center; justify-content: center;
-            font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.2rem;
-        }
-        .pillar-title { font-size: 1.3rem; margin-bottom: 1rem; color: var(--navy); margin-top: 10px; }
-        .pillar-desc { font-size: 0.95rem; color: var(--navy-light); }
-
-        /* --- Offer (Diagnosis) --- */
-        .offer-box {
-            background: linear-gradient(135deg, #0A1628 0%, #1a2942 100%);
-            color: white;
-            padding: 3rem;
-            border-radius: 12px;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            border: 1px solid var(--gold);
-        }
-        .offer-title { font-size: 1.8rem; margin-bottom: 2rem; color: var(--gold); line-height: 1.4; }
-        .offer-list { text-align: left; max-width: 600px; margin: 0 auto 2rem; list-style: none; }
-        .offer-list li { 
-            margin-bottom: 1.2rem; 
-            font-size: 1.1rem; 
-            display: flex; 
-            align-items: flex-start; 
-        }
-        .offer-list i { 
-            color: var(--gold); 
-            margin-right: 12px; 
-            margin-top: 6px; 
-            flex-shrink: 0; 
-        }
-        .offer-list strong { display: block; margin-bottom: 0.2rem; color: var(--white); }
-        .offer-list span { display: block; font-size: 0.95rem; color: #ddd; }
-
-        /* --- Pricing Section --- */
-        .pricing-simple-box {
-            background: var(--white);
-            border: 2px solid var(--gold);
-            border-radius: 8px;
-            padding: 3rem 2rem;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-        .price-label {
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 1rem;
-            display: inline-block;
-            background: #eee;
-            padding: 0.2rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-        .price-flex {
-            display: flex;
-            align-items: baseline;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-            flex-wrap: wrap;
-        }
-        .price-prefix { font-size: 1.2rem; font-weight: 700; color: var(--navy); }
-        .price-amount { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 900; color: var(--navy); line-height: 1; }
-        .price-suffix { font-size: 1.2rem; font-weight: 700; color: var(--navy); }
-        
-        .price-sub { font-size: 0.9rem; color: #888; margin-bottom: 2rem; }
-
-        .price-note {
-            background: var(--off-white);
-            padding: 1.5rem;
-            border-radius: 4px;
-            font-size: 0.95rem;
-            text-align: left;
-            border-left: 4px solid var(--navy);
-        }
-
-        /* --- Cost Comparison --- */
-        .cost-comparison-box {
-            margin-bottom: 3rem;
-            text-align: left;
-        }
-        .cost-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.95rem;
-            table-layout: fixed;
-        }
-        .cost-table th { background: var(--gray-light); padding: 1rem 0.5rem; text-align: center; font-weight: 700; color: var(--navy); }
-        .cost-table td { border-bottom: 1px solid #eee; padding: 1.2rem 0.5rem; text-align: center; vertical-align: middle; word-wrap: break-word;}
-        
-        .cost-table .c-item { text-align: left; font-weight: 700; background: #fff; width: 25%; font-size: 0.9rem; }
-        .cost-table .c-ark { background: #FFFCF2; border-left: 2px solid var(--gold); border-right: 2px solid var(--gold); font-weight: 700; color: var(--navy); width: 37.5%; }
-        .cost-table .c-other { color: var(--gray); width: 37.5%; }
-        
-        .cost-total-row td { border-top: 3px solid var(--navy); font-weight: 700; padding: 1.5rem 0.5rem; background: #fff; }
-        .cost-total-row .c-ark { color: var(--alert-red); font-size: 1.2rem; background: #FFFCF2; }
-
-        /* --- Media / Note Section --- */
-        .media-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        .media-card {
-            background: var(--white);
-            border: 1px solid var(--gray-light);
-            display: flex;
-            flex-direction: column;
-            text-decoration: none;
-            color: var(--navy);
-            transition: all 0.4s ease;
+        .btn-shine::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 50%;
             height: 100%;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-20deg);
+            animation: shine 6s infinite;
         }
-        .media-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-        .media-thumb {
+        
+        .table-container {
             width: 100%;
-            height: 200px;
-            overflow: hidden;
-            position: relative;
         }
-        .media-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-        .media-card:hover .media-thumb img {
-            transform: scale(1.1);
-        }
-        .media-body {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-        .media-date {
-            font-size: 0.8rem;
-            color: var(--gold);
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-        .media-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            line-height: 1.5;
-            margin-bottom: 1rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        .read-more {
-            margin-top: auto;
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--navy);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .read-more::after {
-            content: '→';
-        }
-
-        /* --- Native Form Styles --- */
-        .native-form-container {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            max-width: 700px;
-            margin: 0 auto;
-            border-top: 5px solid var(--gold);
-        }
-        .form-group { margin-bottom: 1.5rem; text-align: left; }
-        .form-label { display: block; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; font-size: 0.95rem; }
-        .label-required { background: #c0392b; color: white; font-size: 0.7rem; padding: 2px 6px; border-radius: 2px; margin-left: 8px; vertical-align: middle; }
-        .form-control { width: 100%; padding: 1rem; border: 1px solid var(--gray-light); border-radius: 4px; font-size: 1rem; font-family: inherit; background: #fdfdfd; }
-        .form-submit-btn { width: 100%; padding: 1.2rem; background: var(--navy); color: var(--white); font-size: 1.1rem; font-weight: 700; border: none; border-radius: 4px; cursor: pointer; }
-
-        /* --- Achievement Badges --- */
-        .achieve-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-top: 1rem;
-        }
-        .achieve-tag {
-            background: white;
-            border: 1px solid var(--gold);
-            color: var(--navy);
-            padding: 0.5rem 1rem;
-            font-size: 0.9rem;
-            font-weight: 700;
-            border-radius: 4px;
-            display: inline-flex;
-            align-items: center;
-        }
-        .achieve-tag i { color: var(--gold); margin-right: 6px; }
-
-        /* --- Sticky CTA --- */
-        .sticky-cta {
-            position: fixed; bottom: 0; left: 0; right: 0;
-            background: rgba(10,22,40,0.98);
-            padding: 12px 1rem;
-            z-index: 999;
-            border-top: 2px solid var(--gold);
-            transform: translateY(100%);
-            transition: transform 0.3s;
-        }
-        .sticky-cta.visible { transform: translateY(0); }
-        .cta-inner { display: flex; gap: 12px; justify-content: center; max-width: 600px; margin: 0 auto; }
-        .sticky-btn { 
-            flex: 1; padding: 0.5rem; display: flex; align-items: center; justify-content: center; 
-            border-radius: 8px; text-decoration: none; transition: opacity 0.3s; min-height: 60px; width: 100%;
-            background: var(--accent-orange); color: #fff; box-shadow: 0 4px 10px rgba(230, 126, 34, 0.2);
-        }
-        .btn-text-group { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2; text-align: left; }
-        .sticky-sub { font-size: 0.65rem; opacity: 0.9; }
-        .sticky-main { font-size: 1rem; font-weight: 700; }
-
-        /* --- Profile Box --- */
-        .profile-box { display: flex; align-items: flex-start; gap: 3rem; background: var(--off-white); padding: 3rem; border: 1px solid var(--gray-light); }
-        .profile-img { width: 250px; height: 250px; object-fit: cover; border: 4px solid var(--gold); }
-        .profile-content { width: 100%; }
-
-        /* --- Footer --- */
-        footer { background: var(--navy); padding: 3rem 0; text-align: center; color: rgba(255,255,255,0.6); font-size: 0.85rem; padding-bottom: 100px; }
-        footer a { color: var(--gold); text-decoration: none; }
-
-
-        /* --- RESPONSIVE OPTIMIZATION (Mobile First Logic) --- */
-        @media (max-width: 768px) {
-            .pc-br { display: none; }
-            .sp-br { display: block; }
-            .section { padding: 4rem 0; }
-            
-            /* Hero SP */
-            .hero-impact { 
-                padding-top: 110px;
-                min-height: auto; 
-                height: 100vh;
-                min-height: 650px;
-                align-items: center; 
-                padding-bottom: 4rem;
+        @media (min-width: 640px) {
+            .table-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
             }
-            .impact-container { 
-                gap: 0.5rem; 
-                padding: 1rem; 
-                justify-content: center;
-                height: 100%;
+            .table-container table {
+                min-width: 600px;
             }
-            
-            .hero-label { font-size: 0.8rem; margin-bottom: 1rem; }
-            .hero-headline { font-size: 2.3rem; margin-bottom: 1rem; line-height: 1.1; }
-            .hero-sub { font-size: 0.9rem; margin-bottom: 1.5rem; }
-            
-            /* Badges Mobile Fix: Horizontal & Readable */
-            .badge-container { 
-                gap: 5px; 
-                margin-bottom: 1.5rem; 
-                flex-wrap: nowrap; /* Force single row */
-            }
-            .hero-badge { 
-                font-size: 0.65rem; /* Smaller font */
-                padding: 0.5rem 0.2rem; 
-                flex: 1; /* Equal width */
-                min-height: 50px;
-            }
-            .hero-badge i { font-size: 0.9rem; margin-bottom: 3px; }
-            
-            .btn-hero-cta { padding: 1rem; max-width: 100%; }
-            .btn-main-text { font-size: 1.1rem; }
-            .campaign-text-box { font-size: 0.8rem; }
-
-            /* Difference */
-            .diff-grid { gap: 1.5rem; }
-
-            /* Offer: Layout Fix for Mobile Text Wrapping */
-            .offer-box { padding: 2rem 1rem; }
-            .offer-title { font-size: 1.4rem; margin-bottom: 1.5rem; }
-            .offer-list li { font-size: 0.95rem; }
-            .offer-list strong { font-size: 1rem; }
-
-            /* Pricing Box Mobile */
-            .price-amount { font-size: 3rem; }
-            .price-prefix, .price-suffix { font-size: 1rem; }
-
-            /* Cost Table SP: Layout Fix */
-            .cost-table th, .cost-table td { font-size: 0.75rem; padding: 0.8rem 0.2rem; }
-            .cost-total-row .c-ark { font-size: 1rem; }
-
-            /* Profile */
-            .profile-box { flex-direction: column; text-align: center; align-items: center; padding: 2rem 1.5rem; }
-            .profile-content { width: 100%; }
-
-            /* Form */
-            .native-form-container { padding: 1.5rem; }
-            .radio-group { flex-direction: column; gap: 0.5rem; }
-            .radio-label { width: 100%; }
-
-            /* Sticky */
-            .sticky-cta { padding: 10px; padding-bottom: max(10px, env(safe-area-inset-bottom)); }
         }
     </style>
 </head>
-<body>
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T45G5L3K"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    
-    <header class="site-header">
-        <a href="https://www.ark-college.com/" target="_blank" rel="noopener">
-            <img src="logo.webp" alt="Ark College" style="height: 40px; width: auto; display: block;">
-            <span style="display:none; color:white; font-weight:900; font-size:1.5rem; font-family:'Noto Serif JP';">Ark College</span>
-        </a>
-        <a href="#contact" class="header-cta-btn">
-            <i class="fa-regular fa-calendar-check"></i> <span>無料診断予約</span>
-        </a>
-    </header>
+<body class="bg-gradient-mesh">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState, useEffect, Fragment } = React;
 
-    <section class="hero-impact" id="top">
-        <div class="impact-container">
-            <div class="hero-label">総合型選抜(AO入試)専門・完全オンライン私塾</div>
-            
-            <h1 class="hero-headline">
-                添削無制限<br><span class="x-mark">×</span><br>
-                完全マンツーマン
-            </h1>
+        // --- Icons ---
+        const CheckIcon = ({ className = "w-4 h-4" }) => (
+            <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+            </svg>
+        );
+        const ZapIcon = ({ className = "w-4 h-4" }) => (
+            <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+        );
+        const ShieldIcon = ({ className = "w-4 h-4" }) => (
+            <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+        );
+        const TargetIcon = ({ className = "w-4 h-4" }) => (
+            <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+        );
+        const ArrowRightIcon = ({ className = "w-4 h-4" }) => (
+            <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+        );
 
-            <p class="hero-sub">
-                「今の実績で、どこに受かる？」<br>
-                慶應FIT合格のプロが、<br class="sp-br">あなたの合格可能性を30分で診断します。
-            </p>
+        // --- Main Component ---
+        const App = () => {
+            const [isScrolled, setIsScrolled] = useState(false);
 
-            <div class="badge-container">
-                <div class="hero-badge"><i class="fa-solid fa-trophy"></i> 第一志望<br>合格率86.7%</div>
-                <div class="hero-badge"><i class="fa-solid fa-graduation-cap"></i> 合格大学<br>30校以上</div>
-                <div class="hero-badge"><i class="fa-solid fa-user-group"></i> 合格者数<br>50名以上</div>
-            </div>
+            useEffect(() => {
+                const handleScroll = () => {
+                    setIsScrolled(window.scrollY > 50);
+                };
+                window.addEventListener('scroll', handleScroll);
+                return () => window.removeEventListener('scroll', handleScroll);
+            }, []);
 
-            <div class="hero-actions">
-                <a href="#contact" class="btn-hero-cta">
-                    <span class="btn-sub-text">まずは30分、現状をお聞かせください</span>
-                    <span class="btn-main-text">無料の「合格可能性診断」を予約する</span>
-                </a>
-                
-                <div class="campaign-text-box">
-                    <i class="fa-solid fa-gift"></i> 【今だけ】当日入会で入会金 55,000円 → 0円
-                </div>
-            </div>
-        </div>
-    </section>
+            const scrollToDiagnosis = () => {
+                document.getElementById('diagnosis')?.scrollIntoView({ behavior: 'smooth' });
+            };
 
-    <div style="background: var(--navy); border-top: 1px solid rgba(255,255,255,0.1); padding: 0.8rem 0; overflow: hidden; white-space: nowrap;">
-        <div style="color: rgba(255,255,255,0.7); font-family: 'Noto Serif JP', serif; font-size: 0.9rem; display: inline-block; padding-left: 100%; animation: ticker 40s linear infinite;">
-            慶應義塾大学 / 早稲田大学 / 上智大学 / 国際基督教大学(ICU) / 一橋大学 / 横浜国立大学 / 筑波大学 / 立教大学 / 明治大学 / 青山学院大学 / 同志社大学 / 立命館大学...
-        </div>
-    </div>
-    <style>@keyframes ticker { 100% { transform: translateX(-100%); } }</style>
-
-    <section class="section difference" style="background: var(--off-white);">
-        <div class="container">
-            <h2 class="text-center" style="margin-bottom: 2rem;">
-                なぜ、アークカレッジは<br>「合格率86.7%」を出せるのか？
-            </h2>
-            <p class="text-center" style="margin-bottom: 3rem; color: var(--navy);">一般的な大手塾との「決定的な3つの違い」</p>
-
-            <div class="diff-grid">
-                <div class="diff-card">
-                    <div class="diff-header">01. 指導者の「質」</div>
-                    <div class="diff-body">
-                        <div class="diff-item">
-                            <span class="diff-label">Ark College</span>
-                            <div class="diff-ark">プロ講師が直接担当</div>
-                            <p style="font-size:0.9rem;">外資マーケター出身のプロがあなたの思考の癖まで把握し、戦略を一貫させます。</p>
+            return (
+                <div className="min-h-screen overflow-x-hidden text-navy selection:bg-cta/20 selection:text-navy">
+                    {/* Sticky Header */}
+                    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-rich py-3 border-b border-navy/5' : 'bg-transparent py-5'}`}>
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+                            <div className="flex items-center">
+                                <img src="logo.webp" alt="Ark College" className="h-7 w-auto drop-shadow-sm" />
+                            </div>
+                            <div className="hidden sm:block">
+                                <button onClick={scrollToDiagnosis} className={`btn-shine text-xs font-bold px-6 py-2.5 rounded-full transition-all hover:-translate-y-0.5 ${isScrolled ? 'bg-cta text-white shadow-md' : 'bg-white text-cta shadow-rich'}`}>
+                                    無料相談を予約する
+                                </button>
+                            </div>
                         </div>
-                        <div class="diff-item">
-                            <span class="diff-label">一般的な大手塾</span>
-                            <div class="diff-other">大学生アルバイト講師</div>
+                    </header>
+
+                    {/* FV */}
+                    <section className="relative w-full min-h-[100svh] flex flex-col lg:flex-row items-center justify-center pt-20 lg:pt-0">
+                        <div className="absolute top-0 left-0 w-full h-[45svh] lg:h-full lg:w-[60%] lg:left-0 overflow-hidden z-0">
+                             <img src="fv.png" alt="Student Studying" className="w-full h-full object-cover object-center shadow-2xl" />
+                             <div className="lg:hidden absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#F8FAFC] to-transparent"></div>
                         </div>
-                    </div>
-                </div>
-                <div class="diff-card">
-                    <div class="diff-header">02. 添削の「量と速度」</div>
-                    <div class="diff-body">
-                        <div class="diff-item">
-                            <span class="diff-label">Ark College</span>
-                            <div class="diff-ark">無制限・48h以内返信</div>
-                            <p style="font-size:0.9rem;">思考が熱いうちに即フィードバック。納得いくまで何度でも書き直し可能。</p>
+
+                        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row lg:justify-end items-center lg:items-center h-full">
+                            <div className="w-full lg:w-[500px] mt-[35svh] lg:mt-0 lg:-ml-20 glass-panel rounded-[32px] p-6 sm:p-10 shadow-rich transform transition-all hover:scale-[1.01] duration-700 border border-white/60">
+                                <div className="absolute -top-10 -right-10 w-32 h-32 bg-cta/10 rounded-full blur-3xl animate-pulse"></div>
+                                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-5 text-navy tracking-wider drop-shadow-sm">
+                                    総合型選抜<br />
+                                    最強のパートナー、<br />
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-navy to-cta decoration-cta decoration-2 underline-offset-4">Ark College</span>
+                                </h1>
+                                <div className="space-y-2.5 mb-6">
+                                    {["第一志望合格率 86.7%", "添削回数 完全無制限", "48時間以内 返信確約"].map((text, i) => (
+                                        <div key={i} className="flex items-center space-x-2.5 group">
+                                            <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-gradient-to-br from-cta to-cta-light flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-300">
+                                                <CheckIcon className="w-2.5 h-2.5 text-white" />
+                                            </div>
+                                            <span className="font-bold text-xs sm:text-sm text-navy/90 tracking-tight group-hover:text-cta transition-colors duration-300">{text}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                                <div className="space-y-2">
+                                    <div className="flex justify-center mb-1">
+                                        <span className="bg-red-600 text-white px-3 py-1 text-[10px] font-bold rounded-full shadow-sm animate-pulse">
+                                            2026年度 新規受入 残りわずか / 1学年6名限定
+                                        </span>
+                                    </div>
+                                    <button onClick={scrollToDiagnosis} className="btn-shine w-full bg-gradient-to-r from-cta to-cta-light text-white text-sm sm:text-base font-bold py-3.5 rounded-xl shadow-glow-cta hover:shadow-rich-hover hover:-translate-y-0.5 transition-all duration-300 tracking-wide">
+                                        とりあえず無料相談に申し込む
+                                    </button>
+                                    <div className="text-center space-y-0.5">
+                                        <p className="text-[9px] sm:text-[10px] font-bold text-cta tracking-wide">
+                                            今の実力がわかるフィードバックシートをプレゼント
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="diff-item">
-                            <span class="diff-label">一般的な大手塾</span>
-                            <div class="diff-other">週1回 / チケット制</div>
+                    </section>
+
+                    {/* Why Us */}
+                    <section className="pt-16 sm:pt-28 pb-10 relative overflow-hidden">
+                        <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-cta/5 rounded-full blur-[100px] -translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                            <div className="text-center mb-12 sm:mb-20">
+                                <h2 className="text-2xl sm:text-4xl font-black tracking-tight mb-3 text-navy leading-none">
+                                    ArkCollegeが、<br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-cta to-cta-light">選ばれる理由。</span>
+                                </h2>
+                            </div>
+                            
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8 mb-12">
+                                {[
+                                    { sub: "48時間以内返信、\n添削無制限", desc: "圧倒的なレスポンス速度で、改善サイクルを最速で回します。", icon: <ZapIcon className="w-5 h-5" />, img: "student_2.png" },
+                                    { sub: "完全マンツーマン、\nプロ講師のみ", desc: "学生バイトは不在。プロ講師のみが担任として責任を持って向き合います。", icon: <ShieldIcon className="w-5 h-5" />, img: "Class_2.png" },
+                                    { sub: "第一志望\n合格率 86.7%", desc: "難関大への圧倒的な実績。安心してお任せください。", icon: <TargetIcon className="w-5 h-5" />, img: "College.png" }
+                                ].map((card, idx) => (
+                                    <div key={idx} className="group relative bg-white rounded-[20px] p-2 shadow-rich hover:shadow-rich-hover transition-all duration-500 hover:-translate-y-1 border border-slate-200/60">
+                                        <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 to-white rounded-[20px] -z-10"></div>
+                                        <div className="h-36 overflow-hidden rounded-[16px] relative">
+                                            <div className="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition-all duration-500 z-10"></div>
+                                            <img src={card.img} alt={card.sub} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                                        </div>
+                                        <div className="p-4 relative">
+                                            <div className="flex items-start gap-2.5 mb-2.5">
+                                                <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center text-cta shadow-sm group-hover:bg-cta group-hover:text-white transition-colors duration-300 border border-slate-100 flex-shrink-0">
+                                                    {card.icon}
+                                                </div>
+                                                <h3 className="text-base font-bold text-navy leading-snug pt-0.5">
+                                                    {card.sub.split('\n').map((t, i) => <Fragment key={i}>{t}<br/></Fragment>)}
+                                                </h3>
+                                            </div>
+                                            <p className="text-slate-600 leading-relaxed text-xs font-medium">{card.desc}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="diff-card">
-                    <div class="diff-header">03. オンライン塾ならではの「距離」</div>
-                    <div class="diff-body">
-                        <div class="diff-item">
-                            <span class="diff-label">Ark College</span>
-                            <div class="diff-ark">24h 365日チャット対応</div>
-                            <p style="font-size:0.9rem;">完全オンラインだからこそ、対面以上に密なコミュニケーションを実現。</p>
+                    </section>
+
+                    {/* Case Studies */}
+                    <section className="py-16 sm:py-24 bg-white relative border-t border-slate-100">
+                        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                            <div className="text-center mb-10">
+                                <span className="text-cta font-bold tracking-widest uppercase text-[10px] mb-2 block">Case Study</span>
+                                <h2 className="text-2xl sm:text-3xl font-black mb-3 text-navy tracking-tight">数字の裏にある<br />一人ひとりの戦略とは</h2>
+                                <p className="text-slate-500 text-sm font-bold">逆転合格には、必ず理由があります。</p>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 gap-6">
+                                {/* Case 1 */}
+                                <div className="glass-panel p-6 sm:p-8 rounded-[24px] shadow-rich border-l-4 border-cta relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+                                    <div className="flex items-center justify-between mb-6">
+                                        <div className="flex items-center gap-3">
+                                            <img src="boy.png" alt="K.S.さん" className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm" />
+                                            <div>
+                                                <p className="text-sm font-bold text-navy">K.S.さん</p>
+                                                <p className="text-[10px] text-slate-500">私立高校3年生</p>
+                                            </div>
+                                        </div>
+                                        <div className="bg-slate-100 px-3 py-1 rounded-full text-[10px] font-black text-slate-400">CASE 01</div>
+                                    </div>
+                                    
+                                    <h3 className="text-lg sm:text-xl font-black text-navy mb-4">慶應義塾大学 法学部 FIT入試 合格</h3>
+                                    
+                                    <div className="bg-slate-50 rounded-xl p-4 mb-4 border border-slate-100">
+                                        <p className="text-[10px] font-bold text-slate-400 mb-1 uppercase tracking-widest">Before</p>
+                                        <div className="text-xs sm:text-sm font-medium text-slate-600 space-y-1">
+                                            <div className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>評定平均 3.8 / 実績なし</div>
+                                            <div className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>文章力に自信なし</div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <p className="text-[10px] font-bold text-cta mb-1 uppercase tracking-widest">Strategy</p>
+                                        <p className="text-xs sm:text-sm font-medium text-navy leading-relaxed">
+                                            「強みがない」と悩んでいたが、徹底的な自己分析で隠れた原法意識を発掘。その意識を元にした論理構成をプロ講師とともに再構築し、法学部の教授を唸らせる志望理由書へ昇華。見事FIT合格を果たした。
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Case 2 */}
+                                <div className="glass-panel p-6 sm:p-8 rounded-[24px] shadow-rich border-l-4 border-navy relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+                                    <div className="flex items-center justify-between mb-6">
+                                        <div className="flex items-center gap-3">
+                                            <img src="girl.png" alt="M.T.さん" className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm" />
+                                            <div>
+                                                <p className="text-sm font-bold text-navy">M.T.さん</p>
+                                                <p className="text-[10px] text-slate-500">公立高校3年生</p>
+                                            </div>
+                                        </div>
+                                        <div className="bg-slate-100 px-3 py-1 rounded-full text-[10px] font-black text-slate-400">CASE 02</div>
+                                    </div>
+
+                                    <h3 className="text-lg sm:text-xl font-black text-navy mb-4">早稲田大学 国際教養学部 AO入試 合格</h3>
+                                    
+                                    <div className="bg-slate-50 rounded-xl p-4 mb-4 border border-slate-100">
+                                        <p className="text-[10px] font-bold text-slate-400 mb-1 uppercase tracking-widest">Before</p>
+                                        <div className="text-xs sm:text-sm font-medium text-slate-600 space-y-1">
+                                            <div className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>海外経験あり / 英語力あり</div>
+                                            <div className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>日本の受験システムへの不安</div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <p className="text-[10px] font-bold text-navy mb-1 uppercase tracking-widest">Strategy</p>
+                                        <p className="text-xs sm:text-sm font-medium text-navy leading-relaxed">
+                                            英語力に頼りきりだった内容を、大学のアドミッション・ポリシーに基づき「なぜ早稲田か」をマーケティング視点で尖らせ、差別化に成功。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="mt-10 text-center">
+                                <button onClick={scrollToDiagnosis} className="inline-flex items-center gap-2 text-navy font-bold text-sm border-b-2 border-cta pb-0.5 hover:text-cta transition-colors">
+                                    <span>自分だけの合格戦略を作成する</span>
+                                    <ArrowRightIcon className="w-4 h-4" />
+                                </button>
+                            </div>
                         </div>
-                        <div class="diff-item">
-                            <span class="diff-label">一般的な大手塾</span>
-                            <div class="diff-other">教室に行かないと質問不可</div>
+                    </section>
+
+                    {/* Correction Quality */}
+                    <section className="py-16 sm:py-24 bg-slate-50 relative overflow-hidden">
+                         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                            <div className="text-center mb-10">
+                                <span className="text-cta font-bold tracking-widest uppercase text-[10px] mb-2 block">Quality of Feedback</span>
+                                <h2 className="text-2xl sm:text-3xl font-black mb-3 text-navy tracking-tight">Ark College流の添削</h2>
+                                <p className="text-slate-500 text-sm font-bold">高密度なフィードバックを、48時間以内に。</p>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 gap-6 items-stretch">
+                                {/* Bad Example */}
+                                <div className="bg-slate-50 rounded-[24px] p-6 shadow-inner border border-slate-200 grayscale relative">
+                                    <div className="absolute top-4 left-4 bg-slate-300 text-slate-700 px-3 py-1 rounded-full text-[10px] font-bold">Before：感想文</div>
+                                    <div className="mt-8 space-y-4">
+                                        <div className="bg-white p-4 rounded-xl rounded-tl-none text-xs text-slate-700 leading-relaxed border border-slate-200 shadow-sm">
+                                            <p className="font-bold mb-1 text-[10px] text-slate-600">志望理由：</p>
+                                            「私は海辺の街で育ちました。最近海が汚れているのを見て悲しくなりました。だから私は海をきれいにするために、この大学で環境学を学びたいです。」
+                                        </div>
+                                    </div>
+                                    <p className="text-center text-xs font-bold text-slate-600 mt-6">感情論のみで「論理」がない</p>
+                                </div>
+
+                                {/* Ark College Example */}
+                                <div className="bg-white rounded-[24px] p-6 shadow-rich border-2 border-cta relative overflow-hidden">
+                                    <div className="absolute top-4 left-4 bg-cta text-white px-3 py-1 rounded-full text-[10px] font-bold">After：論理的構成</div>
+                                    <div className="mt-8 space-y-4">
+                                        <div className="bg-red-50 p-4 rounded-xl rounded-tl-none text-xs text-navy border border-red-100 relative leading-relaxed shadow-sm">
+                                            <p className="font-bold text-red-600 mb-1 text-[10px]">Structure & Logic</p>
+                                            <p>「産業構造の変化による排水問題が、深刻な漁業被害をもたらしています。この<span className="font-bold border-b border-red-300 bg-red-100/50">構造的な課題</span>に対し、貴学の△△教授のもと<span className="font-bold border-b border-red-300 bg-red-100/50">経済学の観点</span>から解決策を提示したい。」</p>
+                                        </div>
+                                        <div className="bg-cta/5 p-2 rounded text-[10px] text-cta font-bold mt-2 text-center border border-cta/10">
+                                            point: 現状分析 → 課題特定 → 解決策 → 志望動機
+                                        </div>
+                                    </div>
+                                    <p className="text-center text-xs font-bold text-cta mt-6">「感想」を「論文」へ変える指導</p>
+                                </div>
+                            </div>
+                         </div>
+                    </section>
+
+                    {/* Commitment */}
+                    <section className="py-16 sm:py-28 bg-navy relative overflow-hidden text-white">
+                        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-cta/10 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2"></div>
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                            <div className="glass-panel-dark rounded-[24px] p-6 sm:p-14 border border-white/10 relative overflow-hidden shadow-2xl">
+                                <div className="flex flex-col lg:flex-row gap-10 items-center">
+                                    <div className="w-full lg:w-3/5">
+                                        <h2 className="text-xl sm:text-3xl font-extrabold mb-5 leading-tight tracking-tight">なぜ、1学年6名しか<br/>引き受けないのか。</h2>
+                                        <p className="text-base sm:text-lg text-cta-light font-bold mb-8 tracking-wide border-l-4 border-cta pl-4">合格の先を見据えるArk Collegeが、<br/>人数にこだわる真意。</p>
+                                        <div className="space-y-6">
+                                            {[
+                                                { title: "品質の物理的限界", text: "一人ひとりの人生と向き合い、細部まで責任を持つには、学生バイトをアサインせずプロが直接見るべきと考えています。その品質を維持できる物理的な限界が6名でした。" },
+                                                { title: "本物の思考力を養う", text: "小手先のテクニックではなく、『Why』を繰り返す対話を通じて、社会で通用する本物の思考力を養います。これはマス向けの大量指導では不可能です。" }
+                                            ].map((item, i) => (
+                                                <div key={i} className="pl-4 border-l border-white/10">
+                                                    <h3 className="text-lg sm:text-xl font-bold mb-1.5 flex items-center text-white"><span className="text-cta mr-2 text-[10px] align-top font-mono">0{i+1}</span>{item.title}</h3>
+                                                    <p className="text-slate-300 leading-relaxed text-xs sm:text-sm font-medium opacity-90">{item.text}</p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    <div className="w-full lg:w-2/5 relative">
+                                        <div className="relative z-10 rounded-[20px] overflow-hidden shadow-2xl border border-white/10 rotate-2 transition-transform hover:rotate-0 duration-500 h-[300px] sm:h-[400px] lg:h-[500px]">
+                                            <img src="student_1.png" alt="Student studying" className="w-full h-full object-cover object-center scale-125 grayscale hover:grayscale-0 transition-all duration-700" />
+                                        </div>
+                                        <div className="absolute -bottom-5 -left-5 bg-cta text-white p-5 rounded-[16px] shadow-rich z-20 hidden sm:block border border-white/20">
+                                            <p className="font-bold text-sm leading-tight">代表による、<br />完全直接指導</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
+                    </section>
 
-            <div class="text-center" style="margin-top: 3rem;">
-                <a href="#contact" class="btn btn-reserve">
-                    この環境で合格を目指す<br>（無料診断予約）
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="section problem">
-        <div class="container">
-            <h2 class="text-center" style="margin-bottom: 3rem; color: var(--navy);">
-                それでも、<br>「自分には実績がない」と<br class="sp-br">諦めていませんか？
-            </h2>
-            <div class="checklist-box">
-                <div class="check-item">
-                    <span class="check-mark"><i class="fa-regular fa-square-check"></i></span>
-                    <p>志望校に対して、今の自分のレベルが足りているか分からない</p>
-                </div>
-                <div class="check-item">
-                    <span class="check-mark"><i class="fa-regular fa-square-check"></i></span>
-                    <p>特別な受賞歴やリーダー経験がなく、アピール材料がない</p>
-                </div>
-                <div class="check-item">
-                    <span class="check-mark"><i class="fa-regular fa-square-check"></i></span>
-                    <p>大手塾に通っているが、テンプレート指導で個性が消えている気がする</p>
-                </div>
-            </div>
-            <div class="text-center" style="margin-top: 3rem; font-weight: 700; font-size: 1.2rem;">
-                その不安、正しい「戦略」さえあれば、<br>
-                すべて<span class="text-gold" style="border-bottom: 2px solid var(--gold);">合格への武器</span>に変わります。
-            </div>
-        </div>
-    </section>
-
-    <section class="section solution" style="background: var(--off-white);">
-        <div class="container">
-            <div class="section-header text-center" style="margin-bottom: 3rem;">
-                <span style="color:var(--gold); font-weight:700;">STRATEGY</span>
-                <h2 style="margin-top:0.5rem;">アークカレッジだけの<br>「合格戦略」3つの柱</h2>
-                <p>実績ゼロ・偏差値40台からの<br>逆転合格を実現するメソッド</p>
-            </div>
-
-            <div class="pillars-grid">
-                <div class="pillar-card">
-                    <div class="pillar-num">01</div>
-                    <h3 class="pillar-title">1学年6名限定の<br>「超・密着指導」</h3>
-                    <p class="pillar-desc">
-                        大手塾の「その他大勢」ではなく、一人の人間として深く理解します。あなたの原体験や日常を、大学教授に刺さる言葉へ変換する<strong>「翻訳」</strong>作業を、プロがマンツーマンで行います。
-                    </p>
-                </div>
-                <div class="pillar-card">
-                    <div class="pillar-num">02</div>
-                    <h3 class="pillar-title">一生ものの<br>「思考力」の習得</h3>
-                    <p class="pillar-desc">
-                        合格はゴールではなく通過点です。テンプレートに当てはめるだけの指導はしません。外資系企業でも通用する「論理的思考力」を鍛え上げ、面接や小論文で圧倒的な差をつけます。
-                    </p>
-                </div>
-                <div class="pillar-card">
-                    <div class="pillar-num">03</div>
-                    <h3 class="pillar-title">合格から逆算した<br>「ロードマップ」</h3>
-                    <p class="pillar-desc">
-                        「いつ・何をすべきか」を可視化し、迷走する時間をゼロにします。オンライン塾ならではの柔軟性で、志望校の出願日から逆算し、高2の今やるべきタスクを明確化します。
-                    </p>
-                </div>
-            </div>
-
-            <div class="text-center" style="margin-top: 3rem;">
-                <a href="#contact" class="btn btn-reserve">
-                    この戦略で合格を目指す<br>（無料診断予約）
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="section offer-detail" id="reservation">
-        <div class="container">
-            <div class="offer-box">
-                <h2 class="offer-title">30分で、あなただけの<br>「合格ロードマップ」を<br>作成します</h2>
-                <p style="margin-bottom: 2rem;">「総合型選抜・合格可能性診断」で得られる3つのメリット</p>
-                
-                <ul class="offer-list">
-                    <li>
-                        <i class="fa-solid fa-check"></i>
-                        <div>
-                            <strong>合格レベル判定：</strong>
-                            <span>現状の評定・経験から、リアルに狙える大学を提示。</span>
+                    {/* Profile Section */}
+                    <section className="py-16 sm:py-28 bg-white relative">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-10">
+                            <div className="w-full md:w-1/2 relative">
+                                <div className="absolute inset-0 bg-gradient-to-tr from-cta to-navy rounded-[24px] transform rotate-3 opacity-10"></div>
+                                <div className="relative z-10 rounded-[20px] shadow-rich mx-auto w-full overflow-hidden border border-slate-100 h-[400px] sm:h-[500px]">
+                                    <img src="president.png" alt="Noah M." className="w-full h-full object-cover object-top scale-125 grayscale hover:grayscale-0 transition-all duration-700" />
+                                </div>
+                            </div>
+                            <div className="w-full md:w-1/2">
+                                <span className="text-cta font-bold tracking-widest uppercase text-[10px] mb-2 block">代表講師</span>
+                                <h2 className="text-3xl sm:text-4xl font-black mb-5 tracking-tight text-navy">Noah M.</h2>
+                                <p className="text-slate-600 text-sm leading-relaxed mb-6 font-medium">
+                                    慶應義塾大学法学部法律学科卒。欧州大学院留学。<br/>
+                                    フランス系トップメーカーでのマーケティング職を経て現職。<br/>
+                                    大学が求める人材像と生徒の強みを戦略的に結びつける「マッチング戦略」により、ビジネスと教育の視点を融合させた独自の指導を行う。
+                                </p>
+                                <div className="space-y-3 mb-8">
+                                    <div className="border-l-[3px] border-cta pl-3 py-0.5">
+                                        <h4 className="font-bold text-base text-navy">慶應義塾大学法学部 FIT入試</h4>
+                                        <p className="text-slate-500 text-xs font-medium">A方式・B方式 現役ダブル合格</p>
+                                    </div>
+                                    <div className="border-l-[3px] border-slate-200 pl-3 py-0.5">
+                                        <h4 className="font-bold text-base text-navy">圧倒的な指導実績</h4>
+                                        <p className="text-slate-500 text-xs font-medium">指導人数50名以上 / 合格大学31校<br/><span className="text-[10px] text-slate-400">(早慶上智ICU・国公立・関関同立など多数)</span></p>
+                                    </div>
+                                    <div className="border-l-[3px] border-slate-200 pl-3 py-0.5">
+                                        <h4 className="font-bold text-base text-navy">外資系マーケターの視点</h4>
+                                        <p className="text-slate-500 text-xs font-medium">市場分析・戦略立案のプロによる論理的指導</p>
+                                    </div>
+                                </div>
+                                <div className="glass-panel p-5 rounded-xl italic text-navy leading-relaxed relative text-sm sm:text-base font-bold shadow-sm border-l-0 border-r-0 border-t-0 border-b-4 border-cta/20">
+                                    <span className="absolute -top-3 -left-1 text-5xl text-cta font-serif opacity-20">“</span>
+                                    「大学合格はゴールではなく通過点。アークカレッジでの日々が、社会に出た時の『自分の基準』になるような、一生モノの思考力をここで作り上げましょう。」
+                                </div>
+                                <div className="mt-6 text-center md:text-left">
+                                     <button onClick={scrollToDiagnosis} className="inline-flex items-center justify-center px-6 py-3 border border-navy text-navy rounded-full font-bold text-sm hover:bg-navy hover:text-white transition-all duration-300">
+                                        Noah先生との無料相談へ
+                                     </button>
+                                </div>
+                            </div>
                         </div>
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-check"></i>
-                        <div>
-                            <strong>強みの発掘：</strong>
-                            <span>無意識の経験を「実績」に変える切り口をアドバイス。</span>
+                    </section>
+
+                    {/* Message to Guardians */}
+                    <section className="py-16 sm:py-24 bg-slate-100 relative">
+                         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                            <div className="text-center mb-10">
+                                <h2 className="text-2xl sm:text-3xl font-serif font-bold mb-6 text-navy tracking-tight">合格の、その先を見据えて。</h2>
+                                <div className="bg-white p-8 rounded-[24px] shadow-rich text-left border border-slate-200/50">
+                                    <p className="text-sm sm:text-base font-medium text-slate-700 leading-loose mb-6">
+                                            大学受験はゴールではありません。AI時代、社会で求められるのは偏差値ではなく「自ら問いを立て、論理的に解決する力」です。<br/><br/>
+                                            Ark Collegeの指導は、単なる受験テクニックにとどまりません。外資系マーケター出身の講師との対話を通じて養われる<strong className="text-navy bg-cta/10 px-1">「論理的思考力（ロジカルシンキング）」と「表現力」</strong>は、大学入学後、そして就職活動や社会に出た後も、お子様を支え続ける「一生モノの資産」となります。
+                                    </p>
+                                    <div className="bg-navy/5 p-4 rounded-xl">
+                                        <h4 className="text-xs font-bold text-navy mb-2 flex items-center"><span className="bg-navy text-white text-[10px] px-2 py-0.5 rounded-full mr-2">Q</span>一般入試との両立は可能ですか？</h4>
+                                        <p className="text-xs text-slate-600 leading-relaxed pl-8">
+                                            A. 可能です。無駄な作業を極限まで削ぎ落とし、戦略的にスケジュールを管理するため、一般入試の学習時間を圧迫しません。むしろ小論文対策は現代文の成績向上にも寄与します。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                    </section>
+
+                    {/* Pricing */}
+                    <section className="py-16 sm:py-28 bg-slate-50 relative">
+                        <div className="max-w-5xl mx-auto px-4 relative z-10">
+                            <div className="text-center mb-12">
+                                <h2 className="text-2xl sm:text-3xl font-black mb-3 text-navy tracking-tight">料金・プラン</h2>
+                                <p className="text-slate-500 text-sm sm:text-lg font-bold">透明性の高い、シンプルな料金体系。</p>
+                            </div>
+                            
+                            <div className="glass-panel rounded-[24px] overflow-hidden shadow-rich border border-white table-container">
+                                <table className="w-full border-collapse">
+                                    <thead>
+                                        <tr className="border-b border-slate-200 bg-white/50">
+                                            <th className="p-2 sm:p-6 text-left font-bold text-slate-500 uppercase tracking-widest w-[30%] text-[10px] sm:text-xs whitespace-nowrap">Service</th>
+                                            <th className="p-2 sm:p-6 bg-navy text-white text-center font-bold w-[35%] text-xs sm:text-base whitespace-nowrap">Ark College</th>
+                                            <th className="p-2 sm:p-6 text-center font-bold text-slate-400 w-[35%] text-[10px] sm:text-xs whitespace-nowrap">大手他社</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="font-bold">
+                                        <tr className="bg-cta/5 border-b border-slate-200">
+                                            <td className="p-2 sm:p-6 border-l-[3px] sm:border-l-[4px] border-cta text-navy text-[10px] sm:text-base whitespace-nowrap">
+                                                総額目安<span className="font-normal text-slate-500 block mt-0.5 scale-90 origin-left">(合格まで)</span>
+                                            </td>
+                                            <td className="p-2 sm:p-6 text-center text-cta text-sm sm:text-xl font-black whitespace-nowrap">約80万円</td>
+                                            <td className="p-2 sm:p-6 text-center text-slate-400 line-through text-[10px] sm:text-sm whitespace-nowrap">約120万円</td>
+                                        </tr>
+                                        <tr className="border-b border-slate-200">
+                                            <td className="p-2 sm:p-6 text-navy text-[10px] sm:text-base whitespace-nowrap">講師の質</td>
+                                            <td className="p-2 sm:p-6 text-center text-navy text-[10px] sm:text-base whitespace-nowrap">全員がプロ<br className="sm:hidden"/><span className="text-[9px] sm:text-xs font-normal">(外資系出身)</span></td>
+                                            <td className="p-2 sm:p-6 text-center text-slate-400 text-[10px] sm:text-sm whitespace-nowrap">学生バイト含む</td>
+                                        </tr>
+                                        <tr className="border-b border-slate-200">
+                                            <td className="p-2 sm:p-6 text-navy text-[10px] sm:text-base whitespace-nowrap">指導の深さ</td>
+                                            <td className="p-2 sm:p-6 text-center text-navy text-[10px] sm:text-base whitespace-nowrap">戦略・ロジック<br className="sm:hidden"/>構築から</td>
+                                            <td className="p-2 sm:p-6 text-center text-slate-400 text-[10px] sm:text-sm whitespace-nowrap">表面的な文章添削のみ</td>
+                                        </tr>
+                                        <tr className="border-b border-slate-200">
+                                            <td className="p-2 sm:p-6 text-navy text-[10px] sm:text-base whitespace-nowrap">月額費用</td>
+                                            <td className="p-2 sm:p-6 text-center text-navy text-xs sm:text-lg whitespace-nowrap">約8.5万円〜<br/>追加費用なし</td>
+                                            <td className="p-2 sm:p-6 text-center text-slate-400 text-[10px] sm:text-sm whitespace-nowrap">約7万円〜<br/>追加費用多数</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="p-2 sm:p-6 text-navy text-[10px] sm:text-base whitespace-nowrap">添削回数</td>
+                                            <td className="p-2 sm:p-6 text-center text-white bg-cta font-bold text-[10px] sm:text-base whitespace-nowrap">完全無制限</td>
+                                            <td className="p-2 sm:p-6 text-center text-slate-400 text-[10px] sm:text-sm whitespace-nowrap">回数制限あり</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div className="mt-10 bg-white border border-cta/20 p-6 rounded-[20px] text-center shadow-rich relative overflow-hidden group">
+                                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cta to-cta-light"></div>
+                                <p className="text-cta font-bold text-xs sm:text-sm mb-1.5 tracking-widest uppercase">Special Offer</p>
+                                <p className="text-navy font-bold text-base sm:text-xl leading-tight">診断当日・翌日の入会決定で、<br />入会金 55,000円 → <span className="text-cta text-2xl sm:text-3xl font-black ml-2 inline-block">0円</span></p>
+                                <button onClick={scrollToDiagnosis} className="mt-4 bg-cta/10 text-cta border border-cta/30 font-bold py-2 px-8 rounded-full text-sm hover:bg-cta hover:text-white transition-all duration-300">
+                                    今すぐ申し込む
+                                </button>
+                            </div>
                         </div>
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-check"></i>
-                        <div>
-                            <strong>逆算ロードマップ：</strong>
-                            <span>合格までに必要なタスクをその場で整理。</span>
+                    </section>
+
+                    {/* Media & Column (note) */}
+                    <section className="py-16 sm:py-28 relative">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                            <div className="text-center mb-12">
+                                <span className="text-cta font-bold tracking-widest uppercase text-[10px] mb-2 block">Media & Column</span>
+                                <h2 className="text-2xl sm:text-3xl font-black mb-3 text-navy tracking-tight">公式note</h2>
+                                <p className="text-slate-500 text-sm sm:text-base font-bold">総合型選抜の対策ノウハウや、<br className="sm:hidden" />合格のための思考法を発信しています。</p>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                                {[
+                                    {
+                                        url: "https://note.com/ark_college/n/nd4965fbe8d90",
+                                        img: "https://assets.st-note.com/production/uploads/images/241577733/rectangle_large_type_2_28f9f2d7db28c78aec5f91f0d531a746.png?width=1280",
+                                        date: "2026.01.05",
+                                        title: "総合型選抜を「戦略」で突破することにこだわり抜いたアークカレッジのカリキュラム"
+                                    },
+                                    {
+                                        url: "https://note.com/ark_college/n/ne06612120422",
+                                        img: "https://assets.st-note.com/production/uploads/images/241574570/rectangle_large_type_2_10979ebe4c0cccd82c72b709391c7051.png?width=1280",
+                                        date: "2026.01.05",
+                                        title: "【代表インタビュー】大学合格は「ゴール」ではなく「通過点」。外資系マーケター兼プロ講師が語る、一生モノの思考力を鍛える「総合型選抜」の本質"
+                                    },
+                                    {
+                                        url: "https://note.com/ark_college/n/na24bccb96069",
+                                        img: "https://assets.st-note.com/production/uploads/images/241577088/rectangle_large_type_2_bc4cebc82d50c1e68bb56465e303b567.png?width=1280",
+                                        date: "2026.01.05",
+                                        title: "【代表インタビュー】なぜ、アークカレッジは「1学年6名」しか引き受けないのか？ 合格の先を見据えるプロが「厳選」にこだわる真意"
+                                    }
+                                ].map((item, idx) => (
+                                    <a key={idx} href={item.url} target="_blank" rel="noopener" className="group block bg-white rounded-[20px] overflow-hidden shadow-rich hover:shadow-rich-hover transition-all duration-300 hover:-translate-y-1 border border-slate-100/50">
+                                        <div className="aspect-video w-full overflow-hidden">
+                                            <img src={item.img} alt="記事サムネイル" loading="lazy" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                                        </div>
+                                        <div className="p-5">
+                                            <div className="text-[10px] text-slate-400 font-bold mb-2 tracking-wider">{item.date}</div>
+                                            <h3 className="text-sm font-bold text-navy leading-relaxed mb-4 line-clamp-3 group-hover:text-cta transition-colors">
+                                                {item.title}
+                                            </h3>
+                                            <span className="inline-flex items-center text-cta text-[10px] font-black uppercase tracking-widest group-hover:underline">
+                                                Read More <ArrowRightIcon className="w-3 h-3 ml-1" />
+                                            </span>
+                                        </div>
+                                    </a>
+                                ))}
+                            </div>
+
+                            <div className="text-center mt-10">
+                                <a href="https://note.com/ark_college" target="_blank" rel="noopener" className="inline-flex items-center justify-center px-8 py-3 rounded-full border border-navy text-navy font-bold text-sm hover:bg-navy hover:text-white transition-all duration-300 shadow-sm hover:shadow-md">
+                                    note一覧を見る
+                                </a>
+                            </div>
                         </div>
-                    </li>
-                </ul>
+                    </section>
 
-                <p style="font-size: 0.9rem; margin-bottom: 2rem; color: #ddd;">場所：Zoomオンライン（全国対応）</p>
+                    {/* Diagnosis Form */}
+                    <section id="diagnosis" className="py-16 sm:py-28 bg-navy relative overflow-hidden">
+                        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+                        <div className="max-w-3xl mx-auto px-4 relative z-10">
+                            <div className="text-center mb-10">
+                                <h2 className="text-2xl sm:text-4xl font-black text-white mb-3 tracking-tight">無料相談・合格可能性診断</h2>
+                                <p className="text-slate-300 leading-relaxed text-sm font-medium">合格への戦略を直接お伝えします。<br />入塾を希望される方はまずはこちらにお申し込みください。</p>
+                            </div>
 
-                <a href="#contact" class="btn-hero-cta" style="margin: 0 auto;">
-                    <span class="btn-main-text">無料合格可能性診断を<br>予約する</span>
-                    <span class="btn-sub-text">※まずは日程調整のご連絡を差し上げます</span>
-                </a>
-                
-                <p style="margin-top: 1rem; font-size: 0.8rem; color: #aaa;">※1学年6名限定のため、<br>定員に達し次第終了します</p>
-            </div>
-        </div>
-    </section>
+                            <div className="bg-white rounded-[24px] p-6 sm:p-10 shadow-2xl mx-2 sm:mx-0 border border-white/10">
+                                <form action="https://formspree.io/f/mojjppbw" method="POST" className="space-y-5">
+                                    <div className="space-y-1.5">
+                                        <label className="block text-sm font-bold text-navy">お名前 <span className="text-cta ml-1 text-[9px]">必須</span></label>
+                                        <input type="text" name="name" className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium focus:border-cta focus:ring-2 focus:ring-cta/20 outline-none transition-all" placeholder="例：山田 太郎" required />
+                                    </div>
+                                    <div className="space-y-1.5">
+                                        <label className="block text-sm font-bold text-navy">メールアドレス <span className="text-cta ml-1 text-[9px]">必須</span></label>
+                                        <input type="email" name="email" className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium focus:border-cta focus:ring-2 focus:ring-cta/20 outline-none transition-all" placeholder="example@gmail.com" required />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="block text-sm font-bold text-navy">お子様の学年 <span className="text-cta ml-1 text-[9px]">必須</span></label>
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                                            {["高校3年生", "高校2年生", "高校1年生", "既卒・その他"].map((grade) => (
+                                                <label key={grade} className="flex items-center space-x-2.5 cursor-pointer bg-slate-50 border border-slate-200 p-2.5 rounded-lg hover:bg-slate-100 hover:border-cta/50 transition-all group">
+                                                    <input type="radio" name="grade" value={grade} className="w-3.5 h-3.5 text-cta focus:ring-cta" required />
+                                                    <span className="text-sm font-bold text-slate-600 group-hover:text-navy">{grade}</span>
+                                                </label>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    <div className="space-y-1.5">
+                                        <label className="block text-sm font-bold text-navy">在籍高校名 <span className="text-cta ml-1 text-[9px]">必須</span></label>
+                                        <input type="text" name="highschool" className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium focus:border-cta focus:ring-2 focus:ring-cta/20 outline-none transition-all" placeholder="例：〇〇高等学校" required />
+                                    </div>
+                                    <button type="submit" className="btn-shine w-full bg-gradient-to-r from-cta to-cta-light text-white text-base sm:text-lg font-bold py-4 rounded-xl shadow-glow-cta hover:shadow-rich-hover hover:-translate-y-0.5 transition-all mt-4 tracking-wide">
+                                        この内容で送信する
+                                    </button>
+                                </form>
 
-    <section class="section pricing">
-        <div class="container">
-            <h2 class="text-center" style="margin-bottom: 3rem;">「月額」ではなく<br>「総額」で<br class="sp-br">ご判断ください</h2>
-            
-            <div class="pricing-simple-box">
-                <div class="price-label">シンプルで明朗な料金体系</div>
-                <div class="price-flex">
-                    <span class="price-prefix">月額</span>
-                    <span class="price-amount">85,000</span>
-                    <span class="price-suffix">円(税込)程度〜</span>
-                </div>
-                <div class="price-sub">※入塾金、オプション等は別途</div>
-
-                <div class="price-note">
-                    <strong><i class="fa-solid fa-check" style="color: var(--gold);"></i> 夏期講習費などの後出し請求は一切ありません</strong><br>
-                    「添削無制限」が月額に含まれているため、追加チケットの購入も不要です。
-                </div>
-            </div>
-
-            <div class="cost-comparison-box">
-                <h3 style="text-align:center; font-size:1.1rem; margin: 2rem 0 1rem;">大手塾は「オプション」で総額が膨らみます</h3>
-                <table class="cost-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 30%;">項目</th>
-                            <th style="width: 35%;" class="c-ark">Ark College</th>
-                            <th style="width: 35%;">一般的な大手塾</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="c-item">基本月額</td>
-                            <td class="c-ark">¥80,000〜<br><span style="font-size:0.7rem;">(添削無制限込)</span></td>
-                            <td class="c-other">¥60,000〜<br><span style="font-size:0.7rem;">(授業料のみ)</span></td>
-                        </tr>
-                        <tr>
-                            <td class="c-item">追加添削</td>
-                            <td class="c-ark">¥0<br><span style="font-size:0.75rem; font-weight:normal;">(無制限)</span></td>
-                            <td class="c-other">有料チケット<br><span style="font-size:0.75rem;">(1回 ¥5,000〜)</span></td>
-                        </tr>
-                        <tr>
-                            <td class="c-item">夏期講習・合宿</td>
-                            <td class="c-ark">¥0<br><span style="font-size:0.75rem; font-weight:normal;">(不要)</span></td>
-                            <td class="c-other">別途高額請求<br><span style="font-size:0.75rem;">(¥300,000〜)</span></td>
-                        </tr>
-                        <tr class="cost-total-row">
-                            <td class="c-item">年間総額<br><span style="font-size:0.7rem; font-weight:normal;">(目安)</span></td>
-                            <td class="c-ark">¥770,000~</td>
-                            <td class="c-other">¥900,000~</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="campaign-box text-center" style="background: #fff0f0; border: 2px solid var(--alert-red); padding: 2rem; border-radius: 8px; margin-top: 3rem;">
-                <h3 style="color: var(--alert-red); margin-bottom: 1rem;"><i class="fa-solid fa-fire"></i> 当日入会キャンペーン</h3>
-                <p style="font-weight: 700; margin-bottom: 1.5rem;">
-                    無料診断参加後、その場でご入会いただいた方限定<br>
-                    <span style="font-size: 1.5rem; background: yellow;">入会金 55,000円 → <br>全額無料</span>
-                </p>
-                <p style="font-size: 0.9rem; margin-bottom: 2rem;">まずは30分お話しして、相性を確かめてください。<br>「この指導なら受かる」と確信できた場合のみ、ご入会いただければ結構です。</p>
-                <a href="#contact" class="btn btn-reserve">
-                    入会金無料キャンペーンで予約する
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="section authority">
-        <div class="container">
-            <h2 class="text-center" style="margin-bottom: 3rem;">合格の先を見据えた指導</h2>
-            <div class="profile-box">
-                <img src="president.webp" alt="Noah M." class="profile-img">
-                <div class="profile-content">
-                    <h3>Noah M.</h3>
-                    <p style="color: var(--gold); font-weight: 700; margin-bottom: 1.5rem; letter-spacing: 0.1em;">Ark College 代表講師</p>
-                    <p>慶應義塾大学法学部法律学科を卒業。その後、会社勤務を経て欧州の大学院へ留学。</p>
-                    <p>慶應義塾大学法学部FIT入試A・B両方式で現役ダブル合格した経験をもとに、総合型選抜の指導分野に参画。大手総合型選抜塾「洋々」では4年間にわたりメンター講師として在籍し、多数の難関大学合格者を輩出。また、新規総合型選抜塾の立ち上げにおいては事業責任者を務め、指導ノウハウの体系化と組織運営を統括した。</p>
-                    <p>さらに、大手外資系企業でマーケターとして勤務。市場分析、戦略立案、高い論理的思考力を実務を通じて培う。</p>
-                    <p>これまでに31大学・50名以上の生徒を担当し、合格実績は国公立から早慶上智ICU、関関同立など多岐にわたる。</p>
-                    
-                    <div style="margin-top: 2rem;">
-                        <strong style="display:block; margin-bottom:10px;">合格実績（一部抜粋）：</strong>
-                        <div class="achieve-grid">
-                            <span class="achieve-tag"><i class="fa-solid fa-school"></i> 慶應義塾大学</span>
-                            <span class="achieve-tag"><i class="fa-solid fa-school"></i> 早稲田大学</span>
-                            <span class="achieve-tag"><i class="fa-solid fa-school"></i> 上智大学</span>
-                            <span class="achieve-tag"><i class="fa-solid fa-school"></i> 国際基督教大学(ICU)</span>
-                            <span class="achieve-tag"><i class="fa-solid fa-school"></i> 青山学院大学</span>
-                            <span class="achieve-tag"><i class="fa-solid fa-school"></i> 立教大学</span>
-                            <span class="achieve-tag"><i class="fa-solid fa-school"></i> 一橋大学</span>
-                            <span class="achieve-tag"><i class="fa-solid fa-school"></i> 同志社大学</span>
+                                <div className="mt-10 text-center border-t border-slate-100 pt-8">
+                                    <p className="text-slate-400 font-bold mb-5 text-[10px] uppercase tracking-widest">More Information</p>
+                                    <a href="https://lin.ee/Uq7uW97" target="_blank" className="inline-flex items-center justify-center gap-2.5 w-full max-w-[400px] bg-[#06C755] hover:bg-[#05b54c] text-white font-bold py-3.5 rounded-xl shadow-md hover:shadow-lg text-base transition-all">
+                                        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 10.304c0-5.231-5.383-9.486-12-9.486s-12 4.255-12 9.486c0 4.69 4.27 8.606 10.032 9.358.39.084.92.257 1.052.59.12.302.079.774.038 1.079l-.164 1.002c-.049.303-.238 1.187 1.026.647 1.262-.54 6.816-4.015 9.303-6.873 1.706-1.896 2.713-3.837 2.713-5.803zm-16.736 3.033h-2.12c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2.12c.276 0 .5.224.5.5s-.224.5-.5.5zm0-1.833h-2.12c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2.12c.276 0 .5.224.5.5s-.224.5-.5.5zm0-1.834h-2.12c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2.12c.276 0 .5.224.5.5s-.224.5-.5.5zm11.23 3.667h-2.12c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2.12c.276 0 .5.224.5.5s-.224.5-.5.5zm0-1.833h-2.12c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2.12c.276 0 .5.224.5.5s-.224.5-.5.5zm0-1.834h-2.12c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2.12c.276 0 .5.224.5.5s-.224.5-.5.5z"/></svg>
+                                        <span>LINEで資料請求する</span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                    </section>
 
-    <section class="section media" style="background: var(--off-white);">
-        <div class="container">
-            <h2 class="text-center" style="margin-bottom: 1rem;">公式note</h2>
-            <p class="text-center" style="margin-bottom: 3rem;">総合型選抜の対策ノウハウや、合格のための思考法を発信しています。</p>
-
-            <div class="media-grid">
-                <a href="https://note.com/ark_college/n/nd4965fbe8d90" target="_blank" rel="noopener" class="media-card">
-                    <div class="media-thumb">
-                        <img src="https://assets.st-note.com/production/uploads/images/241577733/rectangle_large_type_2_28f9f2d7db28c78aec5f91f0d531a746.png?width=1280" alt="記事サムネイル" loading="lazy">
-                    </div>
-                    <div class="media-body">
-                        <div class="media-date">2026.01.05</div>
-                        <h3 class="media-title">総合型選抜を「戦略」で突破することにこだわり抜いたアークカレッジのカリキュラム</h3>
-                        <div class="read-more">READ MORE</div>
-                    </div>
-                </a>
-
-                <a href="https://note.com/ark_college/n/ne06612120422" target="_blank" rel="noopener" class="media-card">
-                    <div class="media-thumb">
-                        <img src="https://assets.st-note.com/production/uploads/images/241574570/rectangle_large_type_2_10979ebe4c0cccd82c72b709391c7051.png?width=1280" alt="記事サムネイル" loading="lazy">
-                    </div>
-                    <div class="media-body">
-                        <div class="media-date">2026.01.05</div>
-                        <h3 class="media-title">【代表インタビュー】大学合格は「ゴール」ではなく「通過点」。外資系マーケター兼プロ講師が語る、一生モノの思考力を鍛える「総合型選抜」の本質</h3>
-                        <div class="read-more">READ MORE</div>
-                    </div>
-                </a>
-
-                <a href="https://note.com/ark_college/n/na24bccb96069" target="_blank" rel="noopener" class="media-card">
-                    <div class="media-thumb">
-                        <img src="https://assets.st-note.com/production/uploads/images/241577088/rectangle_large_type_2_bc4cebc82d50c1e68bb56465e303b567.png?width=1280" alt="記事サムネイル" loading="lazy">
-                    </div>
-                    <div class="media-body">
-                        <div class="media-date">2026.01.05</div>
-                        <h3 class="media-title">【代表インタビュー】なぜ、アークカレッジは「1学年6名」しか引き受けないのか？ 合格の先を見据えるプロが「厳選」にこだわる真意</h3>
-                        <div class="read-more">READ MORE</div>
-                    </div>
-                </a>
-            </div>
-
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="https://note.com/ark_college" target="_blank" rel="noopener" class="btn btn-line" style="color: var(--navy); border: 2px solid var(--navy); background: transparent; box-shadow: none; max-width: 200px; display: inline-flex;">
-                    note一覧を見る
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="section closing" id="contact" style="background: var(--navy-light);">
-        <div class="container">
-            <h2 class="text-center" style="color: var(--white); margin-bottom: 1rem;">無料個別診断予約</h2>
-            <p class="text-center" style="color: rgba(255,255,255,0.8); margin-bottom: 3rem;">
-                合格までのロードマップをお伝えする、<br>無料相談を実施中です。
-                限られた時間で最適な戦略を提示するために、<br class="sp-br">
-                まずはあなたの現状を教えてください。<br>
-                内容を確認し、24時間以内に<br class="sp-br">日程調整のご連絡をさせていただきます。
-            </p>
-
-            <div class="native-form-container">
-                <form action="https://formspree.io/f/mojjppbw" method="POST">
-                    <div class="form-group">
-                        <label class="form-label">お名前（保護者様名義可）<span class="label-required">必須</span></label>
-                        <input type="text" name="name" class="form-control" placeholder="例：山田 太郎" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">メールアドレス<span class="label-required">必須</span></label>
-                        <input type="email" name="email" class="form-control" placeholder="example@gmail.com" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">お子様の学年<span class="label-required">必須</span></label>
-                        <div class="radio-group">
-                            <label class="radio-label">
-                                <input type="radio" name="grade" value="高校3年生" class="radio-input" required> <span>高校3年生</span>
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="grade" value="高校2年生" class="radio-input"> <span>高校2年生</span>
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="grade" value="高校1年生" class="radio-input"> <span>高校1年生</span>
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="grade" value="既卒・その他" class="radio-input"> <span>既卒・その他</span>
-                            </label>
+                    {/* Footer */}
+                    <footer className="py-12 bg-white border-t border-slate-100 text-center pb-24">
+                        <img src="logo.webp" alt="Ark College" className="h-6 mx-auto mb-6 opacity-80 grayscale hover:grayscale-0 transition-all" />
+                        <div className="flex flex-wrap justify-center gap-5 mb-6 text-slate-500 font-bold text-[9px] uppercase tracking-widest">
+                            <a href="#" className="hover:text-navy transition-colors">利用規約</a>
+                            <a href="#" className="hover:text-navy transition-colors">プライバシーポリシー</a>
+                            <a href="#" className="hover:text-navy transition-colors">特定商取引法表記</a>
                         </div>
-                    </div>
+                        <p className="text-slate-300 text-[9px] font-medium">© 2024 Ark College. All rights reserved.</p>
+                    </footer>
 
-                    <div class="form-group">
-                        <label class="form-label">お子様の在籍高校<span class="label-required">必須</span></label>
-                        <input type="text" name="highschool" class="form-control" placeholder="例：〇〇高等学校" required>
+                    {/* Mobile Sticky CTA */}
+                    <div className="fixed bottom-0 left-0 right-0 z-50 p-2 sm:hidden bg-white/90 backdrop-blur-md border-t border-slate-200">
+                        <button onClick={scrollToDiagnosis} className="btn-shine w-full bg-gradient-to-r from-cta to-cta-light text-white font-bold py-2.5 rounded-lg shadow-glow-cta active:scale-95 transition-all flex items-center justify-center">
+                            <span className="text-xs tracking-tight">無料合格可能性診断を予約</span>
+                        </button>
                     </div>
-
-                    <div class="form-group">
-                        <label class="form-label">保有資格・検定スコア<span style="font-weight:normal; font-size:0.8rem; margin-left:5px;">(任意)</span></label>
-                        <textarea name="qualifications" class="form-control" placeholder="例：英検準1級、TOEFL iBT 80点、IELTS 6.0 など"></textarea>
-                    </div>
-
-                    <div class="form-submit-wrapper">
-                        <button type="submit" class="form-submit-btn">この内容で送信する</button>
-                    </div>
-                </form>
-
-                <div style="margin-top: 2rem; text-align: center;">
-                    <p style="font-size: 0.9rem; margin-bottom: 1rem; font-weight: 700; color: var(--navy);">＼ まずは資料だけ見たい方はこちら ／</p>
-                    <a href="https://lin.ee/Uq7uW97" target="_blank" class="btn btn-line" style="display: flex; align-items: center; justify-content: center; gap: 10px; max-width: 400px; margin: 0 auto;">
-                        <i class="fa-brands fa-line" style="font-size: 1.5rem;"></i>
-                        <span>LINEで資料請求する</span>
-                    </a>
                 </div>
-            </div>
-        </div>
-    </section>
+            );
+        };
 
-    <div class="sticky-cta">
-        <div class="cta-inner">
-            <a href="#contact" class="sticky-btn">
-                <i class="fa-regular fa-calendar-check" style="font-size: 1.6rem; margin-right: 0.8rem;"></i>
-                <div class="btn-text-group">
-                    <span class="sticky-sub">30分で合格可能性を診断</span>
-                    <span class="sticky-main">無料診断を予約する</span>
-                </div>
-            </a>
-        </div>
-    </div>
-
-    <footer>
-        <div class="container">
-            <p>
-                &copy; 2025 Ark Growth Parnters. All rights reserved.<br>
-                <a href="https://www.ark-growth-partners.com/" target="_blank">運営会社情報</a>
-            </p>
-        </div>
-    </footer>
-
-    <script>
-        // Sticky CTA Visibility
-        window.addEventListener('scroll', () => {
-            const cta = document.querySelector('.sticky-cta');
-            if (window.scrollY > 600) {
-                cta.classList.add('visible');
-            } else {
-                cta.classList.remove('visible');
-            }
-        });
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
     </script>
 </body>
 </html>
