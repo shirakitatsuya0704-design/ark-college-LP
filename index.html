@@ -1173,6 +1173,113 @@
                         </div>
                     </section>
 
+                    {/* Free Consultation Value */}
+                    <section className="py-16 sm:py-24 relative overflow-hidden bg-gradient-to-b from-white to-slate-50">
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-cta/5 rounded-full blur-[120px] pointer-events-none"></div>
+                        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+                            {/* Header */}
+                            <div className="text-center mb-10 sm:mb-14">
+                                <span className="text-cta font-bold tracking-widest uppercase text-[10px] mb-2 block">Free Consultation</span>
+                                <h2 className="text-2xl sm:text-3xl font-black text-navy mb-4 tracking-tight leading-tight">
+                                    無料面談で<span className="text-transparent bg-clip-text bg-gradient-to-r from-cta to-cta-light">わかる</span>、4つのこと。
+                                </h2>
+                                <p className="text-slate-600 text-sm sm:text-base font-medium leading-relaxed max-w-xl mx-auto">
+                                    「まだ何も決まっていない」から「すでに書類を書き始めている」まで、<br className="hidden sm:block"/>
+                                    <span className="font-bold text-navy">一人ひとりの進捗状況に合わせて、オーダーメイドでご対応します。</span>
+                                </p>
+                            </div>
+
+                            {/* 4 Items */}
+                            <div className="space-y-4 mb-10">
+                                {[
+                                    {
+                                        num: "01",
+                                        icon: (
+                                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                                            </svg>
+                                        ),
+                                        title: "総合型選抜の「全体像」がわかる",
+                                        desc: "そもそも総合型選抜とはどんな入試なのか。一般入試との違い、必要な準備の種類と量、スケジュール感まで、初めての方でもゼロから理解できるよう丁寧に解説します。"
+                                    },
+                                    {
+                                        num: "02",
+                                        icon: (
+                                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                            </svg>
+                                        ),
+                                        title: "「今の自分」と「志望校」の距離がわかる",
+                                        desc: "偏差値のない総合型選抜では、自分の現在地を客観視することが最も難しい。プロの目線で今のポテンシャルを診断し、志望校との具体的なギャップと、埋めるために必要なアクションを明確にします。"
+                                    },
+                                    {
+                                        num: "03",
+                                        icon: (
+                                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                            </svg>
+                                        ),
+                                        title: "「アピールできる実績」の作り方がわかる",
+                                        desc: "「書けるネタが何もない…」という方こそ、この面談が転機になります。今から残された期間で、どんな活動・プロジェクトを仕掛けることで大学に評価される実績になるか、具体的なアクションプランをその場でご提案します。"
+                                    },
+                                    {
+                                        num: "04",
+                                        icon: (
+                                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                            </svg>
+                                        ),
+                                        title: "持ち込み書類を「その場」でプロが添削",
+                                        desc: "志望理由書や活動記録を書き始めている方は、そのままお持ちください。プロ講師がその場でレビューし、「なぜ評価されないか」「どう変えれば合格レベルになるか」を具体的にフィードバックします。"
+                                    }
+                                ].map((item, i) => (
+                                    <div key={i} className="flex gap-0 bg-white rounded-[20px] border border-slate-200/70 shadow-rich hover:shadow-rich-hover hover:-translate-y-0.5 transition-all duration-300 overflow-hidden">
+                                        {/* Number column */}
+                                        <div className="w-16 sm:w-20 shrink-0 bg-gradient-to-b from-navy to-navy/80 flex flex-col items-center justify-center gap-1 py-5">
+                                            <span className="text-white/40 text-[8px] font-black tracking-widest uppercase">No.</span>
+                                            <span className="text-white font-black text-2xl sm:text-3xl leading-none">{item.num}</span>
+                                        </div>
+                                        {/* Content column */}
+                                        <div className="flex-1 p-4 sm:p-6 flex gap-4 items-start">
+                                            <div className="w-9 h-9 rounded-xl bg-cta/10 border border-cta/20 flex items-center justify-center text-cta shrink-0 mt-0.5">
+                                                {item.icon}
+                                            </div>
+                                            <div>
+                                                <h3 className="text-sm sm:text-base font-black text-navy mb-1.5 leading-snug">{item.title}</h3>
+                                                <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">{item.desc}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Trust strip */}
+                            <div className="flex flex-wrap justify-center gap-3 sm:gap-6 mb-10">
+                                {[
+                                    { icon: "✓", text: "費用は完全無料" },
+                                    { icon: "✓", text: "所要時間 約60分" },
+                                    { icon: "✓", text: "オンライン対応（全国・海外から参加可）" },
+                                    { icon: "✓", text: "入塾の強制一切なし" }
+                                ].map((b, i) => (
+                                    <div key={i} className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-600">
+                                        <span className="text-cta font-black">{b.icon}</span>
+                                        {b.text}
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* CTA */}
+                            <div className="text-center">
+                                <button onClick={scrollToDiagnosis} className="btn-shine inline-flex items-center justify-center gap-3 bg-gradient-to-r from-cta to-cta-light text-white font-black py-4 sm:py-5 px-10 sm:px-14 rounded-full shadow-glow-cta hover:shadow-rich-hover hover:-translate-y-1 transition-all duration-300 text-sm sm:text-base w-full sm:w-auto">
+                                    <span>無料相談に申し込む（完全無料）</span>
+                                    <ArrowRightIcon className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+                                </button>
+                                <p className="mt-3 text-[11px] text-slate-400 font-medium">入塾のご検討中の方はもちろん、「まだ迷っている」という方もお気軽にどうぞ。</p>
+                            </div>
+                        </div>
+                    </section>
+
                     {/* Diagnosis Form */}
                     <section id="diagnosis" className="py-16 sm:py-28 bg-navy relative overflow-hidden">
                         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
