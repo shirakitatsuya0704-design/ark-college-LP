@@ -1,1117 +1,1084 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17830636955"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17830636955');
+    </script>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "vayiskp7vl");
+    </script>    
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2056799455140381');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=2056799455140381&ev=PageView&noscript=1"
+        />    
+    </noscript>
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '4038359666299666');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=4038359666299666&ev=PageView&noscript=1"
+        />
+    </noscript>
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-T45G5L3K');</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JW11SJHE3R"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ark College 入塾案内パンフレット</title>
+    <title>Ark College | 総合型選抜の最強のパートナー</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="logo.webp" type="image/webp">
+    <link rel="apple-touch-icon" href="logo.webp">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#1e344a',
+                        cta: '#B45309', 
+                        'cta-light': '#D97706',
+                        'cta-glow': 'rgba(180, 83, 9, 0.3)', // 発光を抑えめに
+                        'navy-glow': 'rgba(30, 52, 74, 0.2)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans JP', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glass': '0 4px 30px rgba(0, 0, 0, 0.05)',
+                        // リッチな階層構造を持つ影（AIっぽさを消す鍵）
+                        'rich': '0 10px 30px -5px rgba(30, 52, 74, 0.08), 0 4px 12px -2px rgba(30, 52, 74, 0.04)',
+                        'rich-hover': '0 20px 40px -5px rgba(30, 52, 74, 0.12), 0 8px 16px -4px rgba(30, 52, 74, 0.06)',
+                        'glow-cta': '0 10px 30px -5px rgba(180, 83, 9, 0.25)', // 控えめで上品な発光
+                    },
+                    animation: {
+                        'float': 'float 8s ease-in-out infinite', // 動きをゆっくりにして高級感を出す
+                        'shine': 'shine 6s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-6px)' }, // 移動量を減らして上品に
+                        },
+                        shine: {
+                            '0%': { transform: 'translateX(-100%) skewX(-15deg)' },
+                            '20%, 100%': { transform: 'translateX(200%) skewX(-15deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        /* Base Settings */
-        :root {
-            --color-navy: #0A192F;
-            --color-navy-light: #172a46;
-            --color-gold: #D4AF37;
-            --color-gold-light: #F3E5AB;
-            --color-paper: #F8F9FA;
-        }
         body {
-            background-color: #555; /* Preview Background */
-            font-family: 'Noto Sans JP', sans-serif;
-            color: var(--color-navy);
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            letter-spacing: 0.04em; /* 字間を広げて余裕を持たせる */
+            color: #1e344a;
+            background-color: #F8FAFC;
+            font-feature-settings: "palt"; /* 日本語の自動文字詰め */
         }
 
-        /* Typography Override */
-        h1, h2, h3, .serif {
-            font-family: 'Noto Serif JP', serif;
+        /* ノイズテクスチャを加えた背景（デジタル感を消す） */
+        .bg-gradient-mesh {
+            background-color: #F8FAFC;
+            background-image: 
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E"),
+                radial-gradient(at 0% 0%, rgba(180, 83, 9, 0.03) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(30, 52, 74, 0.03) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(180, 83, 9, 0.03) 0px, transparent 50%);
+            background-attachment: fixed;
         }
 
-        /* A4 Page Container */
-        .page {
-            width: 210mm;
-            height: 297mm;
-            background-color: white;
-            position: relative;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            overflow: hidden;
-            flex-shrink: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
+        /* ガラスパネルを「曇りガラス」から「上質なアクリル」風に */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px); /* ぼかしを少し弱めてシャープに */
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
         }
-
-        /* Print Settings - High Precision */
-        @media print {
-            body {
-                background: none;
-                padding: 0;
-                gap: 0;
-                display: block;
-                -webkit-print-color-adjust: exact; /* Chrome/Safari */
-                print-color-adjust: exact; /* Firefox */
-            }
-            .page {
-                width: 210mm;
-                height: 297mm; /* Force A4 Height */
-                box-shadow: none;
-                page-break-after: always;
-                break-after: page;
-                margin: 0;
-                overflow: hidden;
-                border: none;
-            }
-            
-            /* Hide UI elements during print */
-            .no-print {
-                display: none !important;
-            }
-
-            /* Set Page Size */
-            @page {
-                size: A4 portrait;
-                margin: 0; /* Remove default browser margins */
-            }
-        }
-
-        /* Utility Components */
-        .gold-line {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
-        }
-        .text-gold { color: var(--color-gold); }
-        .bg-navy { background-color: var(--color-navy); }
-        .bg-navy-light { background-color: var(--color-navy-light); }
-        .text-navy { color: var(--color-navy); }
         
-        /* Decoration Elements */
-        .compass-bg {
+        /* エッジライト効果 */
+        .glass-panel::before {
+            content: '';
             position: absolute;
-            opacity: 0.03;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+            opacity: 0.6;
             pointer-events: none;
         }
 
-        /* Header/Footer for content pages */
-        .page-header {
-            position: absolute;
-            top: 15mm;
-            left: 15mm;
-            right: 15mm;
-            height: 10mm;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #ddd;
+        .glass-panel-dark {
+            background: rgba(30, 52, 74, 0.9); /* 透明度を下げて重厚感を出す */
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
-        .page-footer {
-            position: absolute;
-            bottom: 10mm;
-            left: 15mm;
-            right: 15mm;
-            text-align: center;
-            font-size: 9pt;
-            color: #888;
+
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
         }
-        .content-area {
-            margin-top: 30mm;
-            margin-left: 15mm;
-            margin-right: 15mm;
-            margin-bottom: 20mm;
-            height: calc(297mm - 50mm);
+        .btn-shine::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-20deg);
+            animation: shine 6s infinite;
         }
         
-        .accent-block {
-            border-left: 3px solid var(--color-gold);
-            padding-left: 1rem;
+        .table-container {
+            width: 100%;
+        }
+        @media (min-width: 640px) {
+            .table-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            .table-container table {
+                min-width: 600px;
+            }
         }
     </style>
 </head>
-<body>
+<body class="bg-gradient-mesh">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState, useEffect, Fragment } = React;
 
-    <!-- Print Guide (Hidden on Print) -->
-    <div class="no-print fixed top-0 left-0 w-full bg-navy text-white p-4 z-50 shadow-lg flex justify-between items-center opacity-90 hover:opacity-100 transition-opacity">
-        <div class="text-sm">
-            <i class="fa-solid fa-print text-gold mr-2"></i>
-            <strong>印刷・PDF保存のヒント:</strong> 「背景のグラフィック」を有効にし、「余白：なし」に設定してください。
-        </div>
-        <button onclick="window.print()" class="bg-gold text-navy px-4 py-1 rounded font-bold hover:bg-white transition-colors text-sm">
-            印刷する / PDF保存
-        </button>
-    </div>
-    <div class="no-print h-12"></div> <!-- Spacer -->
-
-    <!-- P1: Cover -->
-    <div class="page bg-navy text-white relative">
-        <!-- Abstract Decoration -->
-        <div class="absolute inset-0 overflow-hidden">
-            <svg class="absolute top-0 right-0 text-white opacity-5 w-[600px] h-[600px] -mr-32 -mt-32" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.5">
-                <circle cx="50" cy="50" r="40" />
-                <circle cx="50" cy="50" r="30" />
-                <line x1="50" y1="0" x2="50" y2="100" />
-                <line x1="0" y1="50" x2="100" y2="50" />
-                <line x1="15" y1="15" x2="85" y2="85" />
-                <line x1="15" y1="85" x2="85" y2="15" />
+        // --- Icons ---
+        const CheckIcon = ({ className = "w-4 h-4" }) => (
+            <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
             </svg>
-        </div>
+        );
+        const ZapIcon = ({ className = "w-4 h-4" }) => (
+            <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+        );
+        const ShieldIcon = ({ className = "w-4 h-4" }) => (
+            <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+        );
+        const TargetIcon = ({ className = "w-4 h-4" }) => (
+            <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+        );
+        const ArrowRightIcon = ({ className = "w-4 h-4" }) => (
+            <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+        );
 
-        <div class="flex flex-col justify-center items-center h-full z-10 p-12 text-center">
-            <!-- Logo Image Placeholder -->
-            <div class="mb-16">
-                <!-- 【画像差し替え箇所】ここにロゴ画像のURLを指定してください。背景透過のPNG推奨 -->
-                    <img src="logo.png" 
-                     alt="Ark College Logo" 
-                     class="w-40 h-40 object-contain mx-auto mb-4 rounded-xl bg-navy-light/50 backdrop-blur-sm border border-gold/30 p-4">
+        // --- Main Component ---
+        const App = () => {
+            const [isScrolled, setIsScrolled] = useState(false);
+            const [isSubmitting, setIsSubmitting] = useState(false); // 送信状態を管理
+
+            useEffect(() => {
+                const handleScroll = () => {
+                    setIsScrolled(window.scrollY > 50);
+                };
+                window.addEventListener('scroll', handleScroll);
+                return () => window.removeEventListener('scroll', handleScroll);
+            }, []);
+
+            const scrollToDiagnosis = () => {
+                document.getElementById('diagnosis')?.scrollIntoView({ behavior: 'smooth' });
+            };
+
+            // ▼ 追加: 非同期通信で送信し、成功したらリダイレクトさせる処理 ▼
+            const handleSubmit = async (e) => {
+                e.preventDefault(); // 通常の画面遷移をブロック
+                setIsSubmitting(true);
                 
-                <h1 class="text-3xl tracking-[0.2em] font-light mt-4">ARK COLLEGE</h1>
-            </div>
-
-            <!-- Title -->
-            <div class="mb-12 relative w-full">
-                <div class="h-[1px] w-1/3 bg-gold mx-auto mb-6 opacity-50"></div>
-                <h2 class="text-4xl serif font-medium mb-2 leading-tight">総合型選抜<br>プロフェッショナル・ファーム</h2>
-                <p class="text-gold tracking-widest text-sm uppercase">大学受験戦略コンサルティング</p>
-                <div class="h-[1px] w-1/3 bg-gold mx-auto mt-6 opacity-50"></div>
-            </div>
-
-            <!-- Catchcopy -->
-            <div class="mt-8">
-                <p class="text-lg leading-loose serif opacity-90">
-                    受験のその先へ。<br>
-                    少人数制。<br>
-                    プロフェッショナル・ファームとしての<br>
-                    大学受験指導。
-                </p>
-            </div>
-
-            <!-- URL -->
-            <div class="absolute bottom-12 text-xs tracking-widest opacity-60">
-                https://forms.gle/rbWA7wUD6Uw1dG76A
-            </div>
-        </div>
-    </div>
-
-    <!-- P2: Paradigm Shift -->
-    <div class="page">
-        <div class="page-header">
-            <span class="text-xs tracking-widest text-gray-400">ARK COLLEGE</span>
-            <span class="text-xs font-serif text-navy">Philosophy</span>
-        </div>
-
-        <!-- 修正: justify-between を削除し、gap-12 で間隔を調整して上詰めに配置 -->
-        <div class="content-area flex flex-col gap-12">
-            <!-- Section 01 -->
-            <section>
-                <h2 class="text-2xl serif text-navy mb-6 flex items-center">
-                    <span class="text-gold mr-3 text-3xl">01.</span> 教育のパラダイムシフト
-                </h2>
-                <div class="flex gap-8 mb-6">
-                    <div class="w-1/2 p-4 bg-gray-50 border-l-2 border-gray-300">
-                        <h4 class="text-sm font-bold text-gray-500 mb-2">Old Standard (〜2020)</h4>
-                        <p class="text-lg font-serif mb-2 text-gray-600">知識の量 × 処理速度</p>
-                        <p class="text-xs text-justify leading-relaxed text-gray-500">
-                            かつての高度経済成長期、均質で質の高い労働力を確保するためには「正解を速く正確に導き出す能力（偏差値）」が最適解でした。
-                        </p>
-                    </div>
-                    <div class="flex items-center text-gold text-2xl">
-                        <i class="fa-solid fa-arrow-right-long"></i>
-                    </div>
-                    <div class="w-1/2 p-4 bg-navy-light text-white shadow-lg relative overflow-hidden">
-                        <div class="absolute -right-4 -top-4 text-gold opacity-10 text-6xl"><i class="fa-solid fa-lightbulb"></i></div>
-                        <h4 class="text-sm font-bold text-gold mb-2">New Standard (2020〜)</h4>
-                        <p class="text-lg font-serif mb-2">知の活用 × 創造性</p>
-                        <p class="text-xs text-justify leading-relaxed opacity-90">
-                            AIの台頭やVUCA時代。予測不可能な社会においては、知識をどう使い、誰と協働し、何を創り出すかが問われます。
-                        </p>
-                    </div>
-                </div>
+                const form = e.target;
+                const data = new FormData(form);
                 
-                <h3 class="text-lg font-bold mb-3 accent-block">高大接続改革と学力の3要素</h3>
-                <div class="grid grid-cols-3 gap-4 mb-4 text-center text-sm">
-                    <div class="border border-gray-200 p-3 rounded">
-                        <div class="text-navy font-bold mb-1">①知識・技能</div>
-                        <div class="text-xs text-gray-500">基礎的リテラシー</div>
-                    </div>
-                    <div class="bg-navy text-white p-3 rounded shadow-md relative">
-                        <div class="absolute -top-2 left-1/2 transform -translate-x-1/2 bg-gold text-navy text-[10px] px-2 py-0.5 rounded-full font-bold w-max">総合型選抜の主戦場</div>
-                        <div class="font-bold mb-1">②思考・判断・表現</div>
-                        <div class="text-xs opacity-80">論理的対話力</div>
-                    </div>
-                    <div class="bg-navy text-white p-3 rounded shadow-md">
-                        <div class="font-bold mb-1">③主体性・協働性</div>
-                        <div class="text-xs opacity-80">多様な人々との協働</div>
-                    </div>
-                </div>
-                <p class="text-sm leading-relaxed">
-                    もはや総合型選抜は「一芸入試」や「楽な入試」ではなく、<strong class="bg-yellow-100 px-1">最も現代社会のニーズに即した、知的な選抜方式</strong>へと進化しています。
-                </p>
-            </section>
-
-            <!-- Section 02 -->
-            <section class="pt-8 border-t border-dashed border-gray-300">
-                <h2 class="text-2xl serif text-navy mb-2 flex items-center">
-                    <span class="text-gold mr-3 text-3xl">02.</span> 「大学入試の先」で、一生通用する力を。
-                </h2>
-                <p class="text-[10px] text-gray-500 mb-4 font-serif tracking-wide">
-                    ――国際指標「Education 2030」が定義する、新しい学びの形――
-                </p>
-
-                <p class="text-xs leading-relaxed text-justify mb-5 text-navy">
-                    世界的な教育指針「Education 2030」が掲げるのは、正解のない未来を自ら切り拓く力、<strong class="bg-yellow-100 px-1">「エージェンシー（当事者意識）」の育成</strong>です。AI時代、かつての暗記型学習は価値を失いました。今、入試や社会で評価されるのは、机上の空論ではなく<strong class="border-b border-gold">「現実を動かす力」</strong>です。<br>
-                    Ark Collegeでは、この理念に基づき3つの次世代スキルを磨きます。
-                </p>
-
-                <div class="grid grid-cols-3 gap-3 mb-5">
-                    <div class="bg-white border border-gray-200 p-3 rounded shadow-sm relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-8 h-8 bg-gold opacity-10 rounded-bl-full"></div>
-                        <div class="text-gold mb-2 text-lg"><i class="fa-solid fa-clipboard-question"></i></div>
-                        <h4 class="text-xs font-bold text-navy mb-0.5">1. 問いを立てる力</h4>
-                        <div class="text-[9px] text-gray-400 mb-2 font-serif italic">Problem Posing</div>
-                        <p class="text-[10px] text-gray-600 leading-tight text-justify">
-                            ネットに答えがある時代、価値を持つのは「問い」そのものです。常識を疑い、自分なりの視点で課題を見つける力は、志望理由書や研究の源泉となります。
-                        </p>
-                    </div>
-
-                    <div class="bg-white border border-gray-200 p-3 rounded shadow-sm relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-8 h-8 bg-gold opacity-10 rounded-bl-full"></div>
-                        <div class="text-gold mb-2 text-lg"><i class="fa-solid fa-rocket"></i></div>
-                        <h4 class="text-xs font-bold text-navy mb-0.5">2. 実践的な行動力</h4>
-                        <div class="text-[9px] text-gray-400 mb-2 font-serif italic">Authentic Action</div>
-                        <p class="text-[10px] text-gray-600 leading-tight text-justify">
-                            「言わされた言葉」ではなく、社会と関わる実体験から学びます。失敗を恐れず挑戦する「本物の経験」こそが、面接官の心を動かす唯一無二の言葉を生みます。
-                        </p>
-                    </div>
-
-                    <div class="bg-white border border-gray-200 p-3 rounded shadow-sm relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-8 h-8 bg-gold opacity-10 rounded-bl-full"></div>
-                        <div class="text-gold mb-2 text-lg"><i class="fa-solid fa-hands-holding-circle"></i></div>
-                        <h4 class="text-xs font-bold text-navy mb-0.5">3. 協調と調和の力</h4>
-                        <div class="text-[9px] text-gray-400 mb-2 font-serif italic">Orchestration</div>
-                        <p class="text-[10px] text-gray-600 leading-tight text-justify">
-                            一人で完結せず、多様な他者と対話して新たな価値を創る力です。このスキルは、グループディスカッションや入学後のプロジェクト学習で決定的な差となります。
-                        </p>
-                    </div>
-                </div>
-
-                <div class="bg-navy-light text-white p-4 rounded text-center shadow-lg border-l-4 border-gold">
-                    <p class="text-xs font-bold mb-1">総合型選抜対策は、一生モノの「武器」を手に入れる訓練です。</p>
-                    <p class="text-[10px] opacity-80 font-light">
-                        大学合格を通過点とし、その先の人生を自力で輝かせ続ける力を、共に育みましょう。
-                    </p>
-                </div>
-            </section>
-        </div>
-        <div class="page-footer">Page 02 | Ark College Brochure</div>
-    </div>
-
-    <!-- P3: Market Trends -->
-    <div class="page">
-        <div class="page-header">
-            <span class="text-xs tracking-widest text-gray-400">ARK COLLEGE</span>
-            <span class="text-xs font-serif text-navy">Market Insight</span>
-        </div>
-
-        <div class="content-area">
-            <!-- Section 03 -->
-            <section class="mb-10">
-                <h2 class="text-2xl serif text-navy mb-6 flex items-center">
-                    <span class="text-gold mr-3 text-3xl">03.</span> 入試トレンド：数字で見る「年内入試」
-                </h2>
-                
-                <div class="flex items-center gap-8 mb-6 bg-gray-50 p-6 rounded-xl">
-                    <div class="w-1/3 relative text-center">
-                        <div class="w-32 h-32 rounded-full border-8 border-navy mx-auto flex items-center justify-center relative z-10 bg-white">
-                            <span class="text-3xl font-bold text-navy">50.7<span class="text-base">%</span></span>
-                        </div>
-                        <p class="mt-2 text-xs font-bold text-navy">推薦・総合型での入学者<br>(令和5年度)</p>
-                    </div>
-                    <div class="w-2/3 space-y-3">
-                        <div class="flex items-center">
-                            <span class="w-24 text-xs font-bold bg-navy text-white px-2 py-1 mr-3 text-center">早稲田大学</span>
-                            <span class="text-sm">一般選抜を4割へ縮小、総合型・推薦を6割へ。</span>
-                        </div>
-                        <div class="flex items-center">
-                            <span class="w-24 text-xs font-bold bg-navy text-white px-2 py-1 mr-3 text-center">国立大学</span>
-                            <span class="text-sm">推薦・総合型の定員を30%へ拡大する方針。</span>
-                        </div>
-                        <div class="p-3 border border-gold bg-yellow-50 text-xs text-navy mt-2">
-                            <i class="fa-solid fa-triangle-exclamation text-gold mr-1"></i>
-                            <span class="font-bold">結論：</span>難関校ほど「共通テストでは測れない異能の才」を求めています。「一般選抜一本」はリスクであり、総合型活用は合格可能性を最大化する合理的戦略です。
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section 04 -->
-            <section>
-                <h2 class="text-2xl serif text-navy mb-6 flex items-center">
-                    <span class="text-gold mr-3 text-3xl">04.</span> 総合型選抜の構造 (Matching)
-                </h2>
-
-                <div class="flex gap-4 mb-8">
-                    <!-- General Admission -->
-                    <div class="w-1/2 border border-gray-200 p-4">
-                        <h4 class="text-center font-serif border-b pb-2 mb-3 text-gray-500">一般選抜</h4>
-                        <ul class="text-sm space-y-2 text-gray-500">
-                            <li class="flex justify-between"><span>評価基準</span> <span class="font-bold">結果（点数）</span></li>
-                            <li class="flex justify-between"><span>競争原理</span> <span class="font-bold">相対評価</span></li>
-                            <li class="flex justify-between"><span>性質</span> <span class="font-bold">椅子取りゲーム</span></li>
-                        </ul>
-                    </div>
-                    <!-- Comprehensive Admission -->
-                    <div class="w-1/2 border-2 border-navy bg-navy-light/5 p-4 relative">
-                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-navy text-white px-3 py-1 text-xs">Ark College Domain</div>
-                        <h4 class="text-center font-serif border-b border-navy pb-2 mb-3 text-navy font-bold">総合型選抜</h4>
-                        <ul class="text-sm space-y-2 text-navy">
-                            <li class="flex justify-between"><span>評価基準</span> <span class="font-bold">プロセス（志）</span></li>
-                            <li class="flex justify-between"><span>競争原理</span> <span class="font-bold">絶対評価</span></li>
-                            <li class="flex justify-between"><span>性質</span> <span class="font-bold">お見合い（Matching）</span></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <h3 class="text-sm font-bold mb-3 flex items-center"><i class="fa-solid fa-layer-group text-gold mr-2"></i> 合否を決める4つの評価レイヤー</h3>
-                <div class="space-y-2">
-                    <div class="bg-navy text-white p-3 flex items-center justify-between rounded shadow-lg transform translate-x-4">
-                        <span class="font-serif">04. 実行力 (Execution)</span>
-                        <span class="text-xs bg-gold text-navy px-2 py-0.5">実績の積み上げ・活動歴</span>
-                    </div>
-                    <div class="bg-navy-light text-white p-3 flex items-center justify-between rounded shadow-md transform translate-x-3 opacity-90">
-                        <span class="font-serif">03. 論理的思考力 (Logic)</span>
-                        <span class="text-xs border border-white px-2 py-0.5">社会課題分析・小論文</span>
-                    </div>
-                    <div class="bg-gray-600 text-white p-3 flex items-center justify-between rounded shadow-sm transform translate-x-2 opacity-80">
-                        <span class="font-serif">02. 基礎学力 (Academic)</span>
-                        <span class="text-xs bg-gray-500 px-2 py-0.5">評定平均・語学資格</span>
-                    </div>
-                    <div class="bg-red-800 text-white p-3 flex items-center justify-between rounded transform translate-x-1">
-                        <span class="font-serif">01. 熱意 (Passion)</span>
-                        <span class="text-xs border border-white px-2 py-0.5">志望動機・原体験</span>
-                    </div>
-                </div>
-            </section>
-        </div>
-        <div class="page-footer">Page 03 | Ark College Brochure</div>
-    </div>
-
-    <!-- P4: Roadmap -->
-    <div class="page">
-        <div class="page-header">
-            <span class="text-xs tracking-widest text-gray-400">ARK COLLEGE</span>
-            <span class="text-xs font-serif text-navy">Strategy & Roadmap</span>
-        </div>
-
-        <div class="content-area">
-            <!-- University Specifics -->
-            <section class="mb-8">
-                <h2 class="text-2xl serif text-navy mb-4 flex items-center">
-                    <span class="text-gold mr-3 text-3xl">05.</span> 大学群別対策のポイント
-                </h2>
-                <div class="grid grid-cols-3 gap-4">
-                    <div class="border-t-2 border-navy pt-3">
-                        <h3 class="font-serif text-lg mb-2">早慶上智</h3>
-                        <p class="text-xs text-gray-600 leading-relaxed">
-                            <span class="font-bold text-navy">慶應SFC</span>は「未来創造と解決案」、<span class="font-bold text-navy">早稲田</span>は「学部ごとの独自性」、<span class="font-bold text-navy">上智</span>は「他者貢献と国際性」が鍵。高いビジョンが求められる。
-                        </p>
-                    </div>
-                    <div class="border-t-2 border-gold pt-3">
-                        <h3 class="font-serif text-lg mb-2">GMARCH</h3>
-                        <p class="text-xs text-gray-600 leading-relaxed">
-                            <span class="font-bold text-navy">立教</span>は「リーダーシップ」、<span class="font-bold text-navy">中央</span>は「論理的思考力」、<span class="font-bold text-navy">青学</span>は「特技の学問的昇華」。大学のカラーとの合致度が重要。
-                        </p>
-                    </div>
-                    <div class="border-t-2 border-gray-400 pt-3">
-                        <h3 class="font-serif text-lg mb-2">国公立</h3>
-                        <p class="text-xs text-gray-600 leading-relaxed">
-                            共通テスト8割を前提とした「研究者としての素養」。アカデミックな探究心と基礎学力の両立が必須要件。
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Roadmap -->
-            <section>
-                <h2 class="text-2xl serif text-navy mb-8 flex items-center">
-                    <span class="text-gold mr-3 text-3xl">06.</span> 合格へのロードマップ
-                </h2>
-                
-                <div class="relative">
-                    <!-- Vertical Line -->
-                    <div class="absolute left-4 top-2 bottom-2 w-0.5 bg-gray-200"></div>
-
-                    <!-- Steps -->
-                    <div class="mb-8 relative pl-12">
-                        <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-white border-2 border-navy text-navy font-bold flex items-center justify-center text-sm z-10">01</div>
-                        <h4 class="text-lg font-serif text-navy mb-1">種まき期 <span class="text-sm font-sans text-gray-500 ml-2">高1〜高2</span></h4>
-                        <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-300">
-                            <p class="text-sm font-bold mb-1">インプットと自己分析</p>
-                            <p class="text-xs text-gray-600">興味分野の読書、評定維持、課外活動への参加。「自分が何に夢中になれるか」を探す期間。</p>
-                        </div>
-                    </div>
-
-                    <div class="mb-8 relative pl-12">
-                        <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-white border-2 border-navy text-navy font-bold flex items-center justify-center text-sm z-10">02</div>
-                        <h4 class="text-lg font-serif text-navy mb-1">志望校選定 <span class="text-sm font-sans text-gray-500 ml-2">高3 春 (4-6月)</span></h4>
-                        <div class="bg-gray-50 p-4 rounded border-l-4 border-navy">
-                            <p class="text-sm font-bold mb-1">ストーリー構築</p>
-                            <p class="text-xs text-gray-600">「なぜその大学か？」を徹底的に問う。過去と未来を接続し、必然性のある志望理由の骨子を作る。</p>
-                        </div>
-                    </div>
-
-                    <div class="mb-8 relative pl-12">
-                        <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-navy border-2 border-navy text-white font-bold flex items-center justify-center text-sm z-10">03</div>
-                        <h4 class="text-lg font-serif text-navy mb-1">書類作成 <span class="text-sm font-sans text-gray-500 ml-2">高3 夏 (7-8月)</span></h4>
-                        <div class="bg-navy-light/10 p-4 rounded border-l-4 border-gold">
-                            <p class="text-sm font-bold mb-1 text-navy">言語化と推敲</p>
-                            <p class="text-xs text-gray-800">志望理由書の作成。20回以上の書き直しが標準。第三者の視点を入れ、論理の穴を塞ぐ。</p>
-                        </div>
-                    </div>
-
-                    <div class="relative pl-12">
-                        <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-gold border-2 border-gold text-white font-bold flex items-center justify-center text-sm z-10">04</div>
-                        <h4 class="text-lg font-serif text-navy mb-1">二次試験対策 <span class="text-sm font-sans text-gray-500 ml-2">高3 秋 (9-11月)</span></h4>
-                        <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-300">
-                            <p class="text-sm font-bold mb-1">アウトプット特訓</p>
-                            <p class="text-xs text-gray-600">小論文、プレゼンテーション、面接対策。想定問答を超えた「対話力」を磨く。</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-        <div class="page-footer">Page 04 | Ark College Brochure</div>
-    </div>
-
-    <!-- P5: About Ark (Navy Page) -->
-    <div class="page bg-navy text-white relative">
-        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#D4AF37 1px, transparent 1px); background-size: 30px 30px;"></div>
-        
-        <div class="content-area flex flex-col justify-center h-full relative z-10">
-            <div class="text-center mb-12">
-                <div class="text-gold tracking-widest text-sm mb-4 uppercase">Ark College</div>
-                <h2 class="text-4xl serif font-light mb-6">少人数制。<br>戦略で難関大合格を。</h2>
-                <div class="w-16 h-1 bg-gold mx-auto mb-8"></div>
-                <p class="text-lg font-light opacity-90">総合型選抜専門・完全オンライン私塾</p>
-            </div>
-
-            <div class="grid grid-cols-3 gap-6 mb-16 text-center">
-                <div class="p-4 border border-white/20 rounded backdrop-blur-sm">
-                    <div class="text-3xl font-serif text-gold mb-2">92.3<span class="text-sm">%</span></div>
-                    <div class="text-xs tracking-wider opacity-70">First Choice<br>一次通過率</div>
-                </div>
-                <div class="p-4 border border-gold/50 rounded bg-gold/10 backdrop-blur-sm relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-gold text-navy text-[10px] px-2 py-0.5 font-bold">High Achievement</div>
-                    <div class="text-3xl font-serif text-gold mb-2">86.7<span class="text-sm">%</span></div>
-                    <div class="text-xs tracking-wider opacity-70">First Choice<br>最終合格率</div>
-                </div>
-                <div class="p-4 border border-white/20 rounded backdrop-blur-sm">
-                    <div class="text-3xl font-serif text-gold mb-2">100<span class="text-sm">%</span></div>
-                    <div class="text-xs tracking-wider opacity-70">University<br>進学先確保率</div>
-                </div>
-            </div>
-
-            <div class="px-8">
-                <p class="text-sm leading-8 text-justify opacity-80 font-light">
-                    総合型選抜は、単なる「作文コンクール」ではありません。大学のアドミッション・ポリシーを深く読み解き、あなたの過去・現在・未来というポテンシャルと合致させる、極めて高度なマッチング戦略が必要です。<br><br>
-                    Ark Collegeは、大量生産型の塾ではありません。「どうしても合格したい」と願うご家庭のためだけに存在する、少数精鋭の<span class="text-gold font-bold">プロフェッショナル・ファーム</span>です。
-                </p>
-            </div>
-            
-            <div class="mt-16 text-center">
-                <i class="fa-solid fa-anchor text-gold text-2xl opacity-50"></i>
-            </div>
-        </div>
-    </div>
-
-    <!-- P6: Reasons & Skills -->
-    <div class="page">
-        <div class="page-header">
-            <span class="text-xs tracking-widest text-gray-400">ARK COLLEGE</span>
-            <span class="text-xs font-serif text-navy">Why Ark College?</span>
-        </div>
-
-        <div class="content-area">
-            <h2 class="text-2xl serif text-navy mb-6 text-center">選ばれる4つの理由</h2>
-
-            <div class="grid grid-cols-2 gap-5 mb-6">
-                <div class="bg-gray-50 p-5 rounded-lg relative overflow-hidden">
-                    <i class="fa-regular fa-compass absolute -bottom-4 -right-4 text-7xl text-gray-200"></i>
-                    <div class="relative z-10">
-                        <div class="text-gold font-serif italic text-base mb-1">Reason 01</div>
-                        <h3 class="text-navy font-bold mb-2 text-sm">受験戦略コンサルティング</h3>
-                        <p class="text-[11px] text-gray-600 leading-relaxed text-justify">
-                            生徒のポテンシャル×志望校特性。「合格可能性を極限まで高める併願戦略」と「評価されるストーリー設計」をプロが立案します。
-                        </p>
-                    </div>
-                </div>
-
-                <div class="bg-gray-50 p-5 rounded-lg relative overflow-hidden">
-                    <i class="fa-solid fa-pen-nib absolute -bottom-4 -right-4 text-7xl text-gray-200"></i>
-                    <div class="relative z-10">
-                        <div class="text-gold font-serif italic text-base mb-1">Reason 02</div>
-                        <h3 class="text-navy font-bold mb-2 text-sm">完全個別カリキュラム</h3>
-                        <p class="text-[11px] text-gray-600 leading-relaxed text-justify">
-                            バイト講師ゼロ。代表講師が直接設計。画一的なテキストではなく、志望校・能力・性格に合わせた完全オーダーメイドです。
-                        </p>
-                    </div>
-                </div>
-
-                <div class="bg-gray-50 p-5 rounded-lg relative overflow-hidden">
-                    <i class="fa-regular fa-comments absolute -bottom-4 -right-4 text-7xl text-gray-200"></i>
-                    <div class="relative z-10">
-                        <div class="text-gold font-serif italic text-base mb-1">Reason 03</div>
-                        <h3 class="text-navy font-bold mb-2 text-sm">添削・相談無制限</h3>
-                        <p class="text-[11px] text-gray-600 leading-relaxed text-justify">
-                            24時間365日対応。Slackで原則48時間以内に返信。深夜でも早朝でも、受験生の不安を即座に受け止めます。
-                        </p>
-                    </div>
-                </div>
-
-                <div class="bg-navy p-5 rounded-lg relative overflow-hidden text-white">
-                    <i class="fa-solid fa-graduation-cap absolute -bottom-4 -right-4 text-7xl text-navy-light opacity-50"></i>
-                    <div class="relative z-10">
-                        <div class="text-gold font-serif italic text-base mb-1">Reason 04</div>
-                        <h3 class="font-bold mb-2 text-sm">一生使える「6つのソフトスキル」</h3>
-                        <p class="text-[11px] opacity-80 leading-relaxed text-justify">
-                            大学合格は通過点。社会で活躍するためのOS（基本能力）を書き換えます。
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-t border-gray-200 pt-5">
-                <h3 class="text-center text-sm font-bold text-navy mb-5 flex items-center justify-center">
-                    <span class="w-8 h-[1px] bg-gold mr-3"></span>
-                    Ark Collegeで身につく6つのスキル
-                    <span class="w-8 h-[1px] bg-gold ml-3"></span>
-                </h3>
-                
-                <div class="grid grid-cols-3 gap-3">
-                    <div class="border border-gray-200 rounded p-3 bg-white shadow-sm">
-                        <div class="text-gold text-lg mb-1"><i class="fa-solid fa-brain"></i></div>
-                        <h4 class="text-xs font-bold text-navy mb-1">論理的思考力</h4>
-                        <p class="text-[10px] text-gray-500 leading-tight text-justify">
-                            感情論ではなく、事実と根拠に基づき矛盾なく筋道を立てるロジカル・シンキングを養います。
-                        </p>
-                    </div>
-
-                    <div class="border border-gray-200 rounded p-3 bg-white shadow-sm">
-                        <div class="text-gold text-lg mb-1"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-                        <h4 class="text-xs font-bold text-navy mb-1">調査・情報収集力</h4>
-                        <p class="text-[10px] text-gray-500 leading-tight text-justify">
-                            Google検索に留まらず、論文や一次情報を当たり、信頼性の高い情報を掴み取るリサーチ力です。
-                        </p>
-                    </div>
-
-                    <div class="border border-gray-200 rounded p-3 bg-white shadow-sm">
-                        <div class="text-gold text-lg mb-1"><i class="fa-solid fa-file-pen"></i></div>
-                        <h4 class="text-xs font-bold text-navy mb-1">文章構成力</h4>
-                        <p class="text-[10px] text-gray-500 leading-tight text-justify">
-                            読み手の解釈に依存しない、明快かつ説得力のあるアカデミック・ライティングを習得します。
-                        </p>
-                    </div>
-
-                    <div class="border border-gray-200 rounded p-3 bg-white shadow-sm">
-                        <div class="text-gold text-lg mb-1"><i class="fa-solid fa-user-check"></i></div>
-                        <h4 class="text-xs font-bold text-navy mb-1">自己分析力</h4>
-                        <p class="text-[10px] text-gray-500 leading-tight text-justify">
-                            自身の原体験や価値観をメタ認知し、「自分が何者で、何を成したいか」を言語化する力です。
-                        </p>
-                    </div>
-
-                    <div class="border border-gray-200 rounded p-3 bg-white shadow-sm">
-                        <div class="text-gold text-lg mb-1"><i class="fa-solid fa-calendar-check"></i></div>
-                        <h4 class="text-xs font-bold text-navy mb-1">自己管理能力</h4>
-                        <p class="text-[10px] text-gray-500 leading-tight text-justify">
-                            膨大な出願書類と学業を両立させるための、タスク管理・スケジュール管理能力を磨きます。
-                        </p>
-                    </div>
-
-                    <div class="border border-gray-200 rounded p-3 bg-white shadow-sm">
-                        <div class="text-gold text-lg mb-1"><i class="fa-solid fa-bullhorn"></i></div>
-                        <h4 class="text-xs font-bold text-navy mb-1">プレゼン能力</h4>
-                        <p class="text-[10px] text-gray-500 leading-tight text-justify">
-                            面接や口頭試問において、相手の心を動かし、共感を得るための「伝える技術」です。
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="page-footer">Page 06 | Ark College Brochure</div>
-    </div>
-
-    <!-- P7: Programs Overview -->
-    <div class="page">
-        <!-- Section Header -->
-        <div class="absolute top-0 left-0 w-full bg-navy text-white py-8 px-[15mm] z-20">
-            <div class="flex items-end justify-between border-b border-gold/50 pb-4">
-                <div>
-                    <h2 class="text-3xl serif font-light tracking-wider">Programs & Pricing</h2>
-                    <p class="text-xs text-gold mt-1 uppercase tracking-widest">コース・料金のご案内</p>
-                </div>
-                <div class="text-right opacity-70 text-sm font-light">
-                    Individual Strategy / Professional Mentoring
-                </div>
-            </div>
-        </div>
-
-        <div class="content-area pt-24">
-            <!-- Service Overview -->
-            <div class="bg-navy-light/5 border-l-4 border-navy p-4 mb-5 rounded-r-lg">
-                <h3 class="text-sm font-bold text-navy mb-1.5 flex items-center">
-                    <i class="fa-solid fa-circle-info text-gold mr-2"></i>Ark Collegeのサービスについて
-                </h3>
-                <p class="text-[10px] text-gray-700 leading-relaxed text-justify">
-                    1学年15名程度の超少人数制。追加費用一切なし。Ark Collegeは、総合型選抜を「対策」ではなく「合格のプロジェクト」として扱います。戦略設計から活動の組み立て、書類制作、小論文、面接までを一気通貫で伴走。添削無制限は単なる回数無制限ではなく、評価軸に沿って合格水準へ到達するまで磨き切るための品質保証です。少人数定員で、48時間以内の返信、複数科目の同時・反復対策を通して、品質を落とさず最後まで走り切る体制を整えています。
-                </p>
-            </div>
-
-            <!-- 3 Course Cards -->
-            <div class="grid grid-cols-3 gap-4">
-                <!-- Light Course -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm flex flex-col">
-                    <div class="bg-gray-100 p-3 border-b border-gray-200">
-                        <div class="text-[9px] text-gray-500 mb-0.5">高1〜高2春 向け</div>
-                        <h3 class="text-sm font-bold text-navy">ライトコース</h3>
-                    </div>
-                    <div class="p-3 flex flex-col flex-1">
-                        <p class="text-[9px] text-gray-600 leading-relaxed text-justify mb-2">
-                            高校1〜2年生向けに、総合型選抜の土台を早期に整えるためのコースです。自己分析と活動の棚卸しを行い、志望領域の方向性を定めた上で、評価されるストーリーの骨格を作ります。
-                        </p>
-                        <div class="border-t border-gray-100 pt-2 mb-3 flex-1">
-                            <div class="text-[8px] font-bold text-navy mb-1">このコースで具体的にすること</div>
-                            <ul class="text-[8px] text-gray-600 space-y-0.5">
-                                <li>• 志望領域・志望校の方向性整理、評価軸の把握</li>
-                                <li>• 自己分析と活動の棚卸し、素材の発掘と優先順位付け</li>
-                                <li>• 活動計画の設計、次に取るべき行動の明確化</li>
-                                <li>• 小論文・面接・ディスカッション等の基礎科目強化</li>
-                            </ul>
-                        </div>
-                        <div class="bg-gray-50 rounded p-2 text-center">
-                            <div class="text-[9px] text-gray-400">月額（税込）</div>
-                            <div class="text-base font-serif font-bold text-navy">¥55,000</div>
-                            <div class="text-[9px] text-gray-400">月2コマ</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Standard Course -->
-                <div class="border-2 border-navy rounded-lg overflow-hidden shadow-md flex flex-col">
-                    <div class="bg-navy p-3">
-                        <div class="text-[9px] text-gold/70 mb-0.5">高2夏〜高2 3月 向け</div>
-                        <h3 class="text-sm font-bold text-white">スタンダードコース</h3>
-                    </div>
-                    <div class="p-3 flex flex-col flex-1">
-                        <p class="text-[9px] text-gray-600 leading-relaxed text-justify mb-2">
-                            高校2年生向けに、活動設計からアウトプットの完成度まで引き上げる実行伴走コースです。志望校の評価軸に沿って、活動の作り方と見せ方を具体化し、文章として伝わる形に整えます。
-                        </p>
-                        <div class="border-t border-gray-100 pt-2 mb-3 flex-1">
-                            <div class="text-[8px] font-bold text-navy mb-1">このコースで具体的にすること</div>
-                            <ul class="text-[8px] text-gray-600 space-y-0.5">
-                                <li>• 志望校の評価軸に合わせた活動戦略の設計と実行支援</li>
-                                <li>• 志望理由書、自己PR、活動報告などの基礎書類の制作支援</li>
-                                <li>• 添削と改善の反復による文章の完成度向上</li>
-                                <li>• 小論文対策・面接対策の基礎設計</li>
-                                <li>• 英語での提出が必要な場合の構成設計と表現改善</li>
-                            </ul>
-                        </div>
-                        <div class="bg-navy/5 rounded p-2 text-center">
-                            <div class="text-[9px] text-gray-400">月額（税込）</div>
-                            <div class="text-base font-serif font-bold text-navy">¥121,000</div>
-                            <div class="text-[9px] text-gray-400">月4コマ</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Intensive Course -->
-                <div class="border border-gold rounded-lg overflow-hidden shadow-sm flex flex-col">
-                    <div class="bg-gold/10 p-3 border-b border-gold/30">
-                        <div class="text-[9px] text-gray-500 mb-0.5">高3 4月〜10月 向け</div>
-                        <h3 class="text-sm font-bold text-navy">インテンシブコース</h3>
-                    </div>
-                    <div class="p-3 flex flex-col flex-1">
-                        <p class="text-[9px] text-gray-600 leading-relaxed text-justify mb-2">
-                            高校3年生向けに、総合型選抜を合格まで導くための完全伴走コースです。出願校戦略の最適化から締切逆算の進捗管理までを一体で行い、提出物を確実に完成させます。
-                        </p>
-                        <div class="border-t border-gray-100 pt-2 mb-3 flex-1">
-                            <div class="text-[8px] font-bold text-navy mb-1">このコースで具体的にすること</div>
-                            <ul class="text-[8px] text-gray-600 space-y-0.5">
-                                <li>• 志望校・併願の最終設計、合格確率を高める戦略立案</li>
-                                <li>• 締切から逆算した週次タスク管理、提出物の徹底管理</li>
-                                <li>• 出願書類一式の制作と完成、合格水準までの反復改善</li>
-                                <li>• 小論文・面接対策の強化、演習と模擬面接による改善</li>
-                                <li>• 優先対応による短期集中のアウトプット制作支援</li>
-                            </ul>
-                        </div>
-                        <div class="bg-yellow-50 rounded p-2 text-center">
-                            <div class="text-[9px] text-gray-400">月額（税込）</div>
-                            <div class="text-base font-serif font-bold text-navy">¥189,000</div>
-                            <div class="text-[9px] text-gray-400">月8コマ</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Common features - RTB -->
-            <div class="mt-5 bg-navy rounded-xl p-5">
-                <div class="text-center mb-4">
-                    <span class="text-gold text-xs tracking-widest uppercase font-bold">全コース共通保証</span>
-                    <div class="w-12 h-px bg-gold mx-auto mt-1 opacity-50"></div>
-                </div>
-                <div class="grid grid-cols-4 gap-3">
-                    <div class="bg-white/10 rounded-lg p-3 text-center">
-                        <div class="w-9 h-9 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                            <i class="fa-regular fa-comments text-gold text-base"></i>
-                        </div>
-                        <div class="text-white text-[9px] font-bold leading-tight">チャット相談</div>
-                        <div class="text-gold text-sm font-bold mt-0.5">無制限</div>
-                    </div>
-                    <div class="bg-white/10 rounded-lg p-3 text-center">
-                        <div class="w-9 h-9 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                            <i class="fa-solid fa-earth-americas text-gold text-base"></i>
-                        </div>
-                        <div class="text-white text-[9px] font-bold leading-tight">完全</div>
-                        <div class="text-gold text-sm font-bold mt-0.5">オンライン</div>
-                    </div>
-                    <div class="bg-white/10 rounded-lg p-3 text-center">
-                        <div class="w-9 h-9 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                            <i class="fa-solid fa-ban text-gold text-base"></i>
-                        </div>
-                        <div class="text-white text-[9px] font-bold leading-tight">追加費用</div>
-                        <div class="text-gold text-sm font-bold mt-0.5">一切なし</div>
-                    </div>
-                    <div class="bg-white/10 rounded-lg p-3 text-center">
-                        <div class="w-9 h-9 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                            <i class="fa-regular fa-clock text-gold text-base"></i>
-                        </div>
-                        <div class="text-white text-[9px] font-bold leading-tight">返信</div>
-                        <div class="text-gold text-sm font-bold mt-0.5">48時間以内</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="page-footer">Page 07 | Ark College Brochure</div>
-    </div>
-
-    <!-- P8: Pricing Tables -->
-    <div class="page">
-        <div class="page-header">
-            <span class="text-xs tracking-widest text-gray-400">ARK COLLEGE</span>
-            <span class="text-xs font-serif text-navy">Pricing &amp; Plans</span>
-        </div>
-
-        <div class="content-area flex flex-col gap-5">
-            <!-- 基本コース比較表 -->
-            <section>
-                <h3 class="text-base font-bold text-navy mb-3 flex items-center">
-                    <span class="w-1 h-5 bg-gold inline-block mr-2 rounded"></span>基本コース 料金比較
-                </h3>
-                <table class="w-full border-collapse text-center text-xs">
-                    <thead>
-                        <tr>
-                            <th class="p-2 bg-navy text-white border border-navy text-left text-[10px] w-[22%]">項目</th>
-                            <th class="p-2 bg-gray-100 border border-gray-200 text-[10px]">ライトコース</th>
-                            <th class="p-2 bg-navy text-white border border-navy text-[10px]">スタンダードコース</th>
-                            <th class="p-2 bg-gold/20 border border-gold/40 text-navy text-[10px]">インテンシブコース</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="p-2 border border-gray-200 text-left text-[10px] bg-gray-50 font-bold">月額（税込）</td>
-                            <td class="p-2 border border-gray-200 font-serif font-bold text-navy">¥55,000</td>
-                            <td class="p-2 border border-gray-200 font-serif font-bold text-navy">¥121,000</td>
-                            <td class="p-2 border border-gray-200 font-serif font-bold text-navy">¥189,000</td>
-                        </tr>
-                        <tr class="bg-gray-50/50">
-                            <td class="p-2 border border-gray-200 text-left text-[10px] bg-gray-50 font-bold">月額（税抜）</td>
-                            <td class="p-2 border border-gray-200 text-[10px]">¥50,000</td>
-                            <td class="p-2 border border-gray-200 text-[10px]">¥110,000</td>
-                            <td class="p-2 border border-gray-200 text-[10px]">¥171,819</td>
-                        </tr>
-                        <tr>
-                            <td class="p-2 border border-gray-200 text-left text-[10px] bg-gray-50 font-bold">コマ単価</td>
-                            <td class="p-2 border border-gray-200 text-[10px]">¥25,000</td>
-                            <td class="p-2 border border-gray-200 text-[10px]">¥25,000</td>
-                            <td class="p-2 border border-gray-200 text-[10px]">¥21,477</td>
-                        </tr>
-                        <tr class="bg-gray-50/50">
-                            <td class="p-2 border border-gray-200 text-left text-[10px] bg-gray-50 font-bold">対象目安</td>
-                            <td class="p-2 border border-gray-200 text-[9px] text-left align-top">高1〜高2春<br>活動実績づくりや自己分析などを早期から準備したい方</td>
-                            <td class="p-2 border border-gray-200 text-[9px] text-left align-top">高2夏〜高2 3月<br>活動実績や小論文、自己分析などの準備を行いたい方・特定科目強化も可</td>
-                            <td class="p-2 border border-gray-200 text-[9px] text-left align-top">高3 4月〜10月<br>総合型選抜全般の対策を行いたい方</td>
-                        </tr>
-                        <tr>
-                            <td class="p-2 border border-gray-200 text-left text-[10px] bg-gray-50 font-bold">月コマ数</td>
-                            <td class="p-2 border border-gray-200 font-bold">2</td>
-                            <td class="p-2 border border-gray-200 font-bold">4</td>
-                            <td class="p-2 border border-gray-200 font-bold">8</td>
-                        </tr>
-                        <tr class="bg-gray-50/50">
-                            <td class="p-2 border border-gray-200 text-left text-[10px] bg-gray-50 font-bold">書類添削</td>
-                            <td class="p-2 border border-gray-200 text-[10px]">週1回</td>
-                            <td class="p-2 border border-gray-200 text-[10px] text-gold font-bold">無制限</td>
-                            <td class="p-2 border border-gray-200 text-[10px] text-gold font-bold">無制限</td>
-                        </tr>
-                        <tr>
-                            <td class="p-2 border border-gray-200 text-left text-[10px] bg-gray-50 font-bold">小論文添削</td>
-                            <td class="p-2 border border-gray-200 text-[10px]">週1回</td>
-                            <td class="p-2 border border-gray-200 text-[10px] text-gold font-bold">無制限</td>
-                            <td class="p-2 border border-gray-200 text-[10px] text-gold font-bold">無制限</td>
-                        </tr>
-                        <tr class="bg-gray-50/50">
-                            <td class="p-2 border border-gray-200 text-left text-[10px] bg-gray-50 font-bold">チャット相談</td>
-                            <td class="p-2 border border-gray-200 text-[10px] text-gold font-bold">無制限</td>
-                            <td class="p-2 border border-gray-200 text-[10px] text-gold font-bold">無制限</td>
-                            <td class="p-2 border border-gray-200 text-[10px] text-gold font-bold">無制限</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="mt-3">
-                    <div class="bg-navy text-white text-[10px] px-4 py-2 rounded flex items-center gap-3">
-                        <i class="fa-solid fa-star text-gold"></i>
-                        <span>入会金 <span class="font-serif font-bold text-sm">¥55,000</span>（税込）</span>
-                        <span class="border-l border-white/30 pl-3">無料コンサル当日・翌日の入塾決定で <strong class="text-gold">全額免除</strong></span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 個別プラン -->
-            <section class="border-t border-gray-200 pt-4">
-                <h3 class="text-base font-bold text-navy mb-2 flex items-center">
-                    <span class="w-1 h-5 bg-gold inline-block mr-2 rounded"></span>個別プラン
-                </h3>
-                <p class="text-[10px] text-gray-600 mb-2 leading-relaxed">特定の領域に特化した指導を受けられたい方向け。よりお得に受講できるプランとなっております。</p>
-                <ul class="text-[9px] text-gray-500 mb-3 space-y-1 leading-relaxed">
-                    <li>※ 受験戦略の設計や自己分析、書類制作のサポート等はついておりません。特定の科目のみに特化したサポートとなります。</li>
-                    <li>※ 志望理由書は初期設計段階からのサポートではなく、すでにある程度記載されているものを修正していくためのプランとなります。構成の設計や内容の検討については、基本コースでのサポート内容となります。</li>
-                </ul>
-                <table class="w-full border-collapse text-center text-xs">
-                    <thead>
-                        <tr>
-                            <th class="p-2 bg-navy text-white border border-navy text-left text-[10px] w-[22%]">項目</th>
-                            <th class="p-2 bg-gray-100 border border-gray-200 text-[10px]">面接特化コース</th>
-                            <th class="p-2 bg-gray-100 border border-gray-200 text-[10px]">添削無制限コース</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="p-2 border border-gray-200 text-left text-[10px] bg-gray-50 font-bold">月額（税込）</td>
-                            <td class="p-2 border border-gray-200 font-serif font-bold text-navy">¥44,000</td>
-                            <td class="p-2 border border-gray-200 font-serif font-bold text-navy">¥44,000</td>
-                        </tr>
-                        <tr class="bg-gray-50/50">
-                            <td class="p-2 border border-gray-200 text-left text-[10px] bg-gray-50 font-bold">月額（税抜）</td>
-                            <td class="p-2 border border-gray-200 text-[10px]">¥40,000</td>
-                            <td class="p-2 border border-gray-200 text-[10px]">¥40,000</td>
-                        </tr>
-                        <tr>
-                            <td class="p-2 border border-gray-200 text-left text-[10px] bg-gray-50 font-bold">対象</td>
-                            <td class="p-2 border border-gray-200 text-[10px]">面接対策に特化したい方</td>
-                            <td class="p-2 border border-gray-200 text-[10px]">志望理由書の添削を依頼したい方</td>
-                        </tr>
-                        <tr class="bg-gray-50/50">
-                            <td class="p-2 border border-gray-200 text-left text-[10px] bg-gray-50 font-bold">月コマ数</td>
-                            <td class="p-2 border border-gray-200 font-bold">2</td>
-                            <td class="p-2 border border-gray-200 font-bold">0</td>
-                        </tr>
-                        <tr>
-                            <td class="p-2 border border-gray-200 text-left text-[10px] bg-gray-50 font-bold">書類添削</td>
-                            <td class="p-2 border border-gray-200 text-[10px] text-gray-400">ー</td>
-                            <td class="p-2 border border-gray-200 text-[10px] text-gold font-bold">無制限</td>
-                        </tr>
-                        <tr class="bg-gray-50/50">
-                            <td class="p-2 border border-gray-200 text-left text-[10px] bg-gray-50 font-bold">小論文添削</td>
-                            <td class="p-2 border border-gray-200 text-[10px] text-gray-400">ー</td>
-                            <td class="p-2 border border-gray-200 text-[10px] text-gray-400">ー</td>
-                        </tr>
-                        <tr>
-                            <td class="p-2 border border-gray-200 text-left text-[10px] bg-gray-50 font-bold">チャット相談</td>
-                            <td class="p-2 border border-gray-200 text-[10px] text-gold font-bold">無制限</td>
-                            <td class="p-2 border border-gray-200 text-[10px] text-gold font-bold">無制限</td>
-                        </tr>
-                        <tr class="bg-gray-50/50">
-                            <td class="p-2 border border-gray-200 text-left text-[10px] bg-gray-50 font-bold">付帯サービス</td>
-                            <td class="p-2 border border-gray-200 text-[9px]">大学別想定質問集のお渡し</td>
-                            <td class="p-2 border border-gray-200 text-[9px]">月1回 50分間までビデオ相談可能</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-        </div>
-        <div class="page-footer">Page 08 | Ark College Brochure</div>
-    </div>
-
-    <!-- P9: Options & Rules -->
-    <div class="page">
-        <div class="page-header">
-            <span class="text-xs tracking-widest text-gray-400">ARK COLLEGE</span>
-            <span class="text-xs font-serif text-navy">Options & Information</span>
-        </div>
-
-        <div class="content-area flex flex-col gap-5">
-            <!-- Options -->
-            <section>
-                <h3 class="text-base font-bold text-navy mb-2 flex items-center">
-                    <span class="w-1 h-5 bg-gold inline-block mr-2 rounded"></span>オプションプラン（コマ追加）
-                </h3>
-                <p class="text-[10px] text-gray-600 mb-3 leading-relaxed">
-                    面接特化コース／添削無制限コース／ライトコース／スタンダードコース／インテンシブコースのいずれか受講中の生徒様向け。論文コンテストがある、突発的な面接が入った、直前期にもう少しコマを追加したい、といった突発的なニーズに備えて、現在のコースにコマ数を追加するオプションを設けております。コース中いつでもお申し込みいただくことは可能ですが、入金後にコマ追加が可能となります。
-                </p>
-                <table class="w-full border-collapse text-center text-xs mb-3">
-                    <thead>
-                        <tr>
-                            <th class="p-2 bg-navy text-white border border-navy text-[10px]">追加コマ数</th>
-                            <th class="p-2 bg-gray-100 border border-gray-200 text-[10px]">2回</th>
-                            <th class="p-2 bg-gray-100 border border-gray-200 text-[10px]">4回</th>
-                            <th class="p-2 bg-gray-100 border border-gray-200 text-[10px]">6回</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="p-2 border border-gray-200 font-bold bg-gray-50 text-[10px]">金額（税込）</td>
-                            <td class="p-2 border border-gray-200 font-serif font-bold text-navy">¥44,000</td>
-                            <td class="p-2 border border-gray-200 font-serif font-bold text-navy">¥77,000</td>
-                            <td class="p-2 border border-gray-200 font-serif font-bold text-navy">¥99,000</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <ul class="text-[9px] text-gray-500 space-y-1">
-                    <li>• 入金月内消化が必要となります。</li>
-                    <li>• スタンダードコース受講中に2ヶ月以上、追加4または6コマプランを取得される場合、インテンシブコースに自動的に切替えさせていただきます。</li>
-                    <li>• こちらはコース付随のオプションとなりますので、添削回数など基本パッケージはご選択いただいているコースに準拠します。</li>
-                </ul>
-            </section>
-
-            <!-- Basic Service -->
-            <section class="border-t border-gray-200 pt-4">
-                <h3 class="text-sm font-bold text-navy mb-3">基本サービス内容・利用規約</h3>
-                <div class="grid grid-cols-2 gap-4 text-[10px] text-gray-700">
-                    <ul class="space-y-1.5">
-                        <li>• 授業は1コマ50分間</li>
-                        <li>• 月コース変更は前月10日までにメール告知が必要<br><span class="text-gray-400 text-[9px]">(ark.college.corporate@gmail.com)</span></li>
-                        <li>• コマは月内消化が基本。特別な事情を除き月を跨いでの振替不可</li>
-                        <li>• 翌月分のお支払いは前月25日まで。未払いの場合、受講資格停止</li>
-                    </ul>
-                    <ul class="space-y-1.5">
-                        <li>• キャンセルは24時間前までで月内振替可能</li>
-                        <li>• 解約は当月10日までに申告</li>
-                        <li>• 添削は評価軸に沿った品質保証として運用</li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- Entry Fee -->
-            <section class="border-t border-gray-200 pt-4">
-                <h3 class="text-sm font-bold text-navy mb-3">入塾金・キャンペーン</h3>
-                <div class="bg-navy text-white p-4 rounded flex justify-between items-center shadow-lg">
-                    <div>
-                        <div class="text-xs opacity-70 mb-1">入塾金</div>
-                        <div class="text-xl font-serif">¥55,000 <span class="text-xs font-sans">(税込)</span></div>
-                    </div>
-                    <div class="text-right border-l border-white/20 pl-6">
-                        <div class="text-gold font-bold text-sm mb-1"><i class="fa-solid fa-star mr-1"></i> 即決キャンペーン</div>
-                        <div class="text-xs opacity-90">無料コンサル当日・翌日の入塾決定で<br><span class="text-lg font-bold border-b border-gold text-white">全額免除</span> いたします。</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Refund & Disclaimer -->
-            <section class="grid grid-cols-2 gap-4 border-t border-gray-200 pt-4">
-                <div>
-                    <h3 class="text-sm font-bold border-b border-gray-300 pb-2 mb-2">返金規定</h3>
-                    <p class="text-[10px] leading-relaxed text-justify text-gray-600">
-                        <span class="font-bold">【クーリング・オフ】</span> 契約締結後8日間は無条件で解除可能です。<br>
-                        <span class="font-bold">【解約】</span> 当月10日までに申告いただいた場合、翌月以降の未消化コマ分を返金いたします。
-                    </p>
-                </div>
-                <div>
-                    <h3 class="text-sm font-bold border-b border-gray-300 pb-2 mb-2">免責事項</h3>
-                    <p class="text-[10px] leading-relaxed text-justify text-gray-600">
-                        当塾の指導は合格を保証するものではありません。合格には、戦略に基づく生徒ご本人の実行量が不可欠です。また、代筆行為等は固くお断りしております。
-                    </p>
-                </div>
-            </section>
-
-            <!-- 入塾審査 -->
-            <section class="border-t border-gray-200 pt-4">
-                <h2 class="text-sm font-bold text-navy mb-2">入塾審査について</h2>
-                <div class="bg-gray-50 p-4 border-l-4 border-navy">
-                    <p class="text-[10px] leading-relaxed text-gray-700">
-                        徹底的な個別最適化指導を行うため、<span class="font-bold">少人数制</span>を維持すべく入塾審査を実施させていただきます。当塾での指導が生徒様にとって最適であると判断させていただいた方のみ入塾のご案内をさせていただきます。資格や活動実績・評定平均・通学中の学校・居住地等は審査の対象とはなりません。考え抜く力や探究心の強さ、情熱やユニークな考え方など、ポテンシャルで判断いたします。無料コンサルティングにて、皆様とお話しできますことを楽しみにしております。
-                    </p>
-                </div>
-            </section>
-        </div>
-        <div class="page-footer">Page 09 | Ark College Brochure</div>
-    </div>
-
-    <!-- P10: Profile & Back Cover -->
-    <div class="page">
-        <div class="page-header">
-            <span class="text-xs tracking-widest text-gray-400">ARK COLLEGE</span>
-            <span class="text-xs font-serif text-navy">Profile</span>
-        </div>
-
-        <div class="content-area h-full flex flex-col">
-            <section class="flex gap-6 items-start mb-auto">
-                <!-- Profile Image Placeholder -->
-                <div class="flex-shrink-0">
-                    <!-- 【画像差し替え箇所】ここに代表講師の顔写真を指定してください。正方形トリミング推奨 -->
-                    <img src="image.webp" 
-                         alt="Noah M. Profile" 
-                         class="w-32 h-32 rounded-full object-cover border-4 border-gray-100 shadow-inner">
-                </div>
-                <div>
-                    <h2 class="text-xl serif text-navy font-bold mb-1">Noah M.</h2>
-                    <p class="text-xs text-gold uppercase tracking-widest mb-3">Ark College 代表講師</p>
-                    <p class="text-xs leading-relaxed text-gray-600 text-justify mb-4">
-                        慶應義塾大学法学部法律学科を卒業。その後、会社勤務を経て欧州の大学院へ留学。<br>
-                        慶應義塾大学法学部FIT入試A・B両方式で現役ダブル合格した経験をもとに、総合型選抜の指導分野に参画。大手総合型選抜塾「洋々」では4年間にわたりメンター講師として在籍し、多数の難関大学合格者を輩出。また、新規総合型選抜塾の立ち上げにおいては事業責任者を務め、指導ノウハウの体系化と組織運営を統括した。<br>
-                        さらに、大手外資系企業でマーケターとして勤務。市場分析、戦略立案、高い論理的思考力を実務を通じて培う。<br>
-                        これまでに31大学・50名以上の生徒を担当し、合格実績は国公立から早慶上智ICU、関関同立など多岐にわたる。<br>
-                    </p>
+                try {
+                    const response = await fetch("https://formspree.io/f/mojjppbw", {
+                        method: "POST",
+                        body: data,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
                     
-                    <div class="pt-4 border-t border-gray-200">
-                        <h4 class="text-sm font-bold text-navy mb-2">主な実績</h4>
-                        <p class="text-[10px] leading-relaxed text-gray-500">
-                            一橋大学、お茶の水女子大学、横浜国立大学、筑波大学、香川大学、福島大学、慶應義塾大学、早稲田大学、国際基督教大学(ICU)、上智大学、明治大学、青山学院大学、立教大学、同志社大学、中央大学、法政大学、学習院大学、関西学院大学、立命館大学、関西大学、成蹊大学、明治学院大学、日本女子大学、東洋大学、近畿大学、東京女子大学、南山大学、立命館アジア太平洋大学、明星大学、帝京大学、城西大学 など
-                        </p>
+                    if (response.ok) {
+                        // 送信成功時にGoogleカレンダーへ強制遷移
+                        window.location.href = "https://calendar.app.google/TykDrkN6VzyMJ5gu7";
+                    } else {
+                        alert("送信に失敗しました。時間をおいて再度お試しください。");
+                        setIsSubmitting(false);
+                    }
+                } catch (error) {
+                    alert("通信エラーが発生しました。ネットワーク状況をご確認ください。");
+                    setIsSubmitting(false);
+                }
+            };
+            // ▲ 追加ここまで ▲
+
+            return (
+                <div className="min-h-screen overflow-x-hidden text-navy selection:bg-cta/20 selection:text-navy">
+                    {/* Sticky Header */}
+                    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-rich py-3 border-b border-navy/5' : 'bg-transparent py-5'}`}>
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+                            <div className="flex items-center">
+                                <img src="logo.webp" alt="Ark College" className="h-7 w-auto drop-shadow-sm" />
+                            </div>
+                            <div className="hidden sm:block">
+                                <button onClick={scrollToDiagnosis} className={`btn-shine text-xs font-bold px-6 py-2.5 rounded-full transition-all hover:-translate-y-0.5 ${isScrolled ? 'bg-cta text-white shadow-md' : 'bg-white text-cta shadow-rich'}`}>
+                                    無料相談を予約する
+                                </button>
+                            </div>
+                        </div>
+                    </header>
+
+                    {/* FV */}
+                    <section className="relative w-full min-h-[100svh] flex flex-col lg:flex-row items-center justify-center pt-20 lg:pt-0">
+                        <div className="absolute top-0 left-0 w-full h-[45svh] lg:h-full lg:w-[60%] lg:left-0 overflow-hidden z-0">
+                             <img src="fv.png" alt="Student Studying" className="w-full h-full object-cover object-center shadow-2xl" />
+                             <div className="lg:hidden absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#F8FAFC] to-transparent"></div>
+                        </div>
+
+                        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row lg:justify-end items-center lg:items-center h-full">
+                            <div className="w-full lg:w-[500px] mt-[35svh] lg:mt-0 lg:-ml-20 glass-panel rounded-[32px] p-6 sm:p-10 shadow-rich transform transition-all hover:scale-[1.01] duration-700 border border-white/60">
+                                <div className="absolute -top-10 -right-10 w-32 h-32 bg-cta/10 rounded-full blur-3xl animate-pulse"></div>
+                                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-5 text-navy tracking-wider drop-shadow-sm">
+                                    総合型選抜<br />
+                                    最強のパートナー、<br />
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-navy to-cta decoration-cta decoration-2 underline-offset-4">Ark College</span>
+                                </h1>
+                                <div className="space-y-2.5 mb-6">
+                                    {["第一志望合格率 86.7%", "添削回数 完全無制限", "48時間以内 返信確約"].map((text, i) => (
+                                        <div key={i} className="flex items-center space-x-2.5 group">
+                                            <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-gradient-to-br from-cta to-cta-light flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-300">
+                                                <CheckIcon className="w-2.5 h-2.5 text-white" />
+                                            </div>
+                                            <span className="font-bold text-xs sm:text-sm text-navy/90 tracking-tight group-hover:text-cta transition-colors duration-300">{text}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                                <div className="space-y-2">
+                                    <div className="flex justify-center mb-1">
+                                        <span className="bg-red-600 text-white px-3 py-1 text-[10px] font-bold rounded-full shadow-sm animate-pulse">
+                                            2026年度 新規受入 残りわずか / 少人数制・定員あり
+                                        </span>
+                                    </div>
+                                    <button onClick={scrollToDiagnosis} className="btn-shine w-full bg-gradient-to-r from-cta to-cta-light text-white text-sm sm:text-base font-bold py-3.5 rounded-xl shadow-glow-cta hover:shadow-rich-hover hover:-translate-y-0.5 transition-all duration-300 tracking-wide">
+                                        とりあえず無料相談に申し込む
+                                    </button>
+                                    <div className="text-center space-y-0.5">
+                                        <p className="text-[9px] sm:text-[10px] font-bold text-cta tracking-wide">
+                                            今の実力がわかるフィードバックシートをプレゼント
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* ★★★ Spring Course Section ★★★ */}
+                    <section className="py-16 sm:py-24 relative overflow-hidden border-b border-rose-100/50">
+                        {/* Spring Background Accents */}
+                        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white via-rose-50/30 to-white -z-10"></div>
+                        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-pink-300/10 rounded-full blur-[100px] -translate-y-1/2 pointer-events-none"></div>
+                        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-rose-300/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+
+                        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                            <div className="text-center mb-12 sm:mb-16">
+                                <span className="inline-block py-1 px-3 rounded-full bg-rose-100 text-rose-600 font-bold text-[10px] tracking-widest uppercase mb-3 border border-rose-200 shadow-sm">
+                                    Spring Special Course
+                                </span>
+                                <h2 className="text-2xl sm:text-4xl font-black mb-4 text-navy tracking-tight leading-tight">
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-pink-500">新高2/3生限定</span> 春期講習
+                                </h2>
+                                <p className="text-slate-600 text-sm sm:text-base font-bold">
+                                    たった10時間で、ライバルに圧倒的な差をつける春休み。
+                                </p>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-12">
+                                {/* Plan A */}
+                                <div className="glass-panel rounded-[24px] p-6 sm:p-8 shadow-rich border-t-4 border-rose-400 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 flex flex-col h-full">
+                                    <div className="flex-grow">
+                                        <div className="w-full h-40 sm:h-48 rounded-[16px] overflow-hidden mb-6 relative shadow-sm border border-slate-100/50">
+                                            <div className="absolute inset-0 bg-rose-500/5 group-hover:bg-transparent transition-all duration-500 z-10"></div>
+                                            <img src="Gemini_Generated_Image_s2tcvzs2tcvzs2tc.png" alt="ゼロからのスタートダッシュ" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                                        </div>
+
+                                        <div className="bg-rose-50 text-rose-600 text-[10px] font-bold px-3 py-1 rounded-full inline-block mb-4 border border-rose-100">自己分析・コンセプト策定特化</div>
+                                        <h3 className="text-xl sm:text-2xl font-black text-navy mb-2">総合型選抜を<br/>体験する</h3>
+                                        <p className="text-xs text-slate-500 font-medium mb-6">総合型選抜の対策方法について、まだ解像度が低い生徒向け。面接＋書類＋自己分析全てを体験できるトータルパックです。</p>
+                                        
+                                        <div className="bg-white/60 rounded-xl p-4 mb-6 border border-slate-100 space-y-2.5">
+                                            <div className="flex items-start gap-2">
+                                                <CheckIcon className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                                                <span className="text-sm font-bold text-slate-700 leading-tight">10時間のプロ直接指導<br/><span className="text-[10px] text-slate-500 font-normal">週2コマペースで約5週間</span></span>
+                                            </div>
+                                            <div className="flex items-start gap-2">
+                                                <CheckIcon className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                                                <span className="text-sm font-bold text-slate-700 leading-tight">強みの抽出と言語化・大学研究</span>
+                                            </div>
+                                            <div className="flex items-start gap-2">
+                                                <CheckIcon className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                                                <span className="text-sm font-bold text-slate-700 leading-tight">戦略診断レポート完成＋3者面談</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="mt-auto pt-4 border-t border-slate-100">
+                                        <div className="flex items-baseline justify-between">
+                                            <span className="text-xs font-bold text-slate-500">特別価格</span>
+                                            <div className="text-right">
+                                                <span className="text-2xl sm:text-3xl font-black text-rose-500 tracking-tight">33,000</span>
+                                                <span className="text-xs font-bold text-slate-500 ml-1">円(税込)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Plan B */}
+                                <div className="glass-panel rounded-[24px] p-6 sm:p-8 shadow-rich border-t-4 border-cta relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 flex flex-col h-full">
+                                    <div className="absolute -top-6 -right-6 w-24 h-24 bg-cta/10 rounded-full blur-2xl"></div>
+                                    <div className="flex-grow">
+                                        <div className="w-full h-40 sm:h-48 rounded-[16px] overflow-hidden mb-6 relative shadow-sm border border-slate-100/50">
+                                            <div className="absolute inset-0 bg-cta/5 group-hover:bg-transparent transition-all duration-500 z-10"></div>
+                                            <img src="spring-1" alt="志望理由書の初稿を書き上げる" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                                        </div>
+
+                                        <div className="bg-cta/10 text-cta text-[10px] font-bold px-3 py-1 rounded-full inline-block mb-4 border border-cta/20">初稿完成・実践パック</div>
+                                        <h3 className="text-xl sm:text-2xl font-black text-navy mb-2">志望理由書の<br/>『初稿』を書き上げる</h3>
+                                        <p className="text-xs text-slate-500 font-medium mb-6">春休み中に圧倒的な成果物（初稿）を仕上げたい生徒向け。無制限添削で徹底的に磨き上げます。</p>
+                                        
+                                        <div className="bg-white/60 rounded-xl p-4 mb-6 border border-slate-100 space-y-2.5">
+                                            <div className="flex items-start gap-2">
+                                                <CheckIcon className="w-4 h-4 text-cta shrink-0 mt-0.5" />
+                                                <span className="text-sm font-bold text-slate-700 leading-tight">10時間のプロ直接指導＋<span className="text-cta border-b border-cta/30">無制限添削</span></span>
+                                            </div>
+                                            <div className="flex items-start gap-2">
+                                                <CheckIcon className="w-4 h-4 text-cta shrink-0 mt-0.5" />
+                                                <span className="text-sm font-bold text-slate-700 leading-tight">48時間以内の返信確約</span>
+                                            </div>
+                                            <div className="flex items-start gap-2">
+                                                <CheckIcon className="w-4 h-4 text-cta shrink-0 mt-0.5" />
+                                                <span className="text-sm font-bold text-slate-700 leading-tight">春以降のロードマップ策定＋3者面談</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="mt-auto pt-4 border-t border-slate-100">
+                                        <div className="flex items-baseline justify-between">
+                                            <span className="text-xs font-bold text-slate-500">特別価格</span>
+                                            <div className="text-right">
+                                                <span className="text-2xl sm:text-3xl font-black text-cta tracking-tight">55,000</span>
+                                                <span className="text-xs font-bold text-slate-500 ml-1">円(税込)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Special Offer */}
+                            <div className="max-w-3xl mx-auto bg-white border-2 border-rose-200 p-6 sm:p-8 rounded-[20px] text-center shadow-rich relative overflow-hidden">
+                                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-rose-400 to-pink-500"></div>
+                                <p className="text-rose-500 font-bold text-[10px] sm:text-xs mb-2 tracking-widest uppercase">Early Bird Offer</p>
+                                <h3 className="text-navy font-black text-lg sm:text-xl leading-tight mb-3">
+                                    春期講習後の本入塾で、<br className="sm:hidden"/>講習費用が<span className="text-rose-500 text-xl sm:text-2xl border-b-2 border-rose-200 pb-0.5 mx-1">実質無料</span>に。
+                                </h3>
+                                <p className="text-xs sm:text-sm text-slate-600 font-bold mb-5 leading-relaxed">
+                                    春期講習を受講し、3月末までに本入塾を決断された方に限り、<br className="hidden sm:block" />
+                                    <span className="bg-rose-50 px-1 text-rose-600">年会費からの春期講習分（月謝）控除</span> ＋ <span className="bg-rose-50 px-1 text-rose-600">入会金（55,000円）無料</span> を適用いたします。
+                                </p>
+                                <button onClick={scrollToDiagnosis} className="btn-shine bg-gradient-to-r from-rose-400 to-pink-500 text-white font-bold py-3 px-8 rounded-full text-sm sm:text-base hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+                                    春期講習の無料相談に申し込む
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Why Us */}
+                    <section className="pt-16 sm:pt-28 pb-10 relative overflow-hidden">
+                        <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-cta/5 rounded-full blur-[100px] -translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                            <div className="text-center mb-12 sm:mb-20">
+                                <h2 className="text-2xl sm:text-4xl font-black tracking-tight mb-3 text-navy leading-none">
+                                    ArkCollegeが、<br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-cta to-cta-light">選ばれる理由。</span>
+                                </h2>
+                            </div>
+                            
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8 mb-12">
+                                {[
+                                    { sub: "48時間以内返信、\n添削無制限", desc: "圧倒的なレスポンス速度で、改善サイクルを最速で回します。", icon: <ZapIcon className="w-5 h-5" />, img: "student_2.png" },
+                                    { sub: "完全マンツーマン、\nプロ講師のみ", desc: "学生バイトは不在。プロ講師のみが担任として責任を持って向き合います。", icon: <ShieldIcon className="w-5 h-5" />, img: "Class_2.png" },
+                                    { sub: "第一志望\n合格率 86.7%", desc: "難関大への圧倒的な実績。安心してお任せください。", icon: <TargetIcon className="w-5 h-5" />, img: "College.png" }
+                                ].map((card, idx) => (
+                                    <div key={idx} className="group relative bg-white rounded-[20px] p-2 shadow-rich hover:shadow-rich-hover transition-all duration-500 hover:-translate-y-1 border border-slate-200/60">
+                                        <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 to-white rounded-[20px] -z-10"></div>
+                                        <div className="h-36 overflow-hidden rounded-[16px] relative">
+                                            <div className="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition-all duration-500 z-10"></div>
+                                            <img src={card.img} alt={card.sub} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                                        </div>
+                                        <div className="p-4 relative">
+                                            <div className="flex items-start gap-2.5 mb-2.5">
+                                                <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center text-cta shadow-sm group-hover:bg-cta group-hover:text-white transition-colors duration-300 border border-slate-100 flex-shrink-0">
+                                                    {card.icon}
+                                                </div>
+                                                <h3 className="text-base font-bold text-navy leading-snug pt-0.5">
+                                                    {card.sub.split('\n').map((t, i) => <Fragment key={i}>{t}<br/></Fragment>)}
+                                                </h3>
+                                            </div>
+                                            <p className="text-slate-600 leading-relaxed text-xs font-medium">{card.desc}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Case Studies */}
+                    <section className="py-16 sm:py-24 bg-white relative border-t border-slate-100">
+                        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                            <div className="text-center mb-10">
+                                <span className="text-cta font-bold tracking-widest uppercase text-[10px] mb-2 block">Case Study</span>
+                                <h2 className="text-2xl sm:text-3xl font-black mb-3 text-navy tracking-tight">数字の裏にある<br />一人ひとりの戦略とは</h2>
+                                <p className="text-slate-500 text-sm font-bold">逆転合格には、必ず理由があります。</p>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 gap-6">
+                                {/* Case 1 */}
+                                <div className="glass-panel p-6 sm:p-8 rounded-[24px] shadow-rich border-l-4 border-cta relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+                                    <div className="flex items-center justify-between mb-6">
+                                        <div className="flex items-center gap-3">
+                                            <img src="boy.png" alt="K.S.さん" className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm" />
+                                            <div>
+                                                <p className="text-sm font-bold text-navy">K.S.さん</p>
+                                                <p className="text-[10px] text-slate-500">私立高校3年生</p>
+                                            </div>
+                                        </div>
+                                        <div className="bg-slate-100 px-3 py-1 rounded-full text-[10px] font-black text-slate-400">CASE 01</div>
+                                    </div>
+                                    
+                                    <h3 className="text-lg sm:text-xl font-black text-navy mb-4">慶應義塾大学 法学部 FIT入試 合格</h3>
+                                    
+                                    <div className="bg-slate-50 rounded-xl p-4 mb-4 border border-slate-100">
+                                        <p className="text-[10px] font-bold text-slate-400 mb-1 uppercase tracking-widest">Before</p>
+                                        <div className="text-xs sm:text-sm font-medium text-slate-600 space-y-1">
+                                            <div className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>評定平均 3.8 / 実績なし</div>
+                                            <div className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>文章力に自信なし</div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <p className="text-[10px] font-bold text-cta mb-1 uppercase tracking-widest">Strategy</p>
+                                        <p className="text-xs sm:text-sm font-medium text-navy leading-relaxed">
+                                            「強みがない」と悩んでいたが、徹底的な自己分析で隠れた原法意識を発掘。その意識を元にした論理構成をプロ講師とともに再構築し、法学部の教授を唸らせる志望理由書へ昇華。見事FIT合格を果たした。
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Case 2 */}
+                                <div className="glass-panel p-6 sm:p-8 rounded-[24px] shadow-rich border-l-4 border-navy relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+                                    <div className="flex items-center justify-between mb-6">
+                                        <div className="flex items-center gap-3">
+                                            <img src="girl.png" alt="M.T.さん" className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm" />
+                                            <div>
+                                                <p className="text-sm font-bold text-navy">M.T.さん</p>
+                                                <p className="text-[10px] text-slate-500">公立高校3年生</p>
+                                            </div>
+                                        </div>
+                                        <div className="bg-slate-100 px-3 py-1 rounded-full text-[10px] font-black text-slate-400">CASE 02</div>
+                                    </div>
+
+                                    <h3 className="text-lg sm:text-xl font-black text-navy mb-4">早稲田大学 国際教養学部 AO入試 合格</h3>
+                                    
+                                    <div className="bg-slate-50 rounded-xl p-4 mb-4 border border-slate-100">
+                                        <p className="text-[10px] font-bold text-slate-400 mb-1 uppercase tracking-widest">Before</p>
+                                        <div className="text-xs sm:text-sm font-medium text-slate-600 space-y-1">
+                                            <div className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>海外経験あり / 英語力あり</div>
+                                            <div className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>日本の受験システムへの不安</div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <p className="text-[10px] font-bold text-navy mb-1 uppercase tracking-widest">Strategy</p>
+                                        <p className="text-xs sm:text-sm font-medium text-navy leading-relaxed">
+                                            英語力に頼りきりだった内容を、大学のアドミッション・ポリシーに基づき「なぜ早稲田か」をマーケティング視点で尖らせ、差別化に成功。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="mt-10 text-center">
+                                <button onClick={scrollToDiagnosis} className="inline-flex items-center gap-2 text-navy font-bold text-sm border-b-2 border-cta pb-0.5 hover:text-cta transition-colors">
+                                    <span>自分だけの合格戦略を作成する</span>
+                                    <ArrowRightIcon className="w-4 h-4" />
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Correction Quality */}
+                    <section className="py-16 sm:py-24 bg-slate-50 relative overflow-hidden">
+                         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                            <div className="text-center mb-10">
+                                <span className="text-cta font-bold tracking-widest uppercase text-[10px] mb-2 block">Quality of Feedback</span>
+                                <h2 className="text-2xl sm:text-3xl font-black mb-3 text-navy tracking-tight">Ark College流の添削</h2>
+                                <p className="text-slate-500 text-sm font-bold">高密度なフィードバックを、48時間以内に。</p>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 gap-6 items-stretch">
+                                {/* Bad Example */}
+                                <div className="bg-slate-50 rounded-[24px] p-6 shadow-inner border border-slate-200 grayscale relative">
+                                    <div className="absolute top-4 left-4 bg-slate-300 text-slate-700 px-3 py-1 rounded-full text-[10px] font-bold">Before：感想文</div>
+                                    <div className="mt-8 space-y-4">
+                                        <div className="bg-white p-4 rounded-xl rounded-tl-none text-xs text-slate-700 leading-relaxed border border-slate-200 shadow-sm">
+                                            <p className="font-bold mb-1 text-[10px] text-slate-600">志望理由：</p>
+                                            「私は海辺の街で育ちました。最近海が汚れているのを見て悲しくなりました。だから私は海をきれいにするために、この大学で環境学を学びたいです。」
+                                        </div>
+                                    </div>
+                                    <p className="text-center text-xs font-bold text-slate-600 mt-6">感情論のみで「論理」がない</p>
+                                </div>
+
+                                {/* Ark College Example */}
+                                <div className="bg-white rounded-[24px] p-6 shadow-rich border-2 border-cta relative overflow-hidden">
+                                    <div className="absolute top-4 left-4 bg-cta text-white px-3 py-1 rounded-full text-[10px] font-bold">After：論理的構成</div>
+                                    <div className="mt-8 space-y-4">
+                                        <div className="bg-red-50 p-4 rounded-xl rounded-tl-none text-xs text-navy border border-red-100 relative leading-relaxed shadow-sm">
+                                            <p className="font-bold text-red-600 mb-1 text-[10px]">Structure & Logic</p>
+                                            <p>「産業構造の変化による排水問題が、深刻な漁業被害をもたらしています。この<span className="font-bold border-b border-red-300 bg-red-100/50">構造的な課題</span>に対し、貴学の△△教授のもと<span className="font-bold border-b border-red-300 bg-red-100/50">経済学の観点</span>から解決策を提示したい。」</p>
+                                        </div>
+                                        <div className="bg-cta/5 p-2 rounded text-[10px] text-cta font-bold mt-2 text-center border border-cta/10">
+                                            point: 現状分析 → 課題特定 → 解決策 → 志望動機
+                                        </div>
+                                    </div>
+                                    <p className="text-center text-xs font-bold text-cta mt-6">「感想」を「論文」へ変える指導</p>
+                                </div>
+                            </div>
+                         </div>
+                    </section>
+
+                    {/* Commitment */}
+                    <section className="py-16 sm:py-28 bg-navy relative overflow-hidden text-white">
+                        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-cta/10 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2"></div>
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                            <div className="glass-panel-dark rounded-[24px] p-6 sm:p-14 border border-white/10 relative overflow-hidden shadow-2xl">
+                                <div className="flex flex-col lg:flex-row gap-10 items-center">
+                                    <div className="w-full lg:w-3/5">
+                                        <h2 className="text-xl sm:text-3xl font-extrabold mb-5 leading-tight tracking-tight">なぜ、少人数しか<br/>引き受けないのか。</h2>
+                                        <p className="text-base sm:text-lg text-cta-light font-bold mb-8 tracking-wide border-l-4 border-cta pl-4">合格の先を見据えるArk Collegeが、<br/>人数にこだわる真意。</p>
+                                        <div className="space-y-6">
+                                            {[
+                                                { title: "品質の物理的限界", text: "一人ひとりの人生と向き合い、細部まで責任を持つには、学生バイトをアサインせずプロが直接見るべきと考えています。その品質を維持できる物理的な限界が6名でした。" },
+                                                { title: "本物の思考力を養う", text: "小手先のテクニックではなく、『Why』を繰り返す対話を通じて、社会で通用する本物の思考力を養います。これはマス向けの大量指導では不可能です。" }
+                                            ].map((item, i) => (
+                                                <div key={i} className="pl-4 border-l border-white/10">
+                                                    <h3 className="text-lg sm:text-xl font-bold mb-1.5 flex items-center text-white"><span className="text-cta mr-2 text-[10px] align-top font-mono">0{i+1}</span>{item.title}</h3>
+                                                    <p className="text-slate-300 leading-relaxed text-xs sm:text-sm font-medium opacity-90">{item.text}</p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    <div className="w-full lg:w-2/5 relative">
+                                        <div className="relative z-10 rounded-[20px] overflow-hidden shadow-2xl border border-white/10 rotate-2 transition-transform hover:rotate-0 duration-500 h-[300px] sm:h-[400px] lg:h-[500px]">
+                                            <img src="student_1.png" alt="Student studying" className="w-full h-full object-cover object-center scale-125 grayscale hover:grayscale-0 transition-all duration-700" />
+                                        </div>
+                                        <div className="absolute -bottom-5 -left-5 bg-cta text-white p-5 rounded-[16px] shadow-rich z-20 hidden sm:block border border-white/20">
+                                            <p className="font-bold text-sm leading-tight">代表による、<br />完全直接指導</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Profile Section */}
+                    <section className="py-16 sm:py-28 bg-white relative">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-10">
+                            <div className="w-full md:w-1/2 relative">
+                                <div className="absolute inset-0 bg-gradient-to-tr from-cta to-navy rounded-[24px] transform rotate-3 opacity-10"></div>
+                                <div className="relative z-10 rounded-[20px] shadow-rich mx-auto w-full overflow-hidden border border-slate-100 h-[400px] sm:h-[500px]">
+                                    <img src="president.png" alt="Noah M." className="w-full h-full object-cover object-top scale-125 grayscale hover:grayscale-0 transition-all duration-700" />
+                                </div>
+                            </div>
+                            <div className="w-full md:w-1/2">
+                                <span className="text-cta font-bold tracking-widest uppercase text-[10px] mb-2 block">代表講師</span>
+                                <h2 className="text-3xl sm:text-4xl font-black mb-5 tracking-tight text-navy">Noah T.</h2>
+                                <p className="text-slate-600 text-sm leading-relaxed mb-6 font-medium">
+                                    慶應義塾大学法学部法律学科卒。欧州大学院留学。<br/>
+                                    外資系トップメーカーでのマーケティング職を経て現職。<br/>
+                                    大学が求める人材像と生徒の強みを戦略的に結びつける「マッチング戦略」により、ビジネスと教育の視点を融合させた独自の指導を行う。
+                                </p>
+                                <div className="space-y-3 mb-8">
+                                    <div className="border-l-[3px] border-cta pl-3 py-0.5">
+                                        <h4 className="font-bold text-base text-navy">慶應義塾大学法学部 FIT入試</h4>
+                                        <p className="text-slate-500 text-xs font-medium">A方式・B方式 現役ダブル合格</p>
+                                    </div>
+                                    <div className="border-l-[3px] border-slate-200 pl-3 py-0.5">
+                                        <h4 className="font-bold text-base text-navy">圧倒的な指導実績</h4>
+                                        <p className="text-slate-500 text-xs font-medium">指導人数50名以上 / 合格大学31校<br/><span className="text-[10px] text-slate-400">(早慶上智ICU・国公立・関関同立など多数)</span></p>
+                                    </div>
+                                    <div className="border-l-[3px] border-slate-200 pl-3 py-0.5">
+                                        <h4 className="font-bold text-base text-navy">外資系マーケターの視点</h4>
+                                        <p className="text-slate-500 text-xs font-medium">市場分析・戦略立案のプロによる論理的指導</p>
+                                    </div>
+                                </div>
+                                <div className="glass-panel p-5 rounded-xl italic text-navy leading-relaxed relative text-sm sm:text-base font-bold shadow-sm border-l-0 border-r-0 border-t-0 border-b-4 border-cta/20">
+                                    <span className="absolute -top-3 -left-1 text-5xl text-cta font-serif opacity-20">“</span>
+                                    「大学合格はゴールではなく通過点。アークカレッジでの日々が、社会に出た時の『自分の基準』になるような、一生モノの思考力をここで作り上げましょう。」
+                                </div>
+                                <div className="mt-6 text-center md:text-left">
+                                     <button onClick={scrollToDiagnosis} className="inline-flex items-center justify-center px-6 py-3 border border-navy text-navy rounded-full font-bold text-sm hover:bg-navy hover:text-white transition-all duration-300">
+                                        Noah先生との無料相談へ
+                                     </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Message to Guardians */}
+                    <section className="py-16 sm:py-24 bg-slate-100 relative">
+                         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                            <div className="text-center mb-10">
+                                <h2 className="text-2xl sm:text-3xl font-serif font-bold mb-6 text-navy tracking-tight">合格の、その先を見据えて。</h2>
+                                <div className="bg-white p-8 rounded-[24px] shadow-rich text-left border border-slate-200/50">
+                                    <p className="text-sm sm:text-base font-medium text-slate-700 leading-loose mb-6">
+                                            大学受験はゴールではありません。AI時代、社会で求められるのは偏差値ではなく「自ら問いを立て、論理的に解決する力」です。<br/><br/>
+                                            Ark Collegeの指導は、単なる受験テクニックにとどまりません。外資系マーケター出身の講師との対話を通じて養われる<strong className="text-navy bg-cta/10 px-1">「論理的思考力（ロジカルシンキング）」と「表現力」</strong>は、大学入学後、そして就職活動や社会に出た後も、お子様を支え続ける「一生モノの資産」となります。
+                                    </p>
+                                    <div className="bg-navy/5 p-4 rounded-xl">
+                                        <h4 className="text-xs font-bold text-navy mb-2 flex items-center"><span className="bg-navy text-white text-[10px] px-2 py-0.5 rounded-full mr-2">Q</span>一般入試との両立は可能ですか？</h4>
+                                        <p className="text-xs text-slate-600 leading-relaxed pl-8">
+                                            A. 可能です。無駄な作業を極限まで削ぎ落とし、戦略的にスケジュールを管理するため、一般入試の学習時間を圧迫しません。むしろ小論文対策は現代文の成績向上にも寄与します。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                    </section>
+
+                    {/* 4 Steps Section */}
+                    <section className="py-16 sm:py-28 bg-white relative overflow-hidden">
+                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cta/5 via-transparent to-transparent pointer-events-none"></div>
+                        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+                            {/* Header */}
+                            <div className="text-center mb-14">
+                                <span className="text-cta font-bold tracking-widest uppercase text-[10px] mb-2 block">Why It Costs / What We Do</span>
+                                <h2 className="text-xl sm:text-3xl font-black mb-5 text-navy tracking-tight leading-tight">
+                                    総合型選抜の合格に必要な4つのステップと、<br className="hidden sm:block"/>Ark Collegeの「伴走型」サポート
+                                </h2>
+                                <p className="text-slate-600 text-sm sm:text-base font-medium leading-relaxed max-w-2xl mx-auto">
+                                    総合型選抜は、単なる「文章の書き方テスト」ではありません。自己分析から活動実績の創出、論理的な書類作成、そして面接での表現力まで、総合的な準備が必要です。<br className="hidden sm:block"/>
+                                    <span className="font-bold text-navy">Ark Collegeでは、プロの講師が全工程に完全マンツーマンで伴走し、受験を「一生モノの思考力を鍛えるプロジェクト」に変えます。</span>
+                                </p>
+                            </div>
+
+                            {/* Steps Grid */}
+                            <div className="grid sm:grid-cols-2 gap-6 sm:gap-8 mb-12">
+                                {[
+                                    {
+                                        step: "01",
+                                        icon: (<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>),
+                                        title: "自己分析・戦略策定",
+                                        what: "総合型選抜は大学との「マッチング」です。自分はどんな人間で、何を解決したくて、なぜその大学に行きたいのか——過去・現在・未来を繋ぐ一貫したストーリーを見つける必要があります。",
+                                        value: "漠然とした思いを、プロの視点で深掘り。生徒のポテンシャルと大学のアドミッション・ポリシーを掛け合わせ、合格可能性を極限まで高める「戦略的なロードマップ」を立案します。",
+                                        accent: "navy"
+                                    },
+                                    {
+                                        step: "02",
+                                        icon: (<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>),
+                                        title: "活動実績づくり（プロジェクト）",
+                                        what: "志望理由を語るには、それを裏付ける「証拠（成果物）」が必要です。「ただボランティアに参加した」といった受け身の経験ではなく、主体的に問題解決に取り組んだ実績が求められます。",
+                                        value: "「書くネタがない」という状態からでも、戦略に基づく一貫した実績構築を伴走します。志望校の評価基準に直結するアクションプランを提案し、合格するための実績をゼロから一緒に作り上げます。",
+                                        accent: "cta"
+                                    },
+                                    {
+                                        step: "03",
+                                        icon: (<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>),
+                                        title: "書類対策（志望理由書・小論文）",
+                                        what: "これまでの経験や大学での学びの計画を、論理的かつ説得力のある文章にまとめ上げる必要があります。一つひとつの言葉の選択が、合否を左右します。",
+                                        value: "大学生アルバイト講師は不在。プロ講師が「48時間以内の返信」と「納得いくまでの無制限添削」をお約束します。受験生にとって致命的な「1週間待ち」をなくし、高速で書類を磨き上げます。",
+                                        accent: "cta"
+                                    },
+                                    {
+                                        step: "04",
+                                        icon: (<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" /></svg>),
+                                        title: "面接対策",
+                                        what: "提出した書類の内容を自分の言葉で的確に伝え、面接官の深掘り質問にも論理的に答える「対話力」が求められます。丸暗記では太刀打ちできません。",
+                                        value: "想定問答の丸暗記はさせません。書類作成の段階から培った「本質的な思考力」をベースに、どんな質問にも揺るがない論理的思考力と表現力を鍛え上げます。大学合格を超え、社会で武器になる力を養います。",
+                                        accent: "navy"
+                                    }
+                                ].map((s, i) => (
+                                    <div key={i} className="relative bg-white rounded-[24px] border border-slate-200/80 shadow-rich overflow-hidden flex flex-col hover:-translate-y-1 hover:shadow-rich-hover transition-all duration-300">
+                                        <div className={`h-1 w-full ${s.accent === 'cta' ? 'bg-gradient-to-r from-cta to-cta-light' : 'bg-gradient-to-r from-navy to-navy/60'}`}></div>
+                                        <div className="p-6 sm:p-7 flex flex-col gap-5 flex-grow">
+                                            <div className="flex items-center gap-3">
+                                                <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${s.accent === 'cta' ? 'bg-cta/10 text-cta border border-cta/20' : 'bg-navy/5 text-navy border border-navy/10'}`}>
+                                                    {s.icon}
+                                                </div>
+                                                <div>
+                                                    <span className={`text-[10px] font-black tracking-widest ${s.accent === 'cta' ? 'text-cta' : 'text-navy/40'}`}>STEP {s.step}</span>
+                                                    <h3 className="text-base sm:text-lg font-black text-navy leading-tight">{s.title}</h3>
+                                                </div>
+                                            </div>
+                                            <div className="bg-slate-50 rounded-xl p-4 border border-slate-100">
+                                                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5">そもそも何が必要？</p>
+                                                <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">{s.what}</p>
+                                            </div>
+                                            <div className={`rounded-xl p-4 border flex-grow ${s.accent === 'cta' ? 'bg-cta/5 border-cta/20' : 'bg-navy/5 border-navy/10'}`}>
+                                                <p className={`text-[10px] font-black uppercase tracking-widest mb-1.5 ${s.accent === 'cta' ? 'text-cta' : 'text-navy'}`}>Ark Collegeが提供する価値</p>
+                                                <p className="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">{s.value}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Closing panel */}
+                            <div className="relative rounded-[28px] overflow-hidden bg-navy text-white p-8 sm:p-12 text-center shadow-rich">
+                                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-cta/30 via-transparent to-transparent pointer-events-none"></div>
+                                <div className="relative z-10">
+                                    <p className="text-cta-light font-bold tracking-widest uppercase text-[10px] mb-3">Our Commitment</p>
+                                    <h3 className="text-xl sm:text-2xl font-black mb-5 leading-tight">
+                                        なぜ、Ark Collegeは<br className="sm:hidden"/>「プロの徹底伴走」に<br className="sm:hidden"/>こだわるのか？
+                                    </h3>
+                                    <p className="text-white/75 text-sm sm:text-base font-medium leading-relaxed max-w-2xl mx-auto mb-8">
+                                        総合型選抜は、人生の進路を決める重要なプロジェクトです。小手先のテクニックや週1回の簡単な添削だけで太刀打ちできるものではありません。だからこそArk Collegeは、プロフェッショナルが膨大な時間をかけて生徒一人ひとりの人生にフルコミットします。<br/><br/>
+                                        <span className="text-white font-bold">「この価格を投資する価値が十分にあった」と感じていただける、圧倒的な成長と合格実績をお約束します。</span>
+                                    </p>
+                                    <button onClick={scrollToDiagnosis} className="btn-shine inline-flex items-center gap-2 bg-gradient-to-r from-cta to-cta-light text-white font-bold py-3.5 px-10 rounded-full shadow-glow-cta hover:-translate-y-0.5 hover:shadow-rich-hover transition-all duration-300 text-sm">
+                                        <span>まずは無料体験で確かめる</span>
+                                        <ArrowRightIcon className="w-4 h-4" />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Pricing */}
+                    <section className="py-16 sm:py-28 bg-slate-50 relative">
+                        <div className="max-w-5xl mx-auto px-4 relative z-10">
+                            <div className="text-center mb-12">
+                                <h2 className="text-2xl sm:text-3xl font-black mb-3 text-navy tracking-tight">料金・プラン</h2>
+                                <p className="text-slate-500 text-sm sm:text-lg font-bold">透明性の高い、シンプルな料金体系。</p>
+                            </div>
+                            
+                            <div className="glass-panel rounded-[24px] overflow-hidden shadow-rich border border-white table-container">
+                                <table className="w-full border-collapse">
+                                    <thead>
+                                        <tr className="border-b border-slate-200 bg-white/50">
+                                            <th className="p-2 sm:p-6 text-left font-bold text-slate-500 uppercase tracking-widest w-[30%] text-[10px] sm:text-xs whitespace-nowrap">Service</th>
+                                            <th className="p-2 sm:p-6 bg-navy text-white text-center font-bold w-[35%] text-xs sm:text-base whitespace-nowrap">Ark College</th>
+                                            <th className="p-2 sm:p-6 text-center font-bold text-slate-400 w-[35%] text-[10px] sm:text-xs whitespace-nowrap">大手他社</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="font-bold">
+                                        <tr className="bg-cta/5 border-b border-slate-200">
+                                            <td className="p-2 sm:p-6 border-l-[3px] sm:border-l-[4px] border-cta text-navy text-[10px] sm:text-base whitespace-nowrap">
+                                                総額目安<span className="font-normal text-slate-500 block mt-0.5 scale-90 origin-left">(7ヶ月目安)</span>
+                                            </td>
+                                            <td className="p-2 sm:p-6 text-center text-cta text-sm sm:text-xl font-black whitespace-nowrap">約35万円〜</td>
+                                            <td className="p-2 sm:p-6 text-center text-slate-400 line-through text-[10px] sm:text-sm whitespace-nowrap">約120万円</td>
+                                        </tr>
+                                        <tr className="border-b border-slate-200">
+                                            <td className="p-2 sm:p-6 text-navy text-[10px] sm:text-base whitespace-nowrap">講師の質</td>
+                                            <td className="p-2 sm:p-6 text-center text-navy text-[10px] sm:text-base whitespace-nowrap">全員がプロ<br className="sm:hidden"/><span className="text-[9px] sm:text-xs font-normal">(外資系出身)</span></td>
+                                            <td className="p-2 sm:p-6 text-center text-slate-400 text-[10px] sm:text-sm whitespace-nowrap">学生バイト含む</td>
+                                        </tr>
+                                        <tr className="border-b border-slate-200">
+                                            <td className="p-2 sm:p-6 text-navy text-[10px] sm:text-base whitespace-nowrap">指導の深さ</td>
+                                            <td className="p-2 sm:p-6 text-center text-navy text-[10px] sm:text-base whitespace-nowrap">戦略・ロジック<br className="sm:hidden"/>構築から</td>
+                                            <td className="p-2 sm:p-6 text-center text-slate-400 text-[10px] sm:text-sm whitespace-nowrap">表面的な文章添削のみ</td>
+                                        </tr>
+                                        <tr className="border-b border-slate-200">
+                                            <td className="p-2 sm:p-6 text-navy text-[10px] sm:text-base whitespace-nowrap">月額費用</td>
+                                            <td className="p-2 sm:p-6 text-center text-navy text-xs sm:text-lg whitespace-nowrap">約5万円〜<br/>追加費用なし</td>
+                                            <td className="p-2 sm:p-6 text-center text-slate-400 text-[10px] sm:text-sm whitespace-nowrap">約7万円〜<br/>追加費用多数</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="p-2 sm:p-6 text-navy text-[10px] sm:text-base whitespace-nowrap">添削回数</td>
+                                            <td className="p-2 sm:p-6 text-center text-white bg-cta font-bold text-[10px] sm:text-base whitespace-nowrap">完全無制限</td>
+                                            <td className="p-2 sm:p-6 text-center text-slate-400 text-[10px] sm:text-sm whitespace-nowrap">回数制限あり</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div className="mt-10 bg-white border border-cta/20 p-6 rounded-[20px] text-center shadow-rich relative overflow-hidden group">
+                                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cta to-cta-light"></div>
+                                <p className="text-cta font-bold text-xs sm:text-sm mb-1.5 tracking-widest uppercase">Special Offer</p>
+                                <p className="text-navy font-bold text-base sm:text-xl leading-tight">診断当日・翌日の入会決定で、<br />入会金 55,000円 → <span className="text-cta text-2xl sm:text-3xl font-black ml-2 inline-block">0円</span></p>
+                                <button onClick={scrollToDiagnosis} className="mt-4 bg-cta/10 text-cta border border-cta/30 font-bold py-2 px-8 rounded-full text-sm hover:bg-cta hover:text-white transition-all duration-300">
+                                    今すぐ申し込む
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Specialized Courses */}
+                    <section className="py-16 sm:py-28 bg-white relative overflow-hidden border-t border-slate-100">
+                        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cta/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-navy/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+                        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                            <div className="text-center mb-12">
+                                <span className="text-cta font-bold tracking-widest uppercase text-[10px] mb-2 block">Specialized Course</span>
+                                <h2 className="text-2xl sm:text-3xl font-black mb-3 text-navy tracking-tight">特化型コース、<br className="sm:hidden"/>始まります。</h2>
+                                <p className="text-slate-500 text-sm sm:text-base font-bold">「面接」か「書類」か。弱点を集中的に潰す、<br className="sm:hidden"/>新しい選択肢。</p>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-10">
+                                {/* 面接特化コース */}
+                                <div className="group relative bg-white rounded-[24px] p-7 sm:p-8 shadow-rich hover:shadow-rich-hover border border-slate-200/60 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-navy to-cta rounded-t-[24px]"></div>
+                                    <div className="w-10 h-10 rounded-xl bg-navy/5 flex items-center justify-center text-navy mb-5 group-hover:bg-navy group-hover:text-white transition-colors duration-300 border border-navy/10">
+                                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                                        </svg>
+                                    </div>
+                                    <div className="bg-navy/5 text-navy text-[10px] font-bold px-3 py-1 rounded-full inline-block mb-3 w-fit border border-navy/10">面接特化</div>
+                                    <h3 className="text-xl sm:text-2xl font-black text-navy mb-3 leading-tight">面接特化コース</h3>
+                                    <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mb-5 flex-grow">
+                                        志望理由・ガクチカ・深掘り質問まで、面接で聞かれるすべてに答えられるよう徹底的に鍛えます。プロ講師との模擬面接で、本番に強い「話す力」を養います。
+                                    </p>
+                                    <div className="space-y-2 mb-6">
+                                        {["プロ講師による模擬面接（回数無制限）", "想定質問の洗い出しと回答設計", "フィードバックシートで弱点を可視化"].map((t, i) => (
+                                            <div key={i} className="flex items-center gap-2">
+                                                <CheckIcon className="w-4 h-4 text-navy shrink-0" />
+                                                <span className="text-xs font-bold text-slate-700">{t}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div className="pt-4 border-t border-slate-100 flex items-baseline justify-between">
+                                        <span className="text-xs font-bold text-slate-400">月額</span>
+                                        <div>
+                                            <span className="text-2xl sm:text-3xl font-black text-navy tracking-tight">44,000</span>
+                                            <span className="text-xs font-bold text-slate-500 ml-1">円（税込）</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* 書類添削特化コース */}
+                                <div className="group relative bg-white rounded-[24px] p-7 sm:p-8 shadow-rich hover:shadow-rich-hover border border-slate-200/60 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cta to-cta-light rounded-t-[24px]"></div>
+                                    <div className="w-10 h-10 rounded-xl bg-cta/10 flex items-center justify-center text-cta mb-5 group-hover:bg-cta group-hover:text-white transition-colors duration-300 border border-cta/20">
+                                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                        </svg>
+                                    </div>
+                                    <div className="bg-cta/10 text-cta text-[10px] font-bold px-3 py-1 rounded-full inline-block mb-3 w-fit border border-cta/20">書類特化</div>
+                                    <h3 className="text-xl sm:text-2xl font-black text-navy mb-3 leading-tight">書類添削特化コース</h3>
+                                    <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mb-5 flex-grow">
+                                        志望理由書・自己PR・活動報告書など、提出書類のクオリティを最大化します。論理構成から言葉の選び方まで、プロの視点で合格レベルに磨き上げます。
+                                    </p>
+                                    <div className="space-y-2 mb-6">
+                                        {["志望理由書・自己PR等の無制限添削", "48時間以内のフィードバック確約", "論理構成・表現力を根本から強化"].map((t, i) => (
+                                            <div key={i} className="flex items-center gap-2">
+                                                <CheckIcon className="w-4 h-4 text-cta shrink-0" />
+                                                <span className="text-xs font-bold text-slate-700">{t}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div className="pt-4 border-t border-slate-100 flex items-baseline justify-between">
+                                        <span className="text-xs font-bold text-slate-400">月額</span>
+                                        <div>
+                                            <span className="text-2xl sm:text-3xl font-black text-cta tracking-tight">44,000</span>
+                                            <span className="text-xs font-bold text-slate-500 ml-1">円（税込）</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="bg-slate-50 border border-slate-200 rounded-[20px] p-6 sm:p-8 text-center relative overflow-hidden">
+                                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-navy via-cta to-cta-light"></div>
+                                <p className="text-navy font-black text-base sm:text-lg mb-1 leading-tight">まずは無料体験で、プロの指導を体感してください。</p>
+                                <p className="text-slate-500 text-xs sm:text-sm font-bold mb-5">どちらのコースが自分に合うか、一緒に考えます。</p>
+                                <button onClick={scrollToDiagnosis} className="btn-shine inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cta to-cta-light text-white font-bold py-3 px-10 rounded-full shadow-glow-cta hover:shadow-rich-hover hover:-translate-y-0.5 transition-all duration-300 text-sm">
+                                    <span>無料体験に申し込む</span>
+                                    <ArrowRightIcon className="w-4 h-4" />
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Media & Column (note) */}
+                    <section className="py-16 sm:py-28 relative">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                            <div className="text-center mb-12">
+                                <span className="text-cta font-bold tracking-widest uppercase text-[10px] mb-2 block">Media & Column</span>
+                                <h2 className="text-2xl sm:text-3xl font-black mb-3 text-navy tracking-tight">公式note</h2>
+                                <p className="text-slate-500 text-sm sm:text-base font-bold">総合型選抜の対策ノウハウや、<br className="sm:hidden" />合格のための思考法を発信しています。</p>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                                {[
+                                    {
+                                        url: "https://note.com/ark_college/n/nd4965fbe8d90",
+                                        img: "https://assets.st-note.com/production/uploads/images/241577733/rectangle_large_type_2_28f9f2d7db28c78aec5f91f0d531a746.png?width=1280",
+                                        date: "2026.01.05",
+                                        title: "総合型選抜を「戦略」で突破することにこだわり抜いたアークカレッジのカリキュラム"
+                                    },
+                                    {
+                                        url: "https://note.com/ark_college/n/ne06612120422",
+                                        img: "https://assets.st-note.com/production/uploads/images/241574570/rectangle_large_type_2_10979ebe4c0cccd82c72b709391c7051.png?width=1280",
+                                        date: "2026.01.05",
+                                        title: "【代表インタビュー】大学合格は「ゴール」ではなく「通過点」。外資系マーケター兼プロ講師が語る、一生モノの思考力を鍛える「総合型選抜」の本質"
+                                    },
+                                    {
+                                        url: "https://note.com/ark_college/n/na24bccb96069",
+                                        img: "https://assets.st-note.com/img/1767598303-PH6U0EFNAyZlLXxoG53bmtMJ.png?width=2000&height=2000&fit=bounds&quality=85",
+                                        date: "2026.01.05",
+                                        title: "【代表インタビュー】なぜ、アークカレッジは少人数しか引き受けないのか？ 合格の先を見据えるプロが「厳選」にこだわる真意"
+                                    }
+                                ].map((item, idx) => (
+                                    <a key={idx} href={item.url} target="_blank" rel="noopener" className="group block bg-white rounded-[20px] overflow-hidden shadow-rich hover:shadow-rich-hover transition-all duration-300 hover:-translate-y-1 border border-slate-100/50">
+                                        <div className="aspect-video w-full overflow-hidden">
+                                            <img src={item.img} alt="記事サムネイル" loading="lazy" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                                        </div>
+                                        <div className="p-5">
+                                            <div className="text-[10px] text-slate-400 font-bold mb-2 tracking-wider">{item.date}</div>
+                                            <h3 className="text-sm font-bold text-navy leading-relaxed mb-4 line-clamp-3 group-hover:text-cta transition-colors">
+                                                {item.title}
+                                            </h3>
+                                            <span className="inline-flex items-center text-cta text-[10px] font-black uppercase tracking-widest group-hover:underline">
+                                                Read More <ArrowRightIcon className="w-3 h-3 ml-1" />
+                                            </span>
+                                        </div>
+                                    </a>
+                                ))}
+                            </div>
+
+                            <div className="text-center mt-10">
+                                <a href="https://note.com/ark_college" target="_blank" rel="noopener" className="inline-flex items-center justify-center px-8 py-3 rounded-full border border-navy text-navy font-bold text-sm hover:bg-navy hover:text-white transition-all duration-300 shadow-sm hover:shadow-md">
+                                    note一覧を見る
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Diagnosis Form */}
+                    <section id="diagnosis" className="py-16 sm:py-28 bg-navy relative overflow-hidden">
+                        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+                        <div className="max-w-3xl mx-auto px-4 relative z-10">
+                            <div className="text-center mb-10">
+                                <h2 className="text-2xl sm:text-4xl font-black text-white mb-3 tracking-tight">無料相談・合格可能性診断</h2>
+                                <p className="text-slate-300 leading-relaxed text-sm font-medium">春期講習の申し込みもこちらから。<br />合格への戦略を直接お伝えします。<br />入塾を希望される方はまずはこちらにお申し込みください。</p>
+                            </div>
+
+                            <div className="bg-white rounded-[24px] p-6 sm:p-10 shadow-2xl mx-2 sm:mx-0 border border-white/10">
+                                {/* ▼ 変更: onSubmitを追加し、action属性を削除 ▼ */}
+                                <form onSubmit={handleSubmit} className="space-y-5">
+                                    
+                                    <div className="space-y-1.5">
+                                        <label className="block text-sm font-bold text-navy">お名前 <span className="text-cta ml-1 text-[9px]">必須</span></label>
+                                        <input type="text" name="name" className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium focus:border-cta focus:ring-2 focus:ring-cta/20 outline-none transition-all" placeholder="例：山田 太郎" required />
+                                    </div>
+                                    <div className="space-y-1.5">
+                                        <label className="block text-sm font-bold text-navy">メールアドレス <span className="text-cta ml-1 text-[9px]">必須</span></label>
+                                        <input type="email" name="email" className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium focus:border-cta focus:ring-2 focus:ring-cta/20 outline-none transition-all" placeholder="example@gmail.com" required />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="block text-sm font-bold text-navy">お子様の学年 <span className="text-cta ml-1 text-[9px]">必須</span></label>
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                                            {["高校3年生", "高校2年生", "高校1年生", "既卒・その他"].map((grade) => (
+                                                <label key={grade} className="flex items-center space-x-2.5 cursor-pointer bg-slate-50 border border-slate-200 p-2.5 rounded-lg hover:bg-slate-100 hover:border-cta/50 transition-all group">
+                                                    <input type="radio" name="grade" value={grade} className="w-3.5 h-3.5 text-cta focus:ring-cta" required />
+                                                    <span className="text-sm font-bold text-slate-600 group-hover:text-navy">{grade}</span>
+                                                </label>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    <div className="space-y-1.5">
+                                        <label className="block text-sm font-bold text-navy">在籍高校名 <span className="text-cta ml-1 text-[9px]">必須</span></label>
+                                        <input type="text" name="highschool" className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium focus:border-cta focus:ring-2 focus:ring-cta/20 outline-none transition-all" placeholder="例：〇〇高等学校" required />
+                                    </div>
+                                    {/* ▼ 変更: ボタンのテキストと状態を連動 ▼ */}
+                                    <button type="submit" disabled={isSubmitting} className={`btn-shine w-full bg-gradient-to-r from-cta to-cta-light text-white text-base sm:text-lg font-bold py-4 rounded-xl shadow-glow-cta hover:shadow-rich-hover hover:-translate-y-0.5 transition-all mt-4 tracking-wide ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}>
+                                        {isSubmitting ? '送信中...' : 'この内容で送信する'}
+                                    </button>
+                                </form>
+
+                                <div className="mt-10 text-center border-t border-slate-100 pt-8">
+                                    <p className="text-slate-400 font-bold mb-5 text-[10px] uppercase tracking-widest">More Information</p>
+                                    <a href="https://lin.ee/Uq7uW97" target="_blank" className="inline-flex items-center justify-center gap-2.5 w-full max-w-[400px] bg-[#06C755] hover:bg-[#05b54c] text-white font-bold py-3.5 rounded-xl shadow-md hover:shadow-lg text-base transition-all">
+                                        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 10.304c0-5.231-5.383-9.486-12-9.486s-12 4.255-12 9.486c0 4.69 4.27 8.606 10.032 9.358.39.084.92.257 1.052.59.12.302.079.774.038 1.079l-.164 1.002c-.049.303-.238 1.187 1.026.647 1.262-.54 6.816-4.015 9.303-6.873 1.706-1.896 2.713-3.837 2.713-5.803zm-16.736 3.033h-2.12c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2.12c.276 0 .5.224.5.5s-.224.5-.5.5zm0-1.833h-2.12c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2.12c.276 0 .5.224.5.5s-.224.5-.5.5zm0-1.834h-2.12c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2.12c.276 0 .5.224.5.5s-.224.5-.5.5zm11.23 3.667h-2.12c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2.12c.276 0 .5.224.5.5s-.224.5-.5.5zm0-1.833h-2.12c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2.12c.276 0 .5.224.5.5s-.224.5-.5.5zm0-1.834h-2.12c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2.12c.276 0 .5.224.5.5s-.224.5-.5.5z"/></svg>
+                                        <span>LINEで資料請求する</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Footer */}
+                    <footer className="py-12 bg-white border-t border-slate-100 text-center pb-24">
+                        <img src="logo.webp" alt="Ark College" className="h-6 mx-auto mb-6 opacity-80 grayscale hover:grayscale-0 transition-all" />
+                        <div className="flex flex-wrap justify-center gap-5 mb-6 text-slate-500 font-bold text-[9px] uppercase tracking-widest">
+                            <a href="#" className="hover:text-navy transition-colors">利用規約</a>
+                            <a href="#" className="hover:text-navy transition-colors">プライバシーポリシー</a>
+                            <a href="#" className="hover:text-navy transition-colors">特定商取引法表記</a>
+                        </div>
+                        <p className="text-slate-300 text-[9px] font-medium">© 2024 Ark College. All rights reserved.</p>
+                    </footer>
+
+                    {/* Mobile Sticky CTA */}
+                    <div className="fixed bottom-0 left-0 right-0 z-50 p-2 sm:hidden bg-white/90 backdrop-blur-md border-t border-slate-200">
+                        <button onClick={scrollToDiagnosis} className="btn-shine w-full bg-gradient-to-r from-cta to-cta-light text-white font-bold py-2.5 rounded-lg shadow-glow-cta active:scale-95 transition-all flex items-center justify-center">
+                            <span className="text-xs tracking-tight">無料合格可能性診断を予約</span>
+                        </button>
                     </div>
                 </div>
-            </section>
+            );
+        };
 
-            <!-- Back Cover Action -->
-            <div class="bg-navy text-white -mx-[15mm] -mb-[20mm] py-16 px-12 text-center relative overflow-hidden">
-                 <!-- Abstract Decoration -->
-                 <svg class="absolute top-0 left-0 text-white opacity-5 w-[300px] h-[300px]" viewBox="0 0 100 100" fill="none" stroke="currentColor">
-                    <circle cx="0" cy="100" r="50" />
-                    <circle cx="0" cy="100" r="70" />
-                    <circle cx="0" cy="100" r="90" />
-                </svg>
-
-                <h2 class="text-2xl serif mb-6 relative z-10">まずは、無料コンサルティングへ。</h2>
-                <p class="text-sm opacity-80 mb-8 max-w-md mx-auto relative z-10">
-                    あなたの現状と志望校をお聞かせください。<br>
-                    合格までの戦略的なロードマップを提示いたします。
-                </p>
-                
-                <div class="mb-8 relative z-10">
-                    <a href="https://forms.gle/rbWA7wUD6Uw1dG76A" target="_blank" rel="noopener noreferrer" class="inline-block border border-gold text-gold px-8 py-3 tracking-widest text-sm hover:bg-gold hover:text-navy transition-colors cursor-pointer no-underline">
-                        APPLY FOR CONSULTATION
-                    </a>
-                </div>
-
-                <div class="text-[10px] opacity-40 tracking-widest relative z-10">
-                    https://forms.gle/rbWA7wUD6Uw1dG76A<br>
-                    © ARK COLLEGE. All Rights Reserved.
-                </div>
-            </div>
-        </div>
-    </div>
-
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
 </body>
 </html>
