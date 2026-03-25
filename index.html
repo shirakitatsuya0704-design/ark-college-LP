@@ -1173,6 +1173,59 @@
                         </div>
                     </section>
 
+                    {/* Diagnosis Form */}
+                    <section id="diagnosis" className="py-16 sm:py-28 bg-navy relative overflow-hidden">
+                        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+                        <div className="max-w-3xl mx-auto px-4 relative z-10">
+                            <div className="text-center mb-10">
+                                <h2 className="text-2xl sm:text-4xl font-black text-white mb-3 tracking-tight">無料相談・合格可能性診断</h2>
+                                <p className="text-slate-300 leading-relaxed text-sm font-medium">春期講習の申し込みもこちらから。<br />合格への戦略を直接お伝えします。<br />入塾を希望される方はまずはこちらにお申し込みください。</p>
+                            </div>
+
+                            <div className="bg-white rounded-[24px] p-6 sm:p-10 shadow-2xl mx-2 sm:mx-0 border border-white/10">
+                                {/* ▼ 変更: onSubmitを追加し、action属性を削除 ▼ */}
+                                <form onSubmit={handleSubmit} className="space-y-5">
+                                    
+                                    <div className="space-y-1.5">
+                                        <label className="block text-sm font-bold text-navy">お名前 <span className="text-cta ml-1 text-[9px]">必須</span></label>
+                                        <input type="text" name="name" className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium focus:border-cta focus:ring-2 focus:ring-cta/20 outline-none transition-all" placeholder="例：山田 太郎" required />
+                                    </div>
+                                    <div className="space-y-1.5">
+                                        <label className="block text-sm font-bold text-navy">メールアドレス <span className="text-cta ml-1 text-[9px]">必須</span></label>
+                                        <input type="email" name="email" className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium focus:border-cta focus:ring-2 focus:ring-cta/20 outline-none transition-all" placeholder="example@gmail.com" required />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="block text-sm font-bold text-navy">お子様の学年 <span className="text-cta ml-1 text-[9px]">必須</span></label>
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                                            {["高校3年生", "高校2年生", "高校1年生", "既卒・その他"].map((grade) => (
+                                                <label key={grade} className="flex items-center space-x-2.5 cursor-pointer bg-slate-50 border border-slate-200 p-2.5 rounded-lg hover:bg-slate-100 hover:border-cta/50 transition-all group">
+                                                    <input type="radio" name="grade" value={grade} className="w-3.5 h-3.5 text-cta focus:ring-cta" required />
+                                                    <span className="text-sm font-bold text-slate-600 group-hover:text-navy">{grade}</span>
+                                                </label>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    <div className="space-y-1.5">
+                                        <label className="block text-sm font-bold text-navy">在籍高校名 <span className="text-cta ml-1 text-[9px]">必須</span></label>
+                                        <input type="text" name="highschool" className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium focus:border-cta focus:ring-2 focus:ring-cta/20 outline-none transition-all" placeholder="例：〇〇高等学校" required />
+                                    </div>
+                                    {/* ▼ 変更: ボタンのテキストと状態を連動 ▼ */}
+                                    <button type="submit" disabled={isSubmitting} className={`btn-shine w-full bg-gradient-to-r from-cta to-cta-light text-white text-base sm:text-lg font-bold py-4 rounded-xl shadow-glow-cta hover:shadow-rich-hover hover:-translate-y-0.5 transition-all mt-4 tracking-wide ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}>
+                                        {isSubmitting ? '送信中...' : 'この内容で送信する'}
+                                    </button>
+                                </form>
+
+                                <div className="mt-10 text-center border-t border-slate-100 pt-8">
+                                    <p className="text-slate-400 font-bold mb-5 text-[10px] uppercase tracking-widest">More Information</p>
+                                    <a href="https://lin.ee/Uq7uW97" target="_blank" className="inline-flex items-center justify-center gap-2.5 w-full max-w-[400px] bg-[#06C755] hover:bg-[#05b54c] text-white font-bold py-3.5 rounded-xl shadow-md hover:shadow-lg text-base transition-all">
+                                        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 10.304c0-5.231-5.383-9.486-12-9.486s-12 4.255-12 9.486c0 4.69 4.27 8.606 10.032 9.358.39.084.92.257 1.052.59.12.302.079.774.038 1.079l-.164 1.002c-.049.303-.238 1.187 1.026.647 1.262-.54 6.816-4.015 9.303-6.873 1.706-1.896 2.713-3.837 2.713-5.803zm-16.736 3.033h-2.12c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2.12c.276 0 .5.224.5.5s-.224.5-.5.5zm0-1.833h-2.12c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2.12c.276 0 .5.224.5.5s-.224.5-.5.5zm0-1.834h-2.12c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2.12c.276 0 .5.224.5.5s-.224.5-.5.5zm11.23 3.667h-2.12c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2.12c.276 0 .5.224.5.5s-.224.5-.5.5zm0-1.833h-2.12c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2.12c.276 0 .5.224.5.5s-.224.5-.5.5zm0-1.834h-2.12c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2.12c.276 0 .5.224.5.5s-.224.5-.5.5z"/></svg>
+                                        <span>LINEで資料請求する</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                     {/* Free Consultation Value */}
                     <section className="py-16 sm:py-24 relative overflow-hidden bg-gradient-to-b from-white to-slate-50">
                         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-cta/5 rounded-full blur-[120px] pointer-events-none"></div>
@@ -1276,59 +1329,6 @@
                                     <ArrowRightIcon className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
                                 </button>
                                 <p className="mt-3 text-[11px] text-slate-400 font-medium">入塾のご検討中の方はもちろん、「まだ迷っている」という方もお気軽にどうぞ。</p>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* Diagnosis Form */}
-                    <section id="diagnosis" className="py-16 sm:py-28 bg-navy relative overflow-hidden">
-                        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
-                        <div className="max-w-3xl mx-auto px-4 relative z-10">
-                            <div className="text-center mb-10">
-                                <h2 className="text-2xl sm:text-4xl font-black text-white mb-3 tracking-tight">無料相談・合格可能性診断</h2>
-                                <p className="text-slate-300 leading-relaxed text-sm font-medium">春期講習の申し込みもこちらから。<br />合格への戦略を直接お伝えします。<br />入塾を希望される方はまずはこちらにお申し込みください。</p>
-                            </div>
-
-                            <div className="bg-white rounded-[24px] p-6 sm:p-10 shadow-2xl mx-2 sm:mx-0 border border-white/10">
-                                {/* ▼ 変更: onSubmitを追加し、action属性を削除 ▼ */}
-                                <form onSubmit={handleSubmit} className="space-y-5">
-                                    
-                                    <div className="space-y-1.5">
-                                        <label className="block text-sm font-bold text-navy">お名前 <span className="text-cta ml-1 text-[9px]">必須</span></label>
-                                        <input type="text" name="name" className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium focus:border-cta focus:ring-2 focus:ring-cta/20 outline-none transition-all" placeholder="例：山田 太郎" required />
-                                    </div>
-                                    <div className="space-y-1.5">
-                                        <label className="block text-sm font-bold text-navy">メールアドレス <span className="text-cta ml-1 text-[9px]">必須</span></label>
-                                        <input type="email" name="email" className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium focus:border-cta focus:ring-2 focus:ring-cta/20 outline-none transition-all" placeholder="example@gmail.com" required />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <label className="block text-sm font-bold text-navy">お子様の学年 <span className="text-cta ml-1 text-[9px]">必須</span></label>
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                                            {["高校3年生", "高校2年生", "高校1年生", "既卒・その他"].map((grade) => (
-                                                <label key={grade} className="flex items-center space-x-2.5 cursor-pointer bg-slate-50 border border-slate-200 p-2.5 rounded-lg hover:bg-slate-100 hover:border-cta/50 transition-all group">
-                                                    <input type="radio" name="grade" value={grade} className="w-3.5 h-3.5 text-cta focus:ring-cta" required />
-                                                    <span className="text-sm font-bold text-slate-600 group-hover:text-navy">{grade}</span>
-                                                </label>
-                                            ))}
-                                        </div>
-                                    </div>
-                                    <div className="space-y-1.5">
-                                        <label className="block text-sm font-bold text-navy">在籍高校名 <span className="text-cta ml-1 text-[9px]">必須</span></label>
-                                        <input type="text" name="highschool" className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium focus:border-cta focus:ring-2 focus:ring-cta/20 outline-none transition-all" placeholder="例：〇〇高等学校" required />
-                                    </div>
-                                    {/* ▼ 変更: ボタンのテキストと状態を連動 ▼ */}
-                                    <button type="submit" disabled={isSubmitting} className={`btn-shine w-full bg-gradient-to-r from-cta to-cta-light text-white text-base sm:text-lg font-bold py-4 rounded-xl shadow-glow-cta hover:shadow-rich-hover hover:-translate-y-0.5 transition-all mt-4 tracking-wide ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}>
-                                        {isSubmitting ? '送信中...' : 'この内容で送信する'}
-                                    </button>
-                                </form>
-
-                                <div className="mt-10 text-center border-t border-slate-100 pt-8">
-                                    <p className="text-slate-400 font-bold mb-5 text-[10px] uppercase tracking-widest">More Information</p>
-                                    <a href="https://lin.ee/Uq7uW97" target="_blank" className="inline-flex items-center justify-center gap-2.5 w-full max-w-[400px] bg-[#06C755] hover:bg-[#05b54c] text-white font-bold py-3.5 rounded-xl shadow-md hover:shadow-lg text-base transition-all">
-                                        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 10.304c0-5.231-5.383-9.486-12-9.486s-12 4.255-12 9.486c0 4.69 4.27 8.606 10.032 9.358.39.084.92.257 1.052.59.12.302.079.774.038 1.079l-.164 1.002c-.049.303-.238 1.187 1.026.647 1.262-.54 6.816-4.015 9.303-6.873 1.706-1.896 2.713-3.837 2.713-5.803zm-16.736 3.033h-2.12c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2.12c.276 0 .5.224.5.5s-.224.5-.5.5zm0-1.833h-2.12c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2.12c.276 0 .5.224.5.5s-.224.5-.5.5zm0-1.834h-2.12c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2.12c.276 0 .5.224.5.5s-.224.5-.5.5zm11.23 3.667h-2.12c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2.12c.276 0 .5.224.5.5s-.224.5-.5.5zm0-1.833h-2.12c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2.12c.276 0 .5.224.5.5s-.224.5-.5.5zm0-1.834h-2.12c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2.12c.276 0 .5.224.5.5s-.224.5-.5.5z"/></svg>
-                                        <span>LINEで資料請求する</span>
-                                    </a>
-                                </div>
                             </div>
                         </div>
                     </section>
