@@ -283,14 +283,14 @@
                     </header>
 
                     {/* FV */}
-                    <section className="relative w-full min-h-[100svh] flex flex-col lg:flex-row items-center justify-center pt-20 lg:pt-0">
-                        <div className="absolute top-0 left-0 w-full h-[45svh] lg:h-full lg:w-[60%] lg:left-0 overflow-hidden z-0">
+                    <section className="relative w-full lg:min-h-[100svh] flex flex-col lg:flex-row items-center justify-center pt-20 lg:pt-0 pb-8 lg:pb-0">
+                        <div className="absolute top-0 left-0 w-full h-[22svh] lg:h-full lg:w-[60%] lg:left-0 overflow-hidden z-0">
                              <img src="fv.png" alt="Student Studying" className="w-full h-full object-cover object-center shadow-2xl" />
-                             <div className="lg:hidden absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#F8FAFC] to-transparent"></div>
+                             <div className="lg:hidden absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#F8FAFC] to-transparent"></div>
                         </div>
 
                         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row lg:justify-end items-center lg:items-center h-full">
-                            <div className="w-full lg:w-[500px] mt-[35svh] lg:mt-0 lg:-ml-20 glass-panel rounded-[32px] p-6 sm:p-10 shadow-rich transform transition-all hover:scale-[1.01] duration-700 border border-white/60">
+                            <div className="w-full lg:w-[500px] mt-[18svh] lg:mt-0 lg:-ml-20 glass-panel rounded-[32px] p-6 sm:p-10 shadow-rich transform transition-all hover:scale-[1.01] duration-700 border border-white/60">
                                 <div className="absolute -top-10 -right-10 w-32 h-32 bg-cta/10 rounded-full blur-3xl animate-pulse"></div>
                                 <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-5 text-navy tracking-wider drop-shadow-sm">
                                     総合型選抜<br />
@@ -308,19 +308,9 @@
                                     ))}
                                 </div>
                                 <div className="space-y-2">
-                                    <div className="flex justify-center mb-1">
-                                        <span className="bg-red-600 text-white px-3 py-1 text-sm font-bold rounded-full shadow-sm animate-pulse">
-                                            2026年度 新規受入 残りわずか / 少人数制・定員あり
-                                        </span>
-                                    </div>
                                     <button onClick={scrollToDiagnosis} className="btn-shine w-full bg-gradient-to-r from-cta to-cta-light text-white text-sm sm:text-base font-bold py-3.5 rounded-xl shadow-glow-cta hover:shadow-rich-hover hover:-translate-y-0.5 transition-all duration-300 tracking-wide">
                                         とりあえず無料相談に申し込む
                                     </button>
-                                    <div className="text-center space-y-0.5">
-                                        <p className="text-sm sm:text-sm font-bold text-cta tracking-wide">
-                                            今の実力がわかるフィードバックシートをプレゼント
-                                        </p>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -362,13 +352,12 @@
                                         </div>
                                     </div>
 
-                                    {/* 4 items */}
+                                    {/* 3 items */}
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
                                         {[
-                                            { num: "01", title: "強み・興味の可視化", desc: "他の生徒との比較データも踏まえ、プロ講師があなたの強みと興味を客観的に分析します。" },
-                                            { num: "02", title: "入試方式の選定", desc: "総合型・一般・海外進学——あなたの特性と目標から、最適な受験戦略を判定します。" },
-                                            { num: "03", title: "志望学部・大学の絞り込み", desc: "国内であればどの学部・大学群が最も可能性が高いか、具体的にリストアップします。" },
-                                            { num: "04", title: "対策ロードマップの策定", desc: "今この時期から本番までに何をすべきか、時系列で整理したロードマップを作成します。" },
+                                            { num: "01", title: "強み・興味の可視化", desc: "他の生徒との比較を踏まえ、プロ講師があなたの強みと興味を客観的に分析します。" },
+                                            { num: "02", title: "入試方式の検討・提案", desc: "総合型・一般・海外進学——あなたの特性から最適な受験方式を提案します。" },
+                                            { num: "03", title: "対策ロードマップの策定", desc: "今この時期から本番まで、やるべきことを時系列で整理します。" },
                                         ].map((item, i) => (
                                             <div key={i} className="flex items-start gap-3 bg-slate-50 rounded-xl p-4 border border-slate-100">
                                                 <span className="text-sm font-black text-slate-300 shrink-0 mt-0.5 w-5">{item.num}</span>
@@ -469,8 +458,7 @@
                             {/* CTA */}
                             <div className="bg-slate-50 border border-slate-200 rounded-[18px] p-5 sm:p-7 text-center relative overflow-hidden">
                                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-navy via-cta to-cta-light"></div>
-                                <p className="text-navy font-black text-base sm:text-lg mb-1 leading-tight">まずは無料体験で、プロの指導を体感してください。</p>
-                                <p className="text-slate-500 text-sm sm:text-sm font-bold mb-4">どのコースが自分に合うか、一緒に考えます。</p>
+                                <p className="text-navy font-black text-base sm:text-lg mb-4 leading-tight">まずは無料体験で、プロの指導を体感してください。</p>
                                 <button onClick={scrollToDiagnosis} className="btn-shine inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cta to-cta-light text-white font-bold py-3 px-10 rounded-full shadow-glow-cta hover:shadow-rich-hover hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base">
                                     <span>無料体験に申し込む</span>
                                     <ArrowRightIcon className="w-4 h-4" />
@@ -490,11 +478,12 @@
                                 </h2>
                             </div>
                             
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8 mb-12">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8 mb-12">
                                 {[
                                     { sub: "48時間以内返信、\n添削無制限", desc: "圧倒的なレスポンス速度で、改善サイクルを最速で回します。", icon: <ZapIcon className="w-5 h-5" />, img: "student_2.png" },
                                     { sub: "完全マンツーマン、\nプロ講師のみ", desc: "学生バイトは不在。プロ講師のみが担任として責任を持って向き合います。", icon: <ShieldIcon className="w-5 h-5" />, img: "Class_2.png" },
-                                    { sub: "第一志望\n合格率 86.7%", desc: "難関大への圧倒的な実績。安心してお任せください。", icon: <TargetIcon className="w-5 h-5" />, img: "College.png" }
+                                    { sub: "第一志望\n合格率 86.7%", desc: "難関大への圧倒的な実績。安心してお任せください。", icon: <TargetIcon className="w-5 h-5" />, img: "College.png" },
+                                    { sub: "授業外も\n24時間サポート", desc: "チャット相談は無制限。授業外でも正しい学習サイクルを回せるよう、いつでも伴走します。", icon: <ZapIcon className="w-5 h-5" />, img: "student_1.png" }
                                 ].map((card, idx) => (
                                     <div key={idx} className="group relative bg-white rounded-[20px] p-2 shadow-rich hover:shadow-rich-hover transition-all duration-500 hover:-translate-y-1 border border-slate-200/60">
                                         <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 to-white rounded-[20px] -z-10"></div>
@@ -524,7 +513,7 @@
                         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                             <div className="text-center mb-10">
                                 <span className="text-cta font-bold tracking-widest uppercase text-sm mb-2 block">Case Study</span>
-                                <h2 className="text-2xl sm:text-3xl font-black mb-3 text-navy tracking-tight">数字の裏にある<br />一人ひとりの戦略とは</h2>
+                                <h2 className="text-2xl sm:text-3xl font-black mb-3 text-navy tracking-tight">合格事例</h2>
                                 <p className="text-slate-500 text-sm font-bold">逆転合格には、必ず理由があります。</p>
                             </div>
 
@@ -680,6 +669,105 @@
                                     <span>自分だけの合格戦略を作成する</span>
                                     <ArrowRightIcon className="w-4 h-4" />
                                 </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* 4 Steps Section */}
+                    <section className="py-16 sm:py-28 bg-white relative overflow-hidden">
+                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cta/5 via-transparent to-transparent pointer-events-none"></div>
+                        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+                            {/* Header */}
+                            <div className="text-center mb-14">
+                                <span className="text-cta font-bold tracking-widest uppercase text-sm mb-2 block">Why It Costs / What We Do</span>
+                                <h2 className="text-xl sm:text-3xl font-black mb-5 text-navy tracking-tight leading-tight">
+                                    総合型選抜の合格に必要な4つのステップと、<br className="hidden sm:block"/>Ark Collegeの「伴走型」サポート
+                                </h2>
+                                <p className="text-slate-600 text-sm sm:text-base font-medium leading-relaxed max-w-2xl mx-auto">
+                                    総合型選抜は、単なる「文章の書き方テスト」ではありません。自己分析から活動実績の創出、論理的な書類作成、そして面接での表現力まで、総合的な準備が必要です。<br className="hidden sm:block"/>
+                                    <span className="font-bold text-navy">Ark Collegeでは、プロの講師が全工程に完全マンツーマンで伴走し、受験を「一生モノの思考力を鍛えるプロジェクト」に変えます。</span>
+                                </p>
+                            </div>
+
+                            {/* Steps Grid */}
+                            <div className="grid sm:grid-cols-2 gap-6 sm:gap-8 mb-12">
+                                {[
+                                    {
+                                        step: "01",
+                                        icon: (<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>),
+                                        title: "自己分析・戦略策定",
+                                        what: "総合型選抜は大学との「マッチング」です。自分はどんな人間で、何を解決したくて、なぜその大学に行きたいのか——過去・現在・未来を繋ぐ一貫したストーリーを見つける必要があります。",
+                                        value: "漠然とした思いを、プロの視点で深掘り。生徒のポテンシャルと大学のアドミッション・ポリシーを掛け合わせ、合格可能性を極限まで高める「戦略的なロードマップ」を立案します。",
+                                        accent: "navy"
+                                    },
+                                    {
+                                        step: "02",
+                                        icon: (<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>),
+                                        title: "活動実績づくり（プロジェクト）",
+                                        what: "志望理由を語るには、それを裏付ける「証拠（成果物）」が必要です。「ただボランティアに参加した」といった受け身の経験ではなく、主体的に問題解決に取り組んだ実績が求められます。",
+                                        value: "「書くネタがない」という状態からでも、戦略に基づく一貫した実績構築を伴走します。志望校の評価基準に直結するアクションプランを提案し、合格するための実績をゼロから一緒に作り上げます。",
+                                        accent: "cta"
+                                    },
+                                    {
+                                        step: "03",
+                                        icon: (<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>),
+                                        title: "書類対策（志望理由書・小論文）",
+                                        what: "これまでの経験や大学での学びの計画を、論理的かつ説得力のある文章にまとめ上げる必要があります。一つひとつの言葉の選択が、合否を左右します。",
+                                        value: "大学生アルバイト講師は不在。プロ講師が「48時間以内の返信」と「納得いくまでの無制限添削」をお約束します。受験生にとって致命的な「1週間待ち」をなくし、高速で書類を磨き上げます。",
+                                        accent: "cta"
+                                    },
+                                    {
+                                        step: "04",
+                                        icon: (<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" /></svg>),
+                                        title: "面接対策",
+                                        what: "提出した書類の内容を自分の言葉で的確に伝え、面接官の深掘り質問にも論理的に答える「対話力」が求められます。丸暗記では太刀打ちできません。",
+                                        value: "想定問答の丸暗記はさせません。書類作成の段階から培った「本質的な思考力」をベースに、どんな質問にも揺るがない論理的思考力と表現力を鍛え上げます。大学合格を超え、社会で武器になる力を養います。",
+                                        accent: "navy"
+                                    }
+                                ].map((s, i) => (
+                                    <div key={i} className="relative bg-white rounded-[24px] border border-slate-200/80 shadow-rich overflow-hidden flex flex-col hover:-translate-y-1 hover:shadow-rich-hover transition-all duration-300">
+                                        <div className={`h-1 w-full ${s.accent === 'cta' ? 'bg-gradient-to-r from-cta to-cta-light' : 'bg-gradient-to-r from-navy to-navy/60'}`}></div>
+                                        <div className="p-6 sm:p-7 flex flex-col gap-5 flex-grow">
+                                            <div className="flex items-center gap-3">
+                                                <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${s.accent === 'cta' ? 'bg-cta/10 text-cta border border-cta/20' : 'bg-navy/5 text-navy border border-navy/10'}`}>
+                                                    {s.icon}
+                                                </div>
+                                                <div>
+                                                    <span className={`text-sm font-black tracking-widest ${s.accent === 'cta' ? 'text-cta' : 'text-navy/40'}`}>STEP {s.step}</span>
+                                                    <h3 className="text-base sm:text-lg font-black text-navy leading-tight">{s.title}</h3>
+                                                </div>
+                                            </div>
+                                            <div className="bg-slate-50 rounded-xl p-4 border border-slate-100">
+                                                <p className="text-sm font-black text-slate-400 uppercase tracking-widest mb-1.5">そもそも何が必要？</p>
+                                                <p className="text-sm sm:text-sm text-slate-600 font-medium leading-relaxed">{s.what}</p>
+                                            </div>
+                                            <div className={`rounded-xl p-4 border flex-grow ${s.accent === 'cta' ? 'bg-cta/5 border-cta/20' : 'bg-navy/5 border-navy/10'}`}>
+                                                <p className={`text-sm font-black uppercase tracking-widest mb-1.5 ${s.accent === 'cta' ? 'text-cta' : 'text-navy'}`}>Ark Collegeが提供する価値</p>
+                                                <p className="text-sm sm:text-sm text-slate-700 font-medium leading-relaxed">{s.value}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Closing panel */}
+                            <div className="relative rounded-[28px] overflow-hidden bg-navy text-white p-8 sm:p-12 text-center shadow-rich">
+                                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-cta/30 via-transparent to-transparent pointer-events-none"></div>
+                                <div className="relative z-10">
+                                    <p className="text-cta-light font-bold tracking-widest uppercase text-sm mb-3">Our Commitment</p>
+                                    <h3 className="text-xl sm:text-2xl font-black mb-5 leading-tight">
+                                        なぜ、Ark Collegeは<br className="sm:hidden"/>「プロの徹底伴走」に<br className="sm:hidden"/>こだわるのか？
+                                    </h3>
+                                    <p className="text-white/75 text-sm sm:text-base font-medium leading-relaxed max-w-2xl mx-auto mb-8">
+                                        総合型選抜は、人生の進路を決める重要なプロジェクトです。小手先のテクニックや週1回の簡単な添削だけで太刀打ちできるものではありません。だからこそArk Collegeは、プロフェッショナルが膨大な時間をかけて生徒一人ひとりの人生にフルコミットします。<br/><br/>
+                                        <span className="text-white font-bold">「この価格を投資する価値が十分にあった」と感じていただける、圧倒的な成長と合格実績をお約束します。</span>
+                                    </p>
+                                    <button onClick={scrollToDiagnosis} className="btn-shine inline-flex items-center gap-2 bg-gradient-to-r from-cta to-cta-light text-white font-bold py-3.5 px-10 rounded-full shadow-glow-cta hover:-translate-y-0.5 hover:shadow-rich-hover transition-all duration-300 text-sm">
+                                        <span>まずは無料体験で確かめる</span>
+                                        <ArrowRightIcon className="w-4 h-4" />
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -908,105 +996,6 @@
                                 </div>
                             </div>
                          </div>
-                    </section>
-
-                    {/* 4 Steps Section */}
-                    <section className="py-16 sm:py-28 bg-white relative overflow-hidden">
-                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cta/5 via-transparent to-transparent pointer-events-none"></div>
-                        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-
-                            {/* Header */}
-                            <div className="text-center mb-14">
-                                <span className="text-cta font-bold tracking-widest uppercase text-sm mb-2 block">Why It Costs / What We Do</span>
-                                <h2 className="text-xl sm:text-3xl font-black mb-5 text-navy tracking-tight leading-tight">
-                                    総合型選抜の合格に必要な4つのステップと、<br className="hidden sm:block"/>Ark Collegeの「伴走型」サポート
-                                </h2>
-                                <p className="text-slate-600 text-sm sm:text-base font-medium leading-relaxed max-w-2xl mx-auto">
-                                    総合型選抜は、単なる「文章の書き方テスト」ではありません。自己分析から活動実績の創出、論理的な書類作成、そして面接での表現力まで、総合的な準備が必要です。<br className="hidden sm:block"/>
-                                    <span className="font-bold text-navy">Ark Collegeでは、プロの講師が全工程に完全マンツーマンで伴走し、受験を「一生モノの思考力を鍛えるプロジェクト」に変えます。</span>
-                                </p>
-                            </div>
-
-                            {/* Steps Grid */}
-                            <div className="grid sm:grid-cols-2 gap-6 sm:gap-8 mb-12">
-                                {[
-                                    {
-                                        step: "01",
-                                        icon: (<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>),
-                                        title: "自己分析・戦略策定",
-                                        what: "総合型選抜は大学との「マッチング」です。自分はどんな人間で、何を解決したくて、なぜその大学に行きたいのか——過去・現在・未来を繋ぐ一貫したストーリーを見つける必要があります。",
-                                        value: "漠然とした思いを、プロの視点で深掘り。生徒のポテンシャルと大学のアドミッション・ポリシーを掛け合わせ、合格可能性を極限まで高める「戦略的なロードマップ」を立案します。",
-                                        accent: "navy"
-                                    },
-                                    {
-                                        step: "02",
-                                        icon: (<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>),
-                                        title: "活動実績づくり（プロジェクト）",
-                                        what: "志望理由を語るには、それを裏付ける「証拠（成果物）」が必要です。「ただボランティアに参加した」といった受け身の経験ではなく、主体的に問題解決に取り組んだ実績が求められます。",
-                                        value: "「書くネタがない」という状態からでも、戦略に基づく一貫した実績構築を伴走します。志望校の評価基準に直結するアクションプランを提案し、合格するための実績をゼロから一緒に作り上げます。",
-                                        accent: "cta"
-                                    },
-                                    {
-                                        step: "03",
-                                        icon: (<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>),
-                                        title: "書類対策（志望理由書・小論文）",
-                                        what: "これまでの経験や大学での学びの計画を、論理的かつ説得力のある文章にまとめ上げる必要があります。一つひとつの言葉の選択が、合否を左右します。",
-                                        value: "大学生アルバイト講師は不在。プロ講師が「48時間以内の返信」と「納得いくまでの無制限添削」をお約束します。受験生にとって致命的な「1週間待ち」をなくし、高速で書類を磨き上げます。",
-                                        accent: "cta"
-                                    },
-                                    {
-                                        step: "04",
-                                        icon: (<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" /></svg>),
-                                        title: "面接対策",
-                                        what: "提出した書類の内容を自分の言葉で的確に伝え、面接官の深掘り質問にも論理的に答える「対話力」が求められます。丸暗記では太刀打ちできません。",
-                                        value: "想定問答の丸暗記はさせません。書類作成の段階から培った「本質的な思考力」をベースに、どんな質問にも揺るがない論理的思考力と表現力を鍛え上げます。大学合格を超え、社会で武器になる力を養います。",
-                                        accent: "navy"
-                                    }
-                                ].map((s, i) => (
-                                    <div key={i} className="relative bg-white rounded-[24px] border border-slate-200/80 shadow-rich overflow-hidden flex flex-col hover:-translate-y-1 hover:shadow-rich-hover transition-all duration-300">
-                                        <div className={`h-1 w-full ${s.accent === 'cta' ? 'bg-gradient-to-r from-cta to-cta-light' : 'bg-gradient-to-r from-navy to-navy/60'}`}></div>
-                                        <div className="p-6 sm:p-7 flex flex-col gap-5 flex-grow">
-                                            <div className="flex items-center gap-3">
-                                                <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${s.accent === 'cta' ? 'bg-cta/10 text-cta border border-cta/20' : 'bg-navy/5 text-navy border border-navy/10'}`}>
-                                                    {s.icon}
-                                                </div>
-                                                <div>
-                                                    <span className={`text-sm font-black tracking-widest ${s.accent === 'cta' ? 'text-cta' : 'text-navy/40'}`}>STEP {s.step}</span>
-                                                    <h3 className="text-base sm:text-lg font-black text-navy leading-tight">{s.title}</h3>
-                                                </div>
-                                            </div>
-                                            <div className="bg-slate-50 rounded-xl p-4 border border-slate-100">
-                                                <p className="text-sm font-black text-slate-400 uppercase tracking-widest mb-1.5">そもそも何が必要？</p>
-                                                <p className="text-sm sm:text-sm text-slate-600 font-medium leading-relaxed">{s.what}</p>
-                                            </div>
-                                            <div className={`rounded-xl p-4 border flex-grow ${s.accent === 'cta' ? 'bg-cta/5 border-cta/20' : 'bg-navy/5 border-navy/10'}`}>
-                                                <p className={`text-sm font-black uppercase tracking-widest mb-1.5 ${s.accent === 'cta' ? 'text-cta' : 'text-navy'}`}>Ark Collegeが提供する価値</p>
-                                                <p className="text-sm sm:text-sm text-slate-700 font-medium leading-relaxed">{s.value}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-
-                            {/* Closing panel */}
-                            <div className="relative rounded-[28px] overflow-hidden bg-navy text-white p-8 sm:p-12 text-center shadow-rich">
-                                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-cta/30 via-transparent to-transparent pointer-events-none"></div>
-                                <div className="relative z-10">
-                                    <p className="text-cta-light font-bold tracking-widest uppercase text-sm mb-3">Our Commitment</p>
-                                    <h3 className="text-xl sm:text-2xl font-black mb-5 leading-tight">
-                                        なぜ、Ark Collegeは<br className="sm:hidden"/>「プロの徹底伴走」に<br className="sm:hidden"/>こだわるのか？
-                                    </h3>
-                                    <p className="text-white/75 text-sm sm:text-base font-medium leading-relaxed max-w-2xl mx-auto mb-8">
-                                        総合型選抜は、人生の進路を決める重要なプロジェクトです。小手先のテクニックや週1回の簡単な添削だけで太刀打ちできるものではありません。だからこそArk Collegeは、プロフェッショナルが膨大な時間をかけて生徒一人ひとりの人生にフルコミットします。<br/><br/>
-                                        <span className="text-white font-bold">「この価格を投資する価値が十分にあった」と感じていただける、圧倒的な成長と合格実績をお約束します。</span>
-                                    </p>
-                                    <button onClick={scrollToDiagnosis} className="btn-shine inline-flex items-center gap-2 bg-gradient-to-r from-cta to-cta-light text-white font-bold py-3.5 px-10 rounded-full shadow-glow-cta hover:-translate-y-0.5 hover:shadow-rich-hover transition-all duration-300 text-sm">
-                                        <span>まずは無料体験で確かめる</span>
-                                        <ArrowRightIcon className="w-4 h-4" />
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
                     </section>
 
                     {/* Pricing */}
@@ -1262,7 +1251,7 @@
                             <div className="flex flex-wrap justify-center gap-3 sm:gap-6 mb-10">
                                 {[
                                     { icon: "✓", text: "費用は完全無料" },
-                                    { icon: "✓", text: "所要時間 約60分" },
+                                    { icon: "✓", text: "所要時間 約45分" },
                                     { icon: "✓", text: "オンライン対応（全国・海外から参加可）" },
                                     { icon: "✓", text: "入塾の強制一切なし" }
                                 ].map((b, i) => (
