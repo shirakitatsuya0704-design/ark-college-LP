@@ -330,6 +330,20 @@
                                 <p className="text-slate-500 text-sm sm:text-base font-bold">目的と学年に合わせて選べる、透明性の高い料金体系。</p>
                             </div>
 
+                            {/* 全プラン共通バナー */}
+                            <div className="flex items-center justify-center gap-3 bg-navy/5 border border-navy/15 rounded-2xl px-5 py-3.5 mb-8 flex-wrap">
+                                <div className="flex items-center gap-2 shrink-0">
+                                    <svg className="w-4 h-4 text-cta shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" /></svg>
+                                    <span className="text-sm font-black text-navy tracking-tight">全プラン共通</span>
+                                </div>
+                                <div className="h-4 w-px bg-navy/20 hidden sm:block"></div>
+                                <span className="text-sm sm:text-base font-bold text-navy">
+                                    📝 書類添削 <span className="text-cta font-black">期間中 完全無制限</span>
+                                    <span className="mx-2 text-slate-300">|</span>
+                                    💬 チャット相談 <span className="text-cta font-black">期間中 完全無制限</span>
+                                </span>
+                            </div>
+
                             {/* 基本3プラン */}
                             <h3 className="text-base sm:text-lg font-black text-navy mb-4 flex items-center gap-2">
                                 <span className="w-1 h-5 bg-navy rounded-full inline-block"></span>基本プラン
@@ -363,14 +377,14 @@
                                     <div className="p-5 flex flex-col flex-grow">
                                         <div className="mb-3">
                                             <h4 className="text-base font-black text-navy mb-1 leading-snug">高2 戦略設計 /<br/>高3 最終チェックプラン</h4>
-                                            <span className="inline-flex items-center bg-navy/5 text-navy font-bold text-sm px-2.5 py-0.5 rounded-full border border-navy/15">期間中添削無制限</span>
+                                            <span className="inline-flex items-center bg-navy/5 text-navy font-bold text-sm px-2.5 py-0.5 rounded-full border border-navy/15">添削・チャット 期間中無制限</span>
                                         </div>
                                         <div className="flex items-baseline gap-1 mb-4">
                                             <span className="text-2xl font-black text-navy">¥99,000</span>
                                             <span className="text-sm text-slate-500 font-bold">/ 5コマ（6週間）</span>
                                         </div>
                                         <div className="space-y-1.5 flex-grow text-sm text-slate-600 font-medium">
-                                            <div className="flex items-center gap-1.5"><CheckIcon className="w-3.5 h-3.5 text-navy shrink-0" />5コマ個別指導＋添削無制限</div>
+                                            <div className="flex items-center gap-1.5"><CheckIcon className="w-3.5 h-3.5 text-navy shrink-0" />5コマ個別指導＋添削・チャット無制限</div>
                                             <div className="flex items-center gap-1.5"><CheckIcon className="w-3.5 h-3.5 text-navy shrink-0" />高2: 戦略レポート＋ロードマップ</div>
                                             <div className="flex items-center gap-1.5"><CheckIcon className="w-3.5 h-3.5 text-navy shrink-0" />高3: ラスト1マイル仕上げ</div>
                                         </div>
@@ -387,7 +401,7 @@
                                     <div className="p-5 flex flex-col flex-grow">
                                         <div className="mb-3">
                                             <h4 className="text-base font-black text-navy mb-1 leading-snug">高3 完成プラン</h4>
-                                            <span className="inline-flex items-center bg-cta/10 text-cta font-bold text-sm px-2.5 py-0.5 rounded-full border border-cta/20">期間中添削無制限</span>
+                                            <span className="inline-flex items-center bg-cta/10 text-cta font-bold text-sm px-2.5 py-0.5 rounded-full border border-cta/20">添削・チャット 期間中無制限</span>
                                         </div>
                                         <div className="flex items-baseline gap-1 mb-4">
                                             <span className="text-2xl font-black text-cta">¥198,000</span>
@@ -396,6 +410,7 @@
                                         <div className="space-y-1.5 flex-grow text-sm text-slate-600 font-medium">
                                             <div className="flex items-center gap-1.5"><CheckIcon className="w-3.5 h-3.5 text-cta shrink-0" />前半5コマ: 第一志望ドラフト完成</div>
                                             <div className="flex items-center gap-1.5"><CheckIcon className="w-3.5 h-3.5 text-cta shrink-0" />後半5コマ: 併願・小論・面接対策</div>
+                                            <div className="flex items-center gap-1.5"><CheckIcon className="w-3.5 h-3.5 text-cta shrink-0" />添削・チャット相談 期間中いつでも無制限</div>
                                         </div>
                                         <button onClick={scrollToDiagnosis} className="btn-shine mt-4 w-full bg-gradient-to-r from-cta to-cta-light text-white font-bold py-2 rounded-xl shadow-glow-cta hover:shadow-rich-hover transition-all duration-300 text-sm">
                                             今すぐ申し込む
@@ -407,7 +422,7 @@
                             {/* 大学別特化パッケージ — 横スクロール */}
                             <h3 className="text-base sm:text-lg font-black text-navy mb-2 flex items-center gap-2">
                                 <span className="w-1 h-5 bg-cta rounded-full inline-block"></span>大学別特化パッケージ
-                                <span className="text-slate-400 font-medium text-sm">¥198,000 / 10コマ＋添削無制限</span>
+                                <span className="text-slate-400 font-medium text-sm">¥198,000 / 10コマ＋添削・チャット無制限</span>
                             </h3>
                             <p className="text-slate-500 text-sm font-medium mb-4">志望校が決まっている方向け。← スワイプして確認</p>
                             <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-3 -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 sm:gap-4 mb-8">
