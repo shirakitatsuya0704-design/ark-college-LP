@@ -346,10 +346,10 @@
                                         <div className="hidden sm:block h-10 w-px bg-slate-100"></div>
                                         <div>
                                             <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">大学別プラン</p>
-                                            <div className="flex items-center gap-2">
-                                                <span className="inline-flex items-center bg-navy/5 border border-navy/15 text-navy font-bold text-sm px-3 py-0.5 rounded-full">SILS</span>
-                                                <span className="inline-flex items-center bg-navy/5 border border-navy/15 text-navy font-bold text-sm px-3 py-0.5 rounded-full">SFC</span>
-                                                <span className="text-sm text-slate-400 font-medium">など</span>
+                                            <div className="flex items-center gap-1.5 flex-wrap">
+                                                {["早稲田SILS", "慶應SFC", "上智", "ICU", "APU"].map((u, i) => (
+                                                    <span key={i} className="inline-flex items-center bg-navy/5 border border-navy/15 text-navy font-bold text-sm px-3 py-0.5 rounded-full">{u}</span>
+                                                ))}
                                             </div>
                                         </div>
                                     </div>
