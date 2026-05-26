@@ -221,7 +221,8 @@
         // --- Main Component ---
         const App = () => {
             const [isScrolled, setIsScrolled] = useState(false);
-            const [isSubmitting, setIsSubmitting] = useState(false); // 送信状態を管理
+            const [isSubmitting, setIsSubmitting] = useState(false);
+            const [pricingTab, setPricingTab] = useState('basic');
 
             useEffect(() => {
                 const handleScroll = () => {
@@ -673,6 +674,84 @@
                         </div>
                     </section>
 
+                    {/* Summer Goal Section */}
+                    <section className="py-16 sm:py-24 bg-slate-50 relative overflow-hidden border-t border-slate-100">
+                        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cta/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                            <div className="text-center mb-10">
+                                <span className="text-cta font-bold tracking-widest uppercase text-sm mb-2 block">Summer Goal</span>
+                                <h2 className="text-2xl sm:text-4xl font-black mb-3 text-navy tracking-tight">あなたの学年別、夏のゴール。</h2>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 gap-6 mb-10">
+                                {/* 高2カード */}
+                                <div className="relative bg-white rounded-[24px] shadow-rich border border-slate-200/80 overflow-hidden hover:-translate-y-1 transition-transform duration-300">
+                                    <div className="h-1.5 w-full bg-gradient-to-r from-navy to-navy/60"></div>
+                                    <div className="p-6 sm:p-8">
+                                        <div className="inline-flex items-center bg-navy/5 border border-navy/15 text-navy font-black text-sm px-3 py-1 rounded-full mb-4">高校2年生</div>
+                                        <p className="text-sm sm:text-base font-bold text-navy leading-relaxed mb-6">
+                                            総合型選抜の全体像を理解し、自己分析を完成させ、志望校の大枠と"自分の問い"を確定する
+                                        </p>
+                                        <div className="bg-navy/5 rounded-[16px] p-5 border border-navy/10">
+                                            <p className="text-sm font-black text-navy/60 uppercase tracking-widest mb-3">持ち帰り資産</p>
+                                            <div className="space-y-2.5">
+                                                {[
+                                                    "個人別ロードマップ（高2 9月〜高3 11月の全期間）",
+                                                    "経験ポートフォリオ（30〜50項目）",
+                                                    "自分の問い候補リスト 3つ",
+                                                    "志望校候補3校と言語化メモ",
+                                                    "9月以降のアクションプラン"
+                                                ].map((item, i) => (
+                                                    <div key={i} className="flex items-start gap-2.5">
+                                                        <div className="w-5 h-5 rounded-full bg-navy flex items-center justify-center shrink-0 mt-0.5">
+                                                            <CheckIcon className="w-3 h-3 text-white" />
+                                                        </div>
+                                                        <span className="text-sm font-medium text-slate-700 leading-relaxed">{item}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* 高3カード */}
+                                <div className="relative bg-white rounded-[24px] shadow-rich border border-cta/20 overflow-hidden hover:-translate-y-1 transition-transform duration-300">
+                                    <div className="h-1.5 w-full bg-gradient-to-r from-cta to-cta-light"></div>
+                                    <div className="p-6 sm:p-8">
+                                        <div className="inline-flex items-center bg-cta/10 border border-cta/20 text-cta font-black text-sm px-3 py-1 rounded-full mb-4">高校3年生</div>
+                                        <div className="space-y-4 mb-5">
+                                            {[
+                                                { type: "未着手型", goal: "第一志望の志望理由書完成" },
+                                                { type: "書きかけ型", goal: "第一志望の磨き込み＋併願校着手" },
+                                                { type: "完成寸前型/他塾経験者", goal: "全書類の精度UP＋出願準備完了" }
+                                            ].map((row, i) => (
+                                                <div key={i} className="bg-slate-50 rounded-xl p-4 border border-slate-100">
+                                                    <div className="flex items-start gap-3">
+                                                        <span className="inline-flex items-center bg-cta/10 border border-cta/20 text-cta font-black text-sm px-2.5 py-0.5 rounded-full shrink-0 whitespace-nowrap">{row.type}</span>
+                                                        <div>
+                                                            <span className="text-sm text-slate-400 font-bold mr-1">夏のゴール:</span>
+                                                            <span className="text-sm font-bold text-navy leading-relaxed">{row.goal}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                        <p className="text-sm text-slate-500 font-medium text-center border-t border-slate-100 pt-4">
+                                            どのタイプか、無料相談で診断します。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="text-center">
+                                <button onClick={scrollToDiagnosis} className="btn-shine inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cta to-cta-light text-white font-bold py-3.5 px-10 rounded-full shadow-glow-cta hover:shadow-rich-hover hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base">
+                                    <span>自分のタイプを診断する（無料）</span>
+                                    <ArrowRightIcon className="w-4 h-4" />
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
                     {/* 4 Steps Section */}
                     <section className="py-16 sm:py-28 bg-white relative overflow-hidden">
                         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cta/5 via-transparent to-transparent pointer-events-none"></div>
@@ -769,6 +848,294 @@
                                     </button>
                                 </div>
                             </div>
+                        </div>
+                    </section>
+
+                    {/* Pricing */}
+                    <section className="py-16 sm:py-28 bg-white relative border-t border-slate-100">
+                        <div className="max-w-5xl mx-auto px-4 relative z-10">
+                            <div className="text-center mb-10">
+                                <h2 className="text-2xl sm:text-3xl font-black mb-3 text-navy tracking-tight">夏期集中講習 料金・プラン</h2>
+                                <p className="text-slate-500 text-sm sm:text-lg font-bold">透明性の高い、シンプルな料金体系。</p>
+                            </div>
+
+                            {/* Tab buttons */}
+                            <div className="flex justify-center gap-2 mb-10">
+                                <button
+                                    onClick={() => setPricingTab('basic')}
+                                    className={`px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 border ${pricingTab === 'basic' ? 'bg-navy text-white border-navy shadow-md' : 'bg-white text-slate-500 border-slate-200 hover:border-navy/30'}`}
+                                >
+                                    基本プラン
+                                </button>
+                                <button
+                                    onClick={() => setPricingTab('university')}
+                                    className={`px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 border ${pricingTab === 'university' ? 'bg-navy text-white border-navy shadow-md' : 'bg-white text-slate-500 border-slate-200 hover:border-navy/30'}`}
+                                >
+                                    大学別特化パッケージ
+                                </button>
+                            </div>
+
+                            {/* Tab: basic */}
+                            {pricingTab === 'basic' && (
+                                <div>
+                                    <div className="grid sm:grid-cols-2 gap-5 mb-10">
+                                        {/* 添削プラン */}
+                                        <div className="relative bg-white rounded-[20px] shadow-rich border border-slate-200/80 overflow-hidden hover:-translate-y-1 hover:shadow-rich-hover transition-all duration-300 flex flex-col">
+                                            <div className="h-1.5 w-full bg-gradient-to-r from-slate-400 to-navy"></div>
+                                            <div className="p-6 flex flex-col flex-grow">
+                                                <div className="mb-4">
+                                                    <h3 className="text-lg font-black text-navy mb-1">添削プラン</h3>
+                                                    <span className="inline-flex items-center bg-slate-100 text-slate-600 font-bold text-sm px-3 py-1 rounded-full border border-slate-200">添削・チャット無制限</span>
+                                                </div>
+                                                <div className="flex items-baseline gap-1 mb-5">
+                                                    <span className="text-3xl font-black text-navy">¥49,800</span>
+                                                    <span className="text-sm text-slate-500 font-bold">/ 6週間</span>
+                                                </div>
+                                                <div className="space-y-2 flex-grow">
+                                                    {["指導コマなし", "添削/チャット無制限", "予算控えめ・独学派向け", "相性確認にも最適"].map((f, i) => (
+                                                        <div key={i} className="flex items-center gap-2">
+                                                            <CheckIcon className="w-4 h-4 text-slate-500 shrink-0" />
+                                                            <span className="text-sm font-medium text-slate-600">{f}</span>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                                <button onClick={scrollToDiagnosis} className="mt-5 w-full border border-navy text-navy font-bold py-2.5 rounded-xl hover:bg-navy hover:text-white transition-all duration-300 text-sm">
+                                                    詳細を相談する
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        {/* プランA */}
+                                        <div className="relative bg-white rounded-[20px] shadow-rich border border-slate-200/80 overflow-hidden hover:-translate-y-1 hover:shadow-rich-hover transition-all duration-300 flex flex-col">
+                                            <div className="h-1.5 w-full bg-gradient-to-r from-navy to-navy/60"></div>
+                                            <div className="p-6 flex flex-col flex-grow">
+                                                <div className="mb-4">
+                                                    <h3 className="text-lg font-black text-navy mb-1">プランA｜高2 戦略設計プラン</h3>
+                                                    <span className="inline-flex items-center bg-navy/5 text-navy font-bold text-sm px-3 py-1 rounded-full border border-navy/15">期間中添削無制限</span>
+                                                </div>
+                                                <div className="flex items-baseline gap-1 mb-5">
+                                                    <span className="text-3xl font-black text-navy">¥99,000</span>
+                                                    <span className="text-sm text-slate-500 font-bold">/ 5コマ（6週間）</span>
+                                                </div>
+                                                <div className="space-y-2 flex-grow">
+                                                    {["5コマ個別指導", "期間中添削無制限", "持ち帰り: 戦略レポート＋ロードマップ"].map((f, i) => (
+                                                        <div key={i} className="flex items-center gap-2">
+                                                            <CheckIcon className="w-4 h-4 text-navy shrink-0" />
+                                                            <span className="text-sm font-medium text-slate-600">{f}</span>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                                <button onClick={scrollToDiagnosis} className="mt-5 w-full border border-navy text-navy font-bold py-2.5 rounded-xl hover:bg-navy hover:text-white transition-all duration-300 text-sm">
+                                                    詳細を相談する
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        {/* プランB — most popular */}
+                                        <div className="relative bg-white rounded-[20px] shadow-rich border-2 border-cta overflow-hidden hover:-translate-y-1 hover:shadow-rich-hover transition-all duration-300 flex flex-col">
+                                            <div className="h-1.5 w-full bg-gradient-to-r from-cta to-cta-light"></div>
+                                            <div className="absolute top-4 right-4 bg-cta text-white text-sm font-black px-3 py-1 rounded-full shadow-sm">最もおすすめ</div>
+                                            <div className="p-6 flex flex-col flex-grow">
+                                                <div className="mb-4">
+                                                    <h3 className="text-lg font-black text-navy mb-1">プランB｜高3 完成プラン</h3>
+                                                    <span className="inline-flex items-center bg-cta/10 text-cta font-bold text-sm px-3 py-1 rounded-full border border-cta/20">期間中添削無制限</span>
+                                                </div>
+                                                <div className="flex items-baseline gap-1 mb-5">
+                                                    <span className="text-3xl font-black text-cta">¥198,000</span>
+                                                    <span className="text-sm text-slate-500 font-bold">/ 10コマ（8週間）</span>
+                                                </div>
+                                                <div className="space-y-2 flex-grow">
+                                                    {["前半5コマ: 第一志望の骨子・ドラフト完成", "後半5コマ: 併願校・小論文・面接対策にカスタム"].map((f, i) => (
+                                                        <div key={i} className="flex items-center gap-2">
+                                                            <CheckIcon className="w-4 h-4 text-cta shrink-0" />
+                                                            <span className="text-sm font-medium text-slate-600">{f}</span>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                                <button onClick={scrollToDiagnosis} className="btn-shine mt-5 w-full bg-gradient-to-r from-cta to-cta-light text-white font-bold py-2.5 rounded-xl shadow-glow-cta hover:shadow-rich-hover transition-all duration-300 text-sm">
+                                                    今すぐ申し込む
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        {/* プランC */}
+                                        <div className="relative bg-white rounded-[20px] shadow-rich border border-slate-200/80 overflow-hidden hover:-translate-y-1 hover:shadow-rich-hover transition-all duration-300 flex flex-col">
+                                            <div className="h-1.5 w-full bg-gradient-to-r from-navy to-navy/60"></div>
+                                            <div className="p-6 flex flex-col flex-grow">
+                                                <div className="mb-4">
+                                                    <h3 className="text-lg font-black text-navy mb-1">プランC｜高3 最終チェックプラン</h3>
+                                                    <span className="inline-flex items-center bg-navy/5 text-navy font-bold text-sm px-3 py-1 rounded-full border border-navy/15">期間中添削無制限</span>
+                                                </div>
+                                                <div className="flex items-baseline gap-1 mb-5">
+                                                    <span className="text-3xl font-black text-navy">¥99,000</span>
+                                                    <span className="text-sm text-slate-500 font-bold">/ 5コマ（6週間）</span>
+                                                </div>
+                                                <div className="space-y-2 flex-grow">
+                                                    {["他塾に通っている層・独学派のラスト1マイル仕上げ用", "戦略的仕上げコース"].map((f, i) => (
+                                                        <div key={i} className="flex items-center gap-2">
+                                                            <CheckIcon className="w-4 h-4 text-navy shrink-0" />
+                                                            <span className="text-sm font-medium text-slate-600">{f}</span>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                                <button onClick={scrollToDiagnosis} className="mt-5 w-full border border-navy text-navy font-bold py-2.5 rounded-xl hover:bg-navy hover:text-white transition-all duration-300 text-sm">
+                                                    詳細を相談する
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Comparison table */}
+                                    <div className="glass-panel rounded-[24px] overflow-hidden shadow-rich border border-white table-container mb-8">
+                                        <table className="w-full border-collapse">
+                                            <thead>
+                                                <tr className="border-b border-slate-200 bg-white/50">
+                                                    <th className="p-2 sm:p-6 text-left font-bold text-slate-500 uppercase tracking-widest w-[30%] text-sm whitespace-nowrap">Service</th>
+                                                    <th className="p-2 sm:p-6 bg-navy text-white text-center font-bold w-[35%] text-sm sm:text-base whitespace-nowrap">Ark College</th>
+                                                    <th className="p-2 sm:p-6 text-center font-bold text-slate-400 w-[35%] text-sm whitespace-nowrap">大手他社</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody className="font-bold">
+                                                <tr className="bg-cta/5 border-b border-slate-200">
+                                                    <td className="p-2 sm:p-6 border-l-[3px] sm:border-l-[4px] border-cta text-navy text-sm sm:text-base whitespace-nowrap">
+                                                        総額目安<span className="font-normal text-slate-500 block mt-0.5 scale-90 origin-left">(7ヶ月目安)</span>
+                                                    </td>
+                                                    <td className="p-2 sm:p-6 text-center text-cta text-sm sm:text-xl font-black whitespace-nowrap">約35万円〜</td>
+                                                    <td className="p-2 sm:p-6 text-center text-slate-400 line-through text-sm whitespace-nowrap">約120万円</td>
+                                                </tr>
+                                                <tr className="border-b border-slate-200">
+                                                    <td className="p-2 sm:p-6 text-navy text-sm sm:text-base whitespace-nowrap">講師の質</td>
+                                                    <td className="p-2 sm:p-6 text-center text-navy text-sm sm:text-base whitespace-nowrap">全員がプロ<br className="sm:hidden"/><span className="text-sm font-normal">（外資系出身・代表直接）</span></td>
+                                                    <td className="p-2 sm:p-6 text-center text-slate-400 text-sm whitespace-nowrap">学生バイト含む</td>
+                                                </tr>
+                                                <tr className="border-b border-slate-200">
+                                                    <td className="p-2 sm:p-6 text-navy text-sm sm:text-base whitespace-nowrap">指導の深さ</td>
+                                                    <td className="p-2 sm:p-6 text-center text-navy text-sm sm:text-base whitespace-nowrap">戦略・ロジック構築から</td>
+                                                    <td className="p-2 sm:p-6 text-center text-slate-400 text-sm whitespace-nowrap">表面的な文章添削のみ</td>
+                                                </tr>
+                                                <tr className="border-b border-slate-200">
+                                                    <td className="p-2 sm:p-6 text-navy text-sm sm:text-base whitespace-nowrap">月額費用</td>
+                                                    <td className="p-2 sm:p-6 text-center text-navy text-sm sm:text-lg whitespace-nowrap">約5万円〜<br/>追加費用なし</td>
+                                                    <td className="p-2 sm:p-6 text-center text-slate-400 text-sm whitespace-nowrap">約7万円〜<br/>追加費用多数</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="p-2 sm:p-6 text-navy text-sm sm:text-base whitespace-nowrap">添削回数</td>
+                                                    <td className="p-2 sm:p-6 text-center text-white bg-cta font-bold text-sm sm:text-base whitespace-nowrap">完全無制限</td>
+                                                    <td className="p-2 sm:p-6 text-center text-slate-400 text-sm whitespace-nowrap">回数制限あり</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    {/* Special Offer */}
+                                    <div className="bg-white border border-cta/20 p-6 rounded-[20px] text-center shadow-rich relative overflow-hidden">
+                                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cta to-cta-light"></div>
+                                        <p className="text-cta font-bold text-sm mb-1.5 tracking-widest uppercase">Special Offer</p>
+                                        <p className="text-navy font-bold text-base sm:text-xl leading-tight">診断当日・翌日の入会決定で、<br />入会金 55,000円 → <span className="text-cta text-2xl sm:text-3xl font-black ml-2 inline-block">0円</span></p>
+                                        <button onClick={scrollToDiagnosis} className="mt-4 bg-cta/10 text-cta border border-cta/30 font-bold py-2 px-8 rounded-full text-sm hover:bg-cta hover:text-white transition-all duration-300">
+                                            今すぐ申し込む
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Tab: university */}
+                            {pricingTab === 'university' && (
+                                <div>
+                                    <div className="grid sm:grid-cols-2 gap-5 mb-10">
+                                        {[
+                                            {
+                                                name: "SILSパッケージ",
+                                                univ: "早稲田大学 国際教養学部",
+                                                desc: "海外生・帰国生の豊かな英語背景を日本のAO評価基準に翻訳・最適化。英語ポートフォリオと日本語志望理由書を並走して仕上げる。"
+                                            },
+                                            {
+                                                name: "SFCパッケージ",
+                                                univ: "慶應義塾大学 総合政策・環境情報学部",
+                                                desc: "最も重い3枚の提出書類と独自の「問い」を外資マーケター視点で尖らせる。志望理由書・活動報告書・任意提出資料を戦略的に一貫させる。"
+                                            },
+                                            {
+                                                name: "上智/ICUパッケージ",
+                                                univ: "上智大学・国際基督教大学",
+                                                desc: "リベラルアーツへの適性と、各校固有のカトリック選抜・AOロジックへのマッチング。学問への知的好奇心を具体的なエピソードで可視化する。"
+                                            },
+                                            {
+                                                name: "APUパッケージ",
+                                                univ: "立命館アジア太平洋大学",
+                                                desc: "国際的な問題意識の言語化と、主体的活動実績の最大アピール。多文化環境への具体的コミットメントを戦略的に構成する。"
+                                            }
+                                        ].map((pkg, i) => (
+                                            <div key={i} className="relative bg-white rounded-[20px] shadow-rich border border-slate-200/80 overflow-hidden hover:-translate-y-1 hover:shadow-rich-hover transition-all duration-300 flex flex-col">
+                                                <div className="h-1.5 w-full bg-gradient-to-r from-cta to-cta-light"></div>
+                                                <div className="p-6 flex flex-col flex-grow">
+                                                    <div className="mb-3">
+                                                        <h3 className="text-lg font-black text-navy mb-1">{pkg.name}</h3>
+                                                        <p className="text-sm font-bold text-slate-500 mb-2">{pkg.univ}</p>
+                                                        <span className="inline-flex items-center bg-cta/10 text-cta font-bold text-sm px-3 py-1 rounded-full border border-cta/20">10コマ＋期間中添削無制限</span>
+                                                    </div>
+                                                    <p className="text-sm font-medium text-slate-600 leading-relaxed flex-grow mb-4">{pkg.desc}</p>
+                                                    <p className="text-sm font-bold text-slate-500 mb-4 bg-slate-50 rounded-lg px-3 py-2 border border-slate-100">料金はプランBに準じます（¥198,000）</p>
+                                                    <button onClick={scrollToDiagnosis} className="btn-shine w-full bg-gradient-to-r from-cta to-cta-light text-white font-bold py-2.5 rounded-xl shadow-glow-cta hover:shadow-rich-hover transition-all duration-300 text-sm">
+                                                        詳細を相談する
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    {/* Comparison table */}
+                                    <div className="glass-panel rounded-[24px] overflow-hidden shadow-rich border border-white table-container mb-8">
+                                        <table className="w-full border-collapse">
+                                            <thead>
+                                                <tr className="border-b border-slate-200 bg-white/50">
+                                                    <th className="p-2 sm:p-6 text-left font-bold text-slate-500 uppercase tracking-widest w-[30%] text-sm whitespace-nowrap">Service</th>
+                                                    <th className="p-2 sm:p-6 bg-navy text-white text-center font-bold w-[35%] text-sm sm:text-base whitespace-nowrap">Ark College</th>
+                                                    <th className="p-2 sm:p-6 text-center font-bold text-slate-400 w-[35%] text-sm whitespace-nowrap">大手他社</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody className="font-bold">
+                                                <tr className="bg-cta/5 border-b border-slate-200">
+                                                    <td className="p-2 sm:p-6 border-l-[3px] sm:border-l-[4px] border-cta text-navy text-sm sm:text-base whitespace-nowrap">
+                                                        総額目安<span className="font-normal text-slate-500 block mt-0.5 scale-90 origin-left">(7ヶ月目安)</span>
+                                                    </td>
+                                                    <td className="p-2 sm:p-6 text-center text-cta text-sm sm:text-xl font-black whitespace-nowrap">約35万円〜</td>
+                                                    <td className="p-2 sm:p-6 text-center text-slate-400 line-through text-sm whitespace-nowrap">約120万円</td>
+                                                </tr>
+                                                <tr className="border-b border-slate-200">
+                                                    <td className="p-2 sm:p-6 text-navy text-sm sm:text-base whitespace-nowrap">講師の質</td>
+                                                    <td className="p-2 sm:p-6 text-center text-navy text-sm sm:text-base whitespace-nowrap">全員がプロ<br className="sm:hidden"/><span className="text-sm font-normal">（外資系出身・代表直接）</span></td>
+                                                    <td className="p-2 sm:p-6 text-center text-slate-400 text-sm whitespace-nowrap">学生バイト含む</td>
+                                                </tr>
+                                                <tr className="border-b border-slate-200">
+                                                    <td className="p-2 sm:p-6 text-navy text-sm sm:text-base whitespace-nowrap">指導の深さ</td>
+                                                    <td className="p-2 sm:p-6 text-center text-navy text-sm sm:text-base whitespace-nowrap">戦略・ロジック構築から</td>
+                                                    <td className="p-2 sm:p-6 text-center text-slate-400 text-sm whitespace-nowrap">表面的な文章添削のみ</td>
+                                                </tr>
+                                                <tr className="border-b border-slate-200">
+                                                    <td className="p-2 sm:p-6 text-navy text-sm sm:text-base whitespace-nowrap">月額費用</td>
+                                                    <td className="p-2 sm:p-6 text-center text-navy text-sm sm:text-lg whitespace-nowrap">約5万円〜<br/>追加費用なし</td>
+                                                    <td className="p-2 sm:p-6 text-center text-slate-400 text-sm whitespace-nowrap">約7万円〜<br/>追加費用多数</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="p-2 sm:p-6 text-navy text-sm sm:text-base whitespace-nowrap">添削回数</td>
+                                                    <td className="p-2 sm:p-6 text-center text-white bg-cta font-bold text-sm sm:text-base whitespace-nowrap">完全無制限</td>
+                                                    <td className="p-2 sm:p-6 text-center text-slate-400 text-sm whitespace-nowrap">回数制限あり</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    {/* Special Offer */}
+                                    <div className="bg-white border border-cta/20 p-6 rounded-[20px] text-center shadow-rich relative overflow-hidden">
+                                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cta to-cta-light"></div>
+                                        <p className="text-cta font-bold text-sm mb-1.5 tracking-widest uppercase">Special Offer</p>
+                                        <p className="text-navy font-bold text-base sm:text-xl leading-tight">診断当日・翌日の入会決定で、<br />入会金 55,000円 → <span className="text-cta text-2xl sm:text-3xl font-black ml-2 inline-block">0円</span></p>
+                                        <button onClick={scrollToDiagnosis} className="mt-4 bg-cta/10 text-cta border border-cta/30 font-bold py-2 px-8 rounded-full text-sm hover:bg-cta hover:text-white transition-all duration-300">
+                                            今すぐ申し込む
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </section>
 
@@ -998,66 +1365,6 @@
                          </div>
                     </section>
 
-                    {/* Pricing */}
-                    <section className="py-16 sm:py-28 bg-slate-50 relative">
-                        <div className="max-w-5xl mx-auto px-4 relative z-10">
-                            <div className="text-center mb-12">
-                                <h2 className="text-2xl sm:text-3xl font-black mb-3 text-navy tracking-tight">料金・プラン</h2>
-                                <p className="text-slate-500 text-sm sm:text-lg font-bold">透明性の高い、シンプルな料金体系。</p>
-                            </div>
-                            
-                            <div className="glass-panel rounded-[24px] overflow-hidden shadow-rich border border-white table-container">
-                                <table className="w-full border-collapse">
-                                    <thead>
-                                        <tr className="border-b border-slate-200 bg-white/50">
-                                            <th className="p-2 sm:p-6 text-left font-bold text-slate-500 uppercase tracking-widest w-[30%] text-sm sm:text-sm whitespace-nowrap">Service</th>
-                                            <th className="p-2 sm:p-6 bg-navy text-white text-center font-bold w-[35%] text-sm sm:text-base whitespace-nowrap">Ark College</th>
-                                            <th className="p-2 sm:p-6 text-center font-bold text-slate-400 w-[35%] text-sm sm:text-sm whitespace-nowrap">大手他社</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody className="font-bold">
-                                        <tr className="bg-cta/5 border-b border-slate-200">
-                                            <td className="p-2 sm:p-6 border-l-[3px] sm:border-l-[4px] border-cta text-navy text-sm sm:text-base whitespace-nowrap">
-                                                総額目安<span className="font-normal text-slate-500 block mt-0.5 scale-90 origin-left">(7ヶ月目安)</span>
-                                            </td>
-                                            <td className="p-2 sm:p-6 text-center text-cta text-sm sm:text-xl font-black whitespace-nowrap">約35万円〜</td>
-                                            <td className="p-2 sm:p-6 text-center text-slate-400 line-through text-sm sm:text-sm whitespace-nowrap">約120万円</td>
-                                        </tr>
-                                        <tr className="border-b border-slate-200">
-                                            <td className="p-2 sm:p-6 text-navy text-sm sm:text-base whitespace-nowrap">講師の質</td>
-                                            <td className="p-2 sm:p-6 text-center text-navy text-sm sm:text-base whitespace-nowrap">全員がプロ<br className="sm:hidden"/><span className="text-sm sm:text-sm font-normal">(外資系出身)</span></td>
-                                            <td className="p-2 sm:p-6 text-center text-slate-400 text-sm sm:text-sm whitespace-nowrap">学生バイト含む</td>
-                                        </tr>
-                                        <tr className="border-b border-slate-200">
-                                            <td className="p-2 sm:p-6 text-navy text-sm sm:text-base whitespace-nowrap">指導の深さ</td>
-                                            <td className="p-2 sm:p-6 text-center text-navy text-sm sm:text-base whitespace-nowrap">戦略・ロジック<br className="sm:hidden"/>構築から</td>
-                                            <td className="p-2 sm:p-6 text-center text-slate-400 text-sm sm:text-sm whitespace-nowrap">表面的な文章添削のみ</td>
-                                        </tr>
-                                        <tr className="border-b border-slate-200">
-                                            <td className="p-2 sm:p-6 text-navy text-sm sm:text-base whitespace-nowrap">月額費用</td>
-                                            <td className="p-2 sm:p-6 text-center text-navy text-sm sm:text-lg whitespace-nowrap">約5万円〜<br/>追加費用なし</td>
-                                            <td className="p-2 sm:p-6 text-center text-slate-400 text-sm sm:text-sm whitespace-nowrap">約7万円〜<br/>追加費用多数</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="p-2 sm:p-6 text-navy text-sm sm:text-base whitespace-nowrap">添削回数</td>
-                                            <td className="p-2 sm:p-6 text-center text-white bg-cta font-bold text-sm sm:text-base whitespace-nowrap">完全無制限</td>
-                                            <td className="p-2 sm:p-6 text-center text-slate-400 text-sm sm:text-sm whitespace-nowrap">回数制限あり</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <div className="mt-10 bg-white border border-cta/20 p-6 rounded-[20px] text-center shadow-rich relative overflow-hidden group">
-                                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cta to-cta-light"></div>
-                                <p className="text-cta font-bold text-sm sm:text-sm mb-1.5 tracking-widest uppercase">Special Offer</p>
-                                <p className="text-navy font-bold text-base sm:text-xl leading-tight">診断当日・翌日の入会決定で、<br />入会金 55,000円 → <span className="text-cta text-2xl sm:text-3xl font-black ml-2 inline-block">0円</span></p>
-                                <button onClick={scrollToDiagnosis} className="mt-4 bg-cta/10 text-cta border border-cta/30 font-bold py-2 px-8 rounded-full text-sm hover:bg-cta hover:text-white transition-all duration-300">
-                                    今すぐ申し込む
-                                </button>
-                            </div>
-                        </div>
-                    </section>
-
                     {/* Media & Column (note) */}
                     <section className="py-16 sm:py-28 relative">
                         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -1119,7 +1426,7 @@
                         <div className="max-w-3xl mx-auto px-4 relative z-10">
                             <div className="text-center mb-10">
                                 <h2 className="text-2xl sm:text-4xl font-black text-white mb-3 tracking-tight">無料相談・合格可能性診断</h2>
-                                <p className="text-slate-300 leading-relaxed text-sm font-medium">春期講習の申し込みもこちらから。<br />合格への戦略を直接お伝えします。<br />入塾を希望される方はまずはこちらにお申し込みください。</p>
+                                <p className="text-slate-300 leading-relaxed text-sm font-medium">夏期集中講習の申し込みもこちらから。<br />合格への戦略を直接お伝えします。<br />入塾を希望される方はまずはこちらにお申し込みください。</p>
                             </div>
 
                             <div className="bg-white rounded-[24px] p-6 sm:p-10 shadow-2xl mx-2 sm:mx-0 border border-white/10">
