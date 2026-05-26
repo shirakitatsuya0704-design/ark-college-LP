@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>任意書類作成ガイド｜総合型選抜における「伝わる資料」の作り方</title>
+<style>
+:root {
+  --navy: #1A3C6E;
+  --navy-dark: #122B50;
+  --navy-mid: #2D6A9F;
+  --navy-light: #5B9BD5;
+  --navy-pale: #EEF3FA;
+  --navy-bg: #E8F0FE;
+  --green: #1A5C3A;
+  --green-mid: #2E7D32;
+  --green-pale: #EEF6EE;
+  --text: #1A1A1A;
+  --muted: #666666;
+  --border: #CBD5E1;
+  --box-bg: #F3F6FC;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', 'Noto Serif JP', Georgia, serif;
+  font-size: 10.5pt;
+  line-height: 1.75;
+  color: var(--text);
+  background: #E0E4EC;
+}
+
+.print-guide {
+  width: 210mm;
+  margin: 14px auto;
+  padding: 9px 14px;
+  background: #FFF8E1;
+  border: 1px solid #FFC107;
+  border-radius: 4px;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  font-size: 8.5pt;
+  color: #555;
+}
+
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto 18px;
+  padding: 18mm 22mm 16mm;
+  background: #fff;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.13);
+  position: relative;
+}
+
+@media print {
+  body { background: #fff; }
+  .print-guide { display: none; }
+  .page {
+    width: 100%; min-height: auto; margin: 0; padding: 0;
+    box-shadow: none; page-break-after: always;
+  }
+  .page:last-of-type { page-break-after: avoid; }
+}
+@page { size: A4; margin: 18mm 20mm 15mm; }
+
+/* ---- Sans font helper ---- */
+.sans { font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif; }
+
+/* ---- Typography ---- */
+h1.ch {
+  font-size: 15pt; font-weight: bold; color: #fff;
+  background: var(--navy);
+  padding: 10px 16px;
+  margin: 0 0 18px;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  letter-spacing: .04em;
+}
+h2.sec {
+  font-size: 12.5pt; font-weight: bold; color: var(--navy);
+  border-left: 4px solid var(--navy);
+  padding: 4px 0 4px 11px;
+  margin: 22px 0 10px;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+}
+h3.sub {
+  font-size: 11pt; font-weight: bold; color: var(--navy-mid);
+  margin: 14px 0 6px;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  display: flex; align-items: center; gap: 6px;
+}
+h3.sub::before { content: '▶'; font-size: 8pt; color: var(--navy-light); }
+p { margin-bottom: 8px; font-size: 10pt; line-height: 1.8; }
+ul.bul { margin: 6px 0 10px 1.2em; }
+ul.bul li { margin-bottom: 4px; font-size: 9.5pt; line-height: 1.65; }
+ul.bul li::marker { color: var(--navy); }
+
+/* ---- Example box ---- */
+.ex-box {
+  background: #F3F6FC;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--navy-light);
+  padding: 12px 14px;
+  margin: 10px 0 14px;
+  font-size: 9.5pt;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  line-height: 1.65;
+  color: #333;
+}
+.ex-box .ex-label {
+  font-weight: bold; color: var(--navy); margin-bottom: 6px;
+  font-size: 9pt; display: block;
+}
+.ex-box .ok { color: #1A5C3A; font-weight: bold; }
+.ex-box .ng { color: #B71C1C; font-weight: bold; }
+
+/* ---- Checklist ---- */
+.check-list { margin: 8px 0 14px; }
+.check-list li { list-style: none; padding: 5px 0 5px 26px; position: relative; border-bottom: 1px solid #EEF0F4; font-size: 9.5pt; font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; }
+.check-list li::before { content: '☐'; position: absolute; left: 4px; color: var(--navy); font-size: 12pt; line-height: 1; top: 4px; }
+
+/* ---- Tables ---- */
+table { width: 100%; border-collapse: collapse; font-size: 9pt; margin: 10px 0 14px; font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; }
+th { background: var(--navy); color: #fff; padding: 7px 10px; text-align: left; font-weight: bold; font-size: 8.5pt; }
+td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; line-height: 1.55; }
+tr:nth-child(even) td { background: #F8FAFC; }
+
+/* ---- Cover ---- */
+.cover-wrap { display: flex; flex-direction: column; height: 100%; }
+.cover-hero {
+  background: linear-gradient(155deg, #0F2447 0%, #1A3C6E 55%, #2D6A9F 100%);
+  padding: 36px 30px 32px;
+  position: relative; overflow: hidden;
+  flex-shrink: 0;
+}
+.cover-label {
+  display: inline-block;
+  background: rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.9);
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  font-size: 8pt; letter-spacing: .15em; padding: 4px 14px; margin-bottom: 18px;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+.cover-title-main {
+  font-size: 22pt; font-weight: bold; color: #fff; line-height: 1.3;
+  letter-spacing: .05em; margin-bottom: 6px;
+}
+.cover-title-sub {
+  font-size: 12pt; color: rgba(255,255,255,0.75); font-weight: normal;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  margin-bottom: 28px;
+}
+.cover-desc {
+  font-size: 9pt; color: rgba(255,255,255,0.7);
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  line-height: 1.7; max-width: 130mm;
+}
+.cover-body { padding: 22px 0 0; flex: 1; }
+.cover-toc-title {
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  font-size: 9pt; color: var(--muted); letter-spacing: .1em;
+  margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+}
+.cover-toc-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.toc-row {
+  display: flex; align-items: baseline; gap: 8px;
+  padding: 7px 0; border-bottom: 1px dotted #D1D9E6;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  font-size: 10pt;
+}
+.toc-ch {
+  background: var(--navy); color: #fff;
+  font-size: 7pt; padding: 2px 8px; flex-shrink: 0; letter-spacing: .05em;
+}
+.toc-t { flex: 1; color: var(--text); }
+.toc-p { color: var(--muted); font-size: 8.5pt; flex-shrink: 0; }
+.cover-footer {
+  margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border);
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  font-size: 8.5pt; color: var(--muted); text-align: right;
+}
+
+/* ---- Page header ---- */
+.pg-header {
+  display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1.5px solid var(--navy); padding-bottom: 6px; margin-bottom: 18px;
+}
+.pg-header-title {
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  font-size: 8.5pt; color: var(--muted); letter-spacing: .05em;
+}
+.pg-num {
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  font-size: 8pt; color: var(--navy);
+  background: var(--navy-pale); padding: 2px 9px;
+}
+
+/* ---- foot ---- */
+.foot {
+  position: absolute; bottom: 10mm; left: 22mm; right: 22mm;
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  font-size: 7.5pt; color: var(--muted); border-top: 1px solid var(--border); padding-top: 5px;
+}
+
+/* ---- chapter intro box ---- */
+.ch-intro {
+  background: var(--navy-pale); border-left: 4px solid var(--navy);
+  padding: 12px 16px; margin-bottom: 18px;
+  font-size: 9.5pt; line-height: 1.7;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+}
+
+/* ---- two column ---- */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 10px 0; }
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 10px 0; }
+
+/* ---- card ---- */
+.card {
+  border: 1.5px solid var(--border); padding: 10px 12px;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+}
+.card-t { font-size: 9pt; font-weight: bold; color: var(--navy); margin-bottom: 5px; }
+.card-b { font-size: 8.5pt; color: #444; line-height: 1.6; }
+
+/* ---- flow ---- */
+.flow-row { display: flex; align-items: center; gap: 0; margin: 10px 0; }
+.flow-step {
+  background: var(--navy-pale); border: 1.5px solid var(--navy);
+  padding: 8px 12px; flex: 1; text-align: center;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  font-size: 9pt;
+}
+.flow-step .fn { font-size: 7.5pt; color: var(--muted); display: block; }
+.flow-arr { font-size: 14pt; color: var(--navy-light); padding: 0 4px; flex-shrink: 0; }
+
+/* ---- highlight row ---- */
+.hl-row { background: var(--navy-bg); padding: 10px 14px; margin: 10px 0; border-radius: 2px;
+  font-size: 9.5pt; font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; color: var(--navy-dark); }
+.hl-row strong { color: var(--navy); }
+
+/* ---- wwhr grid ---- */
+.wwhr { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1.5px solid var(--border); margin: 12px 0; }
+.wwhr-cell { padding: 10px 12px; border: 1px solid var(--border); }
+.wwhr-cell .wt { font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; font-size: 9pt; font-weight: bold; color: var(--navy); margin-bottom: 4px; }
+.wwhr-cell .wb { font-size: 9pt; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<div class="print-guide sans">
+  印刷方法：ブラウザの印刷（Ctrl+P / ⌘P）→ 用紙サイズ「A4」・余白「なし」・「背景のグラフィック」をON → PDFに保存
+</div>
+
+<!-- ===== 表紙 ===== -->
+<div class="page" id="p1">
+  <div class="cover-wrap">
+    <div class="cover-hero">
+      <!-- background decoration SVG -->
+      <svg style="position:absolute;top:0;right:0;opacity:.12;" width="200" height="180" viewBox="0 0 200 180">
+        <rect x="130" y="-20" width="120" height="220" rx="4" fill="none" stroke="#fff" stroke-width="1.5"/>
+        <rect x="150" y="10" width="120" height="220" rx="4" fill="none" stroke="#fff" stroke-width="1"/>
+        <rect x="20" y="140" width="120" height="60" rx="2" fill="none" stroke="#fff" stroke-width="1"/>
+        <line x1="30" y1="155" x2="110" y2="155" stroke="#fff" stroke-width="1"/>
+        <line x1="30" y1="163" x2="95" y2="163" stroke="#fff" stroke-width="1"/>
+        <line x1="30" y1="171" x2="80" y2="171" stroke="#fff" stroke-width="1"/>
+      </svg>
+      <div class="cover-label sans">ARK COLLEGE｜総合型選抜 教材</div>
+      <div class="cover-title-main">任意書類作成ガイド</div>
+      <div class="cover-title-sub sans">総合型選抜における「伝わる資料」の作り方</div>
+      <div class="cover-desc">
+        本ガイドは、総合型選抜（AO入試）の出願にあたり、任意書類を自分で作成しようとするすべての受験生を対象としています。
+        資料の目的・構成・デザインの基本原則を体系的に学び、審査員に「伝わる資料」を作るための実践的な指針を提供します。
+      </div>
+    </div>
+
+    <div class="cover-body">
+      <div class="cover-toc-title">目　次</div>
+      <div class="toc-row"><span class="toc-ch">第1章</span><span class="toc-t">任意書類とは何か</span><span class="toc-p">p.2</span></div>
+      <div class="toc-row"><span class="toc-ch">第2章</span><span class="toc-t">資料作成の基本原則（デザイン編）</span><span class="toc-p">p.3–4</span></div>
+      <div class="toc-row"><span class="toc-ch">第3章</span><span class="toc-t">アンケート・調査レポートの作り方</span><span class="toc-p">p.5–6</span></div>
+      <div class="toc-row"><span class="toc-ch">第4章</span><span class="toc-t">インタビュー書き起こしの作り方</span><span class="toc-p">p.7–8</span></div>
+      <div class="toc-row"><span class="toc-ch">第5章</span><span class="toc-t">ポートフォリオ（活動実績集）の作り方</span><span class="toc-p">p.9</span></div>
+      <div class="toc-row" style="border-bottom:none"><span class="toc-ch">第6章</span><span class="toc-t">その他の書類と提出前チェックリスト</span><span class="toc-p">p.10</span></div>
+
+      <div class="cover-footer">
+        ARK COLLEGE｜総合型選抜 教材　© 2025
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== P2: 第1章 任意書類とは何か ===== -->
+<div class="page" id="p2">
+  <div class="pg-header">
+    <span class="pg-header-title sans">任意書類作成ガイド</span>
+    <span class="pg-num sans">2</span>
+  </div>
+
+  <h1 class="ch">第1章　任意書類とは何か</h1>
+
+  <h2 class="sec">1-1　定義と役割</h2>
+  <p>総合型選抜（旧AO入試）の出願書類は、大きく「必須書類」と「任意書類」の2種類に分けられます。志望理由書や調査書といった必須書類が出願の前提条件であるのに対し、任意書類は受験生が自らの意思で追加提出できる補足資料です。</p>
+  <p>任意とはいえ、その影響は決して小さくありません。必須書類では書き切れなかった活動実績・研究成果・作品などを可視化できる唯一の手段であり、大学によっては合否の重要な判断材料になります。</p>
+
+  <!-- SVG: 必須書類 vs 任意書類の位置づけ -->
+  <svg viewBox="0 0 520 90" style="width:100%;margin:10px 0 14px;display:block;" aria-label="必須書類と任意書類の関係図">
+    <!-- 必須書類 -->
+    <rect x="8" y="10" width="160" height="70" rx="4" fill="#1A3C6E"/>
+    <text x="88" y="36" text-anchor="middle" fill="#fff" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="9" font-weight="bold">必須書類</text>
+    <text x="88" y="52" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7.5">志望理由書・調査書など</text>
+    <text x="88" y="66" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7">全受験生が提出</text>
+    <!-- arrow -->
+    <text x="182" y="50" text-anchor="middle" fill="#2D6A9F" font-size="18">＋</text>
+    <!-- 任意書類 -->
+    <rect x="198" y="10" width="160" height="70" rx="4" fill="#2D6A9F"/>
+    <text x="278" y="36" text-anchor="middle" fill="#fff" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="9" font-weight="bold">任意書類</text>
+    <text x="278" y="52" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7.5">調査レポート・インタビューなど</text>
+    <text x="278" y="66" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7">自分の意思で追加提出</text>
+    <!-- arrow -->
+    <path d="M370 45 L390 45" stroke="#2D6A9F" stroke-width="2" marker-end="url(#arr1)"/>
+    <defs><marker id="arr1" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><polygon points="0 0, 7 3.5, 0 7" fill="#2D6A9F"/></marker></defs>
+    <!-- result -->
+    <rect x="394" y="10" width="118" height="70" rx="4" fill="#EEF3FA" stroke="#1A3C6E" stroke-width="1.5"/>
+    <text x="453" y="33" text-anchor="middle" fill="#1A3C6E" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="9" font-weight="bold">志望理由書の</text>
+    <text x="453" y="48" text-anchor="middle" fill="#1A3C6E" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="9" font-weight="bold">「証拠」になる</text>
+    <text x="453" y="64" text-anchor="middle" fill="#666" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7.5">一貫性＝説得力</text>
+  </svg>
+
+  <div class="ex-box">
+    <span class="ex-label">【考え方の例】志望理由書と任意書類を対応させる</span>
+    志望理由書で「地域の食品ロス問題に取り組んできた」と書いた場合、任意書類として提出すべきものは以下の通りです。<br><br>
+    <span class="ok">◎</span>　独自アンケートの調査レポート（第3章）<br>
+    <span class="ok">◎</span>　食品ロスの専門家へのインタビュー書き起こし（第4章）<br>
+    <span class="ok">◎</span>　活動の過程をまとめたポートフォリオ（第5章）<br><br>
+    志望理由書と任意書類が同じテーマで貫かれていると、説得力が格段に増します。
+  </div>
+
+  <h2 class="sec">1-2　審査員が読み取る3つのポイント</h2>
+
+  <div class="three-col" style="margin:12px 0 14px;">
+    <div class="card">
+      <div class="card-t">① アドミッションポリシーとの一致</div>
+      <div class="card-b">志望大学・学部が求める人物像に相応しいかどうかを判断します。書類との接点を明確にすることが重要です。</div>
+    </div>
+    <div class="card">
+      <div class="card-t">② 探究の深さと思考力</div>
+      <div class="card-b">活動の規模より、「なぜそうなったか」「何が課題か」という分析の視点が評価されます。感想ではなく考察を。</div>
+    </div>
+    <div class="card">
+      <div class="card-t">③ 表現・構成・論理性</div>
+      <div class="card-b">第三者が読んで理解できる構成かどうかを見ています。内容がよくても読みにくい書類は評価が下がります。</div>
+    </div>
+  </div>
+
+  <h2 class="sec">1-3　主な任意書類の種類</h2>
+  <table>
+    <tr><th>種類</th><th>概要</th><th>向いている場面</th></tr>
+    <tr><td>アンケート・調査レポート</td><td>独自調査の内容・結果・考察をまとめた資料</td><td>研究活動や社会課題への取り組みを示したい場合</td></tr>
+    <tr><td>インタビュー書き起こし</td><td>専門家・当事者へのインタビューを整理した資料</td><td>一次情報の収集力・調査力をアピールしたい場合</td></tr>
+    <tr><td>ポートフォリオ（活動実績集）</td><td>高校生活の活動・成果を体系的にまとめた資料</td><td>幅広い活動実績を総合的に伝えたい場合</td></tr>
+    <tr><td>活動報告書</td><td>特定の活動・プロジェクトの詳細な記録</td><td>一つの取り組みを深く掘り下げて伝えたい場合</td></tr>
+    <tr><td>提言書・提案書</td><td>社会課題に対する自分なりの解決策をまとめた資料</td><td>問題解決能力や将来ビジョンを伝えたい場合</td></tr>
+  </table>
+
+  <div class="foot">
+    <span>任意書類作成ガイド｜ARK COLLEGE</span>
+    <span>第1章　任意書類とは何か</span>
+  </div>
+</div>
+
+<!-- ===== P3: 第2章 デザイン編（前半） ===== -->
+<div class="page" id="p3">
+  <div class="pg-header">
+    <span class="pg-header-title sans">任意書類作成ガイド</span>
+    <span class="pg-num sans">3</span>
+  </div>
+
+  <h1 class="ch">第2章　資料作成の基本原則（デザイン編）</h1>
+
+  <div class="ch-intro sans">
+    任意書類は内容の質が最優先ですが、読みやすく整ったデザインは内容の伝わりやすさを大きく左右します。以下の原則を守ることで、審査員が内容に集中できる資料に仕上がります。
+  </div>
+
+  <h2 class="sec">2-1　フォントの選び方</h2>
+  <p>フォント選びは、資料全体の信頼性と読みやすさを決める基本要素です。</p>
+
+  <!-- SVG: フォント比較図 -->
+  <svg viewBox="0 0 520 132" style="width:100%;margin:8px 0 12px;display:block;" aria-label="フォント比較図">
+    <!-- ===== OK panel ===== -->
+    <rect x="4" y="4" width="248" height="124" rx="3" fill="#EEF6EE" stroke="#2E7D32" stroke-width="1.5"/>
+    <text x="128" y="18" text-anchor="middle" fill="#2E7D32" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8.5" font-weight="bold">◎ 推奨：フォントを役割で使い分け</text>
+
+    <!-- heading text -->
+    <rect x="14" y="24" width="3" height="18" rx="1" fill="#1A3C6E"/>
+    <text x="22" y="38" fill="#1A3C6E" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="13" font-weight="bold">第3章　調査の結果と考察</text>
+    <!-- heading label — placed BELOW heading text -->
+    <rect x="22" y="42" width="76" height="13" rx="2" fill="#C8E6C9"/>
+    <text x="60" y="51" text-anchor="middle" fill="#2E7D32" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7" font-weight="bold">ゴシック体　14pt</text>
+
+    <!-- body text -->
+    <text x="14" y="72" fill="#333" font-family="'Hiragino Mincho ProN','Yu Mincho',serif" font-size="9.5">今回の調査では、スマートフォンの利用時間が</text>
+    <text x="14" y="84" fill="#333" font-family="'Hiragino Mincho ProN','Yu Mincho',serif" font-size="9.5">長い生徒ほど集中度が低い傾向が確認された。</text>
+    <!-- body label — placed BELOW body text -->
+    <rect x="14" y="88" width="66" height="13" rx="2" fill="#C8E6C9"/>
+    <text x="47" y="97" text-anchor="middle" fill="#2E7D32" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7" font-weight="bold">明朝体　10.5pt</text>
+
+    <!-- footer -->
+    <rect x="14" y="106" width="232" height="16" rx="2" fill="#D7EDD8"/>
+    <text x="130" y="117" text-anchor="middle" fill="#2E7D32" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8" font-weight="bold">2〜3種に統一 → 読みやすさ◎ 信頼感◎</text>
+
+    <!-- ===== NG panel ===== -->
+    <rect x="268" y="4" width="248" height="124" rx="3" fill="#FFF3F3" stroke="#B71C1C" stroke-width="1.5"/>
+    <text x="392" y="18" text-anchor="middle" fill="#B71C1C" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8.5" font-weight="bold">✕ 避けるべき：フォント混在・階層なし</text>
+
+    <!-- heading text — same size as body (no hierarchy) -->
+    <text x="278" y="36" fill="#1A1A1A" font-family="'Hiragino Mincho ProN','Yu Mincho',serif" font-size="10">第3章　調査の結果と考察</text>
+    <!-- label BELOW -->
+    <rect x="278" y="40" width="92" height="13" rx="2" fill="#FFCDD2"/>
+    <text x="324" y="49" text-anchor="middle" fill="#B71C1C" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7" font-weight="bold">見出しと本文が同サイズ ×</text>
+
+    <!-- body text (italic = decorative) -->
+    <text x="278" y="70" fill="#555" font-family="'Hiragino Mincho ProN','Yu Mincho',serif" font-size="9.5" font-style="italic">今回の調査では、スマートフォンの…</text>
+    <!-- label BELOW -->
+    <rect x="278" y="74" width="84" height="13" rx="2" fill="#FFCDD2"/>
+    <text x="320" y="83" text-anchor="middle" fill="#B71C1C" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7" font-weight="bold">装飾・斜体フォント使用 ×</text>
+
+    <!-- footer -->
+    <rect x="278" y="106" width="232" height="16" rx="2" fill="#FFCDD2"/>
+    <text x="394" y="117" text-anchor="middle" fill="#B71C1C" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8" font-weight="bold">フォント混在・階層なし → 散漫な印象・信頼感×</text>
+  </svg>
+
+  <ul class="bul">
+    <li>日本語本文はレポート・論文系なら<strong>明朝体</strong>、スライド・プレゼン系なら<strong>ゴシック体</strong>を選びます。</li>
+    <li>フォントサイズの目安：本文10〜11pt ／ 中見出し12pt ／ 大見出し14pt</li>
+    <li>資料全体でフォントは<strong>2〜3種類以内</strong>に抑えましょう。</li>
+    <li>手書き風・毛筆体などの装飾的フォントは読みにくく、資料の信頼性を損なうため使用しません。</li>
+  </ul>
+
+  <h2 class="sec">2-2　余白とレイアウト</h2>
+  <p>余白は「デザインの一部」です。適切な余白を確保することで、資料は格段に読みやすくなります。</p>
+
+  <!-- SVG: 余白比較図 -->
+  <svg viewBox="0 0 520 118" style="width:100%;margin:8px 0 12px;display:block;" aria-label="余白の比較図">
+    <!-- ===== NG panel: cramped ===== -->
+    <rect x="4" y="4" width="248" height="110" rx="3" fill="#FFF3F3" stroke="#B71C1C" stroke-width="1.5"/>
+    <text x="128" y="18" text-anchor="middle" fill="#B71C1C" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8.5" font-weight="bold">✕ 余白が狭い（詰め込み）</text>
+    <!-- A4 mockup: content fills entire page -->
+    <rect x="14" y="23" width="230" height="74" rx="1" fill="#fff" stroke="#DDD" stroke-width="1"/>
+    <!-- content lines jammed to edges -->
+    <line x1="15" y1="30" x2="243" y2="30" stroke="#888" stroke-width="1.8"/>
+    <line x1="15" y1="37" x2="243" y2="37" stroke="#BBB" stroke-width="0.9"/>
+    <line x1="15" y1="43" x2="243" y2="43" stroke="#BBB" stroke-width="0.9"/>
+    <line x1="15" y1="49" x2="243" y2="49" stroke="#BBB" stroke-width="0.9"/>
+    <line x1="15" y1="55" x2="243" y2="55" stroke="#888" stroke-width="1.4"/>
+    <line x1="15" y1="61" x2="243" y2="61" stroke="#BBB" stroke-width="0.9"/>
+    <line x1="15" y1="67" x2="243" y2="67" stroke="#BBB" stroke-width="0.9"/>
+    <line x1="15" y1="73" x2="243" y2="73" stroke="#888" stroke-width="1.4"/>
+    <line x1="15" y1="79" x2="243" y2="79" stroke="#BBB" stroke-width="0.9"/>
+    <line x1="15" y1="85" x2="243" y2="85" stroke="#BBB" stroke-width="0.9"/>
+    <line x1="15" y1="91" x2="243" y2="91" stroke="#BBB" stroke-width="0.9"/>
+    <!-- caption -->
+    <rect x="14" y="100" width="230" height="10" rx="1" fill="#FFCDD2"/>
+    <text x="129" y="108" text-anchor="middle" fill="#B71C1C" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7.5" font-weight="bold">余白 ≈ 5mm　→　「詰め込み感」で審査員が読む気を失う</text>
+
+    <!-- ===== OK panel: spacious ===== -->
+    <rect x="268" y="4" width="248" height="110" rx="3" fill="#EEF6EE" stroke="#2E7D32" stroke-width="1.5"/>
+    <text x="392" y="18" text-anchor="middle" fill="#2E7D32" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8.5" font-weight="bold">◎ 余白が十分（読みやすい）</text>
+    <!-- A4 mockup with visible margins -->
+    <rect x="278" y="23" width="230" height="74" rx="1" fill="#fff" stroke="#DDD" stroke-width="1"/>
+    <!-- margin area shading -->
+    <rect x="279" y="24" width="228" height="72" rx="0" fill="#F0F8F0" opacity="0.5"/>
+    <!-- inner content area (dashed border showing margin) -->
+    <rect x="298" y="33" width="190" height="54" rx="1" fill="#fff" stroke="#2E7D32" stroke-width="0.8" stroke-dasharray="3,2"/>
+    <!-- content lines inside margin area -->
+    <line x1="300" y1="42" x2="487" y2="42" stroke="#888" stroke-width="1.8"/>
+    <line x1="300" y1="51" x2="487" y2="51" stroke="#BBB" stroke-width="0.9"/>
+    <line x1="300" y1="59" x2="480" y2="59" stroke="#BBB" stroke-width="0.9"/>
+    <line x1="300" y1="70" x2="487" y2="70" stroke="#888" stroke-width="1.4"/>
+    <line x1="300" y1="79" x2="474" y2="79" stroke="#BBB" stroke-width="0.9"/>
+    <!-- margin labels inside the panel -->
+    <text x="392" y="96" text-anchor="middle" fill="#2E7D32" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7.5" font-weight="bold">上下左右 20mm以上　行間 1.5〜1.8倍　段落間に空白</text>
+    <!-- caption -->
+    <rect x="278" y="100" width="230" height="10" rx="1" fill="#D7EDD8"/>
+    <text x="393" y="108" text-anchor="middle" fill="#2E7D32" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7.5" font-weight="bold">余白 ≈ 20mm以上　→　余裕ある見た目で信頼感◎</text>
+  </svg>
+
+  <ul class="bul">
+    <li>上下左右の余白：最低<strong>20mm以上</strong>（A4の場合）を確保します。ページ数が増えても、余白を削って詰め込もうとするのはNGです。</li>
+    <li>行間：<strong>1.5〜1.8倍</strong>に設定します。</li>
+    <li>1ページに詰め込みすぎません。情報密度は「余裕がある」と感じる程度にとどめます。</li>
+    <li>写真・図表は関連する本文の近くに配置し、図表のタイトルを必ず付記します。</li>
+  </ul>
+
+  <div class="foot">
+    <span>任意書類作成ガイド｜ARK COLLEGE</span>
+    <span>第2章　資料作成の基本原則（デザイン編）</span>
+  </div>
+</div>
+
+<!-- ===== P4: 第2章（後半）色・階層 ===== -->
+<div class="page" id="p4">
+  <div class="pg-header">
+    <span class="pg-header-title sans">任意書類作成ガイド</span>
+    <span class="pg-num sans">4</span>
+  </div>
+
+  <h2 class="sec" style="margin-top:0">2-3　色の使い方</h2>
+  <p>色を多用しすぎると資料が読みにくくなります。以下の原則を守ることで、洗練された印象を与えられます。</p>
+
+  <!-- SVG: 配色の良い例・悪い例 -->
+  <svg viewBox="0 0 520 112" style="width:100%;margin:8px 0 12px;display:block;" aria-label="配色の比較">
+    <!-- ===== OK panel ===== -->
+    <rect x="4" y="4" width="248" height="104" rx="3" fill="#EEF6EE" stroke="#2E7D32" stroke-width="1.5"/>
+    <text x="128" y="18" text-anchor="middle" fill="#2E7D32" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8.5" font-weight="bold">◎ 使用色は3色以内（推奨）</text>
+    <!-- swatches row -->
+    <rect x="16" y="26" width="26" height="26" rx="3" fill="#1A3C6E"/>
+    <text x="29" y="60" text-anchor="middle" fill="#444" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7">メイン</text>
+    <text x="29" y="68" text-anchor="middle" fill="#666" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="6.5">#1A3C6E</text>
+    <rect x="50" y="26" width="26" height="26" rx="3" fill="#1A1A1A"/>
+    <text x="63" y="60" text-anchor="middle" fill="#444" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7">本文</text>
+    <text x="63" y="68" text-anchor="middle" fill="#666" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="6.5">#1A1A1A</text>
+    <rect x="84" y="26" width="26" height="26" rx="3" fill="#FFFFFF" stroke="#CCC" stroke-width="1"/>
+    <text x="97" y="60" text-anchor="middle" fill="#444" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7">背景</text>
+    <text x="97" y="68" text-anchor="middle" fill="#666" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="6.5">#FFFFFF</text>
+    <!-- mini page preview -->
+    <rect x="122" y="24" width="122" height="72" rx="2" fill="#fff" stroke="#CCC" stroke-width="1"/>
+    <rect x="130" y="30" width="78" height="8" rx="1" fill="#1A3C6E"/>
+    <text x="169" y="37" text-anchor="middle" fill="#fff" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="6" font-weight="bold">見出し（ゴシック）</text>
+    <line x1="130" y1="44" x2="238" y2="44" stroke="#CCC" stroke-width="0.9"/>
+    <line x1="130" y1="51" x2="238" y2="51" stroke="#CCC" stroke-width="0.9"/>
+    <rect x="130" y="58" width="55" height="6" rx="1" fill="#2D6A9F" opacity="0.7"/>
+    <text x="157" y="63" text-anchor="middle" fill="#fff" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="5.5">小見出し</text>
+    <line x1="130" y1="70" x2="238" y2="70" stroke="#CCC" stroke-width="0.9"/>
+    <line x1="130" y1="77" x2="220" y2="77" stroke="#CCC" stroke-width="0.9"/>
+    <line x1="130" y1="84" x2="230" y2="84" stroke="#CCC" stroke-width="0.9"/>
+    <!-- footer -->
+    <rect x="14" y="80" width="230" height="18" rx="2" fill="#D7EDD8"/>
+    <text x="129" y="91" text-anchor="middle" fill="#2E7D32" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8" font-weight="bold">落ち着いた色調 → 見やすく 信頼感◎</text>
+
+    <!-- ===== NG panel ===== -->
+    <rect x="268" y="4" width="248" height="104" rx="3" fill="#FFF3F3" stroke="#B71C1C" stroke-width="1.5"/>
+    <text x="392" y="18" text-anchor="middle" fill="#B71C1C" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8.5" font-weight="bold">✕ 色が多すぎる（NG）</text>
+    <!-- 5 colorful swatches -->
+    <rect x="278" y="26" width="22" height="22" rx="2" fill="#E53935"/>
+    <rect x="306" y="26" width="22" height="22" rx="2" fill="#FB8C00"/>
+    <rect x="334" y="26" width="22" height="22" rx="2" fill="#FDD835"/>
+    <rect x="362" y="26" width="22" height="22" rx="2" fill="#43A047"/>
+    <rect x="390" y="26" width="22" height="22" rx="2" fill="#7B1FA2"/>
+    <text x="289" y="58" text-anchor="middle" fill="#888" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="6.5">赤</text>
+    <text x="317" y="58" text-anchor="middle" fill="#888" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="6.5">橙</text>
+    <text x="345" y="58" text-anchor="middle" fill="#888" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="6.5">黄</text>
+    <text x="373" y="58" text-anchor="middle" fill="#888" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="6.5">緑</text>
+    <text x="401" y="58" text-anchor="middle" fill="#888" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="6.5">紫</text>
+    <!-- mini page with chaotic colors -->
+    <rect x="420" y="24" width="88" height="50" rx="2" fill="#fff" stroke="#CCC" stroke-width="1"/>
+    <rect x="426" y="29" width="70" height="7" rx="1" fill="#E53935"/>
+    <line x1="426" y1="41" x2="502" y2="41" stroke="#FDD835" stroke-width="1.8"/>
+    <line x1="426" y1="47" x2="502" y2="47" stroke="#CCC" stroke-width="0.8"/>
+    <rect x="426" y="53" width="42" height="6" rx="1" fill="#FB8C00"/>
+    <line x1="426" y1="63" x2="502" y2="63" stroke="#43A047" stroke-width="0.9"/>
+    <line x1="426" y1="69" x2="488" y2="69" stroke="#CCC" stroke-width="0.8"/>
+    <!-- warning label -->
+    <rect x="278" y="62" width="130" height="14" rx="2" fill="#FFCDD2"/>
+    <text x="343" y="71" text-anchor="middle" fill="#B71C1C" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7.5" font-weight="bold">どこが重要か分からなくなる</text>
+    <!-- footer -->
+    <rect x="278" y="80" width="230" height="18" rx="2" fill="#FFCDD2"/>
+    <text x="393" y="91" text-anchor="middle" fill="#B71C1C" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8" font-weight="bold">5色以上 → 散漫な印象・重要箇所が伝わらない×</text>
+  </svg>
+
+  <ul class="bul">
+    <li>使用する色は原則<strong>3色以内</strong>（メインカラー1色＋アクセント1色＋モノクロ）に抑えます。</li>
+    <li>見出しや重要キーワードに統一したアクセントカラー（1色）を使います。</li>
+    <li>赤・オレンジ・黄色を多用すると読みにくくなります。<strong>落ち着いた色調</strong>（紺・深緑・グレー）を選びましょう。</li>
+    <li>白黒印刷でも情報が正確に伝わるデザインを意識します。</li>
+  </ul>
+
+  <h2 class="sec">2-4　情報の階層化</h2>
+  <p>情報を「大→中→小」の階層で整理することで、読み手は資料の構造を即座に把握できます。この原則はすべての種類の任意書類に共通して適用されます。</p>
+
+  <!-- SVG: 階層化ビジュアル -->
+  <svg viewBox="0 0 520 115" style="width:100%;margin:8px 0 12px;display:block;" aria-label="情報の階層化">
+    <!-- Level 1: 大見出し -->
+    <rect x="4" y="6" width="512" height="28" rx="3" fill="#1A3C6E"/>
+    <text x="24" y="24" fill="#fff" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="12" font-weight="bold">第3章　アンケート・調査レポートの作り方</text>
+    <text x="490" y="24" text-anchor="end" fill="rgba(255,255,255,0.65)" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8">大見出し 14pt・太字・白抜き</text>
+    <!-- Level 2: 中見出し -->
+    <rect x="18" y="42" width="480" height="22" rx="2" fill="none" stroke="#1A3C6E" stroke-width="1.5"/>
+    <rect x="18" y="42" width="4" height="22" fill="#1A3C6E"/>
+    <text x="32" y="57" fill="#1A3C6E" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="10.5" font-weight="bold">3-1　調査の背景と目的</text>
+    <text x="490" y="57" text-anchor="end" fill="#666" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8">中見出し 12pt・太字</text>
+    <!-- Level 3: 小見出し -->
+    <text x="36" y="80" fill="#2D6A9F" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="10" font-weight="bold">▶ 3-1-1　問いを立てた経緯</text>
+    <text x="490" y="80" text-anchor="end" fill="#666" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8">小見出し 11pt・太字</text>
+    <!-- Level 4: 本文 -->
+    <line x1="50" y1="94" x2="490" y2="94" stroke="#CCC" stroke-width="0.8"/>
+    <text x="52" y="107" fill="#444" font-family="'Hiragino Mincho ProN','Yu Mincho',serif" font-size="9.5">本文テキスト（10.5pt）が続きます。階層が明確だと読み手は「今どこを読んでいるか」を常に把握できます。</text>
+  </svg>
+
+  <ul class="bul">
+    <li>データや比較情報は<strong>表やグラフ</strong>で示すと伝わりやすくなります。</li>
+    <li>グラフは内容に合った種類を選びます：割合→<strong>円グラフ</strong>、比較→<strong>棒グラフ</strong>、推移→<strong>折れ線グラフ</strong></li>
+    <li>列挙できる情報は箇条書きに、説明・考察が必要な箇所は文章で丁寧に書きましょう。</li>
+    <li>すべての図表にタイトルと出典（必要な場合）を付記します。</li>
+  </ul>
+
+  <div class="ex-box">
+    <span class="ex-label">【グラフ選択の例】「1日のスマホ利用時間」を調べた場合</span>
+    → 利用時間の<strong>割合</strong>を示したい　▶ <span class="ok">円グラフ</span>または積み上げ棒グラフ<br>
+    → <strong>学年別</strong>に平均時間を比べたい　▶ <span class="ok">棒グラフ</span>（カテゴリ間の比較）<br>
+    → 3ヶ月で利用時間が<strong>どう変化したか</strong>　▶ <span class="ok">折れ線グラフ</span>（時系列の推移）
+  </div>
+
+  <div class="foot">
+    <span>任意書類作成ガイド｜ARK COLLEGE</span>
+    <span>第2章　資料作成の基本原則（デザイン編）</span>
+  </div>
+</div>
+
+<!-- ===== P5: 第3章 調査レポート（前半） ===== -->
+<div class="page" id="p5">
+  <div class="pg-header">
+    <span class="pg-header-title sans">任意書類作成ガイド</span>
+    <span class="pg-num sans">5</span>
+  </div>
+
+  <h1 class="ch">第3章　アンケート・調査レポートの作り方</h1>
+
+  <h2 class="sec">3-1　この書類が果たす役割</h2>
+  <p>アンケートや調査レポートは、受験生が特定の社会課題・テーマに対して自ら調査を行い、その結果と考察をまとめた資料です。この書類を提出することで以下の3点をアピールできます。</p>
+
+  <div class="three-col" style="margin:10px 0 14px;">
+    <div class="card"><div class="card-t">問題意識の具体性</div><div class="card-b">漠然とした関心ではなく、明確な問いを立てて取り組んでいること。</div></div>
+    <div class="card"><div class="card-t">調査・情報収集能力</div><div class="card-b">アンケートの設計・配布・集計を自ら行う行動力。</div></div>
+    <div class="card"><div class="card-t">分析・思考力</div><div class="card-b">データや意見から意味を読み取り、自分の考えを導く能力。</div></div>
+  </div>
+
+  <h2 class="sec">3-2　推奨構成（6ステップ）</h2>
+
+  <!-- SVG: 調査レポート構成フロー -->
+  <svg viewBox="0 0 520 72" style="width:100%;margin:8px 0 12px;display:block;" aria-label="調査レポートの推奨構成">
+    <defs>
+      <marker id="farr" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+        <polygon points="0 0, 7 3.5, 0 7" fill="#2D6A9F"/>
+      </marker>
+    </defs>
+    <!-- steps -->
+    <rect x="4" y="18" width="72" height="36" rx="3" fill="#1A3C6E"/>
+    <text x="40" y="33" text-anchor="middle" fill="#fff" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8" font-weight="bold">① 表紙</text>
+    <text x="40" y="46" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7">タイトル・概要</text>
+    <line x1="76" y1="36" x2="86" y2="36" stroke="#2D6A9F" stroke-width="1.5" marker-end="url(#farr)"/>
+
+    <rect x="88" y="18" width="72" height="36" rx="3" fill="#2D6A9F"/>
+    <text x="124" y="33" text-anchor="middle" fill="#fff" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8" font-weight="bold">② 背景・目的</text>
+    <text x="124" y="46" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7">問いを明文化</text>
+    <line x1="160" y1="36" x2="170" y2="36" stroke="#2D6A9F" stroke-width="1.5" marker-end="url(#farr)"/>
+
+    <rect x="172" y="18" width="72" height="36" rx="3" fill="#2D6A9F"/>
+    <text x="208" y="33" text-anchor="middle" fill="#fff" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8" font-weight="bold">③ 調査方法</text>
+    <text x="208" y="46" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7">対象・期間・手法</text>
+    <line x1="244" y1="36" x2="254" y2="36" stroke="#2D6A9F" stroke-width="1.5" marker-end="url(#farr)"/>
+
+    <rect x="256" y="18" width="72" height="36" rx="3" fill="#5B9BD5"/>
+    <text x="292" y="33" text-anchor="middle" fill="#fff" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8" font-weight="bold">④ 調査結果</text>
+    <text x="292" y="46" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7">グラフ・表・数値</text>
+    <line x1="328" y1="36" x2="338" y2="36" stroke="#2D6A9F" stroke-width="1.5" marker-end="url(#farr)"/>
+
+    <rect x="340" y="18" width="72" height="36" rx="3" fill="#5B9BD5"/>
+    <text x="376" y="33" text-anchor="middle" fill="#fff" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8" font-weight="bold">⑤ 考察・分析</text>
+    <text x="376" y="46" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7">論拠に基づく解釈</text>
+    <line x1="412" y1="36" x2="422" y2="36" stroke="#2D6A9F" stroke-width="1.5" marker-end="url(#farr)"/>
+
+    <rect x="424" y="18" width="90" height="36" rx="3" fill="#EEF3FA" stroke="#1A3C6E" stroke-width="1.5"/>
+    <text x="469" y="33" text-anchor="middle" fill="#1A3C6E" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8" font-weight="bold">⑥ 結論・課題</text>
+    <text x="469" y="46" text-anchor="middle" fill="#2D6A9F" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7">志望理由書との接続</text>
+  </svg>
+
+  <h3 class="sub">① 表紙</h3>
+  <div class="ex-box">
+    <span class="ex-label">【タイトルの例】</span>
+    <span class="ok">◎ 良い例</span>：「高校生のスマートフォン利用時間と学習集中度に関するアンケート調査（実施期間：2024年9月／対象：○○高校2年生82名）」<br><br>
+    <span class="ng">✕ 悪い例</span>：「スマホについてのアンケート」<br>
+    　（何を・誰に・いつ調査したかが不明で、信頼性に欠けます）
+  </div>
+
+  <h3 class="sub">② 調査の背景・目的</h3>
+  <div class="ex-box">
+    <span class="ex-label">【リサーチクエスチョンの例】</span>
+    <span class="ok">◎ 明確な問い</span>：「スマートフォンの1日あたり利用時間が長い生徒ほど、自己評価による学習集中度が低い傾向があるか」<br><br>
+    <span class="ng">✕ 曖昧な問い</span>：「スマホが勉強に与える影響について調べる」<br>
+    　（「影響」が何を指すか不明で、結論を導けません）
+  </div>
+
+  <h3 class="sub">③ 調査方法</h3>
+  <div class="ex-box">
+    <span class="ex-label">【調査方法の記述例】</span>
+    対象：○○高校2年生82名（男性41名・女性41名）<br>
+    実施期間：2024年9月10日〜9月14日（5日間）<br>
+    実施方法：Googleフォームによるオンラインアンケート（匿名）<br>
+    回収率：98.8%（81名が回答）<br>
+    質問項目（抜粋）：Q1. 1日のスマートフォン利用時間はどのくらいですか？　Q2. 勉強中に集中できていると感じますか？（5段階評価）
+  </div>
+
+  <h3 class="sub">④ 調査結果 — グラフと数値で示す</h3>
+  <p>集計結果をグラフや表で可視化します。数値は割合（%）と実数の両方を示します。<strong>このセクションは客観的な事実のみを記述し、考察は次のセクションに分けます。</strong></p>
+
+  <div class="foot">
+    <span>任意書類作成ガイド｜ARK COLLEGE</span>
+    <span>第3章　アンケート・調査レポートの作り方</span>
+  </div>
+</div>
+
+<!-- ===== P6: 第3章（後半） ===== -->
+<div class="page" id="p6">
+  <div class="pg-header">
+    <span class="pg-header-title sans">任意書類作成ガイド</span>
+    <span class="pg-num sans">6</span>
+  </div>
+
+  <h3 class="sub" style="margin-top:0">⑤ 考察・分析</h3>
+  <div class="ex-box">
+    <span class="ex-label">【考察の書き方　NG → OK】</span>
+    <span class="ng">✕ NG例</span>：「やっぱりスマホを長く使うと勉強に悪影響だと分かりました。思っていた通りの結果でよかったです。」<br>
+    　→ 主観・感想であり、<strong>分析になっていません。</strong><br><br>
+    <span class="ok">◎ OK例</span>：「1日3時間以上スマートフォンを利用する群では、学習集中度を「低い」「やや低い」と評価した割合が合計61%に達した。一方、1時間未満の群では同割合が17%にとどまっており、利用時間と集中度の間に負の相関が示された。<br>
+    ただし、本調査は相関を示すものであり、因果関係を証明するものではない。利用目的（学習・SNS・動画視聴など）による差異については、今後さらに詳細な調査が必要である。」
+  </div>
+
+  <h3 class="sub">⑥ 結論・今後の課題</h3>
+  <ul class="bul">
+    <li>調査全体を通じて得られた知見をまとめます。</li>
+    <li>この調査が自分の探究活動や志望理由書の内容とどう結びつくかを必ず述べます。</li>
+    <li>調査の限界（サンプル数が少ない等）も正直に記述することで、<strong>誠実さと思考の深さ</strong>が伝わります。</li>
+  </ul>
+
+  <h2 class="sec">3-3　デザインと記述の注意点</h2>
+  <ul class="bul">
+    <li>グラフの種類を適切に選びます（割合→円グラフ、比較→棒グラフ）。</li>
+    <li>すべてのグラフにタイトルと単位を付記します。グラフの色は統一感を持たせます。</li>
+    <li>全体で<strong>5〜8ページ程度</strong>にまとめます（審査員が短時間で読める分量です）。</li>
+  </ul>
+
+  <h2 class="sec">3-4　よくある失敗と対策</h2>
+  <table>
+    <tr><th>よくある失敗</th><th>対策</th></tr>
+    <tr><td>結果を列挙するだけで考察がない</td><td>「この結果が示すことは何か」を必ず考察セクションで述べる</td></tr>
+    <tr><td>サンプル数が極端に少ない（5人以下など）</td><td>限界を正直に認めた上で、可能な範囲でサンプルを増やす</td></tr>
+    <tr><td>グラフの軸ラベル・単位がない</td><td>作成後に必ずチェック（単位のないデータは根拠として弱い）</td></tr>
+    <tr><td>テーマと志望理由書の内容に関連がない</td><td>提出書類全体で一貫したテーマを持たせる</td></tr>
+    <tr><td>背景・目的のセクションが1〜2行で終わっている</td><td>リサーチクエスチョンを明確に立て、丁寧に説明する</td></tr>
+  </table>
+
+  <h2 class="sec">3-5　完成した調査レポートのイメージ</h2>
+
+  <!-- SVG: 調査レポートのページイメージ -->
+  <svg viewBox="0 0 520 95" style="width:100%;margin:8px 0 0;display:block;" aria-label="調査レポートのページイメージ">
+    <!-- Page 1: Cover -->
+    <rect x="4" y="4" width="96" height="87" rx="3" fill="#fff" stroke="#CBD5E1" stroke-width="1.5"/>
+    <rect x="4" y="4" width="96" height="22" rx="3" fill="#1A3C6E"/>
+    <rect x="4" y="22" width="96" height="4" fill="#1A3C6E"/>
+    <text x="52" y="17" text-anchor="middle" fill="#fff" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7" font-weight="bold">地域高齢者の調査レポート</text>
+    <line x1="12" y1="36" x2="90" y2="36" stroke="#DDD" stroke-width="0.8"/>
+    <line x1="12" y1="42" x2="85" y2="42" stroke="#DDD" stroke-width="0.8"/>
+    <line x1="12" y1="48" x2="75" y2="48" stroke="#DDD" stroke-width="0.8"/>
+    <text x="52" y="80" text-anchor="middle" fill="#666" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7">① 表紙</text>
+    <!-- Page 2: Background -->
+    <rect x="110" y="4" width="96" height="87" rx="3" fill="#fff" stroke="#CBD5E1" stroke-width="1.5"/>
+    <rect x="114" y="10" width="60" height="7" rx="1" fill="#1A3C6E" opacity="0.8"/>
+    <line x1="114" y1="22" x2="198" y2="22" stroke="#DDD" stroke-width="0.8"/>
+    <line x1="114" y1="28" x2="198" y2="28" stroke="#DDD" stroke-width="0.8"/>
+    <line x1="114" y1="34" x2="192" y2="34" stroke="#DDD" stroke-width="0.8"/>
+    <rect x="114" y="42" width="45" height="6" rx="1" fill="#2D6A9F" opacity="0.7"/>
+    <line x1="114" y1="52" x2="198" y2="52" stroke="#DDD" stroke-width="0.8"/>
+    <line x1="114" y1="58" x2="190" y2="58" stroke="#DDD" stroke-width="0.8"/>
+    <text x="158" y="80" text-anchor="middle" fill="#666" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7">② 背景・目的</text>
+    <!-- Page 3: Results with chart -->
+    <rect x="216" y="4" width="96" height="87" rx="3" fill="#fff" stroke="#CBD5E1" stroke-width="1.5"/>
+    <rect x="220" y="10" width="55" height="7" rx="1" fill="#1A3C6E" opacity="0.8"/>
+    <!-- mock pie chart -->
+    <circle cx="248" cy="45" r="22" fill="none" stroke="#DDD" stroke-width="0.5"/>
+    <path d="M248 45 L248 23 A22 22 0 1 1 226 31 Z" fill="#1A3C6E"/>
+    <path d="M248 45 L226 31 A22 22 0 0 1 248 23 Z" fill="#A8C7E8"/>
+    <text x="248" y="78" text-anchor="middle" fill="#666" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7">④ 調査結果</text>
+    <!-- Page 4: Analysis -->
+    <rect x="322" y="4" width="96" height="87" rx="3" fill="#fff" stroke="#CBD5E1" stroke-width="1.5"/>
+    <rect x="326" y="10" width="55" height="7" rx="1" fill="#2D6A9F" opacity="0.8"/>
+    <line x1="326" y1="22" x2="410" y2="22" stroke="#DDD" stroke-width="0.8"/>
+    <line x1="326" y1="28" x2="410" y2="28" stroke="#DDD" stroke-width="0.8"/>
+    <line x1="326" y1="34" x2="405" y2="34" stroke="#DDD" stroke-width="0.8"/>
+    <line x1="326" y1="40" x2="408" y2="40" stroke="#DDD" stroke-width="0.8"/>
+    <line x1="326" y1="46" x2="410" y2="46" stroke="#DDD" stroke-width="0.8"/>
+    <rect x="326" y="55" width="80" height="18" rx="2" fill="#EEF3FA" stroke="#B0C4D8" stroke-width="0.8"/>
+    <text x="366" y="67" text-anchor="middle" fill="#1A3C6E" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7">考察・まとめ</text>
+    <text x="370" y="80" text-anchor="middle" fill="#666" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7">⑤⑥ 考察・結論</text>
+    <!-- arrow labels -->
+    <text x="106" y="50" fill="#2D6A9F" font-family="sans-serif" font-size="12">›</text>
+    <text x="212" y="50" fill="#2D6A9F" font-family="sans-serif" font-size="12">›</text>
+    <text x="318" y="50" fill="#2D6A9F" font-family="sans-serif" font-size="12">›</text>
+    <!-- p5-6 hint -->
+    <rect x="422" y="4" width="94" height="87" rx="3" fill="#EEF3FA" stroke="#1A3C6E" stroke-width="1.5" stroke-dasharray="4,2"/>
+    <text x="469" y="44" text-anchor="middle" fill="#1A3C6E" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8">＋ 1〜2ページ</text>
+    <text x="469" y="56" text-anchor="middle" fill="#666" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7">（調査結果が多い場合）</text>
+    <text x="469" y="80" text-anchor="middle" fill="#666" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7">計 5〜8ページ</text>
+  </svg>
+
+  <div class="foot">
+    <span>任意書類作成ガイド｜ARK COLLEGE</span>
+    <span>第3章　アンケート・調査レポートの作り方</span>
+  </div>
+</div>
+
+<!-- ===== P7: 第4章 インタビュー（前半） ===== -->
+<div class="page" id="p7">
+  <div class="pg-header">
+    <span class="pg-header-title sans">任意書類作成ガイド</span>
+    <span class="pg-num sans">7</span>
+  </div>
+
+  <h1 class="ch">第4章　インタビュー書き起こしの作り方</h1>
+
+  <h2 class="sec">4-1　この書類が果たす役割</h2>
+  <p>インタビュー書き起こしとは、受験生が専門家・当事者・関係者などに対して行ったインタビューの内容を整理・編集した資料です。この書類を提出することで以下の3点をアピールできます。</p>
+
+  <div class="three-col" style="margin:10px 0 14px;">
+    <div class="card"><div class="card-t">一次情報の収集力</div><div class="card-b">ウェブや文献に頼らず、自ら専門家に働きかける行動力。</div></div>
+    <div class="card"><div class="card-t">質問設計能力</div><div class="card-b">目的に合った質問を設計し、深い情報を引き出す力。</div></div>
+    <div class="card"><div class="card-t">編集・要約力</div><div class="card-b">インタビュー内容を論理的に整理し、読みやすくまとめる能力。</div></div>
+  </div>
+
+  <h2 class="sec">4-2　推奨構成</h2>
+
+  <h3 class="sub">① 表紙</h3>
+  <ul class="bul">
+    <li>タイトル（例：「食品ロス削減に取り組む〇〇氏へのインタビュー」）</li>
+    <li>実施日・場所・インタビュイーのプロフィール（氏名・所属・肩書き）</li>
+    <li>インタビューの目的（1〜2文）</li>
+  </ul>
+
+  <h3 class="sub">② インタビューの背景・目的</h3>
+  <div class="ex-box">
+    <span class="ex-label">【背景・目的の記述例】</span>
+    私は食品ロス問題をテーマに探究活動を行ってきました。ウェブや書籍では「食品ロスの現状と課題」は把握できましたが、「実際に企業が取り組む際の障壁は何か」については情報が少なく、それを把握するために現場で活動されている○○氏にインタビューをお願いしました。<br><br>
+    特に「消費者行動と企業施策の間にある乖離」について深く伺うことを目的としました。
+  </div>
+
+  <h3 class="sub">③ 質問項目一覧</h3>
+  <div class="ex-box">
+    <span class="ex-label">【質問項目の例（5〜10問程度を列挙）】</span>
+    Q1. 現在、食品ロス削減のためにどのような取り組みをされていますか？<br>
+    Q2. 取り組みを始めた経緯やきっかけを教えてください。<br>
+    Q3. 実際に現場で感じる最大の課題は何でしょうか？<br>
+    Q4. 消費者と企業の間にある認識のギャップについてどのようにお考えですか？<br>
+    Q5. 高校生や若い世代に対して、期待することや伝えたいことはありますか？
+  </div>
+
+  <h3 class="sub">④ インタビュー内容の形式（2種類から選択）</h3>
+
+  <!-- SVG: Q&A形式 vs 要約形式 -->
+  <svg viewBox="0 0 520 70" style="width:100%;margin:8px 0 10px;display:block;" aria-label="インタビュー形式の比較">
+    <!-- Q&A format -->
+    <rect x="4" y="4" width="248" height="62" rx="3" fill="#EEF3FA" stroke="#1A3C6E" stroke-width="1.5"/>
+    <text x="128" y="19" text-anchor="middle" fill="#1A3C6E" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="9" font-weight="bold">Q&amp;A形式</text>
+    <rect x="14" y="25" width="14" height="14" rx="2" fill="#1A3C6E"/>
+    <text x="21" y="35" text-anchor="middle" fill="#fff" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8" font-weight="bold">Q</text>
+    <line x1="34" y1="32" x2="240" y2="32" stroke="#B0C4D8" stroke-width="0.8"/>
+    <rect x="14" y="44" width="14" height="14" rx="2" fill="#E8ECF0"/>
+    <text x="21" y="54" text-anchor="middle" fill="#444" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8" font-weight="bold">A</text>
+    <line x1="34" y1="51" x2="240" y2="51" stroke="#DDD" stroke-width="0.8"/>
+    <line x1="34" y1="58" x2="200" y2="58" stroke="#DDD" stroke-width="0.8"/>
+    <text x="252" y="38" text-anchor="middle" fill="#555" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7.5">向いている場面：</text>
+    <text x="252" y="50" text-anchor="middle" fill="#555" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7.5">短い質問・明確な回答</text>
+    <!-- summary format -->
+    <rect x="268" y="4" width="248" height="62" rx="3" fill="#EEF6EE" stroke="#2E7D32" stroke-width="1.5"/>
+    <text x="392" y="19" text-anchor="middle" fill="#2E7D32" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="9" font-weight="bold">要約形式（テーマ別）</text>
+    <rect x="278" y="25" width="70" height="8" rx="1" fill="#2E7D32"/>
+    <text x="313" y="32" text-anchor="middle" fill="#fff" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7" font-weight="bold">■ テーマ①：概要と経緯</text>
+    <line x1="278" y1="38" x2="500" y2="38" stroke="#B8D4BC" stroke-width="0.8"/>
+    <line x1="278" y1="44" x2="490" y2="44" stroke="#B8D4BC" stroke-width="0.8"/>
+    <rect x="278" y="50" width="70" height="8" rx="1" fill="#2E7D32" opacity="0.7"/>
+    <text x="313" y="57" text-anchor="middle" fill="#fff" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7" font-weight="bold">■ テーマ②：課題</text>
+    <text x="516" y="38" text-anchor="end" fill="#555" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7.5">長時間・複雑な</text>
+    <text x="516" y="50" text-anchor="end" fill="#555" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7.5">内容に向いている</text>
+  </svg>
+
+  <div class="ex-box">
+    <span class="ex-label">【Q&A形式の記述例】</span>
+    <strong style="color:#1A3C6E">Q：</strong>食品ロス削減に取り組み始めたきっかけを教えてください。<br><br>
+    <strong style="color:#444">A：</strong>「10年前にスーパーの食品廃棄の現場を見て、毎日これだけの量が捨てられているのかと衝撃を受けたんです。数字では知っていたのですが、実際に目にすると全く違いました。その日から、何かできることをしなければという気持ちが強くなりました。」<br><br>
+    <span style="color:#666;font-size:9pt;">※ 自分の意見・解釈は【考察】セクションに分けて記載します。この欄はインタビュイーの発言のみを記述します。</span>
+  </div>
+
+  <div class="foot">
+    <span>任意書類作成ガイド｜ARK COLLEGE</span>
+    <span>第4章　インタビュー書き起こしの作り方</span>
+  </div>
+</div>
+
+<!-- ===== P8: 第4章（後半） ===== -->
+<div class="page" id="p8">
+  <div class="pg-header">
+    <span class="pg-header-title sans">任意書類作成ガイド</span>
+    <span class="pg-num sans">8</span>
+  </div>
+
+  <h3 class="sub" style="margin-top:0">⑤ 考察・気づき</h3>
+  <div class="ex-box">
+    <span class="ex-label">【考察の記述例】</span>
+    今回のインタビューを通じて、食品ロス問題の解決において「数値目標の達成」よりも「消費者の行動変容」が本質的な課題であることを改めて認識しました。<br><br>
+    特に○○氏の「〜」という発言は、自分がこれまで持っていた「〜」という仮説に再考を促すものでした。今後の探究では〜という視点を加えて調査を深めていく予定です。
+  </div>
+
+  <div class="hl-row">
+    <strong>重要：</strong>いずれの形式でも、インタビュイーの発言と自分の考察は<strong>明確に区別</strong>して記述してください。書き起こしは「全文掲載」ではなく、要点を整理した「編集版」にします。
+  </div>
+
+  <h2 class="sec">4-3　デザインと記述の注意点</h2>
+  <ul class="bul">
+    <li>Q&A形式では「Q」「A」を色や太字で区別し、視覚的に読みやすくします。</li>
+    <li>インタビュイーのプロフィールや写真（許可がある場合）を掲載すると信頼性が高まります。</li>
+    <li>テキストが多くなりがちなため、<strong>見出しや区切り線</strong>を活用して読みやすさを確保します。</li>
+    <li>掲載にあたっては必ずインタビュイーの<strong>同意を得て</strong>ください。</li>
+  </ul>
+
+  <h2 class="sec">4-4　よくある失敗と対策</h2>
+  <table>
+    <tr><th>よくある失敗</th><th>対策</th></tr>
+    <tr><td>書き起こしがほぼ全文で長すぎる</td><td>要点を絞り、5〜8ページ以内にまとめる</td></tr>
+    <tr><td>自分の意見とインタビュイーの発言が混在している</td><td>セクションを明確に分け、発言は引用符を使う</td></tr>
+    <tr><td>インタビューの目的が不明確</td><td>「なぜこの人に聞いたか」を冒頭で必ず明記する</td></tr>
+    <tr><td>探究テーマとの関連が見えない</td><td>考察セクションで自分のテーマへの接続を必ず書く</td></tr>
+    <tr><td>インタビュイーの肩書きや背景が説明されていない</td><td>表紙または冒頭にプロフィールを記載する</td></tr>
+  </table>
+
+  <h2 class="sec">4-5　インタビュー依頼のポイント</h2>
+
+  <!-- SVG: インタビュー依頼フロー -->
+  <svg viewBox="0 0 520 62" style="width:100%;margin:8px 0 10px;display:block;" aria-label="インタビュー依頼の流れ">
+    <defs>
+      <marker id="iarr" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+        <polygon points="0 0, 7 3.5, 0 7" fill="#5B9BD5"/>
+      </marker>
+    </defs>
+    <rect x="4" y="10" width="88" height="40" rx="3" fill="#EEF3FA" stroke="#1A3C6E" stroke-width="1.3"/>
+    <text x="48" y="27" text-anchor="middle" fill="#1A3C6E" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8.5" font-weight="bold">① 対象者を探す</text>
+    <text x="48" y="42" text-anchor="middle" fill="#555" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7.5">NPO・企業・大学など</text>
+    <line x1="92" y1="30" x2="104" y2="30" stroke="#5B9BD5" stroke-width="1.5" marker-end="url(#iarr)"/>
+
+    <rect x="106" y="10" width="88" height="40" rx="3" fill="#EEF3FA" stroke="#1A3C6E" stroke-width="1.3"/>
+    <text x="150" y="27" text-anchor="middle" fill="#1A3C6E" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8.5" font-weight="bold">② 依頼文を送る</text>
+    <text x="150" y="42" text-anchor="middle" fill="#555" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7.5">目的・用途を明記</text>
+    <line x1="194" y1="30" x2="206" y2="30" stroke="#5B9BD5" stroke-width="1.5" marker-end="url(#iarr)"/>
+
+    <rect x="208" y="10" width="88" height="40" rx="3" fill="#EEF3FA" stroke="#1A3C6E" stroke-width="1.3"/>
+    <text x="252" y="27" text-anchor="middle" fill="#1A3C6E" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8.5" font-weight="bold">③ 質問を準備</text>
+    <text x="252" y="42" text-anchor="middle" fill="#555" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7.5">5〜10問・目的別に</text>
+    <line x1="296" y1="30" x2="308" y2="30" stroke="#5B9BD5" stroke-width="1.5" marker-end="url(#iarr)"/>
+
+    <rect x="310" y="10" width="88" height="40" rx="3" fill="#EEF3FA" stroke="#1A3C6E" stroke-width="1.3"/>
+    <text x="354" y="27" text-anchor="middle" fill="#1A3C6E" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8.5" font-weight="bold">④ インタビュー</text>
+    <text x="354" y="42" text-anchor="middle" fill="#555" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7.5">録音・メモ（許可を取る）</text>
+    <line x1="398" y1="30" x2="410" y2="30" stroke="#5B9BD5" stroke-width="1.5" marker-end="url(#iarr)"/>
+
+    <rect x="412" y="10" width="104" height="40" rx="3" fill="#1A3C6E"/>
+    <text x="464" y="27" text-anchor="middle" fill="#fff" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8.5" font-weight="bold">⑤ 書き起こし</text>
+    <text x="464" y="42" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7.5">要点整理・考察を添える</text>
+  </svg>
+
+  <ul class="bul">
+    <li>依頼文には「受験生が教育目的で使用すること」「氏名・所属を掲載すること」を明記します。</li>
+    <li>インタビューは対面・オンライン・メールのいずれでも可能です。相手の都合に合わせましょう。</li>
+    <li>録音する場合は必ず事前に許可を得ます。許可が取れない場合はメモを丁寧にとります。</li>
+  </ul>
+
+  <div class="foot">
+    <span>任意書類作成ガイド｜ARK COLLEGE</span>
+    <span>第4章　インタビュー書き起こしの作り方</span>
+  </div>
+</div>
+
+<!-- ===== P9: 第5章 ポートフォリオ ===== -->
+<div class="page" id="p9">
+  <div class="pg-header">
+    <span class="pg-header-title sans">任意書類作成ガイド</span>
+    <span class="pg-num sans">9</span>
+  </div>
+
+  <h1 class="ch">第5章　ポートフォリオ（活動実績集）の作り方</h1>
+
+  <h2 class="sec">5-1　この書類が果たす役割</h2>
+  <p>ポートフォリオとは、高校生活を通じて取り組んできた活動・実績・作品などを体系的にまとめた資料です。「自分という人間を伝えるための名刺」と捉えるとわかりやすいでしょう。</p>
+
+  <div class="three-col" style="margin:10px 0 14px;">
+    <div class="card"><div class="card-t">活動の幅と深さ</div><div class="card-b">高校3年間でどのような経験を積んできたか。</div></div>
+    <div class="card"><div class="card-t">成長の軌跡</div><div class="card-b">時間軸に沿って自分がどのように変化・成長してきたか。</div></div>
+    <div class="card"><div class="card-t">テーマの一貫性</div><div class="card-b">活動全体を貫くテーマや問題意識があるかどうか。</div></div>
+  </div>
+
+  <h2 class="sec">5-2　活動記録の書き方（What / Why / How / Result）</h2>
+  <p>各活動について必ず以下の<strong>4要素</strong>を記述します。この構成は「読み手が知りたいことを漏れなく伝える」ための基本フレームです。</p>
+
+  <!-- SVG: What/Why/How/Result 4象限 -->
+  <svg viewBox="0 0 520 120" style="width:100%;margin:8px 0 12px;display:block;" aria-label="What Why How Result の4象限">
+    <!-- grid lines -->
+    <rect x="4" y="4" width="512" height="112" rx="3" fill="none" stroke="#CBD5E1" stroke-width="1"/>
+    <line x1="260" y1="4" x2="260" y2="116" stroke="#CBD5E1" stroke-width="1"/>
+    <line x1="4" y1="60" x2="516" y2="60" stroke="#CBD5E1" stroke-width="1"/>
+    <!-- What -->
+    <rect x="4" y="4" width="256" height="56" rx="0" fill="#1A3C6E"/>
+    <text x="132" y="28" text-anchor="middle" fill="#fff" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="12" font-weight="bold">What</text>
+    <text x="132" y="43" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8.5">何をしたか</text>
+    <text x="132" y="55" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7.5">活動の概要を客観的に記述</text>
+    <!-- Why -->
+    <rect x="260" y="4" width="256" height="56" rx="0" fill="#2D6A9F"/>
+    <text x="388" y="28" text-anchor="middle" fill="#fff" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="12" font-weight="bold">Why</text>
+    <text x="388" y="43" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8.5">なぜしたか</text>
+    <text x="388" y="55" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7.5">動機・問題意識を説明</text>
+    <!-- How -->
+    <rect x="4" y="60" width="256" height="56" rx="0" fill="#5B9BD5"/>
+    <text x="132" y="84" text-anchor="middle" fill="#fff" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="12" font-weight="bold">How</text>
+    <text x="132" y="99" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8.5">どのように取り組んだか</text>
+    <text x="132" y="111" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7.5">プロセス・工夫・困難と乗り越え方</text>
+    <!-- Result -->
+    <rect x="260" y="60" width="256" height="56" rx="0" fill="#EEF3FA"/>
+    <text x="388" y="84" text-anchor="middle" fill="#1A3C6E" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="12" font-weight="bold">Result &amp; Learning</text>
+    <text x="388" y="99" text-anchor="middle" fill="#2D6A9F" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8.5">結果と学び</text>
+    <text x="388" y="111" text-anchor="middle" fill="#666" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="7.5">成果を定量・定性で示し、得た学びを述べる</text>
+  </svg>
+
+  <div class="ex-box">
+    <span class="ex-label">【活動記録の記述例　NG → OK】</span>
+    <span class="ng">✕ NG</span>：「ボランティア活動をしました。大変でしたが、やりがいを感じました。」<br>
+    　（What/Why/How/Resultが一切不明）<br><br>
+    <span class="ok">◎ OK</span>：<br>
+    【What】2024年8月、地域の農家5軒と協力し、規格外野菜の販売イベントを2日間にわたって開催しました（来場者数：延べ230名）。<br>
+    【Why】地域の農家が規格外品の廃棄に悩んでいると知り、食品ロスと農業の両面から課題を解決できないかと考えたためです。<br>
+    【How】①農家へのヒアリングで出品可能な野菜を把握し、②SNSで告知を行い、③当日は手作りのポップで来場者が手に取りやすい環境を作りました。農家との意見の食い違いが生じた際は、週1回の話し合いを設けることで合意形成を進めました。<br>
+    【Result & Learning】売上の90%を規格外品が占め、農家からは「廃棄量が半分になった」との声をいただきました。課題解決には当事者との継続的な対話が不可欠であることを学びました。
+  </div>
+
+  <h2 class="sec">5-3　デザインの注意点</h2>
+  <ul class="bul">
+    <li>写真を積極的に活用します（活動の様子・成果物・受賞証書など）。写真とテキストのバランスを保ちます。</li>
+    <li>各活動に<strong>統一されたレイアウトテンプレート</strong>を使うことで、読み手は迷わず情報を把握できます。</li>
+    <li>全体のトーン（色・フォント・デザイン）を統一し、一つの作品集として完結した印象を与えます。</li>
+    <li>志望理由書と関連する活動に<strong>多くのページ</strong>を割きます。全活動を同じ分量にする必要はありません。</li>
+    <li>数値で示せる成果は積極的に使います（例：「部員30名のリーダーとして」「200名に配布したアンケートで」）。</li>
+  </ul>
+
+  <div class="foot">
+    <span>任意書類作成ガイド｜ARK COLLEGE</span>
+    <span>第5章　ポートフォリオ（活動実績集）の作り方</span>
+  </div>
+</div>
+
+<!-- ===== P10: 第6章 + チェックリスト ===== -->
+<div class="page" id="p10">
+  <div class="pg-header">
+    <span class="pg-header-title sans">任意書類作成ガイド</span>
+    <span class="pg-num sans">10</span>
+  </div>
+
+  <h1 class="ch">第6章　その他の書類と提出前チェックリスト</h1>
+
+  <div class="two-col" style="margin-bottom:16px;">
+    <div>
+      <h2 class="sec" style="margin-top:0">6-1　活動報告書</h2>
+      <p>特定の一つの活動・プロジェクトに絞って詳細を報告する書類です。ポートフォリオが「幅の広さ」を示すのに対し、活動報告書は「深さ」を示します。</p>
+      <ul class="bul">
+        <li>① 活動概要（タイトル・期間・参加規模）</li>
+        <li>② 取り組みの背景・目的</li>
+        <li>③ 活動の詳細（プロセス・自分の役割・工夫）</li>
+        <li>④ 成果・結果（定量的・定性的の両面）</li>
+        <li>⑤ 反省・課題</li>
+        <li>⑥ この活動から得た学びと大学での展開</li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="sec" style="margin-top:0">6-2　提言書・提案書</h2>
+      <p>受験生が設定した社会課題に対して、具体的な解決策・提言・行動計画を論述する書類です。問題解決能力と将来ビジョンを明確に示したい受験生に適しています。</p>
+      <ul class="bul">
+        <li>① 問題提起（解決する課題の定義）</li>
+        <li>② 現状分析（データ・事例に基づく現状把握）</li>
+        <li>③ 課題の根本原因</li>
+        <li>④ 提言内容（具体的な解決策）</li>
+        <li>⑤ 実現可能性と想定される課題</li>
+        <li>⑥ まとめと自分のビジョン</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="sec">6-3　提出前チェックリスト</h2>
+  <p style="margin-bottom:8px;">以下のすべての項目を確認してから提出しましょう。印刷して紙で確認することを推奨します。</p>
+
+  <div class="two-col">
+    <div>
+      <h3 class="sub">内容の確認</h3>
+      <ul class="check-list">
+        <li>志望理由書と任意書類の内容に一貫性があるか</li>
+        <li>抽象的な表現ではなく、具体的な事実・データが示されているか</li>
+        <li>考察・分析のセクションで自分の意見が明確に述べられているか</li>
+        <li>誤字脱字はないか</li>
+        <li>インタビューや写真の掲載についてインタビュイー・被写体の同意を得ているか</li>
+      </ul>
+
+      <h3 class="sub">デザインの確認</h3>
+      <ul class="check-list">
+        <li>フォントと文字サイズが全ページで統一されているか</li>
+        <li>余白は十分に確保されているか（上下左右20mm以上）</li>
+        <li>使用色は3色以内に収まっているか</li>
+        <li>すべての図表・グラフにタイトルが付いているか</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="sub">形式の確認</h3>
+      <ul class="check-list">
+        <li>大学が指定するページ数・ファイル形式を守っているか</li>
+        <li>ファイル名は指定されたルールに従っているか</li>
+        <li>提出期限に十分な余裕を持って完成しているか</li>
+        <li>PDF変換後に文字化け・レイアウト崩れがないか確認したか</li>
+      </ul>
+
+      <!-- SVG: closing message with book icon -->
+      <svg viewBox="0 0 230 78" style="width:100%;margin-top:12px;display:block;" aria-label="まとめ">
+        <rect x="0" y="0" width="230" height="78" rx="4" fill="#1A3C6E"/>
+        <!-- book icon -->
+        <rect x="12" y="14" width="20" height="26" rx="2" fill="#fff" opacity="0.9"/>
+        <rect x="14" y="17" width="8" height="2" rx="1" fill="#1A3C6E"/>
+        <rect x="14" y="21" width="12" height="2" rx="1" fill="#1A3C6E"/>
+        <rect x="14" y="25" width="10" height="2" rx="1" fill="#1A3C6E"/>
+        <line x1="22" y1="14" x2="22" y2="40" stroke="#1A3C6E" stroke-width="1.5"/>
+        <text x="40" y="22" fill="#fff" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8" font-weight="bold">任意書類は</text>
+        <text x="40" y="33" fill="#fff" font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="8" font-weight="bold">自分の探究を伝える重要な機会です。</text>
+        <text x="12" y="52" fill="rgba(255,255,255,0.8)" font-family="'Hiragino Mincho ProN','Yu Mincho',serif" font-size="7.5">本ガイドを参考に、自分の言葉で、</text>
+        <text x="12" y="63" fill="rgba(255,255,255,0.8)" font-family="'Hiragino Mincho ProN','Yu Mincho',serif" font-size="7.5">自分の実績を誠実に伝える資料を作り上げてください。</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>任意書類作成ガイド｜ARK COLLEGE　© 2025</span>
+    <span>第6章　その他の書類と提出前チェックリスト</span>
+  </div>
+</div>
+
+</body>
+</html>

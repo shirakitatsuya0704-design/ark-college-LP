@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>アンケート調査レポート｜地域高齢者のスマートフォン利用状況調査</title>
+<style>
+:root {
+  --navy: #1A3C6E;
+  --navy-dark: #122B50;
+  --navy-mid: #2D6A9F;
+  --navy-light: #5B9BD5;
+  --navy-pale: #EEF3FA;
+  --navy-bg: #E8F0FE;
+  --text: #1A1A1A;
+  --muted: #666666;
+  --border: #CBD5E1;
+  --box-bg: #F3F6FC;
+  --chart-bg: #E9ECEF;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', 'Noto Serif JP', Georgia, serif;
+  font-size: 10.5pt;
+  line-height: 1.75;
+  color: var(--text);
+  background: #E0E4EC;
+}
+
+.print-guide {
+  width: 210mm;
+  margin: 14px auto;
+  padding: 9px 14px;
+  background: #FFF8E1;
+  border: 1px solid #FFC107;
+  border-radius: 4px;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  font-size: 8.5pt;
+  color: #555;
+}
+
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto 18px;
+  padding: 20mm 22mm 18mm;
+  background: #fff;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.13);
+  position: relative;
+}
+
+@media print {
+  body { background: #fff; }
+  .print-guide { display: none; }
+  .page {
+    width: 100%; min-height: auto; margin: 0; padding: 0;
+    box-shadow: none; page-break-after: always;
+  }
+  .page:last-of-type { page-break-after: avoid; }
+}
+@page { size: A4; margin: 18mm 20mm 15mm; }
+
+/* ---- Typography ---- */
+h2.sec {
+  font-size: 13pt; font-weight: bold; color: var(--navy);
+  border-bottom: 2.5px solid var(--navy);
+  padding-bottom: 5px; margin: 22px 0 12px;
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+}
+h2.sec .num {
+  background: var(--navy); color: #fff;
+  font-size: 8.5pt; padding: 2px 9px; border-radius: 2px; letter-spacing: .03em;
+}
+h3.sub {
+  font-size: 11pt; font-weight: bold; color: var(--navy);
+  padding-left: 10px; border-left: 3px solid var(--navy-mid);
+  margin: 16px 0 7px;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+}
+p { margin-bottom: 9px; font-size: 10pt; }
+strong.hl { color: var(--navy); }
+
+/* ---- Cover ---- */
+.cover { display: flex; flex-direction: column; align-items: center; text-align: center; padding-top: 28mm; }
+.badge {
+  background: var(--navy); color: #fff;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  font-size: 9pt; font-weight: bold; letter-spacing: .1em;
+  padding: 5px 22px; margin-bottom: 28px;
+}
+.cover-title { font-size: 19pt; font-weight: bold; color: var(--navy); line-height: 1.4; margin-bottom: 8px; max-width: 145mm; }
+.cover-sub { font-size: 10pt; color: var(--muted); margin-bottom: 28px; }
+.divider { width: 55mm; height: 2px; background: var(--navy); margin: 0 auto 26px; }
+.cover-box {
+  background: var(--navy-pale); border-left: 4px solid var(--navy);
+  padding: 14px 18px; text-align: left; max-width: 145mm; width: 100%; margin-bottom: 28px;
+}
+.cover-box .lbl { font-size: 8.5pt; font-weight: bold; color: var(--navy); margin-bottom: 5px; font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; }
+.cover-box p { font-size: 9.5pt; margin: 0; line-height: 1.7; }
+.meta-grid { display: grid; grid-template-columns: 80px 1fr; gap: 4px 12px; font-size: 9pt; max-width: 130mm; text-align: left; }
+.meta-k { color: var(--muted); font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; }
+
+/* ---- Stats row ---- */
+.stats { display: flex; gap: 12px; margin: 14px 0 18px; }
+.stat {
+  flex: 1; background: var(--navy-pale); border-top: 3px solid var(--navy);
+  padding: 12px 8px; text-align: center;
+}
+.stat-n { font-size: 20pt; font-weight: bold; color: var(--navy); line-height: 1.1; font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; }
+.stat-l { font-size: 7.5pt; color: var(--muted); margin-top: 3px; font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; line-height: 1.4; }
+
+/* ---- Tables ---- */
+table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 10px 0 14px; }
+th { background: var(--navy); color: #fff; padding: 7px 10px; text-align: left; font-weight: bold; font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; font-size: 9pt; }
+td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; }
+tr:nth-child(even) td { background: #F8FAFC; }
+
+/* ---- Horizontal bar chart ---- */
+.hbar { margin: 8px 0 16px; }
+.hbar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.hbar-lbl { width: 138px; min-width: 138px; font-size: 9pt; text-align: right; line-height: 1.3; }
+.hbar-track { flex: 1; height: 22px; background: var(--chart-bg); border-radius: 2px; position: relative; }
+.hbar-fill { position: absolute; top:0; left:0; height:100%; background: var(--navy); border-radius: 2px; }
+.hbar-val { width: 92px; min-width: 92px; font-size: 8.5pt; font-weight: bold; color: var(--navy); font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; }
+.chart-note { font-size: 8pt; color: var(--muted); margin-top: 2px; font-style: italic; }
+
+/* ---- Pie chart ---- */
+.pie-wrap { display: flex; align-items: center; gap: 18px; margin: 10px 0 12px; }
+.pie { width: 88px; height: 88px; border-radius: 50%; flex-shrink: 0; }
+.pie-leg { list-style: none; }
+.pie-leg li { display: flex; align-items: center; gap: 7px; font-size: 9pt; margin-bottom: 6px; }
+.pie-dot { width: 12px; height: 12px; border-radius: 2px; flex-shrink: 0; }
+
+/* ---- Boxes ---- */
+.info-box {
+  background: var(--box-bg); border-left: 4px solid var(--navy);
+  padding: 12px 16px; margin: 12px 0; font-size: 9.5pt; line-height: 1.7;
+}
+.rq-box {
+  background: var(--navy-pale); border: 1.5px solid var(--navy);
+  border-radius: 3px; padding: 14px 18px; margin: 14px 0; font-size: 10pt; line-height: 1.7;
+}
+.rq-lbl { font-size: 8.5pt; font-weight: bold; color: var(--navy); margin-bottom: 5px; font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; letter-spacing: .04em; }
+
+/* ---- Lists ---- */
+ul.arr { list-style: none; padding: 0; margin: 8px 0; }
+ul.arr li { padding: 3px 0 3px 18px; position: relative; font-size: 9.5pt; line-height: 1.6; }
+ul.arr li::before { content: '▶'; color: var(--navy); font-size: 7pt; position: absolute; left: 2px; top: 6px; }
+
+/* ---- Two-column ---- */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 12px 0; }
+
+/* ---- Footer ---- */
+.foot {
+  position: absolute; bottom: 10mm; left: 22mm; right: 22mm;
+  display: flex; justify-content: space-between;
+  font-size: 7.5pt; color: #BBBBBB;
+  border-top: 1px solid #E5E5E5; padding-top: 3px;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+}
+</style>
+</head>
+<body>
+
+<div class="print-guide">
+  📄 PDF保存方法：<strong>Cmd＋P</strong>（Mac）または <strong>Ctrl＋P</strong>（Windows）→ 送信先を「PDFに保存」→ 用紙サイズ：A4、余白：なし、「背景のグラフィック」をオンにして保存
+</div>
+
+<!-- ========== PAGE 1: COVER ========== -->
+<div class="page">
+  <div class="cover">
+    <div class="badge">アンケート・調査レポート</div>
+    <div class="cover-title">地域高齢者のスマートフォン利用状況と<br>生活課題に関するアンケート調査</div>
+    <div class="cover-sub">デジタルデバイド解消に向けた支援ニーズの把握</div>
+    <div class="divider"></div>
+    <div class="cover-box">
+      <div class="lbl">▌ 調査概要</div>
+      <p>本調査は、地域在住の65歳以上の高齢者を対象に、スマートフォンの利用状況・困りごと・支援ニーズを明らかにすることを目的として実施しました。対面方式によるアンケートを通じて78名から有効回答を得ました。結果をもとに、高齢者がデジタルを日常的に活用できるための支援策について考察します。</p>
+    </div>
+    <div class="meta-grid">
+      <span class="meta-k">調査実施者</span><span>田中 美咲（東京都立○○高校 3年）</span>
+      <span class="meta-k">実施期間</span><span>2024年10月1日〜11月15日（計7日間）</span>
+      <span class="meta-k">調査対象</span><span>○○市在住・65歳以上の方（78名有効回答）</span>
+      <span class="meta-k">調査手法</span><span>対面アンケート（地域福祉センター・公民館4会場）</span>
+      <span class="meta-k">作成日</span><span>2024年11月30日</span>
+    </div>
+  </div>
+  <div class="foot">
+    <span>田中美咲｜地域高齢者スマートフォン利用状況調査</span>
+    <span>1 / 6</span>
+  </div>
+</div>
+
+<!-- ========== PAGE 2: BACKGROUND & METHODS ========== -->
+<div class="page">
+  <h2 class="sec"><span class="num">第1章</span>調査の背景と目的</h2>
+  <p>私が高齢者とデジタルの問題に関心を持ったきっかけは、高校1年生の夏に参加した老人ホームでのボランティアです。スマートフォンを持っているのに「怖くて触れない」「何をすればいいかわからない」という声を多く聞き、単に使い方を教えるだけでは解決できない複雑な課題があると感じました。</p>
+  <p>その後、地域の公民館で開催されているスマホ教室にスタッフとして関わる中で、「なぜ高齢者はスマートフォンを使いこなせないのか」という問いを深めたいと考えるようになりました。既存の調査は全国規模のデータが多く、<strong class="hl">自分が暮らす地域の高齢者の実態</strong>は把握されていませんでした。</p>
+  <div class="rq-box">
+    <div class="rq-lbl">📌 リサーチクエスチョン</div>
+    ○○市在住の65歳以上の高齢者において、スマートフォンの利用率・習熟度の現状はどのようなものか。また、活用を妨げている課題は何であり、どのような支援があれば利用が促進されるか。
+  </div>
+
+  <h2 class="sec" style="margin-top:18px;"><span class="num">第2章</span>調査方法</h2>
+  <table>
+    <thead><tr><th style="width:28%;">項目</th><th>内容</th></tr></thead>
+    <tbody>
+      <tr><td>調査対象</td><td>○○市在住の65歳以上の男女（地域福祉センター・公民館の利用者）</td></tr>
+      <tr><td>サンプル数</td><td>78名（男性34名・女性44名）　有効回収率 97.5%（配布80名）</td></tr>
+      <tr><td>実施期間</td><td>2024年10月1日〜11月15日（計7日間・4会場）</td></tr>
+      <tr><td>調査方法</td><td>対面アンケート（調査者が口頭で読み上げ、必要に応じて記入を補助）</td></tr>
+      <tr><td>質問項目数</td><td>全10問（選択式7問・自由記述3問）</td></tr>
+      <tr><td>分析方法</td><td>単純集計・クロス集計（Microsoft Excelを使用）</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub">主な質問項目（抜粋）</h3>
+  <ul class="arr">
+    <li>Q1. スマートフォンを所持していますか？（2択）</li>
+    <li>Q2. スマートフォンをどの程度使いこなせていると感じますか？（4段階評価）</li>
+    <li>Q3. スマートフォンで困っていることは何ですか？（複数回答・選択式）</li>
+    <li>Q4. 今後もっと使えるようになりたいですか？（4段階評価）</li>
+    <li>Q5. どのような支援があれば使いやすくなりますか？（複数回答・選択式）</li>
+    <li>Q6. スマートフォンがあって良かったと感じることは？（自由記述）</li>
+  </ul>
+
+  <div class="info-box">
+    <strong>調査の限界について：</strong>本調査は地域の福祉施設・公民館の利用者が対象であり、自宅に引きこもりがちな高齢者や施設を利用していない方の実態は反映されていません。サンプル数が78名と限られているため、全体への一般化には注意が必要です。
+  </div>
+  <div class="foot">
+    <span>田中美咲｜地域高齢者スマートフォン利用状況調査</span>
+    <span>2 / 6</span>
+  </div>
+</div>
+
+<!-- ========== PAGE 3: RESULTS 1 ========== -->
+<div class="page">
+  <h2 class="sec"><span class="num">第3章</span>調査結果① ─ 利用状況の把握</h2>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-n">78名</div><div class="stat-l">有効回答数<br>（配布80名）</div></div>
+    <div class="stat"><div class="stat-n">67.9%</div><div class="stat-l">スマートフォン<br>所持率</div></div>
+    <div class="stat"><div class="stat-n">56.6%</div><div class="stat-l">習熟に課題あり<br>（所持者中）</div></div>
+    <div class="stat"><div class="stat-n">77.4%</div><div class="stat-l">何らかの困りごと<br>あり（所持者中）</div></div>
+  </div>
+
+  <h3 class="sub">Q1. スマートフォンの所持状況（全体：n=78）</h3>
+  <div class="two" style="align-items:flex-start;">
+    <div>
+      <p style="font-size:9pt; font-weight:bold; color:var(--text); margin-bottom:6px;">図1　スマートフォン所持率</p>
+      <div class="pie-wrap">
+        <div class="pie" style="background: conic-gradient(#1A3C6E 0% 67.9%, #A8C7E8 67.9% 100%);"></div>
+        <ul class="pie-leg">
+          <li><span class="pie-dot" style="background:#1A3C6E;"></span>所持している　53名（67.9%）</li>
+          <li><span class="pie-dot" style="background:#A8C7E8;"></span>所持していない　25名（32.1%）</li>
+        </ul>
+      </div>
+      <p class="chart-note">※ 未所持の主な理由（複数回答）：「必要を感じない」42%、「操作が難しそう」36%、「費用が心配」28%</p>
+    </div>
+    <div>
+      <div class="info-box" style="margin-top:8px;">
+        <strong>注目点：</strong>所持率67.9%は同世代の全国平均（70代：74%、80代：53% ／総務省2023年）に比べ低水準。未所持の25名のうち約3割が「使えるようになりたいが、きっかけがない」と回答しており、潜在的ニーズは高い。
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub">Q2. 使いこなせているか（所持者のみ：n=53）</h3>
+  <p style="font-size:9pt; font-weight:bold; color:var(--text); margin-bottom:6px;">図2　スマートフォンの習熟度（所持者53名）</p>
+  <div class="hbar">
+    <div class="hbar-row">
+      <div class="hbar-lbl">よく使いこなせている</div>
+      <div class="hbar-track"><div class="hbar-fill" style="width:15.1%; background:#5B9BD5;"></div></div>
+      <div class="hbar-val">8名（15.1%）</div>
+    </div>
+    <div class="hbar-row">
+      <div class="hbar-lbl">だいたい使えている</div>
+      <div class="hbar-track"><div class="hbar-fill" style="width:28.3%; background:#2D6A9F;"></div></div>
+      <div class="hbar-val">15名（28.3%）</div>
+    </div>
+    <div class="hbar-row">
+      <div class="hbar-lbl">あまり使えていない</div>
+      <div class="hbar-track"><div class="hbar-fill" style="width:41.5%;"></div></div>
+      <div class="hbar-val">22名（41.5%）</div>
+    </div>
+    <div class="hbar-row">
+      <div class="hbar-lbl">ほとんど使えていない</div>
+      <div class="hbar-track"><div class="hbar-fill" style="width:15.1%;"></div></div>
+      <div class="hbar-val">8名（15.1%）</div>
+    </div>
+  </div>
+  <p class="chart-note">※「あまり使えていない」＋「ほとんど使えていない」の合計は56.6%。所持者の過半数が習熟に課題を感じている。</p>
+
+  <div class="foot">
+    <span>田中美咲｜地域高齢者スマートフォン利用状況調査</span>
+    <span>3 / 6</span>
+  </div>
+</div>
+
+<!-- ========== PAGE 4: RESULTS 2 ========== -->
+<div class="page">
+  <h2 class="sec"><span class="num">第3章</span>調査結果② ─ 課題とサポートニーズ</h2>
+
+  <h3 class="sub">Q3. スマートフォンで困っていること（所持者：n=53、複数回答）</h3>
+  <p style="font-size:9pt; font-weight:bold; color:var(--text); margin-bottom:6px;">図3　スマートフォン利用における困りごと</p>
+  <div class="hbar">
+    <div class="hbar-row">
+      <div class="hbar-lbl">文字が小さくて見づらい</div>
+      <div class="hbar-track"><div class="hbar-fill" style="width:77.4%;"></div></div>
+      <div class="hbar-val">41名（77.4%）</div>
+    </div>
+    <div class="hbar-row">
+      <div class="hbar-lbl">操作方法がわからない</div>
+      <div class="hbar-track"><div class="hbar-fill" style="width:71.7%;"></div></div>
+      <div class="hbar-val">38名（71.7%）</div>
+    </div>
+    <div class="hbar-row">
+      <div class="hbar-lbl">誤操作・壊しそうで怖い</div>
+      <div class="hbar-track"><div class="hbar-fill" style="width:54.7%;"></div></div>
+      <div class="hbar-val">29名（54.7%）</div>
+    </div>
+    <div class="hbar-row">
+      <div class="hbar-lbl">料金・セキュリティが心配</div>
+      <div class="hbar-track"><div class="hbar-fill" style="width:47.2%; background:#2D6A9F;"></div></div>
+      <div class="hbar-val">25名（47.2%）</div>
+    </div>
+    <div class="hbar-row">
+      <div class="hbar-lbl">教えてくれる人がいない</div>
+      <div class="hbar-track"><div class="hbar-fill" style="width:34.0%; background:#2D6A9F;"></div></div>
+      <div class="hbar-val">18名（34.0%）</div>
+    </div>
+    <div class="hbar-row">
+      <div class="hbar-lbl">何をすれば良いか不明</div>
+      <div class="hbar-track"><div class="hbar-fill" style="width:28.3%; background:#5B9BD5;"></div></div>
+      <div class="hbar-val">15名（28.3%）</div>
+    </div>
+  </div>
+  <p class="chart-note">※ 上位3項目は「視認性」「操作習熟」「心理的障壁」に関する課題。技術的問題と心理的問題が並立している。</p>
+
+  <h3 class="sub">Q5. どのような支援があれば使いやすくなるか（全体：n=78、複数回答）</h3>
+  <p style="font-size:9pt; font-weight:bold; color:var(--text); margin-bottom:6px;">図4　望まれるサポートの内容</p>
+  <div class="hbar">
+    <div class="hbar-row">
+      <div class="hbar-lbl">近くで教えてくれる人・場所</div>
+      <div class="hbar-track"><div class="hbar-fill" style="width:65.4%;"></div></div>
+      <div class="hbar-val">51名（65.4%）</div>
+    </div>
+    <div class="hbar-row">
+      <div class="hbar-lbl">わかりやすいテキスト</div>
+      <div class="hbar-track"><div class="hbar-fill" style="width:48.7%;"></div></div>
+      <div class="hbar-val">38名（48.7%）</div>
+    </div>
+    <div class="hbar-row">
+      <div class="hbar-lbl">繰り返し練習できる機会</div>
+      <div class="hbar-track"><div class="hbar-fill" style="width:44.9%;"></div></div>
+      <div class="hbar-val">35名（44.9%）</div>
+    </div>
+    <div class="hbar-row">
+      <div class="hbar-lbl">一対一での個別指導</div>
+      <div class="hbar-track"><div class="hbar-fill" style="width:35.9%; background:#2D6A9F;"></div></div>
+      <div class="hbar-val">28名（35.9%）</div>
+    </div>
+    <div class="hbar-row">
+      <div class="hbar-lbl">家族からのサポート</div>
+      <div class="hbar-track"><div class="hbar-fill" style="width:28.2%; background:#5B9BD5;"></div></div>
+      <div class="hbar-val">22名（28.2%）</div>
+    </div>
+  </div>
+  <p class="chart-note">※「近くで教えてくれる人・場所」が最多。地域密着型の対面支援への高いニーズが示された。</p>
+
+  <div class="foot">
+    <span>田中美咲｜地域高齢者スマートフォン利用状況調査</span>
+    <span>4 / 6</span>
+  </div>
+</div>
+
+<!-- ========== PAGE 5: ANALYSIS ========== -->
+<div class="page">
+  <h2 class="sec"><span class="num">第4章</span>考察・分析</h2>
+
+  <h3 class="sub">4-1　所持率と習熟度のギャップ</h3>
+  <p>今回の調査では、スマートフォンの所持率は67.9%と過半数を超えていたが、所持者のうち「使いこなせている」と答えた割合はわずか15.1%にとどまりました。<strong class="hl">「持っているが使えていない」という層が多数存在する</strong>ことが明らかになりました。この結果は、機器の普及率とデジタル活用率の乖離を示すものであり、単にスマートフォンを手渡すだけでは問題が解決しないことを示唆しています。</p>
+
+  <h3 class="sub">4-2　課題の本質：技術的問題か、心理的障壁か</h3>
+  <p>Q3の結果から、困りごとの上位は「文字の視認性（77.4%）」「操作習熟（71.7%）」「誤操作への恐怖（54.7%）」でした。技術的課題と並んで、<strong class="hl">「壊すのが怖い」「誤操作が怖い」という心理的障壁が根深い問題</strong>として存在していることがわかります。</p>
+  <p>自由記述でも「変なところを押したら取り返しがつかなくなりそうで、怖くて使えない」という声が複数見られました。この「恐怖感」は使い方の説明だけでは解消されず、安全に試行錯誤できる環境と、信頼できる支援者の存在が不可欠です。</p>
+
+  <h3 class="sub">4-3　求められる支援の方向性</h3>
+  <p>Q5の結果では「近くで教えてくれる人・場所（65.4%）」が最も高く、次いで「わかりやすいテキスト（48.7%）」「繰り返し練習できる機会（44.9%）」が続きました。求められる支援は<strong class="hl">①地域密着型の対面サポート、②自習できるツール、③反復練習の機会</strong>という3点に集約されます。</p>
+  <p>また、習熟度が低い層ほど「一対一の個別指導」への需要が高い傾向があります（クロス集計より）。現在のグループ講座中心の支援に加え、個別サポートの仕組みを整備することが有効と考えます。</p>
+
+  <div class="info-box">
+    <strong>予想と異なった結果について：</strong>当初は「使い方の知識不足」が最大の課題だと予想していましたが、調査の結果「心理的障壁（怖い・難しそう）」が技術的課題と並んで大きな問題であることが明らかになりました。この気づきは、支援策を設計する上で重要な視点を与えてくれました。
+  </div>
+
+  <div class="foot">
+    <span>田中美咲｜地域高齢者スマートフォン利用状況調査</span>
+    <span>5 / 6</span>
+  </div>
+</div>
+
+<!-- ========== PAGE 6: CONCLUSION ========== -->
+<div class="page">
+  <h2 class="sec"><span class="num">第5章</span>結論と今後の課題</h2>
+
+  <h3 class="sub">5-1　本調査の結論</h3>
+  <p>本調査を通じて、○○市在住の高齢者のデジタル利用状況について以下の3点が明らかになりました。</p>
+  <ul class="arr">
+    <li>スマートフォン所持率は67.9%だが、習熟率は15.1%にとどまる。「持っているが使えない」層が多数存在する。</li>
+    <li>困りごとの本質は技術的課題だけでなく、「壊すのが怖い」「誤操作が怖い」という心理的障壁にもある。</li>
+    <li>求められる支援は「近くで教えてくれる人・場所」が最多であり、地域密着型の対面サポートへの需要が高い。</li>
+  </ul>
+
+  <h3 class="sub">5-2　調査の限界と今後の課題</h3>
+  <p>本調査はサンプル数が78名と限られており、福祉施設・公民館を利用しない高齢者の声は反映されていません。今後は、より多様な場所での調査や、年齢層・生活環境別のクロス分析が必要です。</p>
+  <p>また本調査は「現状把握」に焦点を当てており、支援策の有効性は検証できていません。実際にスマホ教室を実施した上での事後アンケートにより、より踏み込んだ知見を得たいと考えています。</p>
+
+  <h3 class="sub">5-3　志望研究との接続</h3>
+  <p>本調査の結果は、「テクノロジーの普及と社会的格差の関係」という大学での研究テーマと深く結びついています。スマートフォンというツールが存在するだけでは格差は解消されず、<strong class="hl">「誰が・どのように・どんな環境で利用するか」という文脈</strong>が重要であることを、地域の一次データとして示すことができました。慶應義塾大学総合政策学部では、この調査を土台として「地域コミュニティを活かしたデジタルデバイド解消モデル」の研究・実践につなげていきたいと考えています。</p>
+
+  <h3 class="sub" style="margin-top:18px;">参考資料</h3>
+  <ul class="arr" style="font-size:8.5pt;">
+    <li>総務省（2023）「令和5年版 情報通信白書」</li>
+    <li>内閣府（2023）「令和5年版 高齢社会白書」</li>
+    <li>○○市（2024）「令和6年度 地域福祉計画（案）」</li>
+    <li>田中美咲（2024）独自アンケート調査データ（2024年10〜11月実施、n=78）</li>
+  </ul>
+
+  <div class="foot">
+    <span>田中美咲｜地域高齢者スマートフォン利用状況調査</span>
+    <span>6 / 6</span>
+  </div>
+</div>
+
+</body>
+</html>

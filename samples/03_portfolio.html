@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ポートフォリオ｜田中美咲｜つなぐ、学ぶ、変える</title>
+<style>
+:root {
+  --navy: #1A3C6E; --navy-mid: #2D6A9F; --navy-light: #5B9BD5;
+  --navy-pale: #EEF3FA; --navy-bg: #E8F0FE;
+  --green: #1A5C3A; --green-mid: #2E7D32; --green-pale: #EEF6EE;
+  --orange: #B84F00; --orange-pale: #FFF3E0;
+  --purple: #4A2C8A; --purple-pale: #F3EEF9;
+  --text: #1A1A1A; --muted: #666; --border: #CBD5E1;
+  --box-bg: #F3F6FC;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Hiragino Mincho ProN','Yu Mincho','YuMincho',Georgia,serif; font-size:10.5pt; line-height:1.75; color:var(--text); background:#E0E4EC; }
+
+.print-guide { width:210mm; margin:14px auto; padding:9px 14px; background:#FFF8E1; border:1px solid #FFC107; border-radius:4px; font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; font-size:8.5pt; color:#555; }
+
+.page { width:210mm; min-height:297mm; margin:0 auto 18px; padding:20mm 22mm 18mm; background:#fff; box-shadow:0 2px 14px rgba(0,0,0,.13); position:relative; overflow:hidden; }
+
+@media print {
+  body { background:#fff; } .print-guide { display:none; }
+  .page { width:100%; min-height:auto; margin:0; padding:0; box-shadow:none; page-break-after:always; }
+  .page:last-of-type { page-break-after:avoid; }
+}
+@page { size:A4; margin:18mm 20mm 15mm; }
+
+/* ---- Typography ---- */
+h2.sec { font-size:13pt; font-weight:bold; color:var(--navy); border-bottom:2.5px solid var(--navy); padding-bottom:5px; margin:22px 0 12px; display:flex; align-items:center; gap:8px; font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; }
+h2.sec .num { background:var(--navy); color:#fff; font-size:8.5pt; padding:2px 9px; border-radius:2px; }
+h3.sub { font-size:11pt; font-weight:bold; color:var(--navy); padding-left:10px; border-left:3px solid var(--navy-mid); margin:16px 0 7px; font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; }
+p { margin-bottom:9px; font-size:10pt; } strong.hl { color:var(--navy); }
+
+/* ---- COVER ---- */
+.cover-page { background:linear-gradient(155deg, #0F2447 0%, #1A3C6E 55%, #2D6A9F 100%); padding:0; }
+.cover-inner { padding:20mm 22mm 18mm; min-height:297mm; display:flex; flex-direction:column; justify-content:space-between; }
+.cover-badge { display:inline-block; background:rgba(255,255,255,.15); color:rgba(255,255,255,.9); font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; font-size:9pt; font-weight:bold; letter-spacing:.1em; padding:5px 18px; border:1px solid rgba(255,255,255,.3); margin-bottom:22px; }
+.cover-catch { font-size:13pt; color:rgba(255,255,255,.8); font-style:italic; margin-bottom:14px; }
+.cover-title-main { font-size:22pt; font-weight:bold; color:#fff; line-height:1.35; margin-bottom:10px; }
+.cover-title-sub { font-size:11pt; color:rgba(255,255,255,.75); margin-bottom:28px; }
+.cover-divider { width:50mm; height:1px; background:rgba(255,255,255,.35); margin-bottom:22px; }
+.cover-theme { background:rgba(255,255,255,.1); border-left:3px solid rgba(255,255,255,.55); padding:14px 18px; margin-bottom:26px; color:rgba(255,255,255,.9); font-size:10pt; line-height:1.7; }
+.cover-theme .t-lbl { font-size:8pt; font-weight:bold; letter-spacing:.08em; color:rgba(255,255,255,.55); margin-bottom:5px; font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; }
+.cover-info-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:24px; }
+.cii { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.2); padding:10px 14px; }
+.cii-k { font-size:7.5pt; color:rgba(255,255,255,.5); font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; letter-spacing:.05em; margin-bottom:3px; }
+.cii-v { font-size:10pt; color:#fff; font-weight:bold; font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; }
+.cover-foot { font-size:7.5pt; color:rgba(255,255,255,.4); font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; }
+
+/* ---- TOC ---- */
+.toc-item { display:flex; align-items:baseline; gap:10px; padding:8px 0; border-bottom:1px dotted var(--border); font-size:10pt; }
+.toc-num { font-weight:bold; color:var(--navy); min-width:22px; font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; }
+.toc-yr { font-size:8pt; background:var(--navy-bg); color:var(--navy); padding:1px 8px; border-radius:10px; font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; }
+
+/* ---- Theme box ---- */
+.theme-box { background:var(--navy-pale); border:1.5px solid var(--navy); border-radius:4px; padding:16px 20px; margin:14px 0; }
+.theme-box .tb-lbl { font-size:8.5pt; font-weight:bold; color:var(--navy); margin-bottom:8px; font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; letter-spacing:.04em; }
+
+/* ---- Year summary cards ---- */
+.year-cards { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin:12px 0; }
+.ycard { padding:12px; border-radius:3px; }
+.ycard.y1 { background:var(--navy-pale); border-top:3px solid var(--navy); }
+.ycard.y2 { background:#EEF4FA; border-top:3px solid var(--navy-mid); }
+.ycard.y3 { background:var(--green-pale); border-top:3px solid var(--green); }
+.ycard-lbl { font-size:8pt; font-weight:bold; font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; margin-bottom:6px; }
+.ycard.y1 .ycard-lbl { color:var(--navy); } .ycard.y2 .ycard-lbl { color:var(--navy-mid); } .ycard.y3 .ycard-lbl { color:var(--green); }
+.ycard p { font-size:9.5pt; margin:0; line-height:1.65; }
+
+/* ---- Activity header ---- */
+.act-hdr { padding:12px 16px; margin-bottom:0; border-left:5px solid var(--navy); background:var(--navy-pale); }
+.act-hdr.y2 { border-left-color:var(--navy-mid); background:#EEF4FA; }
+.act-hdr.y3 { border-left-color:var(--green); background:var(--green-pale); }
+.act-yr-badge { font-size:8pt; font-weight:bold; font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; display:inline-block; padding:2px 10px; border-radius:2px; margin-bottom:6px; color:#fff; background:var(--navy); }
+.act-yr-badge.y2 { background:var(--navy-mid); } .act-yr-badge.y3 { background:var(--green); }
+.act-title { font-size:13pt; font-weight:bold; color:var(--navy); line-height:1.3; font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; }
+.act-title.y2 { color:var(--navy-mid); } .act-title.y3 { color:var(--green); }
+.act-period { font-size:8.5pt; color:var(--muted); margin-top:4px; font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; }
+
+/* ---- Illustration area ---- */
+.illust-area { width:100%; margin:10px 0 12px; border-radius:3px; overflow:hidden; line-height:0; }
+.illust-area svg { width:100%; display:block; }
+
+/* ---- WWHR grid ---- */
+.wwhr { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:10px 0; }
+.wwhr-item { padding:10px 12px; border-radius:3px; }
+.wwhr-item.W { background:#F0F4FB; border-top:3px solid var(--navy); }
+.wwhr-item.Y { background:#F0F6F0; border-top:3px solid var(--green-mid); }
+.wwhr-item.H { background:#FFF8E8; border-top:3px solid #E65100; }
+.wwhr-item.R { background:#F5F0FB; border-top:3px solid var(--purple); }
+.wwhr-lbl { font-size:8pt; font-weight:bold; letter-spacing:.05em; font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; margin-bottom:5px; }
+.wwhr-item.W .wwhr-lbl { color:var(--navy); } .wwhr-item.Y .wwhr-lbl { color:var(--green-mid); }
+.wwhr-item.H .wwhr-lbl { color:#E65100; } .wwhr-item.R .wwhr-lbl { color:var(--purple); }
+.wwhr-item p { font-size:9.5pt; margin:0; line-height:1.65; }
+
+/* ---- Result chips ---- */
+.result-row { display:flex; gap:10px; margin:10px 0; }
+.rchip { flex:1; text-align:center; padding:10px 8px; }
+.rchip.y1 { background:var(--navy-pale); border-top:3px solid var(--navy); }
+.rchip.y2 { background:#EEF4FA; border-top:3px solid var(--navy-mid); }
+.rchip.y3 { background:var(--green-pale); border-top:3px solid var(--green); }
+.rc-n { font-size:17pt; font-weight:bold; line-height:1.1; font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; }
+.rchip.y1 .rc-n { color:var(--navy); } .rchip.y2 .rc-n { color:var(--navy-mid); } .rchip.y3 .rc-n { color:var(--green); }
+.rc-l { font-size:7.5pt; color:var(--muted); margin-top:2px; font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; line-height:1.4; }
+
+/* ---- Learning box ---- */
+.lbox { color:#fff; padding:12px 16px; border-radius:3px; margin:10px 0; }
+.lbox.y1 { background:var(--navy); } .lbox.y2 { background:var(--navy-mid); } .lbox.y3 { background:var(--green); }
+.lbox .lt { font-size:9pt; font-weight:bold; letter-spacing:.04em; margin-bottom:6px; font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; opacity:.8; }
+.lbox p { font-size:9.5pt; margin:0; line-height:1.7; color:#fff; }
+
+/* ---- Summary page ---- */
+.summary-cards { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin:14px 0; }
+.scard { padding:14px; border-radius:3px; }
+.scard.y1 { background:var(--navy-pale); } .scard.y2 { background:#EEF4FA; } .scard.y3 { background:var(--green-pale); }
+.scard-lbl { font-size:8pt; font-weight:bold; font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; margin-bottom:8px; }
+.scard.y1 .scard-lbl { color:var(--navy); } .scard.y2 .scard-lbl { color:var(--navy-mid); } .scard.y3 .scard-lbl { color:var(--green); }
+.scard p { font-size:9pt; line-height:1.65; margin:0; }
+
+/* ---- Misc ---- */
+.info-box { background:var(--box-bg); border-left:4px solid var(--navy); padding:12px 16px; margin:12px 0; font-size:9.5pt; line-height:1.7; }
+ul.arr { list-style:none; padding:0; margin:8px 0; }
+ul.arr li { padding:3px 0 3px 18px; position:relative; font-size:9.5pt; line-height:1.6; }
+ul.arr li::before { content:'▶'; color:var(--navy); font-size:7pt; position:absolute; left:2px; top:6px; }
+.tag { display:inline-block; background:var(--navy-bg); color:var(--navy); font-size:8pt; padding:1px 9px; border-radius:10px; margin:2px 3px 2px 0; font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; font-weight:bold; }
+
+/* ---- Footer ---- */
+.foot { position:absolute; bottom:10mm; left:22mm; right:22mm; display:flex; justify-content:space-between; font-size:7.5pt; color:#BBBBBB; border-top:1px solid #E5E5E5; padding-top:3px; font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; }
+</style>
+</head>
+<body>
+
+<div class="print-guide">
+  📄 PDF保存：<strong>Cmd＋P</strong>（Mac）/ <strong>Ctrl＋P</strong>（Windows）→ 送信先「PDFに保存」→ 余白：なし、背景のグラフィック：オン
+</div>
+
+<!-- ========== PAGE 1: COVER ========== -->
+<div class="page cover-page">
+  <div class="cover-inner">
+    <div>
+      <!-- Decorative network SVG -->
+      <svg width="100%" viewBox="0 0 560 70" style="margin-bottom:20px; opacity:.45;">
+        <g stroke="white" fill="none" stroke-width="1">
+          <line x1="40" y1="35" x2="130" y2="15"/><line x1="130" y1="15" x2="250" y2="45"/>
+          <line x1="250" y1="45" x2="370" y2="20"/><line x1="370" y1="20" x2="490" y2="50"/>
+          <line x1="40" y1="35" x2="250" y2="45"/><line x1="130" y1="15" x2="370" y2="20"/>
+          <line x1="200" y1="60" x2="250" y2="45"/><line x1="250" y1="45" x2="430" y2="58"/>
+        </g>
+        <g fill="white">
+          <circle cx="40"  cy="35" r="5"/><circle cx="130" cy="15" r="4"/>
+          <circle cx="250" cy="45" r="8"/><circle cx="370" cy="20" r="4"/>
+          <circle cx="490" cy="50" r="5"/><circle cx="200" cy="60" r="3"/>
+          <circle cx="430" cy="58" r="4"/><circle cx="310" cy="55" r="3"/>
+        </g>
+      </svg>
+
+      <div class="cover-badge">ポートフォリオ（活動実績集）</div>
+      <div class="cover-catch">「つなぐ、学ぶ、変える」</div>
+      <div class="cover-title-main">デジタルの壁をなくした<br>3年間の記録</div>
+      <div class="cover-title-sub">高齢者 × デジタル × 地域コミュニティ ── 探究と実践の軌跡</div>
+      <div class="cover-divider"></div>
+
+      <div class="cover-theme">
+        <div class="t-lbl">▌ コアテーマ</div>
+        なぜ「持っているのに使えない」のか。地域の高齢者がデジタルを使いこなせない背景には、技術的な問題だけでなく、孤立・心理的障壁・継続的支援の不足という社会的課題がある。この問いを軸に、調査・実践・提言を3年間続けてきた。
+      </div>
+
+      <div class="cover-info-grid">
+        <div class="cii"><div class="cii-k">氏名</div><div class="cii-v">田中 美咲</div></div>
+        <div class="cii"><div class="cii-k">学校名</div><div class="cii-v">東京都立○○高校</div></div>
+        <div class="cii"><div class="cii-k">志望学部</div><div class="cii-v">慶應義塾大学 総合政策学部</div></div>
+        <div class="cii"><div class="cii-k">作成日</div><div class="cii-v">2024年12月</div></div>
+      </div>
+
+      <!-- Timeline SVG -->
+      <svg width="100%" viewBox="0 0 460 56" style="margin-top:4px;">
+        <!-- Line -->
+        <line x1="60" y1="28" x2="400" y2="28" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/>
+        <!-- Year 1 -->
+        <circle cx="60" cy="28" r="18" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+        <text x="60" y="24" text-anchor="middle" font-size="9" fill="white" font-family="sans-serif" font-weight="bold">1年</text>
+        <text x="60" y="35" text-anchor="middle" font-size="8" fill="rgba(255,255,255,.65)" font-family="sans-serif">生</text>
+        <text x="60" y="50" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,.6)" font-family="sans-serif">気づき・観察</text>
+        <!-- Year 2 -->
+        <circle cx="230" cy="28" r="18" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+        <text x="230" y="24" text-anchor="middle" font-size="9" fill="white" font-family="sans-serif" font-weight="bold">2年</text>
+        <text x="230" y="35" text-anchor="middle" font-size="8" fill="rgba(255,255,255,.65)" font-family="sans-serif">生</text>
+        <text x="230" y="50" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,.6)" font-family="sans-serif">実践・企画</text>
+        <!-- Year 3 -->
+        <circle cx="400" cy="28" r="18" fill="rgba(255,255,255,.25)" stroke="rgba(255,255,255,.7)" stroke-width="2"/>
+        <text x="400" y="24" text-anchor="middle" font-size="9" fill="white" font-family="sans-serif" font-weight="bold">3年</text>
+        <text x="400" y="35" text-anchor="middle" font-size="8" fill="rgba(255,255,255,.65)" font-family="sans-serif">生</text>
+        <text x="400" y="50" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,.6)" font-family="sans-serif">調査・提言</text>
+        <!-- Arrows -->
+        <polygon points="155,25 155,31 175,28" fill="rgba(255,255,255,.3)"/>
+        <polygon points="325,25 325,31 345,28" fill="rgba(255,255,255,.3)"/>
+      </svg>
+    </div>
+    <div class="cover-foot">田中美咲｜ポートフォリオ 2024　　　1 / 6</div>
+  </div>
+</div>
+
+<!-- ========== PAGE 2: TOC & INTRO ========== -->
+<div class="page">
+  <h2 class="sec"><span class="num">目次</span></h2>
+  <div class="toc-item"><span class="toc-num">1</span><span style="flex:1;">自己紹介・コアテーマ</span><span class="toc-yr">P.2</span></div>
+  <div class="toc-item"><span class="toc-num">2</span><span style="flex:1;">活動記録①　老人ホームでの気づきとボランティア参加</span><span class="toc-yr">1年生 / P.3</span></div>
+  <div class="toc-item"><span class="toc-num">3</span><span style="flex:1;">活動記録②　地域スマホ教室の自主企画・開催</span><span class="toc-yr">2年生 / P.4</span></div>
+  <div class="toc-item"><span class="toc-num">4</span><span style="flex:1;">活動記録③　アンケート調査・インタビュー・市への提言</span><span class="toc-yr">3年生 / P.5</span></div>
+  <div class="toc-item"><span class="toc-num">5</span><span style="flex:1;">総括　── 3年間を振り返って</span><span class="toc-yr">P.6</span></div>
+
+  <h2 class="sec" style="margin-top:22px;"><span class="num">自己紹介</span>コアテーマとの出会い</h2>
+  <div class="theme-box">
+    <div class="tb-lbl">▌ 私の探究テーマ：「高齢者とデジタルをつなぐ」</div>
+    <p style="margin:0; font-size:10pt; line-height:1.75;">高校1年生の夏、老人ホームのボランティアで出会った女性の言葉が忘れられません。「スマートフォンがあれば遠くに住む孫の顔を見られるのに、怖くて触れないんです」。そのひとことが、私の3年間の探究の出発点になりました。</p>
+  </div>
+  <p>デジタルデバイドは「スマートフォン普及率」として語られることが多いですが、現場では<strong class="hl">「持っているのに使えない人」</strong>の問題であることを知りました。この問いを解くために、観察・実践・調査・提言と、毎年行動の範囲を広げてきました。</p>
+
+  <h3 class="sub">3年間の活動概要</h3>
+  <div class="year-cards">
+    <div class="ycard y1"><div class="ycard-lbl">1年生　気づき・観察</div><p>老人ホームボランティアに参加。「怖くて触れない」という声から問題意識が生まれる。</p></div>
+    <div class="ycard y2"><div class="ycard-lbl">2年生　実践・企画</div><p>地域公民館でスマホ教室を自主企画。全4回・延べ47名が参加。継続支援の課題に直面。</p></div>
+    <div class="ycard y3"><div class="ycard-lbl">3年生　調査・提言</div><p>地域78名アンケート調査・専門家インタビューを実施。市役所に政策提言書を提出。</p></div>
+  </div>
+
+  <!-- Activity overview SVG: 3-step flow -->
+  <svg width="100%" viewBox="0 0 540 90" style="margin:14px 0;">
+    <defs>
+      <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+        <polygon points="0 0, 8 3, 0 6" fill="#AAAAAA"/>
+      </marker>
+    </defs>
+    <!-- Step boxes -->
+    <rect x="10" y="10" width="150" height="70" rx="4" fill="#EEF3FA" stroke="#1A3C6E" stroke-width="1.5"/>
+    <rect x="195" y="10" width="150" height="70" rx="4" fill="#EEF4FA" stroke="#2D6A9F" stroke-width="1.5"/>
+    <rect x="380" y="10" width="150" height="70" rx="4" fill="#EEF6EE" stroke="#1A5C3A" stroke-width="1.5"/>
+    <!-- Step labels -->
+    <text x="85" y="30" text-anchor="middle" font-size="9" font-weight="bold" fill="#1A3C6E" font-family="sans-serif">1年生</text>
+    <text x="85" y="48" text-anchor="middle" font-size="18" fill="#1A3C6E" font-family="sans-serif">👁</text>
+    <text x="85" y="70" text-anchor="middle" font-size="9" fill="#1A3C6E" font-family="sans-serif">気づき・観察</text>
+    <text x="270" y="30" text-anchor="middle" font-size="9" font-weight="bold" fill="#2D6A9F" font-family="sans-serif">2年生</text>
+    <text x="270" y="48" text-anchor="middle" font-size="18" fill="#2D6A9F" font-family="sans-serif">🏃</text>
+    <text x="270" y="70" text-anchor="middle" font-size="9" fill="#2D6A9F" font-family="sans-serif">実践・企画</text>
+    <text x="455" y="30" text-anchor="middle" font-size="9" font-weight="bold" fill="#1A5C3A" font-family="sans-serif">3年生</text>
+    <text x="455" y="48" text-anchor="middle" font-size="18" fill="#1A5C3A" font-family="sans-serif">📢</text>
+    <text x="455" y="70" text-anchor="middle" font-size="9" fill="#1A5C3A" font-family="sans-serif">調査・提言</text>
+    <!-- Arrows -->
+    <line x1="163" y1="45" x2="192" y2="45" stroke="#AAAAAA" stroke-width="1.5" marker-end="url(#arr)"/>
+    <line x1="348" y1="45" x2="377" y2="45" stroke="#AAAAAA" stroke-width="1.5" marker-end="url(#arr)"/>
+  </svg>
+
+  <div class="foot"><span>田中美咲｜ポートフォリオ 2024</span><span>2 / 6</span></div>
+</div>
+
+<!-- ========== PAGE 3: ACTIVITY 1 ========== -->
+<div class="page">
+  <div class="act-hdr">
+    <div class="act-yr-badge">1年生（2022年7月〜9月）</div>
+    <div class="act-title">活動記録①　老人ホームボランティア参加</div>
+    <div class="act-period">「怖くて触れない」という言葉との出会い　｜　計5回参加・32名と交流</div>
+  </div>
+
+  <!-- Illustration: nursing home scene -->
+  <div class="illust-area">
+    <svg viewBox="0 0 600 148" xmlns="http://www.w3.org/2000/svg">
+      <rect width="600" height="148" fill="#EEF3FA"/>
+      <!-- Window background -->
+      <rect x="480" y="15" width="90" height="70" rx="3" fill="white" opacity=".5" stroke="#B8CCE4" stroke-width="1"/>
+      <line x1="525" y1="15" x2="525" y2="85" stroke="#B8CCE4" stroke-width="1"/>
+      <line x1="480" y1="50" x2="570" y2="50" stroke="#B8CCE4" stroke-width="1"/>
+
+      <!-- Table -->
+      <rect x="200" y="88" width="200" height="8" rx="3" fill="#1A3C6E" opacity=".25"/>
+      <rect x="218" y="96" width="7" height="28" rx="2" fill="#1A3C6E" opacity=".18"/>
+      <rect x="375" y="96" width="7" height="28" rx="2" fill="#1A3C6E" opacity=".18"/>
+
+      <!-- Smartphone on table -->
+      <rect x="276" y="62" width="48" height="32" rx="5" fill="#1A3C6E"/>
+      <rect x="280" y="66" width="40" height="24" rx="3" fill="#5B9BD5"/>
+      <!-- Screen: video call face -->
+      <circle cx="300" cy="78" r="8" fill="white" opacity=".9"/>
+      <circle cx="297" cy="76" r="1.5" fill="#1A3C6E"/>
+      <circle cx="303" cy="76" r="1.5" fill="#1A3C6E"/>
+      <path d="M296 81 Q300 84 304 81" stroke="#1A3C6E" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <circle cx="318" cy="68" r="2" fill="#1A3C6E" opacity=".5"/>
+
+      <!-- Elderly person (left side) -->
+      <!-- Head -->
+      <circle cx="110" cy="45" r="22" fill="#D4A976"/>
+      <!-- Gray hair -->
+      <path d="M88 45 Q88 23 110 23 Q132 23 132 45" fill="#BBBBBB"/>
+      <!-- Body -->
+      <path d="M98 67 L95 108 M95 108 L88 130 M95 108 L104 130" stroke="#1A3C6E" stroke-width="3.5" stroke-linecap="round" fill="none" opacity=".8"/>
+      <!-- Arm reaching -->
+      <path d="M100 80 Q150 82 200 90" stroke="#1A3C6E" stroke-width="3" stroke-linecap="round" fill="none" opacity=".7"/>
+      <!-- Question marks (uncertainty) -->
+      <text x="48" y="38" font-size="22" fill="#1A3C6E" opacity=".22" font-family="sans-serif">？</text>
+      <text x="35" y="62" font-size="15" fill="#1A3C6E" opacity=".18" font-family="sans-serif">？</text>
+      <!-- Expression: concerned -->
+      <path d="M104 50 Q110 47 116 50" stroke="#555" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+      <!-- Volunteer (right side) -->
+      <!-- Head -->
+      <circle cx="480" cy="44" r="20" fill="#D4A976"/>
+      <!-- Body -->
+      <path d="M470 64 L470 108 M470 82 L458 105 M470 82 L482 105" stroke="#1A5C3A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+      <!-- Arm pointing to phone -->
+      <path d="M468 76 Q420 80 340 90" stroke="#1A5C3A" stroke-width="2.5" stroke-linecap="round" fill="none" opacity=".8"/>
+      <!-- Smile -->
+      <path d="M473 49 Q480 54 487 49" stroke="#333" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <!-- Volunteer badge -->
+      <rect x="458" y="64" width="24" height="14" rx="2" fill="#1A5C3A" opacity=".7"/>
+      <text x="470" y="74" text-anchor="middle" font-size="7" fill="white" font-family="sans-serif">V</text>
+
+      <!-- Arrow between them -->
+      <path d="M140 88 Q200 85 200 90" stroke="#1A3C6E" stroke-width="1" stroke-dasharray="4 2" opacity=".4" fill="none"/>
+
+      <!-- Caption -->
+      <text x="300" y="138" text-anchor="middle" font-size="10.5" fill="#1A3C6E" font-family="Hiragino Kaku Gothic ProN, Yu Gothic, sans-serif" opacity=".8">老人ホームでの操作補助ボランティア（5回参加・32名と交流）</text>
+    </svg>
+  </div>
+
+  <div class="wwhr">
+    <div class="wwhr-item W"><div class="wwhr-lbl">● WHAT　何をしたか</div><p>高校1年生の夏、地域連携プログラムで特別養護老人ホームのボランティアに参加。入居者のスマートフォン操作補助と日常的な交流活動を担当しました。</p></div>
+    <div class="wwhr-item Y"><div class="wwhr-lbl">● WHY　なぜしたか</div><p>「地域の人々と関わる活動をしたい」という思いで参加しました。現場で感じた課題が、その後の探究テーマの出発点になりました。</p></div>
+    <div class="wwhr-item H"><div class="wwhr-lbl">● HOW　どのように取り組んだか</div><p>週1回、計5回参加。操作補助と並行して「なぜ怖いと感じるのか」を丁寧に聞くことを意識し、観察ノートに毎回記録しました。</p></div>
+    <div class="wwhr-item R"><div class="wwhr-lbl">● RESULT & LEARNING</div><p>支援した32名のうち19名が「操作が怖い・不安」と訴えていました。技術より先に<strong>心理的な安心感をつくること</strong>が重要だと気づきました。</p></div>
+  </div>
+
+  <div class="result-row">
+    <div class="rchip y1"><div class="rc-n">5回</div><div class="rc-l">参加回数</div></div>
+    <div class="rchip y1"><div class="rc-n">32名</div><div class="rc-l">交流した<br>入居者数</div></div>
+    <div class="rchip y1"><div class="rc-n">19名</div><div class="rc-l">「怖い・不安」と<br>訴えた方</div></div>
+    <div class="rchip y1"><div class="rc-n">59%</div><div class="rc-l">心理的障壁を<br>感じている割合</div></div>
+  </div>
+  <div class="lbox y1"><div class="lt">▌ この活動から得た最大の学び</div><p>スマートフォンの使い方を教えることよりも、「失敗しても大丈夫」「壊れない」という安心感を先に伝えることが大切だと気づきました。また、「使えるようになりたい」という強い気持ちを持ちながらも機会が整っていないことに問題意識を持ち、翌年の自主的な教室企画につながりました。</p></div>
+
+  <div class="foot"><span>田中美咲｜ポートフォリオ 2024</span><span>3 / 6</span></div>
+</div>
+
+<!-- ========== PAGE 4: ACTIVITY 2 ========== -->
+<div class="page">
+  <div class="act-hdr y2">
+    <div class="act-yr-badge y2">2年生（2023年4月〜11月）</div>
+    <div class="act-title y2">活動記録②　地域スマホ教室の自主企画・開催</div>
+    <div class="act-period">「教えてもらう場所」から「一緒に学ぶ場所」へ　｜　全4回・延べ47名参加</div>
+  </div>
+
+  <!-- Illustration: smartphone classroom -->
+  <div class="illust-area">
+    <svg viewBox="0 0 600 148" xmlns="http://www.w3.org/2000/svg">
+      <rect width="600" height="148" fill="#EEF4FA"/>
+      <!-- Whiteboard / screen at front -->
+      <rect x="20" y="20" width="100" height="65" rx="3" fill="white" stroke="#2D6A9F" stroke-width="2"/>
+      <rect x="26" y="26" width="88" height="53" rx="2" fill="#E8F0FE"/>
+      <!-- Board content: simple graph -->
+      <line x1="36" y1="70" x2="36" y2="36" stroke="#2D6A9F" stroke-width="1.5" opacity=".6"/>
+      <line x1="36" y1="70" x2="108" y2="70" stroke="#2D6A9F" stroke-width="1.5" opacity=".6"/>
+      <rect x="44" y="50" width="12" height="20" rx="1" fill="#2D6A9F" opacity=".7"/>
+      <rect x="62" y="42" width="12" height="28" rx="1" fill="#1A3C6E" opacity=".8"/>
+      <rect x="80" y="55" width="12" height="15" rx="1" fill="#5B9BD5" opacity=".7"/>
+      <!-- Easel legs -->
+      <line x1="30" y1="85" x2="20" y2="115" stroke="#2D6A9F" stroke-width="2" opacity=".4"/>
+      <line x1="90" y1="85" x2="100" y2="115" stroke="#2D6A9F" stroke-width="2" opacity=".4"/>
+
+      <!-- Facilitator (left of board) -->
+      <circle cx="155" cy="42" r="17" fill="#D4A976"/>
+      <path d="M147 59 L147 100 M147 72 L137 93 M147 72 L157 93" stroke="#1A5C3A" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <path d="M149 71 L120 60" stroke="#1A5C3A" stroke-width="2" stroke-linecap="round"/><!-- pointing -->
+      <path d="M150 47 Q155 51 160 47" stroke="#333" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+
+      <!-- Separator line -->
+      <line x1="195" y1="10" x2="195" y2="138" stroke="#2D6A9F" stroke-width="1" stroke-dasharray="4 3" opacity=".3"/>
+
+      <!-- Participant row 1 (3 people with phones) -->
+      <g transform="translate(220, 18)">
+        <!-- Person 1 -->
+        <circle cx="0" cy="22" r="14" fill="#C8D8A8"/>
+        <path d="M-6 36 L-6 65 M-6 48 L-14 62 M-6 48 L2 62" stroke="#2E7D32" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <rect x="-8" y="66" width="16" height="22" rx="3" fill="#1A3C6E" opacity=".8"/>
+        <rect x="-6" y="69" width="12" height="16" rx="2" fill="#5B9BD5" opacity=".9"/>
+        <!-- Person 2 -->
+        <circle cx="105" cy="22" r="14" fill="#D4A976"/>
+        <path d="M99 36 L99 65 M99 48 L91 62 M99 48 L107 62" stroke="#1A3C6E" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <rect x="91" y="66" width="16" height="22" rx="3" fill="#1A3C6E" opacity=".8"/>
+        <rect x="93" y="69" width="12" height="16" rx="2" fill="#5B9BD5" opacity=".9"/>
+        <!-- Person 3 -->
+        <circle cx="210" cy="22" r="14" fill="#BDB0D4"/>
+        <path d="M204 36 L204 65 M204 48 L196 62 M204 48 L212 62" stroke="#4A2C8A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <rect x="196" y="66" width="16" height="22" rx="3" fill="#1A3C6E" opacity=".8"/>
+        <rect x="198" y="69" width="12" height="16" rx="2" fill="#5B9BD5" opacity=".9"/>
+      </g>
+
+      <!-- Participant row 2 -->
+      <g transform="translate(258, 88)">
+        <circle cx="0" cy="18" r="13" fill="#D4C090"/>
+        <path d="M-5 31 L-5 55" stroke="#B84F00" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <rect x="-7" y="56" width="14" height="18" rx="3" fill="#1A3C6E" opacity=".75"/>
+        <rect x="-5" y="59" width="10" height="12" rx="2" fill="#5B9BD5" opacity=".9"/>
+
+        <circle cx="90" cy="18" r="13" fill="#A8C0C8"/>
+        <path d="M85 31 L85 55" stroke="#1A3C6E" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <rect x="83" y="56" width="14" height="18" rx="3" fill="#1A3C6E" opacity=".75"/>
+        <rect x="85" y="59" width="10" height="12" rx="2" fill="#5B9BD5" opacity=".9"/>
+      </g>
+
+      <!-- Caption -->
+      <text x="300" y="138" text-anchor="middle" font-size="10.5" fill="#2D6A9F" font-family="Hiragino Kaku Gothic ProN, Yu Gothic, sans-serif" opacity=".8">地域公民館でのスマホ教室（全4回・延べ47名参加）</text>
+    </svg>
+  </div>
+
+  <div class="wwhr">
+    <div class="wwhr-item W"><div class="wwhr-lbl">● WHAT　何をしたか</div><p>地域の公民館を借り、65歳以上の方を対象にしたスマートフォン講座を自主企画。同級生3名と協力し、全4回の連続講座を開催。参加者一人ひとりの目的に合わせた個別対応を実施しました。</p></div>
+    <div class="wwhr-item Y"><div class="wwhr-lbl">● WHY　なぜしたか</div><p>1年生のボランティアで「使いたいのに機会がない」現状を目の当たりにしたため。既存の行政講座が「一度きり」という限界も感じており、継続的に通える場をつくりたいと考えました。</p></div>
+    <div class="wwhr-item H"><div class="wwhr-lbl">● HOW　どのように取り組んだか</div><p>企画書を作成して公民館と交渉し、会場を確保。チラシ300枚を印刷・配布。教室では「何に使いたいか」を一人ひとりに確認し、それに合わせたカリキュラムを組みました。</p></div>
+    <div class="wwhr-item R"><div class="wwhr-lbl">● RESULT & LEARNING</div><p>全4回で延べ47名が参加。「孫とビデオ通話できた」という声をいただく一方、定着率が低いという課題（4回すべて参加は11名）が明確になりました。</p></div>
+  </div>
+
+  <div class="result-row">
+    <div class="rchip y2"><div class="rc-n">4回</div><div class="rc-l">開催回数</div></div>
+    <div class="rchip y2"><div class="rc-n">47名</div><div class="rc-l">延べ参加者数</div></div>
+    <div class="rchip y2"><div class="rc-n">11名</div><div class="rc-l">全4回<br>参加者</div></div>
+    <div class="rchip y2"><div class="rc-n">82%</div><div class="rc-l">「また参加したい」<br>と回答</div></div>
+  </div>
+  <div class="lbox y2"><div class="lt">▌ この活動から得た最大の学び</div><p>参加者が「自分が何をしたいか」を主体的に考えてから取り組むとき、学習の定着が明らかに違いました。定着率の低さから「月1回では足りない」「困ったときにすぐ聞ける仕組み」の必要性を強く感じ、翌年の調査テーマへとつながりました。</p></div>
+
+  <div class="foot"><span>田中美咲｜ポートフォリオ 2024</span><span>4 / 6</span></div>
+</div>
+
+<!-- ========== PAGE 5: ACTIVITY 3 ========== -->
+<div class="page">
+  <div class="act-hdr y3">
+    <div class="act-yr-badge y3">3年生（2024年4月〜11月）</div>
+    <div class="act-title y3">活動記録③　調査・インタビュー・政策提言</div>
+    <div class="act-period">「知る」から「変える」へ　｜　78名調査・専門家インタビュー・市役所提言</div>
+  </div>
+
+  <!-- Illustration: three activities side by side -->
+  <div class="illust-area">
+    <svg viewBox="0 0 600 130" xmlns="http://www.w3.org/2000/svg">
+      <rect width="600" height="130" fill="#EEF6EE"/>
+
+      <!-- --- SURVEY (left third) --- -->
+      <rect x="20" y="15" width="170" height="95" rx="5" fill="white" stroke="#1A5C3A" stroke-width="1.5"/>
+      <!-- Clipboard shape -->
+      <rect x="55" y="25" width="100" height="72" rx="3" fill="#F3F6FC" stroke="#1A5C3A" stroke-width="1.2"/>
+      <rect x="85" y="20" width="40" height="12" rx="3" fill="#1A5C3A"/>
+      <!-- Checklist lines -->
+      <line x1="72" y1="46" x2="145" y2="46" stroke="#CBD5E1" stroke-width="1.5"/>
+      <line x1="72" y1="56" x2="145" y2="56" stroke="#CBD5E1" stroke-width="1.5"/>
+      <line x1="72" y1="66" x2="145" y2="66" stroke="#CBD5E1" stroke-width="1.5"/>
+      <line x1="72" y1="76" x2="130" y2="76" stroke="#CBD5E1" stroke-width="1.5"/>
+      <!-- Checkmarks -->
+      <path d="M63 43 L67 47 L74 40" stroke="#1A5C3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M63 53 L67 57 L74 50" stroke="#1A5C3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M63 63 L67 67 L74 60" stroke="#1A5C3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <!-- Label -->
+      <text x="105" y="115" text-anchor="middle" font-size="11" fill="#1A5C3A" font-family="Hiragino Kaku Gothic ProN, sans-serif" font-weight="bold">① アンケート調査</text>
+      <text x="105" y="126" text-anchor="middle" font-size="9" fill="#555" font-family="sans-serif">n=78名</text>
+
+      <!-- --- INTERVIEW (center third) --- -->
+      <rect x="215" y="15" width="170" height="95" rx="5" fill="white" stroke="#1A5C3A" stroke-width="1.5"/>
+      <!-- Mic shape -->
+      <rect x="285" y="30" width="30" height="42" rx="15" fill="#1A5C3A"/>
+      <rect x="291" y="33" width="18" height="36" rx="9" fill="#2E7D32"/>
+      <!-- Mic stand -->
+      <path d="M300 72 L300 88" stroke="#1A5C3A" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="288" y1="88" x2="312" y2="88" stroke="#1A5C3A" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- Sound waves -->
+      <path d="M272 42 Q265 55 272 68" stroke="#1A5C3A" stroke-width="2" fill="none" stroke-linecap="round" opacity=".5"/>
+      <path d="M264 38 Q254 55 264 72" stroke="#1A5C3A" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".35"/>
+      <path d="M328 42 Q335 55 328 68" stroke="#1A5C3A" stroke-width="2" fill="none" stroke-linecap="round" opacity=".5"/>
+      <path d="M336 38 Q346 55 336 72" stroke="#1A5C3A" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".35"/>
+      <!-- Label -->
+      <text x="300" y="115" text-anchor="middle" font-size="11" fill="#1A5C3A" font-family="Hiragino Kaku Gothic ProN, sans-serif" font-weight="bold">② インタビュー</text>
+      <text x="300" y="126" text-anchor="middle" font-size="9" fill="#555" font-family="sans-serif">専門家 1名</text>
+
+      <!-- --- PROPOSAL (right third) --- -->
+      <rect x="410" y="15" width="170" height="95" rx="5" fill="white" stroke="#1A5C3A" stroke-width="1.5"/>
+      <!-- Building -->
+      <rect x="455" y="50" width="80" height="45" fill="#1A5C3A" opacity=".2" stroke="#1A5C3A" stroke-width="1.5"/>
+      <!-- Columns -->
+      <rect x="463" y="55" width="10" height="35" rx="1" fill="#1A5C3A" opacity=".5"/>
+      <rect x="479" y="55" width="10" height="35" rx="1" fill="#1A5C3A" opacity=".5"/>
+      <rect x="495" y="55" width="10" height="35" rx="1" fill="#1A5C3A" opacity=".5"/>
+      <rect x="511" y="55" width="10" height="35" rx="1" fill="#1A5C3A" opacity=".5"/>
+      <!-- Roof -->
+      <polygon points="447,50 543,50 533,32 457,32" fill="#1A5C3A" opacity=".7"/>
+      <!-- Flag -->
+      <line x1="495" y1="28" x2="495" y2="18" stroke="#1A5C3A" stroke-width="1.5"/>
+      <polygon points="495,18 510,22 495,26" fill="#1A5C3A" opacity=".8"/>
+      <!-- Entrance -->
+      <rect x="484" y="72" width="22" height="23" rx="1" fill="#1A5C3A" opacity=".4"/>
+      <!-- Stars / feedback -->
+      <text x="495" y="46" text-anchor="middle" font-size="10" fill="#1A5C3A" opacity=".6">🏛</text>
+      <!-- Label -->
+      <text x="495" y="115" text-anchor="middle" font-size="11" fill="#1A5C3A" font-family="Hiragino Kaku Gothic ProN, sans-serif" font-weight="bold">③ 政策提言</text>
+      <text x="495" y="126" text-anchor="middle" font-size="9" fill="#555" font-family="sans-serif">市役所へ提出</text>
+
+      <!-- Arrows between sections -->
+      <polygon points="193,60 193,68 212,64" fill="#1A5C3A" opacity=".5"/>
+      <polygon points="388,60 388,68 407,64" fill="#1A5C3A" opacity=".5"/>
+    </svg>
+  </div>
+
+  <span class="tag">アンケート調査（n=78）</span><span class="tag">専門家インタビュー</span><span class="tag">市役所への政策提言</span><span class="tag">地域報告会開催</span>
+
+  <div class="wwhr" style="margin-top:10px;">
+    <div class="wwhr-item W"><div class="wwhr-lbl">● WHAT　何をしたか</div><p>①地域高齢者78名へのアンケート調査、②NPO代表理事へのインタビュー、③政策提言書の作成と市役所提出、④地域報告会（23名参加）という一連の活動を実施しました。</p></div>
+    <div class="wwhr-item Y"><div class="wwhr-lbl">● WHY　なぜしたか</div><p>2年間の実践で「継続的支援」の必要性はわかりましたが、個人の取り組みだけでは限界があると感じました。データに基づいた主張と、政策立案者への働きかけが必要と考えました。</p></div>
+    <div class="wwhr-item H"><div class="wwhr-lbl">● HOW　どのように取り組んだか</div><p>4会場で対面アンケートを実施。インタビューは事前5問＋派生質問で深掘り。提言書（全12ページ）はデータとインタビューの知見を組み合わせて作成し、市の高齢福祉課へ直接提出しました。</p></div>
+    <div class="wwhr-item R"><div class="wwhr-lbl">● RESULT & LEARNING</div><p>市の担当者から「データが具体的で参考になる」と評価され、来年度の施策検討資料に反映されることになりました。調査→分析→提言を自分で回し切った経験は大きな自信になりました。</p></div>
+  </div>
+
+  <div class="result-row">
+    <div class="rchip y3"><div class="rc-n">78名</div><div class="rc-l">調査<br>サンプル数</div></div>
+    <div class="rchip y3"><div class="rc-n">12P</div><div class="rc-l">提言書<br>ページ数</div></div>
+    <div class="rchip y3"><div class="rc-n">1件</div><div class="rc-l">市役所への<br>提言提出</div></div>
+    <div class="rchip y3"><div class="rc-n">23名</div><div class="rc-l">地域報告会<br>参加者数</div></div>
+  </div>
+  <div class="lbox y3"><div class="lt">▌ この活動から得た最大の学び</div><p>「問題を感じる」から「問いを立てる」、「データで示す」「提言する」という一連の流れを自分で経験しました。主観的な問題意識を客観的なデータで裏付けることで、初めて「伝わる」言葉になることを実感しました。</p></div>
+
+  <div class="foot"><span>田中美咲｜ポートフォリオ 2024</span><span>5 / 6</span></div>
+</div>
+
+<!-- ========== PAGE 6: SUMMARY ========== -->
+<div class="page">
+  <h2 class="sec"><span class="num">総括</span>3年間を振り返って</h2>
+
+  <h3 class="sub">一貫したテーマと変化の軌跡</h3>
+  <p>高校3年間を通じて「高齢者とデジタルをつなぐ」という一つのテーマに向き合い続けました。1年生では「観察する人」として課題に気づき、2年生では「行動する人」として実践に挑み、3年生では「分析・提言する人」として問題の構造を解明しようとしました。</p>
+
+  <!-- Growth arc SVG -->
+  <svg width="100%" viewBox="0 0 560 80" style="margin:12px 0;">
+    <defs>
+      <marker id="garr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+        <polygon points="0 0, 8 3, 0 6" fill="#1A3C6E" opacity=".6"/>
+      </marker>
+    </defs>
+    <!-- Curved growth line -->
+    <path d="M40 60 Q200 55 280 30 Q360 10 520 8" stroke="#1A3C6E" stroke-width="2" fill="none" opacity=".4" stroke-dasharray="5 3"/>
+    <!-- Markers -->
+    <circle cx="40" cy="60" r="6" fill="#1A3C6E" opacity=".7"/>
+    <circle cx="280" cy="30" r="6" fill="#2D6A9F" opacity=".8"/>
+    <circle cx="520" cy="8" r="6" fill="#1A5C3A"/>
+    <!-- Labels -->
+    <text x="40" y="74" text-anchor="middle" font-size="9" fill="#1A3C6E" font-family="sans-serif">1年生</text>
+    <text x="40" y="83" text-anchor="middle" font-size="8" fill="#666" font-family="sans-serif">気づき</text>
+    <text x="280" y="44" text-anchor="middle" font-size="9" fill="#2D6A9F" font-family="sans-serif">2年生</text>
+    <text x="280" y="53" text-anchor="middle" font-size="8" fill="#666" font-family="sans-serif">実践</text>
+    <text x="520" y="22" text-anchor="middle" font-size="9" fill="#1A5C3A" font-family="sans-serif">3年生</text>
+    <text x="520" y="31" text-anchor="middle" font-size="8" fill="#666" font-family="sans-serif">提言</text>
+  </svg>
+
+  <div class="summary-cards">
+    <div class="scard y1"><div class="scard-lbl">1年生　観察・気づき</div><p>「怖くて触れない」という声から、<strong>技術より先に心理的安全性が必要</strong>だと気づいた。</p></div>
+    <div class="scard y2"><div class="scard-lbl">2年生　実践・企画</div><p>自主企画で手応えを感じながらも、<strong>継続的支援の仕組みがないと限界がある</strong>ことを実感した。</p></div>
+    <div class="scard y3"><div class="scard-lbl">3年生　調査・提言</div><p>データと提言で問題を社会化し、<strong>個人の活動を政策へとつなげる</strong>ことに挑戦した。</p></div>
+  </div>
+
+  <h3 class="sub">自分自身の成長</h3>
+  <p>3年間で最も大きく変わったのは、「問いの立て方」です。「なぜ使えないのか」という漠然とした疑問が、「<strong class="hl">なぜ継続的支援の仕組みが地域に存在しないのか</strong>」という構造的な問いへと深化しました。実際に動いて、失敗して、人の話を聞いたことで生まれた変化です。</p>
+
+  <h3 class="sub">大学での展開</h3>
+  <p>慶應義塾大学総合政策学部では、デジタルインクルージョン政策の比較研究、地域コミュニティを活かした継続支援モデルの設計、実証実験による効果検証に取り組む予定です。</p>
+
+  <div class="info-box" style="margin-top:16px;">
+    「デジタルデバイドは技術の問題ではなく、社会のつながりの問題である」── これが3年間の探究を通じて私が辿り着いた結論です。この視点を持ちながら、大学でさらに問いを深めていきます。
+  </div>
+
+  <div class="foot"><span>田中美咲｜ポートフォリオ 2024</span><span>6 / 6</span></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>インタビュー書き起こし｜デジタルインクルージョンに取り組む鈴木健一氏へのインタビュー</title>
+<style>
+:root {
+  --navy: #1A3C6E;
+  --navy-mid: #2D6A9F;
+  --navy-light: #5B9BD5;
+  --navy-pale: #EEF3FA;
+  --navy-bg: #E8F0FE;
+  --text: #1A1A1A;
+  --muted: #666666;
+  --border: #CBD5E1;
+  --box-bg: #F3F6FC;
+  --q-bg: #F0F4FB;
+  --a-bg: #FAFAFA;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', 'Noto Serif JP', Georgia, serif;
+  font-size: 10.5pt;
+  line-height: 1.75;
+  color: var(--text);
+  background: #E0E4EC;
+}
+
+.print-guide {
+  width: 210mm; margin: 14px auto; padding: 9px 14px;
+  background: #FFF8E1; border: 1px solid #FFC107; border-radius: 4px;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  font-size: 8.5pt; color: #555;
+}
+
+.page {
+  width: 210mm; min-height: 297mm;
+  margin: 0 auto 18px; padding: 20mm 22mm 18mm;
+  background: #fff; box-shadow: 0 2px 14px rgba(0,0,0,0.13);
+  position: relative;
+}
+
+@media print {
+  body { background: #fff; }
+  .print-guide { display: none; }
+  .page { width: 100%; min-height: auto; margin: 0; padding: 0; box-shadow: none; page-break-after: always; }
+  .page:last-of-type { page-break-after: avoid; }
+}
+@page { size: A4; margin: 18mm 20mm 15mm; }
+
+/* ---- Typography ---- */
+h2.sec {
+  font-size: 13pt; font-weight: bold; color: var(--navy);
+  border-bottom: 2.5px solid var(--navy); padding-bottom: 5px; margin: 22px 0 12px;
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+}
+h2.sec .num { background: var(--navy); color: #fff; font-size: 8.5pt; padding: 2px 9px; border-radius: 2px; letter-spacing: .03em; }
+h3.sub {
+  font-size: 11pt; font-weight: bold; color: var(--navy);
+  padding-left: 10px; border-left: 3px solid var(--navy-mid); margin: 16px 0 7px;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+}
+p { margin-bottom: 9px; font-size: 10pt; }
+strong.hl { color: var(--navy); }
+
+/* ---- Cover ---- */
+.cover { display: flex; flex-direction: column; align-items: center; text-align: center; padding-top: 24mm; }
+.badge {
+  background: var(--navy); color: #fff;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  font-size: 9pt; font-weight: bold; letter-spacing: .1em; padding: 5px 22px; margin-bottom: 28px;
+}
+.cover-title { font-size: 17pt; font-weight: bold; color: var(--navy); line-height: 1.45; margin-bottom: 8px; max-width: 148mm; }
+.cover-sub { font-size: 10pt; color: var(--muted); margin-bottom: 28px; }
+.divider { width: 55mm; height: 2px; background: var(--navy); margin: 0 auto 24px; }
+
+/* Profile card */
+.profile-card {
+  background: var(--navy-pale); border: 1.5px solid var(--navy);
+  border-radius: 4px; padding: 16px 20px; max-width: 145mm; width: 100%; text-align: left; margin-bottom: 24px;
+}
+.profile-card .card-title {
+  font-size: 8.5pt; font-weight: bold; color: var(--navy); margin-bottom: 10px;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; letter-spacing: .05em;
+  border-bottom: 1px solid var(--navy-bg); padding-bottom: 5px;
+}
+.profile-grid { display: grid; grid-template-columns: 90px 1fr; gap: 4px 12px; font-size: 9pt; }
+.profile-k { color: var(--muted); font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; }
+
+.cover-meta-grid { display: grid; grid-template-columns: 80px 1fr; gap: 4px 12px; font-size: 9pt; max-width: 130mm; text-align: left; }
+.meta-k { color: var(--muted); font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; }
+
+/* ---- Boxes ---- */
+.info-box {
+  background: var(--box-bg); border-left: 4px solid var(--navy);
+  padding: 12px 16px; margin: 12px 0; font-size: 9.5pt; line-height: 1.7;
+}
+.purpose-box {
+  background: var(--navy-pale); border: 1.5px solid var(--navy);
+  border-radius: 3px; padding: 14px 18px; margin: 14px 0; font-size: 10pt; line-height: 1.7;
+}
+.purpose-lbl { font-size: 8.5pt; font-weight: bold; color: var(--navy); margin-bottom: 5px; font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; letter-spacing: .04em; }
+
+/* ---- Q&A ---- */
+.qa-block { margin: 14px 0; }
+.qa-q {
+  background: var(--q-bg); border-left: 4px solid var(--navy);
+  padding: 10px 14px; margin-bottom: 0;
+  font-size: 10pt; font-weight: bold; color: var(--navy);
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.qa-q .q-badge {
+  background: var(--navy); color: #fff; font-size: 9pt; font-weight: bold;
+  padding: 1px 7px; border-radius: 2px; flex-shrink: 0; margin-top: 1px;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+}
+.qa-a {
+  background: var(--a-bg); border-left: 4px solid #CBD5E1;
+  padding: 11px 14px; font-size: 10pt; line-height: 1.75;
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.qa-a .a-badge {
+  background: #888; color: #fff; font-size: 9pt; font-weight: bold;
+  padding: 1px 7px; border-radius: 2px; flex-shrink: 0; margin-top: 2px;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+}
+.qa-a .a-text { font-style: italic; color: #333; }
+.qa-note {
+  background: #FFFDE7; border-left: 3px solid #FFC107;
+  padding: 7px 12px; font-size: 8.5pt; color: #555; margin-top: 6px; font-style: italic;
+}
+
+/* ---- Lists ---- */
+ul.arr { list-style: none; padding: 0; margin: 8px 0; }
+ul.arr li { padding: 3px 0 3px 18px; position: relative; font-size: 9.5pt; line-height: 1.6; }
+ul.arr li::before { content: '▶'; color: var(--navy); font-size: 7pt; position: absolute; left: 2px; top: 6px; }
+
+ol.q-list { list-style: none; padding: 0; counter-reset: q; }
+ol.q-list li { counter-increment: q; padding: 5px 0 5px 28px; position: relative; font-size: 9.5pt; line-height: 1.6; }
+ol.q-list li::before {
+  content: 'Q' counter(q);
+  background: var(--navy); color: #fff; font-size: 8pt; font-weight: bold;
+  width: 22px; height: 18px; line-height: 18px; text-align: center;
+  border-radius: 2px; position: absolute; left: 0; top: 6px;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+}
+
+/* ---- Tables ---- */
+table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 10px 0 14px; }
+th { background: var(--navy); color: #fff; padding: 7px 10px; text-align: left; font-weight: bold; font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; font-size: 9pt; }
+td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; }
+tr:nth-child(even) td { background: #F8FAFC; }
+
+/* ---- Insight box ---- */
+.insight {
+  background: var(--navy); color: #fff;
+  padding: 14px 18px; border-radius: 3px; margin: 14px 0; font-size: 9.5pt; line-height: 1.7;
+}
+.insight .i-title { font-size: 10pt; font-weight: bold; margin-bottom: 7px; letter-spacing: .03em; font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; }
+
+/* ---- Footer ---- */
+.foot {
+  position: absolute; bottom: 10mm; left: 22mm; right: 22mm;
+  display: flex; justify-content: space-between;
+  font-size: 7.5pt; color: #BBBBBB;
+  border-top: 1px solid #E5E5E5; padding-top: 3px;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+}
+</style>
+</head>
+<body>
+
+<div class="print-guide">
+  📄 PDF保存方法：<strong>Cmd＋P</strong>（Mac）または <strong>Ctrl＋P</strong>（Windows）→ 送信先を「PDFに保存」→ 用紙サイズ：A4、余白：なし、「背景のグラフィック」をオンにして保存
+</div>
+
+<!-- ========== PAGE 1: COVER ========== -->
+<div class="page">
+  <div class="cover">
+    <div class="badge">インタビュー書き起こし</div>
+    <div class="cover-title">高齢者のデジタル活用を支援する実践者へのインタビュー</div>
+    <div class="cover-sub">NPO法人デジタルブリッジ 代表理事 鈴木健一氏</div>
+    <div class="divider"></div>
+
+    <div class="profile-card">
+      <div class="card-title">▌ インタビュイープロフィール</div>
+      <div class="profile-grid">
+        <span class="profile-k">氏名</span><span>鈴木 健一（すずき けんいち）</span>
+        <span class="profile-k">所属・役職</span><span>NPO法人デジタルブリッジ 代表理事</span>
+        <span class="profile-k">専門分野</span><span>デジタルインクルージョン、高齢者福祉、地域コミュニティ支援</span>
+        <span class="profile-k">経歴（概要）</span><span>大手通信会社でシステムエンジニアとして15年勤務後、2015年にNPOを設立。以来9年間、地域の高齢者向けスマートフォン支援活動を展開。現在は全国12か所の自治体と連携。</span>
+      </div>
+    </div>
+
+    <div class="cover-meta-grid">
+      <span class="meta-k">実施者</span><span>田中 美咲（東京都立○○高校 3年）</span>
+      <span class="meta-k">実施日時</span><span>2024年11月15日（金）14:00〜15:05（約65分）</span>
+      <span class="meta-k">実施場所</span><span>NPO法人デジタルブリッジ 事務所（東京都○○区）</span>
+      <span class="meta-k">インタビュー形式</span><span>半構造化インタビュー（事前質問5問＋派生質問）</span>
+      <span class="meta-k">掲載許可</span><span>鈴木健一氏より氏名・所属・発言内容の掲載許可取得済み</span>
+      <span class="meta-k">作成日</span><span>2024年11月25日</span>
+    </div>
+  </div>
+  <div class="foot">
+    <span>田中美咲｜インタビュー書き起こし：鈴木健一氏</span>
+    <span>1 / 5</span>
+  </div>
+</div>
+
+<!-- ========== PAGE 2: BACKGROUND & QUESTIONS ========== -->
+<div class="page">
+  <h2 class="sec"><span class="num">第1章</span>インタビューの背景と目的</h2>
+  <p>私は高校1年生からボランティア活動と独自の調査を通じて、地域の高齢者がスマートフォンの利用に困難を抱えている実態を把握してきました。一方、「なぜ現在の支援策は十分に機能していないのか」「継続的な学習環境をどう整えるべきか」という問いに対して、現場で長年実践してきた専門家の視点が欠けていると感じていました。</p>
+  <p>そこで、9年にわたって高齢者のデジタル支援に取り組んできた鈴木健一氏にインタビューをお願いしました。特に<strong class="hl">「支援の現場で生じている課題の本質」</strong>と<strong class="hl">「高齢者が継続的に学べる環境づくりのポイント」</strong>について深く伺うことを目的としました。</p>
+
+  <div class="purpose-box">
+    <div class="purpose-lbl">📌 インタビューの目的</div>
+    高齢者向けデジタル支援の最前線にいる実践者から、①現場で生じている課題の本質、②既存の支援策が抱える限界、③持続可能な支援モデルのあり方、についての一次情報を収集し、自身の探究テーマである「地域コミュニティを活かしたデジタルデバイド解消」に向けた示唆を得る。
+  </div>
+
+  <h2 class="sec"><span class="num">第2章</span>質問項目一覧</h2>
+  <p>以下の5問を事前に準備し、回答の流れに応じて補足・派生質問を加えました。</p>
+  <ol class="q-list">
+    <li>NPO設立のきっかけや、デジタル支援の活動を始めた経緯を教えてください。</li>
+    <li>現場で高齢者のスマートフォン支援をしていて、最も大きな課題だと感じることは何ですか？</li>
+    <li>既存のスマホ教室や行政の支援策が十分に機能していない理由は何だとお考えですか？</li>
+    <li>高齢者が継続的にデジタルを学べる環境をつくるために、特に重要なことは何でしょうか？</li>
+    <li>高校生や若い世代に対して、この問題に関わる上で期待することや、伝えたいことはありますか？</li>
+  </ol>
+
+  <div class="info-box">
+    <strong>記述形式について：</strong>本書き起こしはQ&A形式を採用しています。インタビュイーの発言は原則として要旨を保ちつつ編集しています（一部、読みやすさのために表現を整理）。自分の解釈・考察は第5章「考察・気づき」にまとめており、このセクションでは混在させていません。
+  </div>
+
+  <div class="foot">
+    <span>田中美咲｜インタビュー書き起こし：鈴木健一氏</span>
+    <span>2 / 5</span>
+  </div>
+</div>
+
+<!-- ========== PAGE 3: INTERVIEW Q1–Q2 ========== -->
+<div class="page">
+  <h2 class="sec"><span class="num">第3章</span>インタビュー内容（Q1〜Q2）</h2>
+
+  <div class="qa-block">
+    <div class="qa-q">
+      <span class="q-badge">Q1</span>
+      <span>NPO設立のきっかけや、デジタル支援の活動を始めた経緯を教えてください。</span>
+    </div>
+    <div class="qa-a">
+      <span class="a-badge">A</span>
+      <div class="a-text">
+        <p>「通信会社でエンジニアをしていたころ、母親がスマートフォンの操作でひどく困っているのを見たのが原点です。最新の技術を作る側にいたのに、自分の親すら使いこなせない状況があることに、正直ショックを受けました。</p>
+        <p>その後、地域の公民館でたまたまスマホ教室のボランティアをする機会があって、母と同じような状況の方がたくさんいることを実感しました。特に印象的だったのは、ある80代の女性が『スマホがあれば遠くに住む孫の顔を見られるのに、どうしても怖くて触れない』とおっしゃっていたことです。この方のために何かできないかと思ったのが、NPO設立の直接のきっかけです。」</p>
+      </div>
+    </div>
+    <div class="qa-note">※ 派生質問「設立当初に最も苦労したことは？」→「高齢者の方の信頼を得るまでに時間がかかったこと。技術より先に"関係性"が必要だとわかりました」（要旨）</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-q">
+      <span class="q-badge">Q2</span>
+      <span>現場で高齢者のスマートフォン支援をしていて、最も大きな課題だと感じることは何ですか？</span>
+    </div>
+    <div class="qa-a">
+      <span class="a-badge">A</span>
+      <div class="a-text">
+        <p>「一番大きな課題は、『一度教えても、すぐ忘れてしまう』という問題です。これはサポーターの教え方が悪いのではなくて、高齢者の方は新しい操作を習得するのに、若い人の3〜5倍の反復練習が必要だという研究がありまして。教室が月1回では、どうしても追いつかないんです。</p>
+        <p>もう一つは『孤立』の問題です。教室に来ている方は積極的な方なので、まだいい。来られない方、特に一人暮らしで外出が難しい方は、困ったときに誰にも聞けない。スマートフォンを持っていても、孤立していたら宝の持ち腐れになってしまいます。技術の問題というより、社会的なつながりの問題だと思っています。」</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>田中美咲｜インタビュー書き起こし：鈴木健一氏</span>
+    <span>3 / 5</span>
+  </div>
+</div>
+
+<!-- ========== PAGE 4: INTERVIEW Q3–Q5 ========== -->
+<div class="page">
+  <h2 class="sec"><span class="num">第3章</span>インタビュー内容（Q3〜Q5）</h2>
+
+  <div class="qa-block">
+    <div class="qa-q">
+      <span class="q-badge">Q3</span>
+      <span>既存のスマホ教室や行政の支援策が十分に機能していない理由は何だとお考えですか？</span>
+    </div>
+    <div class="qa-a">
+      <span class="a-badge">A</span>
+      <div class="a-text">
+        <p>「大きく2つあります。一つ目は『イベント型で終わってしまっている』こと。1日講座を開いて、はい終わり、では定着しません。高齢者に必要なのは継続的なサポートで、何か困ったらすぐ相談できる人が近くにいる環境です。</p>
+        <p>二つ目は『教える側と教わる側の目的がズレている』こと。行政や通信会社は『使えるようにしてあげたい』と考えているけれど、高齢者の方が本当に望んでいるのは、例えば孫とビデオ通話したい、地域の情報を手に入れたい、という具体的な目的なんです。目的を一緒に見つけることから始めないと、いくら操作を教えても、帰ったら使わない、ということになります。」</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-q">
+      <span class="q-badge">Q4</span>
+      <span>高齢者が継続的にデジタルを学べる環境をつくるために、特に重要なことは何でしょうか？</span>
+    </div>
+    <div class="qa-a">
+      <span class="a-badge">A</span>
+      <div class="a-text">
+        <p>「私が一番大切にしているのは『ちょっと聞ける人を身近に置く』ことです。専門家でなくていい。近所に住む少し若い方や、孫世代の高校生・大学生でもいい。困ったらすぐ声をかけられる関係性が、継続学習の鍵です。</p>
+        <p>それから、『失敗しても大丈夫』という安心感を作ること。高齢者の方の多くは『壊したらどうしよう』という恐怖心が強い。私たちの教室では最初に必ず『何をやっても壊れません、データも消えません』と実際に見せます。そこで初めて、前のめりになって触り始める方が多いんです。テクノロジーの問題より、まず心理的な安全性の問題だと思っています。」</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-q">
+      <span class="q-badge">Q5</span>
+      <span>高校生や若い世代に対して、この問題に関わる上で期待することや伝えたいことはありますか？</span>
+    </div>
+    <div class="qa-a">
+      <span class="a-badge">A</span>
+      <div class="a-text">
+        <p>「高校生の皆さんには、ぜひ『教える側』ではなく『一緒に学ぶ仲間』として関わってほしいと思っています。教えてあげるという立場だと、どうしても上下関係が生まれてしまう。高齢者の方は長い人生経験を持っていて、若い人から学ぶことも確かにある一方で、プライドもある。フラットな対話を大切にしてください。</p>
+        <p>田中さんがこうして調査をして、現場に来てくれることは、本当に貴重なことだと思います。この問題を『社会の課題』として捉えてくれる若い人が増えることが、長期的な解決につながる。ぜひ大学でも続けてください。」</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>田中美咲｜インタビュー書き起こし：鈴木健一氏</span>
+    <span>4 / 5</span>
+  </div>
+</div>
+
+<!-- ========== PAGE 5: REFLECTION ========== -->
+<div class="page">
+  <h2 class="sec"><span class="num">第4章</span>考察・気づき</h2>
+
+  <h3 class="sub">4-1　「技術」ではなく「関係性と心理的安全性」が鍵</h3>
+  <p>鈴木氏の発言で最も印象的だったのは、「テクノロジーの問題より、まず心理的な安全性の問題」という言葉です。私が実施したアンケート調査（2024年10〜11月、n=78）では、困りごとの上位に「誤操作が怖い（54.7%）」が挙がっており、これはまさに心理的障壁を示しています。インタビューを通じて、その障壁を取り除く具体的な方法として「失敗しても大丈夫という実証」が有効であることを学びました。</p>
+
+  <h3 class="sub">4-2　「目的の共有」という視点の発見</h3>
+  <p>Q3の回答で「教える側と教わる側の目的がズレている」という指摘は、私の仮説を大きく揺さぶるものでした。私はこれまで「使い方を教えること」が支援の本質だと考えていましたが、<strong class="hl">本当の起点は高齢者の「何のために使いたいか」という動機にある</strong>ことに気づきました。支援策を設計する際には、技術的な教授より先に目的の共有が必要です。</p>
+
+  <h3 class="sub">4-3　若者の役割：「教師」ではなく「仲間」として</h3>
+  <p>Q5での「教える側ではなく、一緒に学ぶ仲間として」という言葉は、今後の自分の活動指針になるものでした。来年度に予定している高齢者向けスマホ教室の企画では、この視点を取り入れてデザインし直したいと思っています。</p>
+
+  <div class="insight">
+    <div class="i-title">▌ 本インタビューで得た最大の気づき</div>
+    <p style="margin:0; font-size:9.5pt; line-height:1.75;">デジタルデバイドの解消は「機器の使い方を教える技術的問題」ではなく、「信頼関係・心理的安全性・明確な動機」を整備する<strong>社会関係的な問題</strong>である。この認識のもとで大学での研究・実践を設計することが、真に有効な解決策の創出につながると確信した。</p>
+  </div>
+
+  <h3 class="sub" style="margin-top:20px;">今後の探究への接続</h3>
+  <p>本インタビューで得た知見をもとに、①継続的な学習機会の提供モデル、②心理的安全性を担保する環境設計、③若者と高齢者の対等な学びあいの仕組みという3点を軸に、大学での研究テーマを深めていく予定です。慶應義塾大学総合政策学部での学びを通じて、地域コミュニティを基盤としたデジタルデバイド解消の実践モデルを構築したいと考えています。</p>
+
+  <div class="foot">
+    <span>田中美咲｜インタビュー書き起こし：鈴木健一氏</span>
+    <span>5 / 5</span>
+  </div>
+</div>
+
+</body>
+</html>
