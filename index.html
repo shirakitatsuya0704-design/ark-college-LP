@@ -323,47 +323,69 @@
                         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
                             {/* Section Header */}
-                            <div className="text-center mb-8">
+                            <div className="text-center mb-7">
                                 <span className="text-cta font-bold tracking-widest uppercase text-sm mb-2 block">Summer Course</span>
-                                <h2 className="text-2xl sm:text-3xl font-black mb-3 text-navy tracking-tight">夏期講習実施中</h2>
-                                <p className="text-slate-500 text-sm sm:text-base font-bold">8月中旬までお得な夏期講習を実施しています。</p>
+                                <h2 className="text-2xl sm:text-3xl font-black mb-2 text-navy tracking-tight">夏期講習実施中</h2>
+                                <p className="text-slate-400 text-sm font-medium">8月中旬まで実施。学年・志望校に合わせたプランをご用意しています。</p>
                             </div>
 
-                            {/* Info Card */}
-                            <div className="bg-white rounded-[24px] border border-slate-200/80 shadow-rich overflow-hidden mb-6">
-                                <div className="h-1.5 w-full bg-gradient-to-r from-navy via-cta to-cta-light"></div>
-                                <div className="p-6 sm:p-8 flex flex-col gap-5">
-
-                                    {/* Price */}
-                                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-                                        <div>
-                                            <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">料金（複数プランあり）</p>
-                                            <div className="flex items-baseline gap-1.5">
-                                                <span className="text-sm font-bold text-slate-500">¥99,000〜</span>
-                                                <span className="text-slate-400 text-sm font-medium">/ 5コマ（6週間）から</span>
+                            {/* 2×2 Plan Grid */}
+                            <div className="grid grid-cols-2 gap-3 mb-5">
+                                {[
+                                    {
+                                        badge: "主力", badgeColor: "cta",
+                                        name: "大学別プラン",
+                                        price: "¥99,000", unit: "/ 5コマ（6週間）",
+                                        desc: "SILS・SFC・上智・ICU・APU ほか志望校に完全特化",
+                                        accent: "from-cta to-cta-light",
+                                        border: "border-cta/30",
+                                    },
+                                    {
+                                        badge: "高2向け", badgeColor: "navy",
+                                        name: "戦略設計プラン",
+                                        price: "¥99,000", unit: "/ 5コマ（6週間）",
+                                        desc: "自己分析〜志望校戦略まで、夏で一気に固める",
+                                        accent: "from-navy to-navy/60",
+                                        border: "border-slate-200/80",
+                                    },
+                                    {
+                                        badge: "単科", badgeColor: "navy",
+                                        name: "面接特化プラン",
+                                        price: "¥44,000", unit: "/ 4週間",
+                                        desc: "想定問答・模擬面接で面接力を集中強化",
+                                        accent: "from-slate-300 to-navy/40",
+                                        border: "border-slate-200/80",
+                                    },
+                                    {
+                                        badge: "単科", badgeColor: "navy",
+                                        name: "添削プラン",
+                                        price: "¥44,000", unit: "/ 4週間",
+                                        desc: "書類を書いている方・まず試してみたい方向け",
+                                        accent: "from-slate-300 to-navy/40",
+                                        border: "border-slate-200/80",
+                                    },
+                                ].map((plan, i) => (
+                                    <div key={i} className={`bg-white rounded-[18px] border ${plan.border} shadow-rich overflow-hidden flex flex-col hover:-translate-y-0.5 hover:shadow-rich-hover transition-all duration-300`}>
+                                        <div className={`h-1 w-full bg-gradient-to-r ${plan.accent}`}></div>
+                                        <div className="p-4 flex flex-col gap-1.5 flex-grow">
+                                            <span className={`text-xs font-black px-2 py-0.5 rounded-full self-start ${plan.badgeColor === 'cta' ? 'bg-cta/10 text-cta border border-cta/20' : 'bg-navy/5 text-navy border border-navy/15'}`}>{plan.badge}</span>
+                                            <h4 className="text-sm sm:text-base font-black text-navy leading-tight">{plan.name}</h4>
+                                            <div className="flex items-baseline gap-1">
+                                                <span className={`text-base sm:text-lg font-black ${plan.badgeColor === 'cta' ? 'text-cta' : 'text-navy'}`}>{plan.price}</span>
+                                                <span className="text-xs text-slate-400 font-medium">{plan.unit}</span>
                                             </div>
-                                        </div>
-                                        <div className="hidden sm:block h-10 w-px bg-slate-100"></div>
-                                        <div>
-                                            <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">大学別プラン</p>
-                                            <div className="flex items-center gap-1.5 flex-wrap">
-                                                {["早稲田SILS", "慶應SFC", "上智", "ICU", "APU"].map((u, i) => (
-                                                    <span key={i} className="inline-flex items-center bg-navy/5 border border-navy/15 text-navy font-bold text-sm px-3 py-0.5 rounded-full">{u}</span>
-                                                ))}
-                                            </div>
+                                            <p className="text-xs text-slate-500 font-medium leading-relaxed">{plan.desc}</p>
                                         </div>
                                     </div>
+                                ))}
+                            </div>
 
-                                    <p className="text-slate-600 text-sm font-medium leading-relaxed border-t border-slate-100 pt-5">
-                                        学年・志望校・現在の準備状況に合わせた複数プランをご用意しています。<br/>
-                                        詳細はお気軽にお問い合わせください。
-                                    </p>
-
-                                    <button onClick={scrollToDiagnosis} className="btn-shine inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cta to-cta-light text-white font-bold py-3 px-8 rounded-full shadow-glow-cta hover:shadow-rich-hover hover:-translate-y-0.5 transition-all duration-300 text-sm">
-                                        <span>詳細をお問い合わせ・無料相談する</span>
-                                        <ArrowRightIcon className="w-4 h-4" />
-                                    </button>
-                                </div>
+                            {/* CTA */}
+                            <div className="text-center">
+                                <button onClick={scrollToDiagnosis} className="btn-shine inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cta to-cta-light text-white font-bold py-3 px-8 rounded-full shadow-glow-cta hover:shadow-rich-hover hover:-translate-y-0.5 transition-all duration-300 text-sm">
+                                    <span>詳細・料金はお問い合わせください（無料）</span>
+                                    <ArrowRightIcon className="w-4 h-4" />
+                                </button>
                             </div>
 
                         </div>
