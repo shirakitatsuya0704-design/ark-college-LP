@@ -370,9 +370,9 @@
           },
           en: {
             navCta: 'Book a Free Consultation',
-            fvEyebrow: 'AO / Recommendation Admission',
-            fvH1: 'Your Strongest Partner,',
-            fvH2: 'Ark College',
+            fvEyebrow: 'Admission for Universities in Japan',
+            fvH1: 'Ark College',
+            fvH2: 'is your strongest partner',
             fvStat1: '86.7% First-Choice Acceptance Rate',
             fvStat2: 'Unlimited Essay Reviews',
             fvStat3: 'Response Guaranteed within 48hrs',
@@ -625,8 +625,7 @@
                         </div>
                     </section>
 
-                    {/* Summer Bootcamp Plans */}
-                    <section className="py-10 sm:py-16 bg-white relative overflow-hidden border-t border-slate-100">
+                    {false && /* Summer Bootcamp Plans removed */ <section className="py-10 sm:py-16 bg-white relative overflow-hidden border-t border-slate-100">
                         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cta/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
                         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
@@ -669,7 +668,7 @@
                             </div>
 
                         </div>
-                    </section>
+                    </section>}
 
                     {/* Why Us */}
                     <section className="pt-16 sm:pt-28 pb-10 relative overflow-hidden">
@@ -939,16 +938,16 @@
                                                 </div>
                                                 <div>
                                                     <span className={`text-sm font-black tracking-widest ${s.accent === 'cta' ? 'text-cta' : 'text-navy/40'}`}>{`STEP ${s.step}`}</span>
-                                                    <h3 className="text-base sm:text-lg font-black text-navy leading-tight">{s.t}</h3>
+                                                    <h3 className="text-base sm:text-lg font-black text-navy leading-tight">{T.steps[i].t}</h3>
                                                 </div>
                                             </div>
                                             <div className="bg-slate-50 rounded-xl p-4 border border-slate-100">
                                                 <p className="text-sm font-black text-slate-400 uppercase tracking-widest mb-1.5">{T.stepWhat}</p>
-                                                <p className="text-sm sm:text-sm text-slate-600 font-medium leading-relaxed">{s.what}</p>
+                                                <p className="text-sm sm:text-sm text-slate-600 font-medium leading-relaxed">{T.steps[i].what}</p>
                                             </div>
                                             <div className={`rounded-xl p-4 border flex-grow ${s.accent === 'cta' ? 'bg-cta/5 border-cta/20' : 'bg-navy/5 border-navy/10'}`}>
                                                 <p className={`text-sm font-black uppercase tracking-widest mb-1.5 ${s.accent === 'cta' ? 'text-cta' : 'text-navy'}`}>{T.stepVal}</p>
-                                                <p className="text-sm sm:text-sm text-slate-700 font-medium leading-relaxed">{s.value}</p>
+                                                <p className="text-sm sm:text-sm text-slate-700 font-medium leading-relaxed">{T.steps[i].value}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -1315,8 +1314,8 @@
                                         <p className="text-base sm:text-lg text-cta-light font-bold mb-8 tracking-wide border-l-4 border-cta pl-4">{T.commitSecSub}</p>
                                         <div className="space-y-6">
                                             {[
-                                                { title: "品質の物理的限界", text: "一人ひとりの人生と向き合い、細部まで責任を持つには、学生バイトをアサインせずプロが直接見るべきと考えています。その品質を維持できる物理的な限界が6名でした。" },
-                                                { title: "本物の思考力を養う", text: "小手先のテクニックではなく、『Why』を繰り返す対話を通じて、社会で通用する本物の思考力を養います。これはマス向けの大量指導では不可能です。" }
+                                                { title: T.commitR1T, text: T.commitR1B },
+                                                { title: T.commitR2T, text: T.commitR2B }
                                             ].map((item, i) => (
                                                 <div key={i} className="pl-4 border-l border-white/10">
                                                     <h3 className="text-lg sm:text-xl font-bold mb-1.5 flex items-center text-white"><span className="text-cta mr-2 text-sm align-top font-mono">0{i+1}</span>{item.title}</h3>
@@ -1401,7 +1400,7 @@
                                     </h2>
                                 </div>
                                 <p className="text-white/60 text-sm sm:text-sm font-medium leading-relaxed sm:text-right sm:max-w-[260px] shrink-0">
-                                    帰国生・海外ボーディングスクール生・<br className="hidden sm:block"/>国内インター生に完全対応。
+                                    {T.intlSub}
                                 </p>
                             </div>
 
@@ -1431,7 +1430,7 @@
                             {/* CTA bar */}
                             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white/6 border border-white/10 rounded-[16px] px-6 py-4">
                                 <p className="text-white/80 text-sm sm:text-sm font-bold text-center sm:text-left">
-                                    海外在住・帰国直後・インター校在学中の方も、<br className="sm:hidden"/>まずはオンラインで無料体験を。
+                                    {T.intlCtaText}
                                 </p>
                                 <button onClick={scrollToDiagnosis} className="shrink-0 btn-shine inline-flex items-center gap-2 bg-gradient-to-r from-cta to-cta-light text-white font-bold py-2.5 px-8 rounded-full shadow-glow-cta hover:-translate-y-0.5 hover:shadow-rich-hover transition-all duration-300 text-sm sm:text-sm whitespace-nowrap">
                                     <span>{T.intlCtaBtn}</span>
@@ -1550,7 +1549,7 @@
                                         </div>
                                     </div>
                                     <div className="space-y-1.5">
-                                        <label className="block text-sm font-bold text-navy">在籍高校名 <span className="text-cta ml-1 text-sm">{T.formReq}</span></label>
+                                        <label className="block text-sm font-bold text-navy">{T.formSchool} <span className="text-cta ml-1 text-sm">{T.formReq}</span></label>
                                         <input type="text" name="highschool" className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium focus:border-cta focus:ring-2 focus:ring-cta/20 outline-none transition-all" placeholder={T.formSchoolPH} required />
                                     </div>
                                     {/* ▼ 変更: ボタンのテキストと状態を連動 ▼ */}
@@ -1597,8 +1596,6 @@
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
                                             </svg>
                                         ),
-                                        title: "総合型選抜の「全体像」がわかる",
-                                        desc: "そもそも総合型選抜とはどんな入試なのか。一般入試との違い、必要な準備の種類と量、スケジュール感まで、初めての方でもゼロから理解できるよう丁寧に解説します。"
                                     },
                                     {
                                         num: "02",
@@ -1607,8 +1604,6 @@
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                                             </svg>
                                         ),
-                                        title: "「今の自分」と「志望校」の距離がわかる",
-                                        desc: "偏差値のない総合型選抜では、自分の現在地を客観視することが最も難しい。プロの目線で今のポテンシャルを診断し、志望校との具体的なギャップと、埋めるために必要なアクションを明確にします。"
                                     },
                                     {
                                         num: "03",
@@ -1617,8 +1612,6 @@
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                                             </svg>
                                         ),
-                                        title: "「アピールできる実績」の作り方がわかる",
-                                        desc: "「書けるネタが何もない…」という方こそ、この面談が転機になります。今から残された期間で、どんな活動・プロジェクトを仕掛けることで大学に評価される実績になるか、具体的なアクションプランをその場でご提案します。"
                                     },
                                     {
                                         num: "04",
@@ -1643,8 +1636,8 @@
                                                 {item.icon}
                                             </div>
                                             <div>
-                                                <h3 className="text-sm sm:text-base font-black text-navy mb-1.5 leading-snug">{item.title}</h3>
-                                                <p className="text-sm sm:text-sm text-slate-600 font-medium leading-relaxed">{item.desc}</p>
+                                                <h3 className="text-sm sm:text-base font-black text-navy mb-1.5 leading-snug">{T.freeItems[i].title}</h3>
+                                                <p className="text-sm sm:text-sm text-slate-600 font-medium leading-relaxed">{T.freeItems[i].desc}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -1653,15 +1646,10 @@
 
                             {/* Trust strip */}
                             <div className="flex flex-wrap justify-center gap-3 sm:gap-6 mb-10">
-                                {[
-                                    { icon: "✓", text: "費用は完全無料" },
-                                    { icon: "✓", text: "所要時間 約45分" },
-                                    { icon: "✓", text: "オンライン対応（全国・海外から参加可）" },
-                                    { icon: "✓", text: "入塾の強制一切なし" }
-                                ].map((b, i) => (
+                                {T.freeTrust.map((t, i) => (
                                     <div key={i} className="flex items-center gap-1.5 text-sm sm:text-sm font-bold text-slate-600">
-                                        <span className="text-cta font-black">{b.icon}</span>
-                                        {b.text}
+                                        <span className="text-cta font-black">✓</span>
+                                        {t}
                                     </div>
                                 ))}
                             </div>
