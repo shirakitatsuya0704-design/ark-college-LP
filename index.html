@@ -223,6 +223,11 @@
         const TRANSLATIONS = {
           ja: {
             navCta: '無料相談を予約する',
+            urgentBadge: 'URGENT · 直前限定',
+            urgentH: '直前対策パッケージ',
+            urgentLead: '第一志望の面接・書類提出まで時間がない。学校・大手塾では十分に見てもらえない。そんな方に向けて、直前期に必要なことだけに絞ったパッケージをご用意しました。',
+            urgentCta: '無料相談を予約する',
+            enrollNote: '入会金は一律 税込99,000円（面談当日 or 翌日のお申込みで免除。ただし7月〜2月の高校3年生/浪人生・10月以降のGrade12は対象外）',
             fvEyebrow: '総合型選抜',
             fvH1: '最強のパートナー、',
             fvH2: 'Ark College',
@@ -371,6 +376,11 @@
           },
           en: {
             navCta: 'Book a Free Consultation',
+            urgentBadge: 'URGENT · Last-Minute Only',
+            urgentH: 'Last-Minute Prep Package',
+            urgentLead: 'Running out of time before your interview or document deadline? Not getting enough support from school or large cram schools? We\'ve prepared a focused package with only what you need in the final stretch.',
+            urgentCta: 'Book a Free Consultation',
+            enrollNote: 'Enrollment fee: ¥99,000 (tax incl.) — waived if you enroll on the day of or day after your consultation. Exceptions: Grade 11–12 students Jul–Feb, and Grade 12 from October onward.',
             fvEyebrow: 'Admission for Universities in Japan',
             fvH1: 'Ark College',
             fvH2: 'is your strongest partner',
@@ -633,6 +643,88 @@
                                     </button>
                                 </div>
                             </div>
+                        </div>
+                    </section>
+
+                    {/* Urgent / Last-Minute Package */}
+                    <section className="relative overflow-hidden bg-[#09101f] border-t-4 border-amber-400">
+                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(201,162,39,0.12)_0%,_transparent_60%)] pointer-events-none"></div>
+                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(201,162,39,0.07)_0%,_transparent_60%)] pointer-events-none"></div>
+                        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 relative z-10">
+                            {/* Header */}
+                            <div className="text-center mb-10">
+                                <div className="inline-flex items-center gap-2 bg-amber-400/10 border border-amber-400/40 text-amber-400 text-xs font-black px-4 py-1.5 rounded-full tracking-[0.2em] uppercase mb-5">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse inline-block"></span>
+                                    {T.urgentBadge}
+                                </div>
+                                <h2 className="text-3xl sm:text-4xl font-black text-white mb-4 tracking-tight">{T.urgentH}</h2>
+                                <p className="text-white/60 text-sm sm:text-base font-medium max-w-2xl mx-auto leading-relaxed">{T.urgentLead}</p>
+                            </div>
+                            {/* Cards */}
+                            <div className="grid sm:grid-cols-2 gap-5 mb-8">
+                                {/* Card 1: Interview */}
+                                <div className="relative bg-white/5 border border-amber-400/30 rounded-[20px] p-6 sm:p-7 hover:border-amber-400/60 transition-all duration-300 flex flex-col">
+                                    <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-amber-400/60 to-transparent"></div>
+                                    <div className="flex items-start justify-between mb-4">
+                                        <div>
+                                            <span className="text-amber-400 text-xs font-black tracking-widest uppercase">Package 01</span>
+                                            <h3 className="text-white text-lg sm:text-xl font-black mt-1 leading-tight">
+                                                {lang === 'ja' ? '直前面接パッケージ' : 'Last-Minute Interview Package'}
+                                            </h3>
+                                        </div>
+                                        <div className="text-right shrink-0 ml-4">
+                                            <p className="text-amber-400 text-2xl font-black">¥66,000</p>
+                                            <p className="text-white/40 text-xs">{lang === 'ja' ? '4コマ' : '4 sessions'}</p>
+                                        </div>
+                                    </div>
+                                    <ul className="space-y-2.5 mb-5 flex-grow">
+                                        {(lang === 'ja' ? ['模擬面接（本番形式）','想定問答の作成・反復','志望理由の深掘りフィードバック','振る舞い・話し方の個別コーチング'] : ['Mock interviews (real format)','Q&A prep & drilling','In-depth motivation feedback','Delivery & manner coaching']).map((item, i) => (
+                                            <li key={i} className="flex items-start gap-2 text-white/70 text-sm font-medium">
+                                                <span className="text-amber-400 shrink-0 mt-0.5">✶</span>{item}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <p className="text-white/35 text-xs font-medium border-t border-white/10 pt-4 mb-5">
+                                        {lang === 'ja' ? '外資・大手人事経験のあるエキスパート講師が担当' : 'Instructors with corporate HR experience'}
+                                    </p>
+                                    <button onClick={scrollToDiagnosis} className="w-full bg-gradient-to-r from-amber-400 to-amber-500 text-[#09101f] font-black py-3 rounded-xl text-sm tracking-wide hover:opacity-90 hover:-translate-y-0.5 transition-all duration-300 shadow-lg shadow-amber-400/20">
+                                        {T.urgentCta}
+                                    </button>
+                                </div>
+                                {/* Card 2: Documents */}
+                                <div className="relative bg-white/5 border border-amber-400/30 rounded-[20px] p-6 sm:p-7 hover:border-amber-400/60 transition-all duration-300 flex flex-col">
+                                    <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-amber-400/60 to-transparent"></div>
+                                    <div className="flex items-start justify-between mb-4">
+                                        <div>
+                                            <span className="text-amber-400 text-xs font-black tracking-widest uppercase">Package 02</span>
+                                            <h3 className="text-white text-lg sm:text-xl font-black mt-1 leading-tight">
+                                                {lang === 'ja' ? '直前書類添削パッケージ' : 'Last-Minute Document Review Package'}
+                                            </h3>
+                                        </div>
+                                        <div className="text-right shrink-0 ml-4">
+                                            <p className="text-amber-400 text-2xl font-black">¥66,000</p>
+                                            <p className="text-white/40 text-xs opacity-0">-</p>
+                                        </div>
+                                    </div>
+                                    <ul className="space-y-2.5 mb-5 flex-grow">
+                                        {(lang === 'ja' ? ['志望理由書 徹底添削','自己推薦書・活動報告書対応','提出直前の最終チェック'] : ['Thorough personal statement review','Self-recommendation & activity reports','Final pre-submission check']).map((item, i) => (
+                                            <li key={i} className="flex items-start gap-2 text-white/70 text-sm font-medium">
+                                                <span className="text-amber-400 shrink-0 mt-0.5">✶</span>{item}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <p className="text-white/35 text-xs font-medium border-t border-white/10 pt-4 mb-5">
+                                        {lang === 'ja' ? '学生アルバイトではなく、プロ講師のみが対応' : 'Professional instructors only — no student part-timers'}
+                                    </p>
+                                    <button onClick={scrollToDiagnosis} className="w-full bg-gradient-to-r from-amber-400 to-amber-500 text-[#09101f] font-black py-3 rounded-xl text-sm tracking-wide hover:opacity-90 hover:-translate-y-0.5 transition-all duration-300 shadow-lg shadow-amber-400/20">
+                                        {T.urgentCta}
+                                    </button>
+                                </div>
+                            </div>
+                            {/* Note */}
+                            <p className="text-center text-white/35 text-xs font-medium">
+                                {lang === 'ja' ? '※ 直前期の受付のため、席数に限りがあります。お早めにご相談ください。' : '* Availability is limited due to the last-minute nature of this package. Please reach out as soon as possible.'}
+                            </p>
                         </div>
                     </section>
 
@@ -1165,7 +1257,7 @@
                                     <div className="bg-white border border-cta/20 p-6 rounded-[20px] text-center shadow-rich relative overflow-hidden">
                                         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cta to-cta-light"></div>
                                         <p className="text-cta font-bold text-sm mb-1.5 tracking-widest uppercase">Special Offer</p>
-                                        <p className="text-navy font-bold text-base sm:text-xl leading-tight">診断当日・翌日の入会決定で、<br />入会金 55,000円 → <span className="text-cta text-2xl sm:text-3xl font-black ml-2 inline-block">0円</span></p>
+                                        <p className="text-navy font-bold text-base sm:text-xl leading-tight">診断当日・翌日のお申込みで、<br />入会金 99,000円 → <span className="text-cta text-2xl sm:text-3xl font-black ml-2 inline-block">0円</span></p>
                                         <button onClick={scrollToDiagnosis} className="mt-4 bg-cta/10 text-cta border border-cta/30 font-bold py-2 px-8 rounded-full text-sm hover:bg-cta hover:text-white transition-all duration-300">
                                             今すぐ申し込む
                                         </button>
@@ -1263,7 +1355,7 @@
                                     <div className="bg-white border border-cta/20 p-6 rounded-[20px] text-center shadow-rich relative overflow-hidden">
                                         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cta to-cta-light"></div>
                                         <p className="text-cta font-bold text-sm mb-1.5 tracking-widest uppercase">Special Offer</p>
-                                        <p className="text-navy font-bold text-base sm:text-xl leading-tight">診断当日・翌日の入会決定で、<br />入会金 55,000円 → <span className="text-cta text-2xl sm:text-3xl font-black ml-2 inline-block">0円</span></p>
+                                        <p className="text-navy font-bold text-base sm:text-xl leading-tight">診断当日・翌日のお申込みで、<br />入会金 99,000円 → <span className="text-cta text-2xl sm:text-3xl font-black ml-2 inline-block">0円</span></p>
                                         <button onClick={scrollToDiagnosis} className="mt-4 bg-cta/10 text-cta border border-cta/30 font-bold py-2 px-8 rounded-full text-sm hover:bg-cta hover:text-white transition-all duration-300">
                                             今すぐ申し込む
                                         </button>
@@ -1531,6 +1623,11 @@
                             <div className="text-center mb-10">
                                 <h2 className="text-2xl sm:text-4xl font-black text-white mb-3 tracking-tight">{T.formH}</h2>
                                 <p className="text-slate-300 leading-relaxed text-sm font-medium">{T.formSub1}<br />{T.formSub2}<br />{T.formSub3}</p>
+                            </div>
+
+                            <div className="flex items-start gap-2.5 bg-white/8 border border-white/15 rounded-xl px-4 py-3 mb-6 text-left">
+                                <span className="text-cta-light text-base mt-0.5 shrink-0">ℹ</span>
+                                <p className="text-white/70 text-xs font-medium leading-relaxed">{T.enrollNote}</p>
                             </div>
 
                             <div className="bg-white rounded-[24px] p-6 sm:p-10 shadow-2xl mx-2 sm:mx-0 border border-white/10">
