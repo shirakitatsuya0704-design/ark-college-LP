@@ -978,6 +978,48 @@
                         </div>
                     </section>}
 
+                    {/* University Research Section */}
+                    {lang === 'ja' && <section className="py-16 sm:py-24 bg-[#faf8f4] relative border-t border-slate-100">
+                        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                            <div className="text-center mb-10">
+                                <span className="text-cta font-bold tracking-widest uppercase text-sm mb-2 block">RESEARCH</span>
+                                <h2 className="text-2xl sm:text-3xl font-black mb-4 text-navy tracking-tight">Ark Collegeは、大学を徹底研究。</h2>
+                                <p className="text-slate-500 text-sm sm:text-base font-medium max-w-2xl mx-auto leading-relaxed">出願戦略の精度は、大学理解の深さに比例します。Ark College では、志望大学・プログラムを一次情報レベルで徹底的に研究し、生徒ごとに最適な出願戦略を設計しています。以下は、研究コンテンツの一部です。</p>
+                            </div>
+                            <div className="grid sm:grid-cols-2 gap-5 mb-8">
+                                {[
+                                    {url:'https://note.com/ark_college/n/n2fffb2273507',img:'https://assets.st-note.com/production/uploads/images/281210823/rectangle_large_type_2_5842d5ee5db4858e53acf9e57ad57e32.png?width=1280',tag:'慶應義塾大学 / SFC',title:'慶應義塾大学SFC（総合政策学部・環境情報学部）とは？──入試の仕組みと対策を徹底解説'},
+                                    {url:'https://note.com/ark_college/n/nba34540bd007',img:'https://assets.st-note.com/production/uploads/images/281238568/rectangle_large_type_2_3e8f8a92e0e233572a1d4c2e25bac88a.png?width=1280',tag:'早稲田大学 / SILS',title:'早稲田大学国際教養学部（SILS）入試ガイド〜2026年大改革で変わった入試を徹底解説'},
+                                    {url:'https://note.com/ark_college/n/n7cf30cabdaa0',img:'https://assets.st-note.com/production/uploads/images/281876206/rectangle_large_type_2_38d4ec90cfcd5312075e9e06b38eba3f.png?width=1280',tag:'慶應義塾大学 / PEARL',title:'慶應義塾大学 PEARL入試徹底対策ガイド｜合格するための戦略とは'},
+                                    {url:'https://note.com/ark_college/n/n0cd0a8722daa',img:'https://assets.st-note.com/production/uploads/images/281250954/rectangle_large_type_2_32aad413b0771b59ad7616d7d9e18caa.png?width=1280',tag:'上智大学 / FLA',title:'上智大学国際教養学部（FLA）入試ガイド〜書類審査だけで合否が決まる入試を徹底解説'}
+                                ].map((a,i) => (
+                                    <a key={i} href={a.url} target="_blank" rel="noopener noreferrer"
+                                        className="group bg-white rounded-[20px] overflow-hidden border border-slate-100 shadow-sm hover:-translate-y-1.5 hover:shadow-rich transition-all duration-300 flex flex-col">
+                                        <div className="aspect-video overflow-hidden bg-slate-100">
+                                            <img src={a.img} alt={a.title} loading="lazy"
+                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                        </div>
+                                        <div className="p-5 flex flex-col flex-grow">
+                                            <span className="inline-block text-cta text-xs font-black tracking-wide bg-cta/10 px-2.5 py-1 rounded-full mb-3 w-fit">{a.tag}</span>
+                                            <p className="text-navy text-sm font-bold leading-snug flex-grow mb-4">{a.title}</p>
+                                            <span className="text-cta text-sm font-bold flex items-center gap-1.5 group-hover:gap-2.5 transition-all duration-200">
+                                                記事を読む
+                                                <ArrowRightIcon className="w-3.5 h-3.5" />
+                                            </span>
+                                        </div>
+                                    </a>
+                                ))}
+                            </div>
+                            <div className="text-center">
+                                <a href="https://note.com/ark_college" target="_blank" rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 border-2 border-cta text-cta font-bold px-8 py-3 rounded-full hover:bg-cta hover:text-white transition-all duration-300 text-sm">
+                                    もっと大学研究記事を見る
+                                    <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </section>}
+
                     {/* 4 Steps Section */}
                     <section className="py-16 sm:py-28 bg-white relative overflow-hidden">
                         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cta/5 via-transparent to-transparent pointer-events-none"></div>
