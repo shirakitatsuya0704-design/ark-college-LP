@@ -535,6 +535,8 @@
             const [isSubmitting, setIsSubmitting] = useState(false);
             const [pricingTab, setPricingTab] = useState('basic');
             const [lang, setLang] = useState('ja');
+            const [privacyChecked, setPrivacyChecked] = useState(false);
+            const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
             const T = TRANSLATIONS[lang];
 
             useEffect(() => {
@@ -545,6 +547,26 @@
                 return () => window.removeEventListener('scroll', handleScroll);
             }, []);
 
+            // モーダル開閉時のbodyスクロールロック＋ESCキー
+            useEffect(() => {
+                if (!privacyModalOpen) {
+                    document.body.style.overflow = '';
+                    return;
+                }
+                document.body.style.overflow = 'hidden';
+                const handleKeyDown = (e) => {
+                    if (e.key === 'Escape') {
+                        setPrivacyModalOpen(false);
+                        document.getElementById('privacyPolicyTrigger')?.focus();
+                    }
+                };
+                document.addEventListener('keydown', handleKeyDown);
+                return () => {
+                    document.removeEventListener('keydown', handleKeyDown);
+                    document.body.style.overflow = '';
+                };
+            }, [privacyModalOpen]);
+
             const scrollToDiagnosis = () => {
                 document.getElementById('diagnosis')?.scrollIntoView({ behavior: 'smooth' });
             };
@@ -552,10 +574,15 @@
             // ▼ 追加: 非同期通信で送信し、成功したらリダイレクトさせる処理 ▼
             const handleSubmit = async (e) => {
                 e.preventDefault(); // 通常の画面遷移をブロック
+                if (!privacyChecked) {
+                    alert(lang === 'ja' ? 'プライバシーポリシーへの同意が必要です。' : 'Please agree to the Privacy Policy before submitting.');
+                    return;
+                }
                 setIsSubmitting(true);
-                
+
                 const form = e.target;
                 const data = new FormData(form);
+                data.set('privacy_consent_datetime', new Date().toISOString());
                 
                 try {
                     const response = await fetch("https://formspree.io/f/mojjppbw", {
@@ -1699,8 +1726,34 @@
                                         <label className="block text-sm font-bold text-navy">{T.formSchool} <span className="text-cta ml-1 text-sm">{T.formReq}</span></label>
                                         <input type="text" name="highschool" className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium focus:border-cta focus:ring-2 focus:ring-cta/20 outline-none transition-all" placeholder={T.formSchoolPH} required />
                                     </div>
+                                    {/* プライバシーポリシー同意チェックボックス */}
+                                    <div className="flex items-start gap-3 mt-2">
+                                        <input
+                                            type="checkbox"
+                                            id="privacyConsent"
+                                            checked={privacyChecked}
+                                            onChange={e => setPrivacyChecked(e.target.checked)}
+                                            className="mt-0.5 w-4 h-4 rounded border-slate-300 text-cta focus:ring-cta/30 cursor-pointer flex-shrink-0"
+                                        />
+                                        <label htmlFor="privacyConsent" className="text-xs text-slate-500 leading-relaxed cursor-pointer">
+                                            <button
+                                                type="button"
+                                                onClick={() => setPrivacyModalOpen(true)}
+                                                className="text-cta underline underline-offset-2 hover:text-cta-light transition-colors font-medium"
+                                                id="privacyPolicyTrigger"
+                                            >
+                                                {lang === 'ja' ? 'プライバシーポリシー' : 'Privacy Policy'}
+                                            </button>
+                                            {lang === 'ja' ? 'に同意します（必須）' : ' — I agree (required)'}
+                                        </label>
+                                    </div>
+
                                     {/* ▼ 変更: ボタンのテキストと状態を連動 ▼ */}
-                                    <button type="submit" disabled={isSubmitting} className={`btn-shine w-full bg-gradient-to-r from-cta to-cta-light text-white text-base sm:text-lg font-bold py-4 rounded-xl shadow-glow-cta hover:shadow-rich-hover hover:-translate-y-0.5 transition-all mt-4 tracking-wide ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}>
+                                    <button
+                                        type="submit"
+                                        disabled={isSubmitting || !privacyChecked}
+                                        className={`btn-shine w-full bg-gradient-to-r from-cta to-cta-light text-white text-base sm:text-lg font-bold py-4 rounded-xl shadow-glow-cta hover:shadow-rich-hover hover:-translate-y-0.5 transition-all mt-4 tracking-wide ${(isSubmitting || !privacyChecked) ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                    >
                                         {isSubmitting ? T.formSending : T.formSubmit}
                                     </button>
                                 </form>
@@ -1824,6 +1877,119 @@
                     </footer>
 
                     {/* Mobile Sticky CTA */}
+                    {/* ===== プライバシーポリシー モーダル ===== */}
+                    {privacyModalOpen && (
+                        <div
+                            role="dialog"
+                            aria-modal="true"
+                            aria-label="プライバシーポリシー"
+                            className="fixed inset-0 z-[200] flex items-center justify-center p-4"
+                            onClick={e => { if (e.target === e.currentTarget) { setPrivacyModalOpen(false); document.getElementById('privacyPolicyTrigger')?.focus(); document.body.style.overflow = ''; } }}
+                        >
+                            {/* オーバーレイ */}
+                            <div className="absolute inset-0 bg-black/50" />
+                            {/* モーダル本体 */}
+                            <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-[600px] max-h-[85vh] flex flex-col overflow-hidden">
+                                {/* ヘッダー */}
+                                <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 flex-shrink-0">
+                                    <h2 className="text-base font-black text-navy tracking-tight">プライバシーポリシー</h2>
+                                    <button
+                                        type="button"
+                                        onClick={() => { setPrivacyModalOpen(false); document.getElementById('privacyPolicyTrigger')?.focus(); document.body.style.overflow = ''; }}
+                                        className="w-8 h-8 flex items-center justify-center rounded-full text-slate-400 hover:bg-slate-100 hover:text-navy transition-colors text-lg font-bold leading-none"
+                                        aria-label="閉じる"
+                                    >×</button>
+                                </div>
+                                {/* スクロール本文 */}
+                                <div className="overflow-y-auto flex-1 px-6 py-5 text-sm text-slate-700 leading-relaxed space-y-5">
+                                    <p className="text-xs text-slate-400 font-bold">制定日：2026年11月12日</p>
+                                    <p>Ark Growth Partners（屋号：Ark College、以下「当社」）は、個人情報保護法その他の関連法令を遵守し、当社が提供するサービス（Ark College本体サービス、じぶんラボアプリ、ウェブサイト、問い合わせフォーム等。以下「本サービス」）における個人情報の取り扱いについて、本プライバシーポリシー（以下「本ポリシー」）を定めます。</p>
+
+                                    <section><h3 className="font-black text-navy text-sm mb-1">第1条（総則）</h3>
+                                    <ol className="list-decimal pl-5 space-y-1 text-slate-600"><li>当社は、本サービスを通じて取得する個人情報の重要性を認識し、適切な取得、利用および管理に努めます。</li><li>本ポリシーは、本サービスを利用するすべての方（生徒、保護者、問い合わせをされた方、ウェブサイト閲覧者等を含みます）に適用されます。</li><li>本ポリシーにおける「個人情報」「個人データ」「保有個人データ」等の用語は、個人情報保護法に定義されたものと同じ意味で使用します。</li></ol></section>
+
+                                    <section><h3 className="font-black text-navy text-sm mb-1">第2条（事業者情報）</h3>
+                                    <ul className="pl-4 space-y-0.5 text-slate-600"><li>事業者名：Ark Growth Partners（屋号：Ark College）</li><li>代表者：白木 達也</li><li>所在地：〒143-0023 東京都大田区山王2-8-18</li><li>電話番号：080-9740-9699</li><li>メール：tatsuya.shiraki@ark-collegejp.com</li></ul></section>
+
+                                    <section><h3 className="font-black text-navy text-sm mb-1">第3条（取得する個人情報）</h3>
+                                    <p className="text-slate-600 mb-1">当社は、本サービスの提供にあたり、以下の個人情報を取得することがあります。</p>
+                                    <p className="font-bold text-slate-700 mt-2 mb-0.5">3.1 お問い合わせ・入塾申込時</p>
+                                    <ul className="list-disc pl-5 space-y-0.5 text-slate-600"><li>生徒氏名、フリガナ</li><li>生年月日、学年、在学校名</li><li>連絡先（メールアドレス、電話番号、住所）</li><li>保護者氏名、保護者連絡先</li><li>志望校、志望動機、現在の学習状況</li><li>海外在住の場合：現在地、時差、通学時間等</li></ul>
+                                    <p className="font-bold text-slate-700 mt-2 mb-0.5">3.2 サービス提供中</p>
+                                    <ul className="list-disc pl-5 space-y-0.5 text-slate-600"><li>面談・授業記録（ノート、録音、録画）</li><li>学習成果物（志望理由書、エッセイ等のドラフト）</li><li>添削記録</li><li>Slack等のチャット履歴</li></ul>
+                                    <p className="font-bold text-slate-700 mt-2 mb-0.5">3.3 じぶんラボアプリ</p>
+                                    <ul className="list-disc pl-5 space-y-0.5 text-slate-600"><li>ログインID（メールアドレス等）</li><li>ワークシート回答内容</li><li>「ふりかえり面談」記録</li><li>アクセスログ</li></ul>
+                                    <p className="font-bold text-slate-700 mt-2 mb-0.5">3.4 支払い時</p>
+                                    <ul className="list-disc pl-5 space-y-0.5 text-slate-600"><li>支払方法、支払履歴</li><li>請求書・領収書情報</li></ul>
+                                    <p className="font-bold text-slate-700 mt-2 mb-0.5">3.5 ウェブサイト閲覧時（自動取得）</p>
+                                    <ul className="list-disc pl-5 space-y-0.5 text-slate-600"><li>IPアドレス、Cookie情報</li><li>ブラウザ種別、OS情報</li><li>閲覧ページ、滞在時間、リファラ情報</li></ul></section>
+
+                                    <section><h3 className="font-black text-navy text-sm mb-1">第4条（利用目的）</h3>
+                                    <ol className="list-decimal pl-5 space-y-0.5 text-slate-600"><li>お問い合わせへの対応・入塾相談</li><li>本サービス（指導、カリキュラム設計、教材提供、面談、添削等）の提供</li><li>生徒の学習状況の分析・カリキュラムの最適化</li><li>保護者への学習状況の報告・連絡</li><li>じぶんラボアプリの運営・改善</li><li>請求・決済処理、契約管理</li><li>本サービスに関する重要なお知らせ・緊急連絡</li><li>本サービスの改善、新サービスの開発</li><li>統計データの作成（個人を特定しない形式）</li><li>アンケート、調査への協力依頼</li><li>合格実績の公開（個人が特定されない形に加工した場合に限る）</li><li>法令遵守および当社の権利・財産の保護</li><li>本人確認、不正利用の防止</li></ol></section>
+
+                                    <section><h3 className="font-black text-navy text-sm mb-1">第5条（個人情報の第三者提供）</h3>
+                                    <p className="text-slate-600">当社は、以下の場合を除き、あらかじめ本人の同意を得ることなく、個人情報を第三者に提供しません：(1) 法令に基づく場合、(2) 人の生命・身体・財産の保護に必要な場合、(3) 公衆衛生の向上等に特に必要な場合、(4) 国・地方公共団体への協力が必要な場合、(5) 緊急時の生徒安全確保のため保護者・学校・医療機関等に情報提供する場合。</p></section>
+
+                                    <section><h3 className="font-black text-navy text-sm mb-1">第6条（業務委託）</h3>
+                                    <p className="text-slate-600">当社は、本サービスの提供にあたり、サービス運営システム、決済処理、メール配信、クラウドストレージ、アクセス解析等の業務を第三者に委託することがあり、その際、業務遂行に必要な範囲で個人情報を提供します。委託先とは個人情報の取り扱いに関する契約を締結し、適切な監督を行います。</p></section>
+
+                                    <section><h3 className="font-black text-navy text-sm mb-1">第7条（外国にある第三者への提供）</h3>
+                                    <p className="text-slate-600">当社は、本サービスの運営にあたり、外国にある第三者に個人情報を提供する場合があります。個人情報保護法の定めに従い、適切な措置を講じます。</p></section>
+
+                                    <section><h3 className="font-black text-navy text-sm mb-1">第8条（保有個人データの開示・訂正・利用停止等）</h3>
+                                    <p className="text-slate-600 mb-1">本人（または法定代理人）は、開示・訂正・追加・削除・利用停止・消去・第三者提供停止・第三者提供記録の開示を請求できます。</p>
+                                    <ul className="pl-4 space-y-0.5 text-slate-600"><li>請求先：tatsuya.shiraki@ark-collegejp.com</li><li>対応期間：原則2週間以内</li><li>手数料：開示請求 1件1,000円（訂正・削除は無料）</li></ul></section>
+
+                                    <section><h3 className="font-black text-navy text-sm mb-1">第9条（未成年者の個人情報）</h3>
+                                    <p className="text-slate-600">本サービスの主な利用者は高校生等の未成年者です。未成年者から個人情報を取得する場合、原則として保護者の同意を得たうえで取得します。</p></section>
+
+                                    <section><h3 className="font-black text-navy text-sm mb-1">第10条（生徒と保護者の間の情報共有）</h3>
+                                    <p className="text-slate-600 mb-1">生徒の内省を促し信頼関係を構築するため、生徒本人が講師に共有した情報の一部は保護者に共有しない場合があります。</p>
+                                    <p className="font-bold text-slate-700 mb-0.5 text-xs">保護者に原則共有する情報</p>
+                                    <ul className="list-disc pl-5 space-y-0.5 text-slate-600"><li>出席状況、授業内容の概要</li><li>学習の進捗状況</li><li>志望校の決定状況</li><li>課題提出状況</li></ul>
+                                    <p className="font-bold text-slate-700 mt-1 mb-0.5 text-xs">保護者に原則共有しない情報</p>
+                                    <ul className="list-disc pl-5 space-y-0.5 text-slate-600"><li>生徒が1on1で話した個人的な内省内容</li><li>価値観、原体験に関する詳細な記述</li><li>家族関係、恋愛、交友関係に関する相談</li><li>進路選択に関する葛藤の詳細</li></ul></section>
+
+                                    <section><h3 className="font-black text-navy text-sm mb-1">第11条（授業・面談の記録）</h3>
+                                    <p className="text-slate-600">当社は、サービス品質向上等のため、オンライン授業の録画・1on1面談の音声録音・チャット履歴の保存を行うことがあります。記録データは社内指導品質管理・講師育成のみに利用し、第三者への提供は行いません。保存期間は契約終了から1年間です。</p></section>
+
+                                    <section><h3 className="font-black text-navy text-sm mb-1">第12条（内省データ・センシティブ情報の取り扱い）</h3>
+                                    <p className="text-slate-600">じぶんラボアプリや1on1面談等を通じて取得する、価値観・人生観・原体験・将来の悩みに関する情報は、特別に慎重に取り扱います。これらは原則として本人の同意なく第三者に提供せず、利用する場合は必ず匿名化します。</p></section>
+
+                                    <section><h3 className="font-black text-navy text-sm mb-1">第13条（合格実績・体験談の公開）</h3>
+                                    <p className="text-slate-600">合格実績・体験談等は、必ず事前に本人および保護者の同意を得たうえで、原則として個人が特定されない形（イニシャル、仮名等）で公開します。実名・顔写真の公開は書面による同意が必要です。</p></section>
+
+                                    <section><h3 className="font-black text-navy text-sm mb-1">第14条（安全管理措置）</h3>
+                                    <p className="text-slate-600">当社は、個人情報の漏洩・滅失・毀損を防止するため、組織的・人的・物理的・技術的安全管理措置を講じます（アクセス制御、暗号化、ウイルス対策、アクセスログ記録等を含む）。</p></section>
+
+                                    <section><h3 className="font-black text-navy text-sm mb-1">第15条（Cookie・アクセス解析ツール）</h3>
+                                    <p className="text-slate-600">当社ウェブサイトでは、Cookie及び類似技術を使用しています。Cookieの受け入れはブラウザ設定で拒否できますが、一部機能が利用できなくなる場合があります。</p></section>
+
+                                    <section><h3 className="font-black text-navy text-sm mb-1">第16条（退会・契約終了後の取り扱い）</h3>
+                                    <ul className="list-disc pl-5 space-y-0.5 text-slate-600"><li>契約関連書類：法令に基づく保存期間（原則5年）</li><li>学習記録、面談記録：契約終了から1年</li><li>支払履歴：会計法令に基づく保存期間（原則7年）</li><li>その他：契約終了から1年</li></ul>
+                                    <p className="text-slate-600 mt-1">本人からの削除請求があった場合、法令で保存が義務付けられているものを除き、速やかに削除します。</p></section>
+
+                                    <section><h3 className="font-black text-navy text-sm mb-1">第17条（本ポリシーの改定）</h3>
+                                    <p className="text-slate-600">当社は、法令改正・サービス内容の変更等に伴い、本ポリシーを改定することがあります。重要な変更がある場合は、ウェブサイトに掲載または本人に通知します。</p></section>
+
+                                    <section><h3 className="font-black text-navy text-sm mb-1">第18条（お問い合わせ窓口）</h3>
+                                    <ul className="pl-4 space-y-0.5 text-slate-600"><li>Ark Growth Partners（屋号：Ark College）</li><li>個人情報保護管理者：白木 達也</li><li>住所：〒143-0023 東京都大田区山王2-8-18</li><li>電話：080-9740-9699</li><li>メール：tatsuya.shiraki@ark-collegejp.com</li><li>受付時間：平日 10:00〜19:00</li></ul></section>
+
+                                    <p className="text-xs text-slate-400 font-bold pt-2">制定日：2026年11月12日</p>
+                                </div>
+                                {/* フッター閉じるボタン */}
+                                <div className="px-6 py-4 border-t border-slate-100 flex-shrink-0">
+                                    <button
+                                        type="button"
+                                        onClick={() => { setPrivacyModalOpen(false); document.getElementById('privacyPolicyTrigger')?.focus(); document.body.style.overflow = ''; }}
+                                        className="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-navy font-bold text-sm transition-colors"
+                                    >閉じる</button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                    {/* ===== モーダルここまで ===== */}
+
                     <div className="fixed bottom-0 left-0 right-0 z-50 p-2 sm:hidden bg-white/90 backdrop-blur-md border-t border-slate-200">
                         <button onClick={scrollToDiagnosis} className="btn-shine w-full bg-gradient-to-r from-cta to-cta-light text-white font-bold py-2.5 rounded-lg shadow-glow-cta active:scale-95 transition-all flex items-center justify-center">
                             <span className="text-sm tracking-tight">{T.stickyBtn}</span>
