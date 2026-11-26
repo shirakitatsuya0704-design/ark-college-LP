@@ -1869,9 +1869,7 @@
                     <footer className="py-12 bg-white border-t border-slate-100 text-center pb-24">
                         <img src="logo.webp" alt="Ark College" className="h-6 mx-auto mb-6 opacity-80 grayscale hover:grayscale-0 transition-all" />
                         <div className="flex flex-wrap justify-center gap-5 mb-6 text-slate-500 font-bold text-sm uppercase tracking-widest">
-                            <a href="#" className="hover:text-navy transition-colors">{T.footerTerms}</a>
-                            <a href="#" className="hover:text-navy transition-colors">{T.footerPrivacy}</a>
-                            <a href="#" className="hover:text-navy transition-colors">{T.footerLaw}</a>
+                            <button type="button" onClick={() => setPrivacyModalOpen(true)} className="hover:text-navy transition-colors cursor-pointer">{T.footerPrivacy}</button>
                         </div>
                         <p className="text-slate-300 text-sm font-medium">{T.footerCopy}</p>
                     </footer>
